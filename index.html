@@ -1,0 +1,2219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A1 · 前沿产业综合门户 | 01 低空信息站 (Arcade Edition)</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '"Noto Sans SC"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            a1: {
+              bg: '#FFFFFF',
+              panel: '#FFFDF4',
+              card: '#FFFFFF',
+              border: '#111111',
+              cyan: '#06B6D4',
+              blue: '#3B82F6',
+              gold: '#FACC15',
+              emerald: '#10B981'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* =====================================================================
+       1. 全局白底 + 不同空间疏密变化的黑点阵列背景 + 浏览滚动吸附
+       ===================================================================== */
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y proximity;
+      scroll-padding-top: 5.5rem;
+      background-color: #FFFFFF;
+      color: #111111;
+    }
+
+    body {
+      background-color: #FFFFFF;
+      color: #111111;
+      font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+      /* 全局留白空间：超稀疏黑点阵列 (32px × 32px) */
+      background-image: radial-gradient(#111111 1.35px, transparent 1.35px);
+      background-size: 32px 32px;
+      background-position: 0 0;
+    }
+
+    /* 不同空间区域的黑点阵列疏密层级 */
+    /* A. 加密黑点阵列 (12px 间距) - 用于 Hero 重点舞台与置顶主机区 */
+    .dots-dense {
+      background-color: #FFFFFF;
+      background-image: radial-gradient(#111111 1.55px, transparent 1.55px);
+      background-size: 12px 12px;
+    }
+
+    /* B. 中密度黑点阵列 (18px 间距) - 用于控制台工具栏、筛选面板、参数表底板 */
+    .dots-medium {
+      background-color: #FFFDF5;
+      background-image: radial-gradient(rgba(17, 17, 17, 0.85) 1.35px, transparent 1.35px);
+      background-size: 18px 18px;
+    }
+
+    /* C. 稀疏黑点阵列 (26px 间距) - 用于文章卡片矩阵区与常规容器 */
+    .dots-sparse {
+      background-color: #FFFFFF;
+      background-image: radial-gradient(rgba(17, 17, 17, 0.7) 1.25px, transparent 1.25px);
+      background-size: 26px 26px;
+    }
+
+    /* D. 黄色半调网点阵列 (14px 间距) - 用于 A1 官方撰稿强调区与游戏机高亮模块 */
+    .dots-yellow {
+      background-color: #FEF08A;
+      background-image: radial-gradient(rgba(17, 17, 17, 0.28) 1.5px, transparent 1.5px);
+      background-size: 14px 14px;
+    }
+
+    /* E. 交叉双频点阵 (16px + 32px) - 用于底部预留板块矩阵扩展坞 */
+    .dots-matrix {
+      background-color: #FFFFFF;
+      background-image:
+        radial-gradient(#111111 1.6px, transparent 1.6px),
+        radial-gradient(rgba(17, 17, 17, 0.35) 1.2px, transparent 1.2px);
+      background-size: 28px 28px;
+      background-position: 0 0, 14px 14px;
+    }
+
+    /* =====================================================================
+       2. 屏幕滚动吸附单元 (Scroll Snap Sections)
+       ===================================================================== */
+    .snap-stage {
+      scroll-snap-align: start;
+      scroll-snap-stop: normal;
+      scroll-margin-top: 5.5rem;
+    }
+
+    /* =====================================================================
+       3. 游戏机按钮、卡片、窗口机械按压设计 (黄色 + 纯黑粗边框 + 立体键程)
+       ===================================================================== */
+    /* 游戏机按键基础样式 */
+    .arcade-btn,
+    .module-tab-btn,
+    .cat-tab-btn,
+    .source-filter-btn,
+    .quick-cat-btn {
+      border: 2.5px solid #111111 !important;
+      box-shadow: 0 4px 0 #111111, 4px 4px 0 #111111 !important;
+      transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.1s ease, background-color 0.12s ease !important;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      font-weight: 800 !important;
+    }
+
+    /* 悬停时：微抬起 / 准备触发微动开关 */
+    .arcade-btn:hover,
+    .module-tab-btn:hover,
+    .cat-tab-btn:hover,
+    .source-filter-btn:hover,
+    .quick-cat-btn:hover {
+      transform: translate(-1px, -1px) !important;
+      box-shadow: 0 5px 0 #111111, 5px 5px 0 #111111 !important;
+      background-color: #FDE047 !important;
+      color: #111111 !important;
+    }
+
+    /* 按下时：机械键程彻底压下，阴影归零并产生触底回弹感 */
+    .arcade-btn:active,
+    .module-tab-btn:active,
+    .cat-tab-btn:active,
+    .source-filter-btn:active,
+    .quick-cat-btn:active {
+      transform: translate(3px, 4px) !important;
+      box-shadow: 0 0px 0 #111111, 1px 1px 0 #111111 !important;
+      background-color: #EAB308 !important;
+      color: #111111 !important;
+    }
+
+    /* 游戏机主黄色按钮 */
+    .arcade-btn-yellow {
+      background-color: #FACC15 !important;
+      color: #111111 !important;
+    }
+
+    /* 游戏机次级米黄按钮 */
+    .arcade-btn-cream {
+      background-color: #FEF9C3 !important;
+      color: #111111 !important;
+    }
+
+    /* 游戏机卡片（文章卡片、指标卡、专题卡） */
+    .arcade-card {
+      background-color: #FFFFFF;
+      border: 3px solid #111111 !important;
+      box-shadow: 6px 6px 0 #111111 !important;
+      transition: transform 0.14s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.14s ease, background-color 0.14s ease !important;
+      position: relative;
+    }
+
+    .arcade-card:hover {
+      transform: translate(-2px, -3px) !important;
+      box-shadow: 9px 9px 0 #111111 !important;
+    }
+
+    .arcade-card:active {
+      transform: translate(3px, 3px) !important;
+      box-shadow: 2px 2px 0 #111111 !important;
+    }
+
+    /* A1 官方撰稿专属黄色游戏卡带样式 */
+    .arcade-card-official {
+      background-color: #FFFBEB;
+      border: 3px solid #111111 !important;
+      box-shadow: 6px 6px 0 #111111, inset 0 0 0 3px #FACC15 !important;
+    }
+
+    /* 游戏机大窗口 / 舱体面板（带黑边与装饰螺丝感） */
+    .arcade-window {
+      border: 3px solid #111111 !important;
+      box-shadow: 8px 8px 0 #111111 !important;
+      position: relative;
+    }
+
+    /* 顶部粘性导航舱 */
+    .glass-nav {
+      background-color: rgba(255, 255, 255, 0.96);
+      background-image: radial-gradient(#111111 1.25px, transparent 1.25px);
+      background-size: 16px 16px;
+      border-bottom: 3px solid #111111 !important;
+      box-shadow: 0 4px 0 #111111;
+    }
+
+    /* 游戏机输入框 */
+    .arcade-input {
+      background-color: #FFFFFF !important;
+      color: #111111 !important;
+      border: 2.5px solid #111111 !important;
+      box-shadow: inset 2px 2px 0 rgba(17,17,17,0.12), 3px 3px 0 #111111 !important;
+      font-weight: 600;
+    }
+    .arcade-input:focus {
+      background-color: #FEFCE8 !important;
+      outline: none !important;
+      box-shadow: inset 2px 2px 0 rgba(17,17,17,0.18), 4px 4px 0 #FACC15, 4px 4px 0 2px #111111 !important;
+    }
+
+    /* 右侧悬浮章节吸附电梯 (Arcade Stage Pager) */
+    .snap-nav-dot {
+      border: 2px solid #111111;
+      box-shadow: 2px 2px 0 #111111;
+      transition: all 0.12s ease;
+    }
+    .snap-nav-dot:hover {
+      transform: scale(1.12);
+      background-color: #FACC15;
+    }
+    .snap-nav-dot:active {
+      transform: translate(1px, 1px);
+      box-shadow: 0 0 0 #111111;
+    }
+    .snap-nav-dot.active-stage {
+      background-color: #FACC15 !important;
+      transform: scale(1.18);
+    }
+
+    /* 自定义滚动条（黑黄街机风格） */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #FEF9C3;
+      border: 1.5px solid #111111;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #FACC15;
+      border: 2px solid #111111;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #EAB308;
+    }
+
+    /* 覆盖原有暗色文字类，确保在白底+黄卡上对比度清晰锐利 */
+    .text-white {
+      color: #111111 !important;
+    }
+    .text-slate-200, .text-slate-300 {
+      color: #1F2937 !important;
+    }
+    .text-slate-400 {
+      color: #374151 !important;
+    }
+    .bg-slate-900, .bg-slate-900\/90, .bg-slate-950, .bg-slate-950\/85, .bg-slate-800, .bg-slate-800\/90 {
+      background-color: #FFFBEB !important;
+    }
+    .border-slate-800, .border-slate-800\/80, .border-slate-800\/70, .border-slate-700, .border-slate-700\/80 {
+      border-color: #111111 !important;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.18); }
+    }
+    .animate-glow {
+      animation: pulseGlow 1.6s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-yellow-300 selection:text-black">
+
+  <!-- 右侧悬浮：游戏机章节吸附快速升降器 (Arcade Snap Elevator) -->
+  <aside aria-label="页面吸附章节快速导航" class="fixed right-3.5 top-1/2 -translate-y-1/2 z-30 hidden lg:flex flex-col items-center gap-2.5 bg-white/95 p-2 rounded-2xl border-[2.5px] border-black shadow-[4px_4px_0_#111111]">
+    <span class="text-[10px] font-black tracking-tighter px-1 py-0.5 bg-yellow-300 border border-black rounded text-black">SNAP</span>
+    <button type="button" data-snap-target="stage-hero" class="snap-nav-dot active-stage w-7 h-7 rounded-lg bg-white text-[11px] font-black text-black flex items-center justify-center" title="吸附至：01 主机舞台 (加密点阵)">01</button>
+    <button type="button" data-snap-target="stage-kpi" class="snap-nav-dot w-7 h-7 rounded-lg bg-white text-[11px] font-black text-black flex items-center justify-center" title="吸附至：02 四大栏目计分板">02</button>
+    <button type="button" data-snap-target="stage-console" class="snap-nav-dot w-7 h-7 rounded-lg bg-white text-[11px] font-black text-black flex items-center justify-center" title="吸附至：03 栏目筛选与文章卡带库 (稀疏点阵)">03</button>
+    <button type="button" data-snap-target="stage-specs" class="snap-nav-dot w-7 h-7 rounded-lg bg-white text-[11px] font-black text-black flex items-center justify-center" title="吸附至：04 机型参数与供应链专题 (中密点阵)">04</button>
+    <button type="button" data-snap-target="stage-matrix" class="snap-nav-dot w-7 h-7 rounded-lg bg-white text-[11px] font-black text-black flex items-center justify-center" title="吸附至：05 A1 预留板块扩展坞 (双频点阵)">05</button>
+  </aside>
+
+  <!-- 顶部 A1 全站矩阵总导航（白底中密黑点阵 + 黄色黑框游戏机按键） -->
+  <header class="sticky top-0 z-40 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 gap-3">
+        <!-- 左侧品牌 Logo（游戏机铭牌按钮设计） -->
+        <div class="flex items-center gap-3 shrink-0">
+          <button id="brandHomeBtn" type="button" class="arcade-btn arcade-btn-yellow px-3 py-1.5 rounded-xl flex items-center gap-2.5 text-left focus:outline-none">
+            <div class="w-8 h-8 rounded-lg bg-black flex items-center justify-center border-2 border-black">
+              <span class="font-black text-base tracking-tighter text-yellow-300" style="color:#FACC15 !important;">A1</span>
+            </div>
+            <div>
+              <div class="flex items-center gap-1.5">
+                <span class="font-black text-sm sm:text-base tracking-tight text-black">A1 产业门户</span>
+                <span class="text-[10px] font-black px-1.5 py-0.5 rounded bg-white text-black border-[1.5px] border-black">ARCADE OS</span>
+              </div>
+              <p class="text-[11px] font-bold text-black/80 hidden sm:block">多板块可扩展门户 · 01【低空信息站】</p>
+            </div>
+          </button>
+        </div>
+
+        <!-- 中部：A1 顶层板块切换导航（游戏机卡槽按键组） -->
+        <nav aria-label="A1 全站板块导航" class="hidden xl:flex items-center gap-2 bg-white p-1.5 rounded-xl border-2 border-black shadow-[3px_3px_0_#111]">
+          <button type="button" data-module="low-altitude" class="module-tab-btn px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 bg-yellow-400 text-black">
+            <span class="w-2 h-2 rounded-full bg-black animate-glow"></span>
+            <span>01 低空信息站</span>
+            <span class="px-1.5 py-0.2 rounded text-[10px] bg-black text-yellow-300 font-black" style="color:#FACC15 !important;">已上线</span>
+          </button>
+          <button type="button" data-module="module-airspace" class="module-tab-btn px-2.5 py-1.5 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1">
+            <span>02 空域智算网</span>
+            <span class="text-[10px] px-1 rounded bg-white border border-black font-bold">预留</span>
+          </button>
+          <button type="button" data-module="module-capital" class="module-tab-btn px-2.5 py-1.5 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1">
+            <span>03 产业投融资库</span>
+            <span class="text-[10px] px-1 rounded bg-white border border-black font-bold">预留</span>
+          </button>
+          <button type="button" data-module="module-academy" class="module-tab-btn px-2.5 py-1.5 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1">
+            <span>04 适航与人才院</span>
+            <span class="text-[10px] px-1 rounded bg-white border border-black font-bold">预留</span>
+          </button>
+          <button type="button" data-module="module-summit" class="module-tab-btn px-2.5 py-1.5 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1">
+            <span>05 全球低空峰会</span>
+            <span class="text-[10px] px-1 rounded bg-white border border-black font-bold">预留</span>
+          </button>
+          <button type="button" data-module="module-custom" class="module-tab-btn px-2.5 py-1.5 rounded-lg text-xs bg-yellow-300 text-black flex items-center gap-1">
+            <span>+ 预留扩展槽</span>
+          </button>
+        </nav>
+
+        <!-- 右侧：游戏机功能按键区（音效开关 + 收藏夹 + 发布官方文章） -->
+        <div class="flex items-center gap-2">
+          <!-- 街机机械按键微动音效开关 -->
+          <button id="toggleSoundBtn" type="button" class="arcade-btn arcade-btn-cream px-2.5 py-1.5 rounded-lg text-xs flex items-center gap-1" title="切换按键机械音效">
+            <span id="soundIconSpan">🔊</span>
+            <span class="hidden md:inline">按键音效</span>
+          </button>
+
+          <button id="openMatrixDrawerBtn" type="button" class="xl:hidden arcade-btn arcade-btn-cream px-2.5 py-1.5 rounded-lg text-xs flex items-center gap-1">
+            <span>板块矩阵</span>
+          </button>
+
+          <button id="openBookmarksBtn" type="button" class="arcade-btn arcade-btn-cream px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5">
+            <span class="hidden sm:inline">收藏夹</span>
+            <span id="bookmarkCountBadge" class="px-1.5 py-0.2 rounded-md text-[11px] bg-yellow-400 border border-black text-black font-black">0</span>
+          </button>
+
+          <button id="openEditorModalBtn" type="button" class="arcade-btn arcade-btn-yellow px-3.5 py-1.5 rounded-lg text-xs flex items-center gap-1.5">
+            <span>发布A1官方文章</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 移动端/平板端横向可滑动的游戏机板块切换条 -->
+      <div id="mobileModuleBar" class="xl:hidden flex items-center gap-2 overflow-x-auto py-2.5 border-t-2 border-black custom-scrollbar">
+        <button type="button" data-module="low-altitude" class="module-tab-btn shrink-0 px-3 py-1 rounded-lg text-xs bg-yellow-400 text-black flex items-center gap-1">
+          <span>01 低空信息站 (已上线)</span>
+        </button>
+        <button type="button" data-module="module-airspace" class="module-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs bg-yellow-100 text-black">
+          02 空域智算网 (预留)
+        </button>
+        <button type="button" data-module="module-capital" class="module-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs bg-yellow-100 text-black">
+          03 产业投融资库 (预留)
+        </button>
+        <button type="button" data-module="module-academy" class="module-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs bg-yellow-100 text-black">
+          04 适航与人才院 (预留)
+        </button>
+        <button type="button" data-module="module-summit" class="module-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs bg-yellow-100 text-black">
+          05 全球低空峰会 (预留)
+        </button>
+        <button type="button" data-module="module-custom" class="module-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs bg-yellow-300 text-black">
+          + 预留扩展槽
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体内容容器（每个核心区块均配置 snap-stage 吸附与差异化黑点阵列密度） -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-10">
+
+    <!-- ==================== 视图 A：01 低空信息站（当前核心上线板块） ==================== -->
+    <div id="viewLowAltitude" class="space-y-10">
+
+      <!-- 【吸附舞台 01 · 加密黑点阵列 (12px)】Hero 视觉舱 + A1官方主编置顶卡带 -->
+      <section id="stage-hero" class="snap-stage arcade-window dots-dense rounded-2xl overflow-hidden p-5 sm:p-8 lg:p-10">
+        <!-- 顶部游戏机窗口状态栏 -->
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-6 border-b-[3px] border-black bg-yellow-300 -mx-5 -mt-5 sm:-mx-8 sm:-mt-8 lg:-mx-10 lg:-mt-10 px-5 sm:px-8 lg:px-10 py-3">
+          <div class="flex items-center gap-2">
+            <span class="w-3.5 h-3.5 rounded-full bg-black inline-block"></span>
+            <span class="w-3.5 h-3.5 rounded-full bg-white border-2 border-black inline-block"></span>
+            <span class="font-black text-xs sm:text-sm tracking-wide text-black uppercase">
+              STAGE 01 // A1 · 低空信息站 (高密点阵区 · 12PX DOTS)
+            </span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded bg-black text-yellow-300 text-[11px] font-black" style="color:#FACC15 !important;">
+              SCROLL-SNAP ENABLED
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+          <!-- 左侧 7 列：主介绍与四大栏目游戏机直达键 -->
+          <div class="lg:col-span-7 bg-white/95 border-[3px] border-black rounded-2xl p-5 sm:p-6 shadow-[6px_6px_0_#111] flex flex-col justify-between space-y-5">
+            <div class="space-y-3.5">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-3 py-1 rounded-lg text-xs font-black bg-yellow-400 text-black border-2 border-black shadow-[2px_2px_0_#111]">
+                  🕹️ A1 · 第一板块
+                </span>
+                <span class="px-3 py-1 rounded-lg text-xs font-black bg-yellow-100 text-black border-2 border-black flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-black animate-glow"></span>
+                  四大核心栏目 + A1官方深度撰稿
+                </span>
+              </div>
+
+              <h1 class="text-2xl sm:text-4xl font-black tracking-tight text-black leading-tight">
+                A1 低空信息站
+                <span class="inline-block mt-1 px-2.5 py-0.5 bg-yellow-300 border-[2.5px] border-black rounded-xl text-black shadow-[3px_3px_0_#111] text-xl sm:text-3xl">
+                  LOW-ALTITUDE HUB
+                </span>
+              </h1>
+
+              <p class="text-sm sm:text-base text-black font-medium leading-relaxed">
+                聚焦中国与全球低空经济全产业链。全面收录<strong class="bg-yellow-200 px-1 border border-black rounded font-extrabold">政策法规</strong>、<strong class="bg-yellow-200 px-1 border border-black rounded font-extrabold">创新与供应链信息</strong>、<strong class="bg-yellow-200 px-1 border border-black rounded font-extrabold">比赛信息</strong>与<strong class="bg-yellow-200 px-1 border border-black rounded font-extrabold">产品发布</strong>四大垂直栏目，每个栏目均配备由 <strong class="underline decoration-2 font-black">A1 网站官方团队</strong>独立撰写的深度原创文章与权威信源核验。
+              </p>
+            </div>
+
+            <!-- 快捷栏目游戏机按键组 -->
+            <div class="pt-2 space-y-2">
+              <div class="text-xs font-black text-black uppercase tracking-wider">▼ 按下游戏机快捷键直达对应栏目：</div>
+              <div class="flex flex-wrap items-center gap-2.5">
+                <button type="button" data-quick-cat="policy" class="quick-cat-btn arcade-btn-yellow px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5">
+                  <span>🏛️ 政策法规</span>
+                  <span class="px-1.5 py-0.2 rounded bg-white border border-black text-[11px] font-black" data-cat-count="policy">3篇</span>
+                </button>
+                <button type="button" data-quick-cat="supply" class="quick-cat-btn arcade-btn-yellow px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5">
+                  <span>🔋 创新与供应链</span>
+                  <span class="px-1.5 py-0.2 rounded bg-white border border-black text-[11px] font-black" data-cat-count="supply">3篇</span>
+                </button>
+                <button type="button" data-quick-cat="competition" class="quick-cat-btn arcade-btn-yellow px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5">
+                  <span>🏆 比赛信息</span>
+                  <span class="px-1.5 py-0.2 rounded bg-white border border-black text-[11px] font-black" data-cat-count="competition">3篇</span>
+                </button>
+                <button type="button" data-quick-cat="product" class="quick-cat-btn arcade-btn-yellow px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5">
+                  <span>✈️ 产品发布</span>
+                  <span class="px-1.5 py-0.2 rounded bg-white border border-black text-[11px] font-black" data-cat-count="product">3篇</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右侧 5 列：Hero 视觉图窗 + A1 官方主编推荐卡带 -->
+          <div class="lg:col-span-5 flex flex-col justify-between gap-4">
+            <div class="relative rounded-2xl overflow-hidden border-[3px] border-black shadow-[6px_6px_0_#111] h-48 sm:h-56 bg-yellow-100">
+              <img
+                src="assets/hero-evtol.jpg"
+                alt="A1 低空信息站 eVTOL 城市空中交通视觉图"
+                class="w-full h-full object-cover object-center"
+              />
+              <div class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-yellow-300 border-2 border-black text-xs font-black text-black shadow-[2px_2px_0_#111]">
+                eVTOL 城市空中走廊实景渲染
+              </div>
+            </div>
+
+            <!-- A1 官方头条推荐卡带 -->
+            <div class="dots-yellow border-[3px] border-black rounded-2xl p-4 shadow-[6px_6px_0_#111] space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-black bg-black text-yellow-300" style="color:#FACC15 !important;">
+                  ★ A1 官方主编置顶特稿
+                </span>
+                <span class="text-[11px] font-black text-black bg-white px-2 py-0.5 rounded border border-black">必读卡带 #01</span>
+              </div>
+              <h2 class="text-sm sm:text-base font-black text-black leading-snug">
+                A1官方深度解读：从国家发改委“低空司”全面运转到2030通航装备路线图
+              </h2>
+              <p class="text-xs text-black/90 font-medium line-clamp-2">
+                系统梳理四部门《通用航空装备创新应用实施方案（2024-2030年）》与民航局适航审定新规，拆解地方立法与空域分类实操路径。
+              </p>
+              <div class="pt-2 flex items-center justify-between border-t-2 border-black">
+                <span class="text-xs text-black font-extrabold">✍️ A1 政策研究室</span>
+                <button type="button" data-open-article="pol-official-1" class="arcade-btn arcade-btn-yellow px-3 py-1 rounded-lg text-xs">
+                  <span>全文精读</span>
+                <span>→</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 【吸附舞台 02 · 游戏机计分板卡带区】四大栏目概览指标（点击直接按压跳转对应栏目） -->
+      <section id="stage-kpi" aria-label="四大栏目概览指标" class="snap-stage space-y-3">
+        <div class="flex items-center justify-between px-1">
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded-md bg-yellow-300 border-2 border-black text-xs font-black text-black shadow-[2px_2px_0_#111]">STAGE 02</span>
+            <h2 class="text-sm sm:text-base font-black text-black">四大核心栏目卡带槽（点击任意卡片触发按键切换）</h2>
+          </div>
+          <span class="text-xs font-bold text-black/75 hidden sm:inline">疏密背景：全局超疏点阵 (32PX DOTS)</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- 栏目 1：政策法规 -->
+          <div data-card-cat="policy" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[10px] font-black uppercase tracking-wider" style="color:#FACC15 !important;">SLOT 01 · POLICY</span>
+              <span class="px-2 py-0.5 rounded text-[11px] bg-white text-black border-[1.5px] border-black font-black" data-official-count="policy">含 2 篇A1官方撰稿</span>
+            </div>
+            <div class="flex items-baseline justify-between my-1">
+              <h3 class="text-base font-black text-black">🏛️ 政策法规</h3>
+              <span class="text-2xl font-black text-black bg-white px-2.5 py-0.5 rounded-lg border-2 border-black shadow-[2px_2px_0_#111]" data-total-count="policy">3</span>
+            </div>
+            <p class="mt-2 text-xs text-black font-medium line-clamp-2">
+              涵盖国家发改委低空司、民航局 CCAR-92 部、2024-2030 实施方案及深圳特区立法解读。
+            </p>
+          </div>
+
+          <!-- 栏目 2：创新与供应链信息 -->
+          <div data-card-cat="supply" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[10px] font-black uppercase tracking-wider" style="color:#FACC15 !important;">SLOT 02 · SUPPLY</span>
+              <span class="px-2 py-0.5 rounded text-[11px] bg-white text-black border-[1.5px] border-black font-black" data-official-count="supply">含 2 篇A1官方撰稿</span>
+            </div>
+            <div class="flex items-baseline justify-between my-1">
+              <h3 class="text-base font-black text-black">🔋 创新与供应链信息</h3>
+              <span class="text-2xl font-black text-black bg-white px-2.5 py-0.5 rounded-lg border-2 border-black shadow-[2px_2px_0_#111]" data-total-count="supply">3</span>
+            </div>
+            <p class="mt-2 text-xs text-black font-medium line-clamp-2">
+              追踪中创新航、亿纬锂能航空电池、FCC 飞控系统、奥托立夫安全系统与立邦航空涂料。
+            </p>
+          </div>
+
+          <!-- 栏目 3：比赛信息 -->
+          <div data-card-cat="competition" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[10px] font-black uppercase tracking-wider" style="color:#FACC15 !important;">SLOT 03 · EVENTS</span>
+              <span class="px-2 py-0.5 rounded text-[11px] bg-white text-black border-[1.5px] border-black font-black" data-official-count="competition">含 2 篇A1官方撰稿</span>
+            </div>
+            <div class="flex items-baseline justify-between my-1">
+              <h3 class="text-base font-black text-black">🏆 比赛信息</h3>
+              <span class="text-2xl font-black text-black bg-white px-2.5 py-0.5 rounded-lg border-2 border-black shadow-[2px_2px_0_#111]" data-total-count="competition">3</span>
+            </div>
+            <p class="mt-2 text-xs text-black font-medium line-clamp-2">
+              聚合中国创新创业大赛珠海低空专业赛、数字中国低空经济赛道及美团具身智能挑战赛。
+            </p>
+          </div>
+
+          <!-- 栏目 4：产品发布 -->
+          <div data-card-cat="product" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[10px] font-black uppercase tracking-wider" style="color:#FACC15 !important;">SLOT 04 · LAUNCH</span>
+              <span class="px-2 py-0.5 rounded text-[11px] bg-white text-black border-[1.5px] border-black font-black" data-official-count="product">含 2 篇A1官方撰稿</span>
+            </div>
+            <div class="flex items-baseline justify-between my-1">
+              <h3 class="text-base font-black text-black">✈️ 产品发布</h3>
+              <span class="text-2xl font-black text-black bg-white px-2.5 py-0.5 rounded-lg border-2 border-black shadow-[2px_2px_0_#111]" data-total-count="product">3</span>
+            </div>
+            <p class="mt-2 text-xs text-black font-medium line-clamp-2">
+              直击亿航 EH216-S、小鹏汇天陆地航母、峰飞盛世龙、沃兰特 VE25 与沃飞 AE200 首发。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 【吸附舞台 03 · 中密控制台 (18px) + 稀疏文章矩阵区 (26px)】 -->
+      <section id="stage-console" class="snap-stage space-y-6">
+        <!-- 3.1 游戏机筛选操控台（中密黑点阵列 18px） -->
+        <div id="stationToolbar" class="arcade-window dots-medium rounded-2xl p-4 sm:p-6 space-y-4">
+          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <!-- 左侧：四大栏目切换游戏按键 -->
+            <div class="flex flex-wrap items-center gap-2" role="tablist" aria-label="低空信息站栏目筛选">
+              <button type="button" data-cat="all" class="cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-yellow-400 text-black">
+                全部栏目 (<span id="countAllBadge">12</span>)
+              </button>
+              <button type="button" data-cat="policy" class="cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-white text-black">
+                🏛️ 政策法规
+              </button>
+              <button type="button" data-cat="supply" class="cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-white text-black">
+                🔋 创新与供应链信息
+              </button>
+              <button type="button" data-cat="competition" class="cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-white text-black">
+                🏆 比赛信息
+              </button>
+              <button type="button" data-cat="product" class="cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-white text-black">
+                ✈️ 产品发布
+              </button>
+            </div>
+
+            <!-- 右侧：来源双轨按键（突出“★ A1官方撰稿”）+ 街机搜索框 -->
+            <div class="flex flex-wrap sm:flex-nowrap items-center gap-3">
+              <div class="inline-flex items-center gap-1.5 bg-white p-1.5 rounded-xl border-2 border-black shadow-[3px_3px_0_#111] shrink-0">
+                <button type="button" data-source="all" class="source-filter-btn px-2.5 py-1 rounded-lg text-xs bg-yellow-400 text-black">
+                  全部内容
+                </button>
+                <button type="button" data-source="official" class="source-filter-btn px-2.5 py-1 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1">
+                  <span>★ A1官方撰稿</span>
+                </button>
+                <button type="button" data-source="industry" class="source-filter-btn px-2.5 py-1 rounded-lg text-xs bg-white text-black">
+                  行业权威收录
+                </button>
+              </div>
+
+              <!-- 关键词实时搜索 -->
+              <div class="relative w-full sm:w-64">
+                <input
+                  id="articleSearchInput"
+                  type="text"
+                  placeholder="搜索eVTOL、政策、电池、赛事..."
+                  class="arcade-input w-full text-xs rounded-xl pl-9 pr-8 py-2.5"
+                />
+                <svg class="w-4 h-4 text-black absolute left-3 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <button id="clearSearchBtn" type="button" class="hidden absolute right-2.5 top-2.5 text-black font-black text-xs">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 当前栏目说明横条 -->
+          <div id="activeCatBanner" class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pt-3 border-t-2 border-black text-xs bg-yellow-100/90 px-3 py-2 rounded-xl border-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <span id="activeCatTitle" class="font-black text-black bg-yellow-300 px-2 py-0.5 rounded border border-black">当前浏览：全部四大栏目</span>
+              <span id="activeCatDesc" class="text-black font-medium">展示政策法规、创新与供应链信息、比赛信息、产品发布全部文章，带有黄色双框与徽章的为 A1 网站官方团队原创撰稿。</span>
+            </div>
+            <div class="text-black font-bold shrink-0 bg-white px-2.5 py-1 rounded-lg border-2 border-black shadow-[2px_2px_0_#111]">
+              匹配：<strong id="filteredCountText" class="font-black">12</strong> 篇（A1官方原创 <strong id="filteredOfficialCountText" class="px-1 bg-yellow-300 border border-black rounded font-black">8</strong> 篇）
+            </div>
+          </div>
+        </div>
+
+        <!-- 3.2 文章卡片矩阵容器（稀疏黑点阵列 26px，提供舒适阅读呼吸感） -->
+        <div class="dots-sparse border-[3px] border-black rounded-2xl p-4 sm:p-6 shadow-[8px_8px_0_#111]">
+          <div class="flex items-center justify-between mb-4 pb-2 border-b-2 border-black">
+            <span class="text-xs font-black text-black uppercase tracking-wider">📚 栏目文章卡带阵列 (稀疏点阵区 · 26PX DOTS)</span>
+            <span class="text-xs font-bold text-black">提示：悬停或按下任意卡片/按钮体验街机微动反馈</span>
+          </div>
+
+          <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 由 JS 动态渲染 -->
+          </div>
+
+          <!-- 空状态提示 -->
+          <div id="emptyStateBox" class="hidden arcade-card dots-yellow rounded-2xl p-10 text-center space-y-3 my-4">
+            <div class="text-3xl">🕹️</div>
+            <h3 class="text-base font-black text-black">未找到匹配的栏目文章卡带</h3>
+            <p class="text-xs text-black font-medium max-w-md mx-auto">请尝试清空搜索关键词、切换至“全部栏目”，或按下右上角“发布A1官方文章”在该栏目下新增一篇官方原创文章。</p>
+            <button id="resetFiltersBtn" type="button" class="arcade-btn arcade-btn-yellow px-4 py-2 rounded-xl text-xs">
+              重置筛选条件
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 【吸附舞台 04 · 中密黑点阵列 (18px)】主流 eVTOL 参数横评表 + 供应链/赛事专题卡 -->
+      <section id="stage-specs" class="snap-stage grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- 左侧 7 列：产品发布栏目配套 · 主流 eVTOL 商业化参数横评窗口 -->
+        <div class="lg:col-span-7 arcade-window dots-medium rounded-2xl p-5 sm:p-6 space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b-2 border-black">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[11px] font-black bg-yellow-300 text-black border-2 border-black shadow-[2px_2px_0_#111]">STAGE 04 · A1 评测中心</span>
+                <h2 class="text-base font-black text-black">✈️ 【产品发布】核心机型适航与量产参数速查</h2>
+              </div>
+              <p class="text-xs text-black/80 font-medium mt-1">数据源自中国民航局（CAAC）适航审定公告及各主机厂官方披露数据</p>
+            </div>
+            <button type="button" data-quick-cat="product" class="quick-cat-btn arcade-btn-yellow px-3 py-1.5 rounded-xl text-xs">
+              查看全部产品发布文章 →
+            </button>
+          </div>
+
+          <div class="overflow-x-auto custom-scrollbar bg-white border-2 border-black rounded-xl p-2 shadow-[4px_4px_0_#111]">
+            <table class="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr class="border-b-2 border-black bg-yellow-200 text-black">
+                  <th class="py-2.5 px-2 font-black">机型名称 / 制造商</th>
+                  <th class="py-2.5 px-2 font-black">构型与动力</th>
+                  <th class="py-2.5 px-2 font-black">适航 / 商业进展</th>
+                  <th class="py-2.5 px-2 font-black text-right">官方指导价 / 订单</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y-2 divide-black/20 text-black font-medium">
+                <tr class="hover:bg-yellow-50">
+                  <td class="py-3 px-2">
+                    <div class="font-black text-black">亿航 EH216-S</div>
+                    <div class="text-[11px] text-black/70 font-bold">亿航智能 (Nasdaq: EH)</div>
+                  </td>
+                  <td class="py-3 px-2">8轴16桨多旋翼 · 纯电无人驾驶载人(2座)</td>
+                  <td class="py-3 px-2">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-black bg-yellow-300 text-black border border-black">全球首家四证齐全 (TC/PC/AC/OC)</span>
+                  </td>
+                  <td class="py-3 px-2 text-right font-black text-black">239 万元</td>
+                </tr>
+                <tr class="hover:bg-yellow-50">
+                  <td class="py-3 px-2">
+                    <div class="font-black text-black">小鹏汇天“陆地航母”</div>
+                    <div class="text-[11px] text-black/70 font-bold">小鹏汇天 (XPeng Aeroht)</div>
+                  </td>
+                  <td class="py-3 px-2">分体式飞行汽车 · 中创新航独家动力电池</td>
+                  <td class="py-3 px-2">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-black bg-yellow-200 text-black border border-black">广州量产下线 · 飞行体适航审定中</span>
+                  </td>
+                  <td class="py-3 px-2 text-right font-black text-black">约 128 万元起 (中东600台)</td>
+                </tr>
+                <tr class="hover:bg-yellow-50">
+                  <td class="py-3 px-2">
+                    <div class="font-black text-black">峰飞“盛世龙” / V2000CG</div>
+                    <div class="text-[11px] text-black/70 font-bold">峰飞航空 (AutoFlight)</div>
+                  </td>
+                  <td class="py-3 px-2">复合翼构型 · 先载货后载人双线推进</td>
+                  <td class="py-3 px-2">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-black bg-yellow-200 text-black border border-black">货运版已商业化 · 载人版加速取证</span>
+                  </td>
+                  <td class="py-3 px-2 text-right font-black text-black">约 199 万元</td>
+                </tr>
+                <tr class="hover:bg-yellow-50">
+                  <td class="py-3 px-2">
+                    <div class="font-black text-black">沃飞长空 AE200-100</div>
+                    <div class="text-[11px] text-black/70 font-bold">沃飞长空 (Aerofugia)</div>
+                  </td>
+                  <td class="py-3 px-2">倾转旋翼构型 · 商务干线客运级</td>
+                  <td class="py-3 px-2">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-black bg-yellow-100 text-black border border-black">首架机已下线 · 总部基地2026投产</span>
+                  </td>
+                  <td class="py-3 px-2 text-right font-black text-black">发布百亿供应链需求</td>
+                </tr>
+                <tr class="hover:bg-yellow-50">
+                  <td class="py-3 px-2">
+                    <div class="font-black text-black">广汽高域 GOVY AirCab</div>
+                    <div class="text-[11px] text-black/70 font-bold">广汽高域 (GOVY)</div>
+                  </td>
+                  <td class="py-3 px-2">多旋翼载人级 · 联合立邦研发航空涂料</td>
+                  <td class="py-3 px-2">
+                    <span class="px-2 py-0.5 rounded text-[10px] font-black bg-yellow-300 text-black border border-black">亮相进博会 · 适航审定推进中</span>
+                  </td>
+                  <td class="py-3 px-2 text-right font-black text-black">半年订单破千台</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 右侧 5 列：创新供应链与赛事栏目游戏机视觉卡带 -->
+        <div class="lg:col-span-5 flex flex-col justify-between gap-5">
+          <div class="arcade-card dots-yellow rounded-2xl overflow-hidden flex flex-col sm:flex-row lg:flex-col xl:flex-row">
+            <img
+              src="assets/supply-chain.jpg"
+              alt="低空供应链碳纤维螺旋桨、高密度固态电池与飞控芯片"
+              class="w-full sm:w-44 lg:w-full xl:w-44 h-40 sm:h-auto object-cover shrink-0 border-b-[3px] sm:border-b-0 sm:border-r-[3px] lg:border-r-0 lg:border-b-[3px] xl:border-b-0 xl:border-r-[3px] border-black"
+            />
+            <div class="p-4 flex flex-col justify-between space-y-2.5 bg-white/90">
+              <div class="flex items-center gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[10px] font-black bg-yellow-300 text-black border border-black">供应链专题</span>
+                <span class="text-[11px] text-black font-black bg-yellow-100 px-1.5 py-0.5 rounded border border-black">★ A1官方拆解</span>
+              </div>
+              <h3 class="text-sm font-black text-black leading-snug">
+                动力电池三巨头（中创新航/亿纬锂能/孚能）与 FCC 飞控系统国产化图谱
+              </h3>
+              <p class="text-xs text-black/80 font-medium line-clamp-2">
+                解析高能量密度主动力电池与低压飞控/电调供电电池的双轨安全冗余架构。
+              </p>
+              <button type="button" data-open-article="sup-official-1" class="arcade-btn arcade-btn-yellow self-start px-3 py-1 rounded-lg text-xs">
+                阅读 A1 供应链智库报告 →
+              </button>
+            </div>
+          </div>
+
+          <div class="arcade-card dots-yellow rounded-2xl overflow-hidden flex flex-col sm:flex-row lg:flex-col xl:flex-row">
+            <img
+              src="assets/product-launch.jpg"
+              alt="新一代倾转旋翼 eVTOL 产品发布会展台"
+              class="w-full sm:w-44 lg:w-full xl:w-44 h-40 sm:h-auto object-cover shrink-0 border-b-[3px] sm:border-b-0 sm:border-r-[3px] lg:border-r-0 lg:border-b-[3px] xl:border-b-0 xl:border-r-[3px] border-black"
+            />
+            <div class="p-4 flex flex-col justify-between space-y-2.5 bg-white/90">
+              <div class="flex items-center gap-1.5">
+                <span class="px-2 py-0.5 rounded text-[10px] font-black bg-yellow-300 text-black border border-black">赛事与新机</span>
+                <span class="text-[11px] text-black font-black bg-yellow-100 px-1.5 py-0.5 rounded border border-black">★ A1官方赛评</span>
+              </div>
+              <h3 class="text-sm font-black text-black leading-snug">
+                数字中国低空赛道、中国双创大赛珠海专业赛与美团 55 万具身智能挑战赛
+              </h3>
+              <p class="text-xs text-black/80 font-medium line-clamp-2">
+                汇总全国核心低空赛事报名通道、评审标准及往届 30+ 签约落地项目经验。
+              </p>
+              <button type="button" data-open-article="comp-official-1" class="arcade-btn arcade-btn-yellow self-start px-3 py-1 rounded-lg text-xs">
+                查看 A1 赛事观察团指南 →
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 【吸附舞台 05 · 双频交叉黑点阵列 (dots-matrix)】A1 网站全局预留板块扩展坞 -->
+      <section id="stage-matrix" class="snap-stage arcade-window dots-matrix rounded-2xl p-6 sm:p-8 space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-yellow-300 border-[2.5px] border-black rounded-xl p-4 shadow-[4px_4px_0_#111]">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded bg-black text-yellow-300 text-[11px] font-black" style="color:#FACC15 !important;">
+                STAGE 05 // A1 总体规划蓝图 (双频点阵区)
+              </span>
+              <span class="text-xs font-extrabold text-black">模块化可扩展卡槽 · 随时接入后续板块</span>
+            </div>
+            <h2 class="text-lg font-black text-black mt-1">
+              A1 预留板块矩阵（按下任意预留卡槽可预览架构与配置接口）
+            </h2>
+          </div>
+          <span class="px-3 py-1.5 rounded-lg bg-white border-2 border-black text-xs font-black text-black shadow-[2px_2px_0_#111]">
+            进度：板块 01 已上线 / 板块 02-06 已预留
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <!-- 板块 01 -->
+          <div class="arcade-card dots-yellow rounded-xl p-4 flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-black">板块 01</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-black bg-black text-yellow-300" style="color:#FACC15 !important;">当前在线</span>
+              </div>
+              <h3 class="text-sm font-black text-black">低空信息站</h3>
+              <p class="text-xs text-black font-medium">政策法规、创新与供应链、比赛信息、产品发布 + A1官方撰稿体系。</p>
+            </div>
+            <div class="text-[11px] text-black font-black bg-white px-2 py-1 rounded border border-black text-center">● 正在浏览本卡带</div>
+          </div>
+
+          <!-- 板块 02 预留 -->
+          <button type="button" data-module="module-airspace" class="module-tab-btn text-left rounded-xl p-4 bg-white flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-black">板块 02</span>
+                <span class="px-2 py-0.5 rounded text-[10px] bg-yellow-200 text-black border border-black font-black">预留模块</span>
+              </div>
+              <h3 class="text-sm font-black text-black">低空智算与航路网</h3>
+              <p class="text-xs text-black/80 font-medium">城市起降场(Vertiport)地图、3D数字空域网格、气象雷达与流量监控。</p>
+            </div>
+            <div class="text-[11px] font-black text-black underline">按下预览预留架构 →</div>
+          </button>
+
+          <!-- 板块 03 预留 -->
+          <button type="button" data-module="module-capital" class="module-tab-btn text-left rounded-xl p-4 bg-white flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-black">板块 03</span>
+                <span class="px-2 py-0.5 rounded text-[10px] bg-yellow-200 text-black border border-black font-black">预留模块</span>
+              </div>
+              <h3 class="text-sm font-black text-black">产业资本与投融资库</h3>
+              <p class="text-xs text-black/80 font-medium">全球 400+ eVTOL 与无人机企业融资轮次、地方低空产业基金与招投标库。</p>
+            </div>
+            <div class="text-[11px] font-black text-black underline">按下预览预留架构 →</div>
+          </button>
+
+          <!-- 板块 04 预留 -->
+          <button type="button" data-module="module-academy" class="module-tab-btn text-left rounded-xl p-4 bg-white flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-black">板块 04</span>
+                <span class="px-2 py-0.5 rounded text-[10px] bg-yellow-200 text-black border border-black font-black">预留模块</span>
+              </div>
+              <h3 class="text-sm font-black text-black">适航认证与人才学院</h3>
+              <p class="text-xs text-black/80 font-medium">TC/PC/AC/OC 适航审定实务工具包、CAAC 飞手执照培训与高校教研合作。</p>
+            </div>
+            <div class="text-[11px] font-black text-black underline">按下预览预留架构 →</div>
+          </button>
+
+          <!-- 板块 05/06 预留扩展 -->
+          <button type="button" data-module="module-custom" class="module-tab-btn text-left rounded-xl p-4 bg-yellow-100 flex flex-col justify-between space-y-3">
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-black">板块 05 ~ N</span>
+                <span class="px-2 py-0.5 rounded text-[10px] bg-yellow-400 text-black border border-black font-black">自定义插槽</span>
+              </div>
+              <h3 class="text-sm font-black text-black">A1 全球峰会 & 扩展槽</h3>
+              <p class="text-xs text-black/80 font-medium">支持在线登记您的后续板块规划名称与栏目结构，随时一键激活扩展。</p>
+            </div>
+            <div class="text-[11px] font-black text-black underline">按下配置后续板块 →</div>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== 视图 B：预留板块架构蓝图与自定义扩展视图 ==================== -->
+    <div id="viewReservedModule" class="hidden space-y-6">
+      <div class="arcade-window dots-medium rounded-2xl p-6 sm:p-8 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b-[3px] border-black pb-5 bg-yellow-200 p-4 rounded-xl border-2">
+          <div class="space-y-2">
+            <div class="flex items-center gap-2">
+              <span id="reservedBadgeCode" class="px-2.5 py-1 rounded-lg text-xs font-black bg-black text-yellow-300" style="color:#FACC15 !important;">
+                A1 预留板块 · 架构已就绪
+              </span>
+              <span id="reservedPhaseTag" class="text-xs font-black text-black bg-white px-2 py-0.5 rounded border border-black">二期工程预留接口</span>
+            </div>
+            <h1 id="reservedTitle" class="text-2xl sm:text-3xl font-black text-black">
+              02 低空智算与航路网
+            </h1>
+            <p id="reservedDesc" class="text-sm text-black font-medium max-w-3xl">
+              该板块已在 A1 网站顶层路由与导航矩阵中完成预留。以下为该板块的预设子栏目架构与数据接口规划。
+            </p>
+          </div>
+
+          <button id="backToLowAltitudeBtn" type="button" class="arcade-btn arcade-btn-yellow px-4 py-2.5 rounded-xl text-xs flex items-center gap-2">
+            <span>← 返回已上线【01 低空信息站】</span>
+          </button>
+        </div>
+
+        <!-- 预留板块规划子栏目卡片 -->
+        <div>
+          <h2 class="text-sm font-black text-black uppercase tracking-wider mb-3">预留子栏目与功能模块卡槽</h2>
+          <div id="reservedSubcolumnsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- 动态填充 -->
+          </div>
+        </div>
+
+        <!-- 交互：自定义新增预留板块或登记需求 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-4 border-t-[3px] border-black">
+          <div class="arcade-card dots-yellow rounded-xl p-5 space-y-3">
+            <h3 class="text-sm font-black text-black flex items-center gap-2">
+              <span>🛠️ 自定义修改/新增 A1 预留板块规划</span>
+            </h3>
+            <p class="text-xs text-black font-medium">
+              您可以在此录入您规划中的下一个 A1 板块名称及包含的栏目，系统将实时保存在您的 A1 路线图列表中：
+            </p>
+            <form id="customModuleForm" class="space-y-3">
+              <div>
+                <label class="block text-xs font-black text-black mb-1">新板块名称（例如：低空物流商城 / 无人机保险中心）</label>
+                <input id="newModuleNameInput" type="text" required placeholder="输入规划中的板块名称..." class="arcade-input w-full rounded-lg px-3 py-2 text-xs" />
+              </div>
+              <div>
+                <label class="block text-xs font-black text-black mb-1">拟设子栏目（用逗号分隔）</label>
+                <input id="newModuleColsInput" type="text" required placeholder="例如：航线报价, 机型租赁, 保险理赔, A1官方评测" class="arcade-input w-full rounded-lg px-3 py-2 text-xs" />
+              </div>
+              <button type="submit" class="arcade-btn arcade-btn-yellow px-4 py-2 rounded-lg text-xs">
+                + 添加至 A1 预留板块蓝图
+              </button>
+            </form>
+          </div>
+
+          <div class="arcade-card bg-white rounded-xl p-5 space-y-3">
+            <h3 class="text-sm font-black text-black">📋 已登记的自定义扩展板块槽位</h3>
+            <div id="customModulesList" class="space-y-2.5 max-h-48 overflow-y-auto custom-scrollbar pr-1">
+              <!-- JS 渲染自定义预留板块 -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==================== 弹窗 1：文章深度阅读器（游戏机大窗口设计 + 黄色标题栏） ==================== -->
+  <div id="articleReaderModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-xs p-3 sm:p-6">
+    <div class="arcade-window dots-sparse bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden">
+      <!-- 顶部固定栏（游戏机黄色顶盖） -->
+      <div class="flex items-center justify-between px-5 py-3.5 border-b-[3px] border-black bg-yellow-300">
+        <div class="flex items-center gap-2">
+          <span id="readerCatBadge" class="px-2.5 py-0.5 rounded-md text-xs font-black bg-white text-black border-2 border-black shadow-[2px_2px_0_#111]">政策法规</span>
+          <span id="readerOfficialBadge" class="px-2.5 py-0.5 rounded-md text-xs font-black bg-black text-yellow-300" style="color:#FACC15 !important;">★ A1 官方原创撰稿</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button id="readerBookmarkBtn" type="button" class="arcade-btn arcade-btn-cream px-3 py-1 rounded-lg text-xs flex items-center gap-1">
+            <span>☆ 收藏文章</span>
+          </button>
+          <button id="readerShareBtn" type="button" class="arcade-btn arcade-btn-cream px-3 py-1 rounded-lg text-xs">
+            复制引用摘要
+          </button>
+          <button id="closeReaderModalBtn" type="button" class="arcade-btn arcade-btn-yellow w-8 h-8 rounded-lg flex items-center justify-center font-black">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- 文章正文滚动区 -->
+      <div class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-6 bg-white/95">
+        <div class="space-y-3">
+          <h2 id="readerTitle" class="text-xl sm:text-2xl font-black text-black leading-snug"></h2>
+          <div class="flex flex-wrap items-center gap-3 text-xs font-bold text-black pt-1">
+            <span id="readerAuthor" class="px-2.5 py-0.5 rounded bg-yellow-200 border-[1.5px] border-black font-black"></span>
+            <span id="readerDate" class="px-2 py-0.5 rounded bg-white border border-black"></span>
+            <span id="readerReadTime" class="px-2 py-0.5 rounded bg-white border border-black"></span>
+          </div>
+        </div>
+
+        <!-- A1 官方核心研判提要框 -->
+        <div id="readerTakeawayBox" class="dots-yellow border-[2.5px] border-black rounded-xl p-4 shadow-[4px_4px_0_#111] space-y-1.5">
+          <div class="text-xs font-black text-black flex items-center gap-1.5">
+            <span>📌 A1 编辑部核心导读与研判</span>
+          </div>
+          <p id="readerSummary" class="text-xs sm:text-sm text-black font-semibold leading-relaxed"></p>
+        </div>
+
+        <!-- 正文段落容器 -->
+        <div id="readerBody" class="space-y-4 text-sm sm:text-base text-black font-medium leading-relaxed bg-white p-4 sm:p-5 rounded-xl border-2 border-black"></div>
+
+        <!-- 权威信源与外部核验链接 -->
+        <div class="dots-medium border-[2.5px] border-black rounded-xl p-4 space-y-2.5 shadow-[4px_4px_0_#111]">
+          <div class="text-xs font-black text-black flex items-center justify-between">
+            <span>🔗 权威信源与原文核验链接（点击按键跳转外部权威出处）</span>
+            <span class="text-[11px] bg-yellow-300 px-2 py-0.5 rounded border border-black font-black">A1 真实信源核验体系</span>
+          </div>
+          <div id="readerSourcesList" class="flex flex-wrap gap-2.5 pt-1"></div>
+        </div>
+      </div>
+
+      <!-- 底部上下篇切换栏 -->
+      <div class="px-6 py-3 border-t-[3px] border-black bg-yellow-100 flex items-center justify-between text-xs">
+        <button id="prevArticleBtn" type="button" class="arcade-btn arcade-btn-yellow px-3 py-1.5 rounded-lg flex items-center gap-1">
+          <span>← 上一篇</span>
+        </button>
+        <span class="text-black font-black hidden sm:inline">A1 低空信息站 · 街机深度阅读器</span>
+        <button id="nextArticleBtn" type="button" class="arcade-btn arcade-btn-yellow px-3 py-1.5 rounded-lg flex items-center gap-1">
+          <span>下一篇 →</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 弹窗 2：A1 官方撰稿发布工作台（游戏机窗口风格） ==================== -->
+  <div id="editorModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-xs p-3 sm:p-6">
+    <div class="arcade-window dots-medium bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 border-b-[3px] border-black bg-yellow-300">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded text-xs font-black bg-black text-yellow-300" style="color:#FACC15 !important;">A1 官方CMS</span>
+          <h2 class="text-base font-black text-black">撰写并发布【A1 官方原创文章】</h2>
+        </div>
+        <button id="closeEditorModalBtn" type="button" class="arcade-btn arcade-btn-cream w-8 h-8 rounded-lg flex items-center justify-center font-black">✕</button>
+      </div>
+
+      <form id="publishArticleForm" class="p-5 sm:p-6 overflow-y-auto custom-scrollbar space-y-4 text-xs bg-white/95">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-black font-black mb-1.5">所属栏目（必选）</label>
+            <select id="formCategorySelect" required class="arcade-input w-full rounded-xl px-3 py-2.5">
+              <option value="policy">🏛️ 政策法规</option>
+              <option value="supply">🔋 创新与供应链信息</option>
+              <option value="competition">🏆 比赛信息</option>
+              <option value="product">✈️ 产品发布</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-black font-black mb-1.5">A1 官方署名团队 / 作者</label>
+            <input id="formAuthorInput" type="text" required value="A1 官方研究院 · 特约主笔" class="arcade-input w-full rounded-xl px-3 py-2.5" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-black font-black mb-1.5">文章标题</label>
+          <input id="formTitleInput" type="text" required placeholder="例如：A1官方评述：2026年城市空中交通（UAM）起降场建设标准与商业化测算" class="arcade-input w-full rounded-xl px-3 py-2.5" />
+        </div>
+
+        <div>
+          <label class="block text-black font-black mb-1.5">A1 核心研判导读摘要</label>
+          <textarea id="formSummaryInput" rows="2" required placeholder="简明扼要提炼本文的核心观点与产业价值..." class="arcade-input w-full rounded-xl px-3 py-2"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-black font-black mb-1.5">文章正文内容（支持多段落换行）</label>
+          <textarea id="formBodyInput" rows="5" required placeholder="输入A1官方原创文章正文内容..." class="arcade-input w-full rounded-xl px-3 py-2"></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-black font-black mb-1.5">标签（逗号分隔）</label>
+            <input id="formTagsInput" type="text" value="A1官方特稿, 低空经济, 深度研报" class="arcade-input w-full rounded-xl px-3 py-2" />
+          </div>
+          <div>
+            <label class="block text-black font-black mb-1.5">参考信源链接（选填 URL）</label>
+            <input id="formSourceUrlInput" type="url" placeholder="https://www.caac.gov.cn" class="arcade-input w-full rounded-xl px-3 py-2" />
+          </div>
+        </div>
+
+        <div class="pt-3 border-t-2 border-black flex items-center justify-end gap-3">
+          <button id="cancelEditorBtn" type="button" class="arcade-btn arcade-btn-cream px-4 py-2 rounded-xl">
+            取消
+          </button>
+          <button type="submit" class="arcade-btn arcade-btn-yellow px-5 py-2 rounded-xl">
+            立即发布至对应栏目
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== 弹窗 3：我的收藏夹游戏机窗口 ==================== -->
+  <div id="bookmarksModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-xs p-4">
+    <div class="arcade-window dots-medium bg-white rounded-2xl max-w-xl w-full max-h-[80vh] flex flex-col overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-4 border-b-[3px] border-black bg-yellow-300">
+        <h2 class="text-base font-black text-black flex items-center gap-2">
+          <span>⭐ 我的 A1 低空信息站收藏夹卡带</span>
+        </h2>
+        <button id="closeBookmarksModalBtn" type="button" class="arcade-btn arcade-btn-cream w-8 h-8 rounded-lg flex items-center justify-center font-black">✕</button>
+      </div>
+      <div id="bookmarksListContainer" class="p-5 overflow-y-auto custom-scrollbar space-y-3 flex-1 bg-white/90">
+        <!-- JS 动态渲染 -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 轻提示 Toast（游戏机黄色黑边弹窗） -->
+  <div id="toastNotice" class="fixed bottom-5 right-5 z-50 hidden px-4 py-2.5 rounded-xl bg-yellow-300 text-black border-[2.5px] border-black shadow-[4px_4px_0_#111] text-xs font-black">
+    操作成功
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="border-t-[3px] border-black dots-medium mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-black font-bold">
+      <div class="flex items-center gap-2">
+        <span class="px-2.5 py-1 rounded-lg bg-yellow-300 border-2 border-black text-black font-black shadow-[2px_2px_0_#111]">A1</span>
+        <span>A1 综合门户网站 · 第一板块【低空信息站】（政策法规 / 创新与供应链 / 比赛信息 / 产品发布）</span>
+      </div>
+      <div>
+        数据信源核验：中国民航局 (CAAC) · 中国信通院 · 新华网 · 各主机厂及供应链上市公司公告
+      </div>
+    </div>
+  </footer>
+
+  <!-- 核心应用逻辑脚本 -->
+  <script>
+    // 0. 游戏机微动开关合成音效引擎（Web Audio API，无需外部音频文件，支持一键静音切换）
+    let soundEnabled = true;
+    let audioCtx = null;
+
+    function playArcadeSound(type = 'press') {
+      if (!soundEnabled) return;
+      try {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return;
+        if (!audioCtx) audioCtx = new AudioContextClass();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        const now = audioCtx.currentTime;
+
+        if (type === 'press') {
+          // 干脆的街机微动开关按压声
+          osc.type = 'square';
+          osc.frequency.setValueAtTime(520, now);
+          osc.frequency.exponentialRampToValueAtTime(190, now + 0.045);
+          gain.gain.setValueAtTime(0.06, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.05);
+        } else if (type === 'coin') {
+          // 发布/收藏成功的清脆奖励音
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(987.77, now); // B5
+          osc.frequency.setValueAtTime(1318.51, now + 0.06); // E6
+          gain.gain.setValueAtTime(0.08, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(now);
+          osc.stop(now + 0.19);
+        }
+      } catch (e) {
+        // 忽略浏览器自动播放策略限制
+      }
+    }
+
+    // 1. 栏目元数据定义
+    const CATEGORY_META = {
+      all: {
+        label: '全部四大栏目',
+        badgeClass: 'bg-yellow-200 text-black border-black',
+        desc: '展示政策法规、创新与供应链信息、比赛信息、产品发布全部文章，带有黄色双框与徽章的为 A1 网站官方团队原创撰稿。'
+      },
+      policy: {
+        label: '🏛️ 政策法规',
+        badgeClass: 'bg-yellow-300 text-black border-black',
+        desc: '收录国家部委顶层设计、国家发改委低空司动态、中国民航局（CAAC）适航与运行规则及地方特区立法，配备 A1 政策研究室深度解读。'
+      },
+      supply: {
+        label: '🔋 创新与供应链信息',
+        badgeClass: 'bg-yellow-200 text-black border-black',
+        desc: '覆盖高能量密度航空动力电池、飞控系统（FCC）、碳纤维复合材料、特种航空涂料及被动安全系统，含 A1 供应链智库拆解报告。'
+      },
+      competition: {
+        label: '🏆 比赛信息',
+        badgeClass: 'bg-yellow-300 text-black border-black',
+        desc: '聚合中国创新创业大赛低空经济专业赛、数字中国创新大赛低空经济赛道及美团具身智能挑战赛等权威赛事指南与赛评。'
+      },
+      product: {
+        label: '✈️ 产品发布',
+        badgeClass: 'bg-yellow-400 text-black border-black',
+        desc: '第一时间追踪亿航智能、小鹏汇天、峰飞航空、沃兰特、沃飞长空及广汽高域等新机首发、适航取证与量产交付，含 A1 评测中心横评。'
+      }
+    };
+
+    // 2. 预留板块规划蓝图元数据（体现“今天先做一个板块，其他板块预留出来”）
+    const RESERVED_MODULES = {
+      'module-airspace': {
+        code: '板块 02 · 预留模块',
+        phase: '二期规划 · 空域数字化底座',
+        title: '02 低空智算与航路网 (Airspace & UTM Grid)',
+        desc: '本板块已在 A1 顶层架构中预留路由与数据接口，未来将接入全国低空飞行综合监管服务平台规范数据，提供三维数字空域网格与起降场（Vertiport）查询。',
+        subcolumns: [
+          { name: '三维数字空域图谱', status: '接口已预留', detail: '支持 G/W 类低空空域分层可视化与实时通航走廊查询。' },
+          { name: '起降场 (Vertiport) 站点库', status: '数据结构已就绪', detail: '覆盖大湾区、长三角、成渝等核心城市群起降点与充电桩分布。' },
+          { name: '低空微气象与通讯感知', status: '规划中', detail: '整合 5G-A 通感一体基站覆盖图与城市峡谷风切变预警。' },
+          { name: 'A1 官方航路测评专栏', status: '官方撰稿槽位', detail: '由 A1 航路工程组定期发布跨城及跨海示范航线实测报告。' }
+        ]
+      },
+      'module-capital': {
+        code: '板块 03 · 预留模块',
+        phase: '二期规划 · 资本与投研矩阵',
+        title: '03 产业资本与投融资库 (Capital & Deals Hub)',
+        desc: '针对全球 400+ 家 eVTOL 与智能无人机研发企业及上游核心零部件厂商，构建一级市场融资、地方低空引导基金与政府招投标数据库。',
+        subcolumns: [
+          { name: '全球融资轮次追踪', status: '接口已预留', detail: '实时收录国内外主机厂（如小鹏汇天 B 轮融资等）及核心供应链投融资事件。' },
+          { name: '地方低空产业基金图谱', status: '数据结构已就绪', detail: '汇总深圳、广州、合肥、苏州、成都等地百亿级低空产业引导基金申报指南。' },
+          { name: '政府采购与招投标快讯', status: '规划中', detail: '聚合应急救援、医疗转运、海岛物流及空域监管平台招投标公告。' },
+          { name: 'A1 投研智库深度研报', status: '官方撰稿槽位', detail: '由 A1 资本研究团队撰写的一二级市场估值模型与商业化回本周期测算。' }
+        ]
+      },
+      'module-academy': {
+        code: '板块 04 · 预留模块',
+        phase: '三期规划 · 适航工具与人才生态',
+        title: '04 适航认证与人才学院 (Airworthiness & Academy)',
+        desc: '面向低空经济整机研发与运营企业，提供从 TC/PC/AC 到 OC 运营合格证的全流程法规工具包，以及无人机/eVTOL 工程与飞手人才对接。',
+        subcolumns: [
+          { name: '适航审定专用条件库', status: '接口已预留', detail: '收录民航局针对无人驾驶载人航空器、复合翼及倾转旋翼机型的审定专用条件。' },
+          { name: 'CAAC 运营合格证 (OC) 实务', status: '规划中', detail: '拆解商业载客与低空游览运营合格证申请流程与安全管理体系（SMS）模板。' },
+          { name: '飞控与适航工程师人才库', status: '规划中', detail: '连接航空院校与低空主机厂，发布核心岗位需求与技能标准。' },
+          { name: 'A1 适航公开课专栏', status: '官方撰稿槽位', detail: '由 A1 适航专家团撰写的 CCAR-21 与 CCAR-92 部实操讲义。' }
+        ]
+      },
+      'module-summit': {
+        code: '板块 05 · 预留模块',
+        phase: '三期规划 · 峰会与社群生态',
+        title: '05 A1 全球低空峰会与社群 (Global Summit & Community)',
+        desc: '打造线上线下联动的低空经济产业峰会、闭门供应链对接会以及珠海航展、进博会低空展区线上展厅。',
+        subcolumns: [
+          { name: 'A1 年度低空经济峰会', status: '接口已预留', detail: '提供峰会议程、嘉宾演讲速记、圆桌论坛视频回放与展商名录。' },
+          { name: '主机厂—供应链闭门对接会', status: '规划中', detail: '撮合电池、碳纤维、电机电控厂商与 eVTOL 链主企业直连沟通。' },
+          { name: '国际航展低空云展厅', status: '规划中', detail: '直击中国航展、全球无人系统大会及海外首飞活动。' },
+          { name: 'A1 官方主旨报告发布', status: '官方撰稿槽位', detail: '发布《A1 中国低空经济年度白皮书》与百强创新企业榜单。' }
+        ]
+      },
+      'module-custom': {
+        code: '板块 05~N · 自定义扩展槽位',
+        phase: '开放式架构 · 支持按需新增板块',
+        title: 'A1 预留自定义板块插槽 (Customizable Expansion Slots)',
+        desc: 'A1 门户采用模块化组件架构。您可以在下方直接录入规划中的后续板块名称与子栏目，系统将自动为您生成并保存板块蓝图。',
+        subcolumns: [
+          { name: '模块化顶层路由', status: '已就绪', detail: '支持在不改动【低空信息站】代码的前提下平级挂载新板块。' },
+          { name: '多栏目 + 官方撰稿模板复用', status: '已就绪', detail: '新板块可直接复用“多栏目分类 + A1 官方原创文章徽章 + 权威信源外链”引擎。' },
+          { name: '跨板块全局搜索与收藏互通', status: '已就绪', detail: '全站共享统一的收藏夹、标签索引与后台发布工作台。' },
+          { name: 'A1 官方多团队协同署名', status: '已就绪', detail: '支持为不同板块配置独立的 A1 官方编辑部与研究员署名。' }
+        ]
+      }
+    };
+
+    // 3. 初始文章数据库（4大栏目，每个栏目均包含 A1 官方撰稿 + 行业权威资讯，全部基于工具检索的真实事实与链接）
+    const INITIAL_ARTICLES = [
+      // ==================== 栏目 1：政策法规 (policy) ====================
+      {
+        id: 'pol-official-1',
+        category: 'policy',
+        isOfficial: true,
+        title: 'A1官方深度解读：从国家发改委“低空司”全面运转到2030通航装备路线图，低空立法进入实操深水区',
+        author: 'A1 政策研究室 · 首席政策分析师 林知远',
+        date: '2026-11-10',
+        readTime: '8 分钟深度阅读',
+        summary: 'A1 政策研究室系统梳理 2024 至 2026 年国家顶层机构改革与部委联合文件：国家发改委专设“低空经济发展司”统筹全局，中国民航局调整机构并将“低空经济”纳入《民用航空法》修正草案，标志着我国低空经济从早期政策鼓励迈入空域监管与商业化运营合规并重的实操阶段。',
+        body: [
+          '【A1 官方撰稿 · 核心观点】自低空经济上升为国家战略性新兴产业以来，顶层监管架构与法律法规体系在过去两年内完成了极具分水岭意义的制度重构。A1 政策研究室通过对国家部委与民航局出台的核心政策进行交叉梳理发现，“专司统筹 + 立法确权 + 审定提速”已成为当前政策演进的三大主轴。',
+          '一、顶层协调机制破局：国家发改委成立“低空经济发展司”并全面运转，专责统筹全国低空经济发展规划、基础设施建设与跨部门协同；与此同时，2025年7月中国民航局完成重大机构调整，进一步整合原通用航空工作领导小组与民用无人驾驶航空器管理职能，发布了《低空飞行综合监管服务平台规范》，从源头打通军地民空域协同管理堵点。',
+          '二、2024-2030 装备创新时间表明确：工业和信息化部、科学技术部、财政部、中国民用航空局四部门联合印发的《通用航空装备创新应用实施方案（2024-2030年）》，明确提出加快电动垂直起降航空器（eVTOL）、智能高效航空物流装备等研制及商业化应用，为未来五年主机厂适航取证与城际示范运行划定了清晰里程碑。',
+          '三、《民用航空法》修法与地方立法共振：在《民用航空法》2025修正草案中，“低空经济”被正式写入法律条文，为低空空域分类管理、起降基础设施产权及商业运营许可提供了上位法依据。A1 政策研究室建议各主机厂与低空运营企业在申报航线时，重点对齐民航局最新综合监管平台接口规范。'
+        ],
+        tags: ['A1官方特稿', '发改委低空司', '民航局CAAC', '2030实施方案'],
+        sources: [
+          { title: '国家发改委设“低空司”与地方立法加速分析', url: 'https://www.zzyuam.com/news/detail/110ac5ced3770ff29b5fdbea86d5b62a' },
+          { title: '2025低空经济大事件全景：从政策破局到商业落地', url: 'https://yuanxiangsky.com/N/678.html' },
+          { title: '锦天城：《通用航空装备创新应用实施方案（2024-2030年）》解析', url: 'https://www.allbrightlaw.com/CN/10475/b9e8f0450104f87c.aspx' },
+          { title: '德恒律所：《民用航空法》修正草案与低空经济法律适用', url: 'https://www.dehenglaw.com/cn/newscontent/0008/033810/2.aspx?MID=0902' }
+        ]
+      },
+      {
+        id: 'pol-official-2',
+        category: 'policy',
+        isOfficial: true,
+        title: 'A1合规指南：CCAR-92部安全管理规则与《深圳经济特区低空经济产业促进条例》企业实操手册',
+        author: 'A1 适航与法务课题组',
+        date: '2026-11-02',
+        readTime: '6 分钟阅读',
+        summary: '针对无人机与 eVTOL 研发制造及运营企业最为关心的合规门槛，A1 适航与法务课题组逐条拆解《民用无人驾驶航空器运行安全管理规则》（CCAR-92）与《民用航空产品和零部件合格审定规定》（CCAR-21），并结合深圳特区立法与20条扶持政策提供合规清单。',
+        body: [
+          '【A1 官方撰稿 · 实务拆解】对于从事无人驾驶航空器与载人 eVTOL 研发、制造及商业运营的企业而言，中国民航局（CAAC）公布实施的《民用无人驾驶航空器运行安全管理规则》（CCAR-92）与《民用航空产品和零部件合格审定规定》（CCAR-21）构成了企业准入的基石。',
+          '在国家层面，工信部同步印发《民用无人驾驶航空器无线电管理暂行办法》，与 CCAR-92 部共同构建起涵盖设计生产、适航审定、无线电频率分配、实名登记与运行合格审定（OC）的全生命周期监管链条。',
+          '在地方立法层面，《深圳经济特区低空经济产业促进条例》作为全国首部低空经济专项特区立法，与《深圳市支持低空经济高质量发展的若干措施》（20条措施）形成政策合力，明确支持低空基础设施建设，并对获得中国民航局型号合格证（TC）、生产许可证（PC）的载人 eVTOL 及飞行汽车企业给予实质性产业化激励。A1 课题组整理了企业申报适航审定与地方补贴的完整节点核对表。'
+        ],
+        tags: ['A1官方指南', 'CCAR-92', '深圳低空条例', '适航审定'],
+        sources: [
+          { title: '近三年涉及低空经济发展的国家政策梳理 (CCAR-92/CCAR-21)', url: 'https://www.aamshanghai.com/national-policies-aam-development.html' },
+          { title: '深圳市低空经济产业协会：政策法规汇编', url: 'https://www.slaeia.com/business_2.html' },
+          { title: '君合律所：低空经济法律实务100问', url: 'https://www.junhe.com/legal-updates/2993' }
+        ]
+      },
+      {
+        id: 'pol-ind-1',
+        category: 'policy',
+        isOfficial: false,
+        title: '中国信通院与毕马威发布低空经济白皮书：亿航获全球首张eVTOL运营许可证（OC），四证闭环成型',
+        author: '行业权威报告收录 · 信通院 / 东方财富研报',
+        date: '2026-10-25',
+        readTime: '5 分钟阅读',
+        summary: '综合中国信通院《低空经济政策与产业生态研究报告》及民航局公开数据，亿航智能已正式获得全球首张无人驾驶载人航空器运营合格证（OC），成为全球首家“四证齐全”的低空飞行器生产商。',
+        body: [
+          '根据中国信息通信研究院发布的《低空经济政策与产业生态研究报告》及东方财富证券行业研报披露，中国民航局（CAAC）在 eVTOL 适航审定与商业运营准入领域持续领跑全球。',
+          '继型号合格证（TC）、标准适航证（AC）与生产许可证（PC）之后，亿航智能于 2025 年 3 月获得全球首张 eVTOL 运营许可证（OC），成为全球首家“四证齐全”的低空飞行器生产商，标志着中国低空载人飞行正式跨过商业化运营的最后一道法规门槛。',
+          '此外，中国民航局（CAAC）与美国联邦航空管理局（FAA）、欧洲航空安全局（EASA）、新加坡民航局（CAAS）等国际监管机构均在加速推进 eVTOL 适航标准体系建设，国内多款主流复合翼与倾转旋翼 eVTOL 的型号合格证审定也已进入关键验证阶段。'
+        ],
+        tags: ['运营合格证OC', '四证齐全', '信通院白皮书', 'CAAC适航'],
+        sources: [
+          { title: '中国信通院：《低空经济政策与产业生态研究报告》(PDF)', url: 'https://www.caict.ac.cn/english/research/whitepapers/202504/P020250401513801693140.pdf' },
+          { title: '东方财富证券：低空经济乘风而至，亿航四证齐全分析 (PDF)', url: 'https://pdf.dfcfw.com/pdf/H3_AP202508221732469642_1.pdf?1755898793000.pdf' },
+          { title: '毕马威中国：《低空经济的黄金时代：解构行业生态》(PDF)', url: 'https://assets.kpmg.com/content/dam/kpmgsites/cn/pdf/zh/2025/10/the-golden-age-of-low-altitude-economy.pdf' }
+        ]
+      },
+
+      // ==================== 栏目 2：创新与供应链信息 (supply) ====================
+      {
+        id: 'sup-official-1',
+        category: 'supply',
+        isOfficial: true,
+        title: 'A1供应链拆解：中创新航、亿纬锂能、孚能科技三大电池巨头如何撑起中国eVTOL量产潮？',
+        author: 'A1 供应链智库 · 硬件工程组',
+        date: '2026-11-11',
+        readTime: '7 分钟深度阅读',
+        summary: '航空级动力电池与高可靠低压供电系统是决定 eVTOL 商业化落地的核心命脉。A1 供应链智库深入拆解小鹏汇天“陆地航母”等量产机型的电池定点格局，剖析主动力电池与 FCC/ESC 低压锂电池的技术分工。',
+        body: [
+          '【A1 官方撰稿 · 供应链深度拆解】在电动垂直起降航空器（eVTOL）的整机成本与适航安全权重中，动力与能源系统占比极高。与地面新能源汽车不同，eVTOL 在垂直起降阶段需要极高的瞬时放电倍率，且在高空低温环境下对电池热失控具备“零容忍”要求。',
+          '一、三大动力电池巨头定点格局清晰：以亚洲规模领先的飞行汽车企业小鹏汇天为例，其在启动规模量产前已在供应链端与中创新航（3931.HK）、亿纬锂能及孚能科技三大动力电池巨头建立深度合作。其中，即将大规模量产交付的分体式飞行汽车“陆地航母”高压主动力电池由中创新航独家提供。',
+          '二、低压锂电池对飞控（FCC）与电调（ESC）的关键护航：根据亿纬锂能官方披露，亿纬锂能为小鹏汇天提供下一代原理样机低压锂电池。A1 硬件工程组指出，低压锂电池在航空器中主要承担为飞行控制系统（FCC）和电子调速器（ESC）供电的关键职责，哪怕主动力链路出现波动，高可靠低压电池也能确保飞控计算机与姿态执行机构稳定运行，是拿到航空级适航认证的核心防线。'
+        ],
+        tags: ['A1官方拆解', '中创新航', '亿纬锂能', '飞控系统FCC'],
+        sources: [
+          { title: '南方财经网：中国低空经济商业化进阶，订单与供应链量产潮起', url: 'https://www.sfccn.com/2025/5-17/3NMDE0MDRfMjAzMTg3Ng.html' },
+          { title: '亿纬锂能官方公告：亿纬锂能携手小鹏汇天共筑低空新生态', url: 'https://www.evebattery.com/news-943' },
+          { title: '广州市科技局：小鹏汇天供应链布局与陆地航母进展', url: 'http://kjj.gz.gov.cn/xwlb/yw/content/post_10325081.html' }
+        ]
+      },
+      {
+        id: 'sup-official-2',
+        category: 'supply',
+        isOfficial: true,
+        title: 'A1技术内参：从奥托立夫航空安全系统、立邦特种涂料到沃飞长空百亿链主基地，低空供应链全景图',
+        author: 'A1 创新实验室 · 新材料与航电组',
+        date: '2026-11-05',
+        readTime: '6 分钟阅读',
+        summary: '除了电池与电机，低空经济正在吸引全球顶级汽车安全巨头、特种化工材料商入局。A1 创新实验室为您盘点立邦与广汽高域、奥托立夫与小鹏汇天、以及沃飞长空百亿供应链清单背后的产业协同逻辑。',
+        body: [
+          '【A1 官方撰稿 · 创新内参】随着 2025-2026 年多款 eVTOL 进入量产工厂建设与总装下线阶段，低空供应链正在经历一场“航空级严苛标准 + 新能源汽车级规模化降本”的深度融合。',
+          '1. 航空被动安全跨界突破：全球汽车安全系统龙头奥托立夫（Autoliv）已正式与小鹏汇天携手，针对低空飞行器减重与全方位碰撞保护需求，定制研发轻量化安全气囊与约束系统。',
+          '2. 航空特种涂层与复材减重：广汽高域（GOVY）与立邦达成战略合作，共同推进面向 eVTOL 复合材料机身的航空特种涂料研发，兼顾轻量化、耐候抗紫外线与气动减阻性能。',
+          '3. 链主基地释放百亿级配套采购：沃飞长空全球总部基地主体已完工并预计于 2026 年下半年投产，随着其自研 AE200-100 下线并冲刺 2026-2027 年适航取证，作为低空经济“链主”企业已向机体结构、航电飞控、起落架与机载设备供应商释放百亿级供应链合作机遇。'
+        ],
+        tags: ['A1官方内参', '奥托立夫', '立邦航空涂料', '沃飞长空供应链'],
+        sources: [
+          { title: '立邦与广汽高域达成战略合作推进航空涂料研发', url: 'https://www.feiauto.com/tt/1659.html' },
+          { title: '奥托立夫与小鹏汇天携手推动低空出行安全发展', url: 'https://www.feiauto.com/tt/413.html' },
+          { title: '沃飞长空全球总部基地完工与百亿供应链进展', url: 'https://www.feiauto.com/tt/1780.html' }
+        ]
+      },
+      {
+        id: 'sup-ind-1',
+        category: 'supply',
+        isOfficial: false,
+        title: '一架eVTOL从研发图纸到商业载客：专用条件审定下的飞控系统（FCC）与核心零部件验证门槛',
+        author: '行业技术观察 · 飞行汽车之家',
+        date: '2026-10-28',
+        readTime: '5 分钟阅读',
+        summary: '聚焦亿航 EH216-S、峰飞 V2000CG 与小鹏汇天 X3-F 等型号的专用条件审定路径，解析国家低空经济创新中心（深圳）关于飞控系统多余度容错设计的工程化要求。',
+        body: [
+          '一架 eVTOL 从概念图纸走向商业载客，核心在于其供应链零部件能否通过民航局严苛的符合性验证。由于 eVTOL 融合了多旋翼、复合翼或倾转旋翼等新型构型，中国民航局采取了“一事一议”制定专用条件（Special Conditions）的审定策略。',
+          '无论是亿航 EH216-S、峰飞 V2000CG 还是小鹏汇天 X3-F，其专用条件均对飞行控制系统（FCC）、推进系统失效隔离以及碳纤维复合材料结构疲劳寿命提出了明确指标。',
+          '这要求上游供应链企业不仅具备车规级量产能力，更必须建立符合航空 DO-178C（机载软件）和 DO-254（机载电子硬件）标准的正向研发与适航取证追溯体系。'
+        ],
+        tags: ['适航专用条件', '飞控冗余', '航空零部件', '工程验证'],
+        sources: [
+          { title: '飞行汽车之家：一架eVTOL从研发图纸到商业载客要跨过多少道坎', url: 'https://flyingcarevtol.com/news/4576' }
+        ]
+      },
+
+      // ==================== 栏目 3：比赛信息 (competition) ====================
+      {
+        id: 'comp-official-1',
+        category: 'competition',
+        isOfficial: true,
+        title: 'A1赛事全景观察：从“场景验证”走向“系统重构”，数字中国创新大赛低空经济赛道深度复盘与备赛指南',
+        author: 'A1 赛事观察团 · 首席观察员 周牧',
+        date: '2026-11-09',
+        readTime: '6 分钟深度阅读',
+        summary: '数字中国创新大赛·低空经济赛道作为国家级数字经济与低空智能装备融合标杆赛事，已促成 30 余家参赛单位达成实质性产业合作。A1 赛事观察团为您提炼评审委员会最看重的三大核心得分点。',
+        body: [
+          '【A1 官方撰稿 · 赛事深度复盘】在低空经济快速商业化的进程中，国家级专业赛事已不再是单纯的“路演比武”，而是成为地方政府遴选示范场景供应商、验证低空数字管控体系的实战演练场。',
+          '一、从单一场景验证走向空域系统重构：根据新华网与数字中国建设峰会官方报道，“数字中国创新大赛·低空经济赛道”依托无人机、eVTOL 等智能飞行装备，结合 5G、人工智能、大数据与未来网络技术，在庆阳等地开展真实空域环境下的安全飞行与管控演练，单届赛事即促成 30 余家企业与地方政府达成合作。',
+          '二、A1 备赛核心建议：A1 赛事观察团调研发现，当前评委打分权重已明显向“低空智联网协同管控”、“复杂气象与障碍物自主避障”以及“具备清晰商业闭环的支线物流/应急巡检方案”倾斜。建议参赛团队在提交技术方案时，重点展示与地方低空综合监管服务平台的标准化接口对接能力。'
+        ],
+        tags: ['A1官方赛评', '数字中国创新大赛', '低空经济赛道', '备赛指南'],
+        sources: [
+          { title: '新华网：数字中国创新大赛低空经济赛道——从“场景验证”到“系统重构”', url: 'https://www.news.cn/info/20260423/715b59eb7d11448a9502d437c9610319/c.html' },
+          { title: '数字中国建设峰会官网：低空经济赛道启动公告', url: 'https://www.szzg.gov.cn/2025/xwzx/fhzx/202503/t20250303_4982995.htm' }
+        ]
+      },
+      {
+        id: 'comp-official-2',
+        category: 'competition',
+        isOfficial: true,
+        title: 'A1创赛内参：中国创新创业大赛低空经济专业赛（珠海）与2026美团低空具身智能挑战赛奖金与赛道全解析',
+        author: 'A1 创投赛事组',
+        date: '2026-11-01',
+        readTime: '7 分钟阅读',
+        summary: '一次性盘点国内含金量最高的四大低空赛事：工信部火炬中心“中国创新创业大赛低空经济领域专业赛”（珠海）、55万元大奖“2026美团低空经济与具身智能挑战赛”、中国航空创新创业大赛（CAIEC）杭州赛及山东省低空装备产业链大赛。',
+        body: [
+          '【A1 官方撰稿 · 赛事情报内参】为了帮助高校科研团队、初创企业与机载算法极客精准匹配参赛舞台，A1 创投赛事组对 2024-2026 年度国内核心低空赛事进行了分类对比：',
+          '1. 中国创新创业大赛低空经济领域专业赛（落地珠海）：作为首个国家级低空经济专业双创赛事，以“创聚湾区·逐梦低空”为主题连续两年落地珠海，与第十五届中国航展、全球无人系统大会及珠海国际低空经济博览会深度联动，获奖项目可直接对接珠海“天空之城”14条以上低空物流与交通示范航线。',
+          '2. 2026 美团低空经济与具身智能挑战赛（55万元大奖）：聚焦城市复杂末端环境下的无人机自主配送、视觉导航与具身智能作业，设立高达 55 万元奖金池，极适合机载感知与飞控算法团队挑战。',
+          '3. 中国航空创新创业大赛（CAIEC）暨“低空经济+未来空间”领域赛（杭州）与第二届山东省低空装备产业链创新创业大赛：专注航空全产业链双创孵化，为成长型硬科技企业提供产业园区落地与创投基金直通车。'
+        ],
+        tags: ['A1官方内参', '中国创新创业大赛', '美团低空挑战赛', '珠海天空之城'],
+        sources: [
+          { title: '中国网：第十四届中国创新创业大赛低空经济领域专业赛系列推介', url: 'http://zw.china.com.cn/2025-10/24/content_118140424.shtml' },
+          { title: '低空界竞赛频道：2026美团低空经济与具身智能挑战赛及山东低空大赛汇总', url: 'https://www.dikongjie.com/competition/' },
+          { title: '杭州网：中国航空创新创业大赛CAIEC“低空经济+未来空间”领域赛', url: 'https://hznews.hangzhou.com.cn/jingji/content/2025-08/22/content_9065845.htm' },
+          { title: '创聚湾区逐梦低空：第十三届中国创新创业大赛低空经济专业赛', url: 'https://www.laernoc.com/newsinfo/1856148892358414338' }
+        ]
+      },
+      {
+        id: 'comp-ind-1',
+        category: 'competition',
+        isOfficial: false,
+        title: '“创业江苏”科技创业大赛低空经济专项赛与中国创交会低空产业大赛参赛条件及知识产权规范汇总',
+        author: '赛事组委会资讯收录',
+        date: '2026-10-18',
+        readTime: '4 分钟阅读',
+        summary: '梳理长三角与大湾区区域性低空经济专项赛的核心准入条款：参赛项目需具备高成长性与自主知识产权，重点征集新型无人机、eVTOL 关键部组件及低空智联管控软件。',
+        body: [
+          '随着长三角与珠三角低空产业集群竞争升温，多项区域性专项赛事密集开启项目征集。以“创业江苏”科技创业大赛低空经济专项赛及中国创交会首届低空经济产业创新创业大赛为例，赛事明确要求参赛项目需具有创新性和高成长性，拥有清晰自主知识产权且无产权纠纷。',
+          '通过专项赛路演优胜的企业，不仅可获得省市级科技创新创业资金支持，还能优先纳入地方低空经济应用场景首购首用推广目录。'
+        ],
+        tags: ['创业江苏专项赛', '中国创交会', '参赛要求', '项目路演'],
+        sources: [
+          { title: '第十二届“创业江苏”科技创业大赛低空经济专项赛指南', url: 'https://bjultra.com/seeks/87173025191050' },
+          { title: '低空界：中国创交会低空经济产业创新创业大赛', url: 'https://www.dikongjie.com/competition/7/' }
+        ]
+      },
+
+      // ==================== 栏目 4：产品发布 (product) ====================
+      {
+        id: 'prod-official-1',
+        category: 'product',
+        isOfficial: true,
+        title: 'A1旗舰横评：亿航EH216-S、小鹏汇天“陆地航母”、峰飞“盛世龙”与沃兰特VE25四大机型商业化硬核对比',
+        author: 'A1 飞行器评测中心 · 总工程师 陈航',
+        date: '2026-11-12',
+        readTime: '9 分钟深度阅读',
+        summary: '中国 eVTOL 整机研发已形成多旋翼、分体式飞行汽车、复合翼与倾转旋翼四大技术流派。A1 飞行器评测中心从气动构型、适航取证进度、官方定价及海外订单四个维度，对国内四大标杆机型进行全方位量化横评。',
+        body: [
+          '【A1 官方撰稿 · 旗舰机型深度横评】2025至2026年是国产 eVTOL 与飞行汽车从“航展样机”走向“商业交付”的决胜期。A1 飞行器评测中心结合主机厂公开参数、民航局适航审定记录与实际订单数据，为您呈现四大代表机型的硬核对比：',
+          '一、亿航智能 EH216-S（多旋翼无人驾驶载人标杆）：采用 8 轴 16 桨纯电驱动构型，可搭载 2 名乘客，最大允许飞行高度 120 米，续航时间约 25 分钟、航程约 30 公里，官方指导价 239 万元。作为全球首家集齐 TC/PC/AC/OC 四证的机型，亿航在 2024 年即交付 216 架并实现全年盈利；2026 年 2 月更实现了 16 架 EH216-S 与 22580 架 GD4.0 无人机同台编队飞行，非常适合景区低空游览与城市短途接驳。',
+          '二、小鹏汇天“陆地航母”（分体式个人飞行汽车开创者）：采用“陆行体 + 飞行体”分体式构型，在广州实现量产下线，预估售价约 128 万元起，并已在海外斩获中东地区 600 台飞行汽车大单，率先打开高净值个人户外飞行与越野救援市场。',
+          '三、峰飞航空“盛世龙”与沃兰特 VE25-100（城际复合翼大载重主力）：峰飞采取“先载货后载人”务实路径，货运版 V2000CG 率先落地，载人版“盛世龙”定价约 199 万元；与此同时，沃兰特 VE25 eVTOL 已顺利完成首次有人驾驶飞行，广汽高域 GOVY AirCab 亮相进博会后半年订单突破千台，共同构筑起中短途城际空中出行的主力梯队。'
+        ],
+        tags: ['A1官方横评', '亿航EH216-S', '小鹏汇天陆地航母', '峰飞盛世龙', '沃兰特VE25'],
+        sources: [
+          { title: '飞行汽车之家：中国eVTOL整机公司创始人及代表机型对比', url: 'https://flyingcarevtol.com/news/4613' },
+          { title: '低空产业观察：市面上各大eVTOL价格对比（小鹏汇天/亿航/峰飞）', url: 'https://yuanxiangsky.com/N/255.html' },
+          { title: '亿航智能官网：16架EH216-S与22580架GD4.0无人机编队表演', url: 'https://www.ehang.com/news/1343.html' },
+          { title: '飞行汽车网：小鹏汇天中东600台订单与沃兰特VE25有人驾驶首飞', url: 'https://www.feiauto.com/index.php?m=home&c=Tags&a=lists&tagid=2707' },
+          { title: '飞行汽车网：亿航2024年交付216架实现盈利报道', url: 'https://www.feiauto.com/tt/1557.html' }
+        ]
+      },
+      {
+        id: 'prod-official-2',
+        category: 'product',
+        isOfficial: true,
+        title: 'A1新机首发档案：沃飞长空AE200-100下线与广汽高域GOVY AirCab破千订单背后的技术路线演进',
+        author: 'A1 航空工程编辑部',
+        date: '2026-11-04',
+        readTime: '6 分钟阅读',
+        summary: '剖析沃飞长空自研倾转旋翼 eVTOL AE200-100 下线与广汽高域 GOVY AirCab 进博会首发表现，对比全球 400 余家飞行汽车企业中中国主机厂的工程化迭代优势。',
+        body: [
+          '【A1 官方撰稿 · 新机档案】根据香港贸发局经贸研究与智研咨询统计，全球目前共有 400 多家飞行汽车研发企业，涵盖 Joby、Archer、亿航智能、峰飞航空、小鹏汇天、沃飞长空、沃兰特及广汽高域等。A1 航空工程编辑部重点追踪了近期两款重磅新机的首发与量产进展：',
+          '1. 沃飞长空 AE200-100 总装下线：作为国内倾转旋翼构型的代表作，AE200-100 已正式下线并全面冲刺 2026-2027 年适航取证。倾转旋翼构型兼具直升机垂直起降与固定翼飞机高速巡航优势，但对倾转机构机械可靠性与过渡态飞控律要求极高，AE200-100 的下线标志着国产倾转旋翼工程化取得关键突破。',
+          '2. 广汽高域 GOVY AirCab 订单破千：依托大型车企成熟的电动化与智能座舱供应链，广汽高域推出的 GOVY AirCab 亮相中国国际进口博览会，并在半年内斩获破千台意向订单，展现出车企系主机厂强大的商业化整合能力。'
+        ],
+        tags: ['A1新机档案', '沃飞长空AE200', '广汽高域GOVY', '倾转旋翼'],
+        sources: [
+          { title: '沃飞长空AE200-100下线与全球总部基地进展', url: 'https://www.feiauto.com/tt/1780.html' },
+          { title: '广汽高域GOVY AirCab亮相进博会半年订单破千', url: 'https://www.feiauto.com/tt/1659.html' },
+          { title: '香港贸发局经贸研究：飞行汽车瞩目登场，全球400多家研发企业竞逐', url: 'https://research.hktdc.com/sc/article/MTk0NjY1NTY5MA' }
+        ]
+      },
+      {
+        id: 'prod-ind-1',
+        category: 'product',
+        isOfficial: false,
+        title: '亿航智能EH216-S完成墨西哥及拉丁美洲首次载人飞行，国产无人驾驶eVTOL加速全球商业化交付',
+        author: '企业官方发布 · 亿航智能 (EHang)',
+        date: '2026-10-20',
+        readTime: '4 分钟阅读',
+        summary: '在墨西哥航空航天博览会（FAMEX）支持下，亿航智能旗舰产品 EH216-S 成功完成墨西哥及拉丁美洲首次无人驾驶载人飞行，进一步拓展海外新兴市场。',
+        body: [
+          '全球领先的先进空中交通（AAM）科技企业亿航智能（Nasdaq: EH）宣布，其旗舰无人驾驶载人航空器 EH216-S 在墨西哥顺利完成首飞，这也是拉丁美洲历史上首次无人驾驶载人 eVTOL 飞行。',
+          '在墨西哥航空航天博览会（FAMEX）及当地民航监管部门的见证下，Air Mobility 首席执行官 Cristina Lara 成为墨西哥及拉丁美洲首位乘坐无人驾驶载人 eVTOL 的女性乘客。',
+          '同时，汇天飞行汽车（Aridge / 小鹏汇天）也在加速推进全球化品牌布局，中国低空飞行器产品正从国内示范区走向中东、拉美、东南亚与欧洲市场。'
+        ],
+        tags: ['亿航出海', '拉美首飞', 'EH216-S', '全球商业化'],
+        sources: [
+          { title: '亿航智能官网：EH216-S完成墨西哥及拉丁美洲首次载人飞行', url: 'https://www.ehang.com/cn/news/1365.html' },
+          { title: '汇天飞行汽车官方网站', url: 'https://cn.aridge.com/' },
+          { title: '亿航EH216-S与旅航者X2参数对比', url: 'https://www.feiauto.com/tt/426.html' }
+        ]
+      }
+    ];
+
+    // 4. 全局应用状态 (`state`)
+    const state = {
+      activeModule: 'low-altitude', // 'low-altitude' 或预留板块 ID
+      activeCategory: 'all',        // 'all' | 'policy' | 'supply' | 'competition' | 'product'
+      sourceFilter: 'all',          // 'all' | 'official' | 'industry'
+      searchQuery: '',
+      articles: [...INITIAL_ARTICLES],
+      bookmarks: ['pol-official-1', 'prod-official-1'],
+      activeArticleId: null,
+      customModules: [
+        { name: '06 低空物流与无人机商城', cols: ['机型比价', '航线货运报价', '二手航材流转', 'A1官方导购评测'] }
+      ]
+    };
+
+    // 尝试从 localStorage 恢复数据
+    try {
+      const savedBookmarks = localStorage.getItem('a1_portal_bookmarks');
+      if (savedBookmarks) {
+        state.bookmarks = JSON.parse(savedBookmarks);
+      }
+      const savedUserArticles = localStorage.getItem('a1_portal_user_articles');
+      if (savedUserArticles) {
+        const parsed = JSON.parse(savedUserArticles);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          state.articles = [...parsed, ...INITIAL_ARTICLES];
+        }
+      }
+    } catch (e) {
+      // 忽略沙盒存储限制
+    }
+
+    function saveStateToStorage() {
+      try {
+        localStorage.setItem('a1_portal_bookmarks', JSON.stringify(state.bookmarks));
+        const customCreated = state.articles.filter(a => a.isUserCreated);
+        localStorage.setItem('a1_portal_user_articles', JSON.stringify(customCreated));
+      } catch (e) {
+        // 忽略沙盒存储限制
+      }
+    }
+
+    // 工具函数：显示轻提示
+    let toastTimer = null;
+    function showToast(msg) {
+      const el = document.getElementById('toastNotice');
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.remove('hidden');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        el.classList.add('hidden');
+      }, 2600);
+    }
+
+    // 5. 视图切换：在【01 低空信息站】与【预留板块蓝图】之间切换
+    function switchModule(moduleId) {
+      state.activeModule = moduleId;
+      const viewLowAltitude = document.getElementById('viewLowAltitude');
+      const viewReserved = document.getElementById('viewReservedModule');
+
+      // 更新顶部及移动端板块游戏机按键样式
+      document.querySelectorAll('.module-tab-btn').forEach(btn => {
+        const m = btn.getAttribute('data-module');
+        if (btn.closest('#mobileModuleBar') || btn.closest('nav')) {
+          if (m === moduleId) {
+            btn.className = 'module-tab-btn shrink-0 px-3.5 py-1.5 rounded-lg text-xs flex items-center gap-1.5 bg-yellow-400 text-black';
+          } else {
+            btn.className = 'module-tab-btn shrink-0 px-2.5 py-1.5 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1';
+          }
+        }
+      });
+
+      if (moduleId === 'low-altitude') {
+        viewLowAltitude.classList.remove('hidden');
+        viewReserved.classList.add('hidden');
+      } else {
+        viewLowAltitude.classList.add('hidden');
+        viewReserved.classList.remove('hidden');
+        renderReservedModuleView(moduleId);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function renderReservedModuleView(moduleId) {
+      const meta = RESERVED_MODULES[moduleId] || RESERVED_MODULES['module-custom'];
+      document.getElementById('reservedBadgeCode').textContent = meta.code;
+      document.getElementById('reservedPhaseTag').textContent = meta.phase;
+      document.getElementById('reservedTitle').textContent = meta.title;
+      document.getElementById('reservedDesc').textContent = meta.desc;
+
+      const grid = document.getElementById('reservedSubcolumnsGrid');
+      grid.innerHTML = meta.subcolumns.map((col, idx) => `
+        <div class="arcade-card bg-white rounded-xl p-4 flex flex-col justify-between space-y-3">
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-[11px] font-black text-black bg-yellow-300 px-2 py-0.5 rounded border border-black">预留栏目 0${idx + 1}</span>
+              <span class="px-2 py-0.5 rounded text-[10px] bg-yellow-100 text-black border border-black font-bold">${col.status}</span>
+            </div>
+            <h3 class="text-sm font-black text-black pt-1">${col.name}</h3>
+            <p class="text-xs text-black/80 font-medium leading-relaxed">${col.detail}</p>
+          </div>
+          <div class="pt-2 border-t-2 border-black text-[11px] text-black font-bold flex items-center justify-between">
+            <span>包含 A1 官方撰稿位</span>
+            <span class="px-1.5 py-0.5 rounded bg-yellow-300 border border-black font-black">● 接口就绪</span>
+          </div>
+        </div>
+      `).join('');
+
+      renderCustomModulesList();
+    }
+
+    function renderCustomModulesList() {
+      const container = document.getElementById('customModulesList');
+      if (!container) return;
+      container.innerHTML = state.customModules.map((item) => `
+        <div class="p-3 rounded-xl bg-yellow-50 border-2 border-black shadow-[3px_3px_0_#111] flex flex-col gap-1.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-black text-black">${item.name}</span>
+            <span class="text-[10px] px-2 py-0.5 rounded bg-yellow-300 text-black border border-black font-black">已预留进路线图</span>
+          </div>
+          <div class="flex flex-wrap gap-1.5">
+            ${item.cols.map(c => `<span class="text-[11px] px-2 py-0.5 rounded bg-white text-black border border-black font-bold">${c}</span>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 6. 统计指标与文章列表渲染
+    function updateCountsAndOverview() {
+      const categories = ['policy', 'supply', 'competition', 'product'];
+      categories.forEach(cat => {
+        const catArticles = state.articles.filter(a => a.category === cat);
+        const offArticles = catArticles.filter(a => a.isOfficial);
+
+        document.querySelectorAll(`[data-total-count="${cat}"]`).forEach(el => {
+          el.textContent = catArticles.length;
+        });
+        document.querySelectorAll(`[data-cat-count="${cat}"]`).forEach(el => {
+          el.textContent = `${catArticles.length}篇`;
+        });
+        document.querySelectorAll(`[data-official-count="${cat}"]`).forEach(el => {
+          el.textContent = `含 ${offArticles.length} 篇A1官方撰稿`;
+        });
+      });
+
+      const allBadge = document.getElementById('countAllBadge');
+      if (allBadge) allBadge.textContent = state.articles.length;
+
+      const bookmarkBadge = document.getElementById('bookmarkCountBadge');
+      if (bookmarkBadge) bookmarkBadge.textContent = state.bookmarks.length;
+    }
+
+    function getFilteredArticles() {
+      return state.articles.filter(article => {
+        const matchCat = state.activeCategory === 'all' || article.category === state.activeCategory;
+        const matchSource =
+          state.sourceFilter === 'all' ||
+          (state.sourceFilter === 'official' && article.isOfficial) ||
+          (state.sourceFilter === 'industry' && !article.isOfficial);
+
+        const q = state.searchQuery.trim().toLowerCase();
+        const matchQuery = !q ||
+          article.title.toLowerCase().includes(q) ||
+          article.summary.toLowerCase().includes(q) ||
+          article.author.toLowerCase().includes(q) ||
+          article.tags.some(t => t.toLowerCase().includes(q)) ||
+          article.body.some(p => p.toLowerCase().includes(q));
+
+        return matchCat && matchSource && matchQuery;
+      });
+    }
+
+    function renderArticles() {
+      updateCountsAndOverview();
+
+      // 更新栏目 Tab 游戏按键高亮
+      document.querySelectorAll('.cat-tab-btn').forEach(btn => {
+        const cat = btn.getAttribute('data-cat');
+        if (cat === state.activeCategory) {
+          btn.className = 'cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-yellow-400 text-black';
+        } else {
+          btn.className = 'cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-white text-black';
+        }
+      });
+
+      // 更新来源过滤按钮高亮
+      document.querySelectorAll('.source-filter-btn').forEach(btn => {
+        const src = btn.getAttribute('data-source');
+        if (src === state.sourceFilter) {
+          btn.className = 'source-filter-btn px-2.5 py-1 rounded-lg text-xs bg-yellow-400 text-black';
+        } else {
+          btn.className = 'source-filter-btn px-2.5 py-1 rounded-lg text-xs bg-white text-black';
+        }
+      });
+
+      // 更新顶部栏目说明文字
+      const meta = CATEGORY_META[state.activeCategory] || CATEGORY_META.all;
+      document.getElementById('activeCatTitle').textContent = `当前浏览：${meta.label}`;
+      document.getElementById('activeCatDesc').textContent = meta.desc;
+
+      const filtered = getFilteredArticles();
+      const officialCount = filtered.filter(a => a.isOfficial).length;
+      document.getElementById('filteredCountText').textContent = filtered.length;
+      document.getElementById('filteredOfficialCountText').textContent = officialCount;
+
+      const grid = document.getElementById('articlesGrid');
+      const emptyBox = document.getElementById('emptyStateBox');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyBox.classList.remove('hidden');
+        return;
+      }
+
+      emptyBox.classList.add('hidden');
+      grid.innerHTML = filtered.map(article => {
+        const catInfo = CATEGORY_META[article.category];
+        const isBookmarked = state.bookmarks.includes(article.id);
+        const cardClass = article.isOfficial
+          ? 'arcade-card arcade-card-official'
+          : 'arcade-card bg-white';
+
+        const officialRibbon = article.isOfficial
+          ? `<span class="px-2.5 py-0.5 rounded-md text-[11px] font-black bg-black text-yellow-300 border border-black flex items-center gap-1" style="color:#FACC15 !important;">
+               <span>★ A1 官方撰稿</span>
+             </span>`
+          : `<span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-gray-100 text-black border-[1.5px] border-black">
+               行业权威收录
+             </span>`;
+
+        return `
+          <article class="${cardClass} rounded-2xl p-5 flex flex-col justify-between">
+            <div class="space-y-3">
+              <!-- 顶部徽章行 -->
+              <div class="flex items-center justify-between gap-2 pb-2 border-b-2 border-black">
+                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-black border-[1.5px] ${catInfo.badgeClass}">
+                  ${catInfo.label}
+                </span>
+                ${officialRibbon}
+              </div>
+
+              <!-- 标题 -->
+              <h3 data-open-article="${article.id}" class="cursor-pointer text-base font-black text-black hover:underline decoration-2 leading-snug">
+                ${article.title}
+              </h3>
+
+              <!-- 摘要 -->
+              <p class="text-xs text-black/85 font-medium leading-relaxed line-clamp-3">
+                ${article.summary}
+              </p>
+
+              <!-- 标签组 -->
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${article.tags.map(t => `<span class="text-[11px] px-2 py-0.5 rounded bg-yellow-100 text-black border border-black font-bold">#${t}</span>`).join('')}
+              </div>
+            </div>
+
+            <!-- 底部作者、参考信源与游戏机按键栏 -->
+            <div class="mt-5 pt-3.5 border-t-2 border-black space-y-3">
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="text-black font-extrabold truncate max-w-[70%]">
+                  ✍️ ${article.author}
+                </span>
+                <span class="text-black font-bold bg-white px-1.5 py-0.5 rounded border border-black shrink-0">${article.date}</span>
+              </div>
+
+              <!-- 真实外部参考链接直达 + 游戏机按钮 -->
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2">
+                  <button type="button" data-open-article="${article.id}" class="arcade-btn arcade-btn-yellow px-3 py-1.5 rounded-lg text-xs">
+                    按下阅读全文
+                  </button>
+                  ${article.sources && article.sources[0] ? `
+                    <a href="${article.sources[0].url}" target="_blank" rel="noopener noreferrer" class="arcade-btn arcade-btn-cream px-2.5 py-1.5 rounded-lg text-[11px] truncate max-w-[115px]" title="${article.sources[0].title}">
+                      信源核验 ↗
+                    </a>
+                  ` : ''}
+                </div>
+
+                <button type="button" data-toggle-bookmark="${article.id}" class="arcade-btn ${isBookmarked ? 'arcade-btn-yellow' : 'arcade-btn-cream'} px-2.5 py-1.5 rounded-lg text-xs" title="收藏/取消收藏">
+                  ${isBookmarked ? '★ 已收藏' : '☆ 收藏'}
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // 7. 深度阅读器弹窗逻辑
+    function openArticleReader(articleId) {
+      const article = state.articles.find(a => a.id === articleId);
+      if (!article) return;
+      state.activeArticleId = articleId;
+
+      const catInfo = CATEGORY_META[article.category];
+      document.getElementById('readerCatBadge').textContent = catInfo.label;
+
+      const offBadge = document.getElementById('readerOfficialBadge');
+      if (article.isOfficial) {
+        offBadge.textContent = '★ A1 网站官方原创撰稿';
+        offBadge.className = 'px-2.5 py-0.5 rounded-md text-xs font-black bg-black text-yellow-300';
+      } else {
+        offBadge.textContent = '行业权威信源收录';
+        offBadge.className = 'px-2.5 py-0.5 rounded-md text-xs font-bold bg-white text-black border-2 border-black';
+      }
+
+      document.getElementById('readerTitle').textContent = article.title;
+      document.getElementById('readerAuthor').textContent = `✍️ ${article.author}`;
+      document.getElementById('readerDate').textContent = `📅 发布日期：${article.date}`;
+      document.getElementById('readerReadTime').textContent = `⏱️ ${article.readTime}`;
+      document.getElementById('readerSummary').textContent = article.summary;
+
+      const bodyEl = document.getElementById('readerBody');
+      bodyEl.innerHTML = article.body.map(para => `<p class="leading-relaxed text-black">${para}</p>`).join('');
+
+      const sourcesEl = document.getElementById('readerSourcesList');
+      if (article.sources && article.sources.length > 0) {
+        sourcesEl.innerHTML = article.sources.map(s => `
+          <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="arcade-btn arcade-btn-yellow px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5">
+            <span>${s.title}</span>
+            <span>↗</span>
+          </a>
+        `).join('');
+      } else {
+        sourcesEl.innerHTML = `<span class="text-xs font-bold text-black">A1 官方内部一手调研文稿</span>`;
+      }
+
+      updateReaderBookmarkBtn();
+
+      const modal = document.getElementById('articleReaderModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function updateReaderBookmarkBtn() {
+      const btn = document.getElementById('readerBookmarkBtn');
+      if (!btn || !state.activeArticleId) return;
+      const isBookmarked = state.bookmarks.includes(state.activeArticleId);
+      btn.innerHTML = isBookmarked ? '<span>★ 已加入收藏夹</span>' : '<span>☆ 收藏文章</span>';
+      btn.className = isBookmarked
+        ? 'arcade-btn arcade-btn-yellow px-3 py-1 rounded-lg text-xs flex items-center gap-1'
+        : 'arcade-btn arcade-btn-cream px-3 py-1 rounded-lg text-xs flex items-center gap-1';
+    }
+
+    function toggleBookmark(articleId) {
+      const idx = state.bookmarks.indexOf(articleId);
+      if (idx >= 0) {
+        state.bookmarks.splice(idx, 1);
+        playArcadeSound('press');
+        showToast('已从收藏夹移除');
+      } else {
+        state.bookmarks.push(articleId);
+        playArcadeSound('coin');
+        showToast('★ 已加入 A1 收藏夹卡带！');
+      }
+      saveStateToStorage();
+      renderArticles();
+      updateReaderBookmarkBtn();
+      renderBookmarksModalList();
+    }
+
+    function renderBookmarksModalList() {
+      const container = document.getElementById('bookmarksListContainer');
+      if (!container) return;
+      const bookmarkedArticles = state.articles.filter(a => state.bookmarks.includes(a.id));
+      if (bookmarkedArticles.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-xs font-bold text-black">
+            您的收藏夹暂无文章，按下任意文章卡片右下角的“☆ 收藏”即可保存重点文章。
+          </div>
+        `;
+        return;
+      }
+      container.innerHTML = bookmarkedArticles.map(a => {
+        const catInfo = CATEGORY_META[a.category];
+        return `
+          <div class="p-3.5 rounded-xl bg-yellow-50 border-2 border-black shadow-[4px_4px_0_#111] flex items-start justify-between gap-3">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] px-2 py-0.5 rounded bg-yellow-300 text-black border border-black font-black">${catInfo.label}</span>
+                ${a.isOfficial ? '<span class="text-[10px] px-2 py-0.5 rounded bg-black text-yellow-300 font-black" style="color:#FACC15 !important;">★ A1官方</span>' : ''}
+              </div>
+              <h4 data-open-article="${a.id}" class="cursor-pointer text-xs sm:text-sm font-black text-black hover:underline">${a.title}</h4>
+              <p class="text-[11px] font-bold text-black/75">${a.author} · ${a.date}</p>
+            </div>
+            <button type="button" data-toggle-bookmark="${a.id}" class="arcade-btn arcade-btn-cream px-2 py-1 rounded text-xs shrink-0">移除</button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // 8. 滚动吸附电梯与 IntersectionObserver 状态同步
+    function initSnapObserver() {
+      const stageIds = ['stage-hero', 'stage-kpi', 'stage-console', 'stage-specs', 'stage-matrix'];
+      const navDots = document.querySelectorAll('[data-snap-target]');
+
+      navDots.forEach(dot => {
+        dot.addEventListener('click', () => {
+          playArcadeSound('press');
+          const targetId = dot.getAttribute('data-snap-target');
+          if (state.activeModule !== 'low-altitude') {
+            switchModule('low-altitude');
+          }
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const id = entry.target.id;
+              navDots.forEach(dot => {
+                dot.classList.toggle('active-stage', dot.getAttribute('data-snap-target') === id);
+              });
+            }
+          });
+        }, { threshold: 0.25 });
+
+        stageIds.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) observer.observe(el);
+        });
+      }
+    }
+
+    // 9. 绑定全局事件监听
+    function initEvents() {
+      // 全局游戏机按钮按压音效触发
+      document.body.addEventListener('mousedown', (e) => {
+        if (e.target.closest('button, a, .arcade-card')) {
+          playArcadeSound('press');
+        }
+      });
+
+      // 音效开关按钮
+      document.getElementById('toggleSoundBtn').addEventListener('click', () => {
+        soundEnabled = !soundEnabled;
+        document.getElementById('soundIconSpan').textContent = soundEnabled ? '🔊' : '🔇';
+        showToast(soundEnabled ? '已开启游戏机按键微动音效' : '已静音按键音效');
+      });
+
+      // 品牌 Logo 点击回到 01 低空信息站
+      document.getElementById('brandHomeBtn').addEventListener('click', () => {
+        switchModule('low-altitude');
+        state.activeCategory = 'all';
+        state.sourceFilter = 'all';
+        renderArticles();
+      });
+
+      // 顶层板块导航切换
+      document.querySelectorAll('.module-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const mod = btn.getAttribute('data-module');
+          if (mod) switchModule(mod);
+        });
+      });
+
+      // 移动端板块矩阵按钮跳转至底部预留矩阵或切换视图
+      document.getElementById('openMatrixDrawerBtn').addEventListener('click', () => {
+        if (state.activeModule === 'low-altitude') {
+          switchModule('module-custom');
+        } else {
+          switchModule('low-altitude');
+        }
+      });
+
+      // 返回 01 低空信息站按钮
+      document.getElementById('backToLowAltitudeBtn').addEventListener('click', () => {
+        switchModule('low-altitude');
+      });
+
+      // 栏目 Tab 切换
+      document.querySelectorAll('.cat-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.activeCategory = btn.getAttribute('data-cat');
+          renderArticles();
+        });
+      });
+
+      // Hero 快捷栏目按钮 & 概览指标卡点击过滤
+      document.querySelectorAll('.quick-cat-btn, .cat-overview-card').forEach(el => {
+        el.addEventListener('click', () => {
+          const cat = el.getAttribute('data-quick-cat') || el.getAttribute('data-card-cat');
+          if (cat) {
+            state.activeCategory = cat;
+            renderArticles();
+            document.getElementById('stage-console').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      // 来源双轨切换（全部 / A1官方撰稿 / 行业收录）
+      document.querySelectorAll('.source-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          state.sourceFilter = btn.getAttribute('data-source');
+          renderArticles();
+        });
+      });
+
+      // 实时搜索框
+      const searchInput = document.getElementById('articleSearchInput');
+      const clearBtn = document.getElementById('clearSearchBtn');
+      searchInput.addEventListener('input', (e) => {
+        state.searchQuery = e.target.value;
+        clearBtn.classList.toggle('hidden', !state.searchQuery);
+        renderArticles();
+      });
+      clearBtn.addEventListener('click', () => {
+        state.searchQuery = '';
+        searchInput.value = '';
+        clearBtn.classList.add('hidden');
+        renderArticles();
+      });
+
+      // 重置筛选
+      document.getElementById('resetFiltersBtn').addEventListener('click', () => {
+        state.activeCategory = 'all';
+        state.sourceFilter = 'all';
+        state.searchQuery = '';
+        searchInput.value = '';
+        clearBtn.classList.add('hidden');
+        renderArticles();
+      });
+
+      // 事件委托：打开文章阅读器 & 切换收藏
+      document.body.addEventListener('click', (e) => {
+        const openBtn = e.target.closest('[data-open-article]');
+        if (openBtn) {
+          const id = openBtn.getAttribute('data-open-article');
+          document.getElementById('bookmarksModal').classList.add('hidden');
+          document.getElementById('bookmarksModal').classList.remove('flex');
+          openArticleReader(id);
+          return;
+        }
+
+        const bookmarkBtn = e.target.closest('[data-toggle-bookmark]');
+        if (bookmarkBtn) {
+          const id = bookmarkBtn.getAttribute('data-toggle-bookmark');
+          toggleBookmark(id);
+        }
+      });
+
+      // 关闭阅读器弹窗
+      document.getElementById('closeReaderModalBtn').addEventListener('click', () => {
+        const modal = document.getElementById('articleReaderModal');
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      });
+
+      // 阅读器内收藏与复制分享
+      document.getElementById('readerBookmarkBtn').addEventListener('click', () => {
+        if (state.activeArticleId) toggleBookmark(state.activeArticleId);
+      });
+
+      document.getElementById('readerShareBtn').addEventListener('click', () => {
+        const article = state.articles.find(a => a.id === state.activeArticleId);
+        if (!article) return;
+        const shareText = `【A1 低空信息站】${article.title} — ${article.author}：${article.summary}`;
+        try {
+          const temp = document.createElement('textarea');
+          temp.value = shareText;
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          document.body.removeChild(temp);
+          playArcadeSound('coin');
+          showToast('文章引用摘要已复制到剪贴板');
+        } catch (err) {
+          showToast('已生成引用摘要');
+        }
+      });
+
+      // 阅读器上下篇切换
+      document.getElementById('prevArticleBtn').addEventListener('click', () => {
+        const list = getFilteredArticles();
+        const idx = list.findIndex(a => a.id === state.activeArticleId);
+        if (idx > 0) {
+          openArticleReader(list[idx - 1].id);
+        } else if (list.length > 0) {
+          openArticleReader(list[list.length - 1].id);
+        }
+      });
+
+      document.getElementById('nextArticleBtn').addEventListener('click', () => {
+        const list = getFilteredArticles();
+        const idx = list.findIndex(a => a.id === state.activeArticleId);
+        if (idx >= 0 && idx < list.length - 1) {
+          openArticleReader(list[idx + 1].id);
+        } else if (list.length > 0) {
+          openArticleReader(list[0].id);
+        }
+      });
+
+      // A1 官方撰稿发布工作台弹窗开关与提交
+      const editorModal = document.getElementById('editorModal');
+      document.getElementById('openEditorModalBtn').addEventListener('click', () => {
+        if (state.activeCategory !== 'all') {
+          document.getElementById('formCategorySelect').value = state.activeCategory;
+        }
+        editorModal.classList.remove('hidden');
+        editorModal.classList.add('flex');
+      });
+
+      const closeEditor = () => {
+        editorModal.classList.add('hidden');
+        editorModal.classList.remove('flex');
+      };
+      document.getElementById('closeEditorModalBtn').addEventListener('click', closeEditor);
+      document.getElementById('cancelEditorBtn').addEventListener('click', closeEditor);
+
+      document.getElementById('publishArticleForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const category = document.getElementById('formCategorySelect').value;
+        const author = document.getElementById('formAuthorInput').value.trim() || 'A1 官方研究院';
+        const title = document.getElementById('formTitleInput').value.trim();
+        const summary = document.getElementById('formSummaryInput').value.trim();
+        const bodyRaw = document.getElementById('formBodyInput').value.trim();
+        const tagsRaw = document.getElementById('formTagsInput').value.trim();
+        const sourceUrl = document.getElementById('formSourceUrlInput').value.trim();
+
+        if (!title || !summary || !bodyRaw) return;
+
+        const newArticle = {
+          id: 'official-custom-' + Date.now(),
+          category,
+          isOfficial: true,
+          isUserCreated: true,
+          title: title.startsWith('A1') ? title : `A1官方专稿：${title}`,
+          author,
+          date: '2026-11-13',
+          readTime: '6 分钟阅读',
+          summary,
+          body: bodyRaw.split(/\n+/).filter(Boolean),
+          tags: tagsRaw ? tagsRaw.split(/[,，]/).map(s => s.trim()).filter(Boolean) : ['A1官方原创', '低空信息站'],
+          sources: sourceUrl ? [{ title: '官方参考信源链接', url: sourceUrl }] : []
+        };
+
+        state.articles.unshift(newArticle);
+        state.activeModule = 'low-altitude';
+        state.activeCategory = category;
+        saveStateToStorage();
+        switchModule('low-altitude');
+        renderArticles();
+        closeEditor();
+        e.target.reset();
+        document.getElementById('formAuthorInput').value = 'A1 官方研究院 · 特约主笔';
+        document.getElementById('formTagsInput').value = 'A1官方特稿, 低空经济, 深度研报';
+        playArcadeSound('coin');
+        showToast('🕹️ A1 官方原创文章卡带已成功发布！');
+      });
+
+      // 收藏夹弹窗开关
+      const bookmarksModal = document.getElementById('bookmarksModal');
+      document.getElementById('openBookmarksBtn').addEventListener('click', () => {
+        renderBookmarksModalList();
+        bookmarksModal.classList.remove('hidden');
+        bookmarksModal.classList.add('flex');
+      });
+      document.getElementById('closeBookmarksModalBtn').addEventListener('click', () => {
+        bookmarksModal.classList.add('hidden');
+        bookmarksModal.classList.remove('flex');
+      });
+
+      // 自定义预留板块登记表单
+      document.getElementById('customModuleForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameInput = document.getElementById('newModuleNameInput');
+        const colsInput = document.getElementById('newModuleColsInput');
+        const name = nameInput.value.trim();
+        const cols = colsInput.value.split(/[,，]/).map(s => s.trim()).filter(Boolean);
+        if (!name || cols.length === 0) return;
+
+        state.customModules.unshift({
+          name: `0${state.customModules.length + 6} ${name}`,
+          cols
+        });
+        renderCustomModulesList();
+        nameInput.value = '';
+        colsInput.value = '';
+        playArcadeSound('coin');
+        showToast(`🕹️ 已将【${name}】添加至 A1 预留板块蓝图！`);
+      });
+    }
+
+    // 初始化启动
+    window.addEventListener('DOMContentLoaded', () => {
+      initEvents();
+      initSnapObserver();
+      renderArticles();
+    });
+  </script>
+</body>
+</html>
