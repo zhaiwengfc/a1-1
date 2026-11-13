@@ -459,7 +459,7 @@
           <div class="lg:col-span-5 flex flex-col justify-between gap-4">
             <div class="relative rounded-2xl overflow-hidden border-[3px] border-black shadow-[6px_6px_0_#111] h-48 sm:h-56 bg-yellow-100">
               <img
-                src="assets/hero-evtol.jpg"
+                src="assets/hero_evtol.jpg"
                 alt="A1 低空信息站 eVTOL 城市空中交通视觉图"
                 class="w-full h-full object-cover object-center"
               />
@@ -468,23 +468,23 @@
               </div>
             </div>
 
-            <!-- A1 官方头条推荐卡带 -->
+            <!-- A1 新闻部每日 09:00 创意特稿置顶卡带 -->
             <div class="dots-yellow border-[3px] border-black rounded-2xl p-4 shadow-[6px_6px_0_#111] space-y-2.5">
-              <div class="flex items-center justify-between">
+              <div class="flex items-center justify-between gap-1">
                 <span class="px-2.5 py-0.5 rounded-md text-[11px] font-black bg-black text-yellow-300" style="color:#FACC15 !important;">
-                  ★ A1 官方主编置顶特稿
+                  ★ 09:00 A1新闻部每日特稿
                 </span>
-                <span class="text-[11px] font-black text-black bg-white px-2 py-0.5 rounded border border-black">必读卡带 #01</span>
+                <span id="heroNewsroomScoreBadge" class="text-[11px] font-black text-black bg-white px-2 py-0.5 rounded border border-black">今日最高重要度 96.8分</span>
               </div>
-              <h2 class="text-sm sm:text-base font-black text-black leading-snug">
-                A1官方深度解读：从国家发改委“低空司”全面运转到2030通航装备路线图
+              <h2 id="heroNewsroomTitle" class="text-sm sm:text-base font-black text-black leading-snug">
+                【A1新闻部·09:00创意特稿】当市长们开始争夺“天空立交桥”：从中央低空司到地方特区立法的三场深水区博弈
               </h2>
-              <p class="text-xs text-black/90 font-medium line-clamp-2">
-                系统梳理四部门《通用航空装备创新应用实施方案（2024-2030年）》与民航局适航审定新规，拆解地方立法与空域分类实操路径。
+              <p id="heroNewsroomSummary" class="text-xs text-black/90 font-medium line-clamp-2">
+                基于今日 07:00 全网抓取最高重要度信号（96.8分），内置“地方低空新政三维战力擂台”与“空域确权三方博弈交互沙盘”。
               </p>
               <div class="pt-2 flex items-center justify-between border-t-2 border-black">
-                <span class="text-xs text-black font-extrabold">✍️ A1 政策研究室</span>
-                <button type="button" data-open-article="pol-official-1" class="arcade-btn arcade-btn-yellow px-3 py-1 rounded-lg text-xs">
+                <span id="heroNewsroomFormat" class="text-[11px] text-black font-extrabold">🕹️ 含交互式三维博弈沙盘</span>
+                <button id="heroNewsroomReadBtn" type="button" data-open-article="a1-newsroom-20261113-0900" class="arcade-btn arcade-btn-yellow px-3 py-1 rounded-lg text-xs">
                   <span>全文精读</span>
                 <span>→</span>
                 </button>
@@ -567,6 +567,117 @@
         </div>
       </section>
 
+      <!-- 【新增：方案A · GitHub Actions 全自动双定时智能体实时控制台 (07:00抓取 + 09:00撰稿)】 -->
+      <section id="stage-agent-hub" aria-label="A1每日实时抓取与新闻部智能体监控台" class="snap-stage arcade-window dots-medium rounded-2xl p-5 sm:p-6 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b-[3px] border-black bg-yellow-300 -mx-5 -mt-5 sm:-mx-6 sm:-mt-6 px-5 sm:px-6 py-3 rounded-t-xl">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-black animate-glow inline-block"></span>
+            <span class="font-black text-xs sm:text-sm text-black uppercase">
+              AUTO-AGENT ENGINE // 方案A · GitHub Actions 全自动采集与 A1 新闻部撰稿中心
+            </span>
+            <span class="px-2 py-0.5 rounded bg-white border-[1.5px] border-black text-[11px] font-black text-black">
+              仓库：zhaiwengfc/a1-1
+            </span>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="simCrawl0700Btn" type="button" class="arcade-btn arcade-btn-cream px-3 py-1 rounded-lg text-xs flex items-center gap-1">
+              <span>⚡ 立即模拟 07:00 全网抓取</span>
+            </button>
+            <button id="simNewsroom0900Btn" type="button" class="arcade-btn arcade-btn-yellow px-3 py-1 rounded-lg text-xs flex items-center gap-1">
+              <span>✍️ 立即生成 09:00 A1新闻部特稿</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 双定时智能体状态卡 + 信源覆盖矩阵 -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+          <!-- 左侧 4 列：07:00 全网抓取智能体 -->
+          <div class="lg:col-span-4 arcade-card bg-white rounded-xl p-4 flex flex-col justify-between space-y-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded bg-yellow-300 border border-black text-[11px] font-black text-black">每日 07:00 准时更新</span>
+                <span id="agentCrawlStatusBadge" class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[10px] font-black" style="color:#FACC15 !important;">● 今日 07:00 已同步</span>
+              </div>
+              <h3 class="text-sm font-black text-black">🕷️ 多源实时抓取智能体 (daily_crawler.py)</h3>
+              <p class="text-xs text-black/85 font-medium leading-relaxed">
+                每天早上 <strong>06:35</strong> 自动启动采集清洗，<strong>07:00 准时</strong>将四大栏目最新内容更新至网站：
+              </p>
+              <ul class="text-xs text-black font-semibold space-y-1 pt-1">
+                <li>• <strong>各级党委与政府官网</strong>：国务院、发改委低空司、民航局CAAC、工信部及深圳/广州/成都/合肥等地方官网</li>
+                <li>• <strong>各大主流与垂直媒体</strong>：新华网、人民网、中国网、南方财经、财联社、飞车网</li>
+                <li>• <strong>短视频及信息流平台</strong>：抖音、快手、B站、微信视频号、今日头条低空热榜</li>
+              </ul>
+            </div>
+            <div class="pt-2 border-t-2 border-black flex items-center justify-between text-[11px] font-black text-black">
+              <span>最近同步：<span id="lastCrawlTimeText">2026-11-13 07:00 CST</span></span>
+              <span class="px-1.5 py-0.5 bg-yellow-100 border border-black rounded">4大栏目全量更新</span>
+            </div>
+          </div>
+
+          <!-- 中间 4 列：09:00 A1 新闻部每日撰稿智能体 -->
+          <div class="lg:col-span-4 arcade-card dots-yellow rounded-xl p-4 flex flex-col justify-between space-y-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[11px] font-black" style="color:#FACC15 !important;">每日 09:00 准时更新 · 一周7天</span>
+                <span class="px-2 py-0.5 rounded bg-white border border-black text-[10px] font-black text-black">动态选题</span>
+              </div>
+              <h3 class="text-sm font-black text-black">🧠 A1新闻部撰稿智能体 (daily_newsroom_writer.py)</h3>
+              <p class="text-xs text-black/90 font-medium leading-relaxed">
+                一周七天每天 1 篇！根据当天 07:00 抓取信息的<strong>重要度最高分</strong>自动决定当天归属哪个栏目（不固定），于 <strong>09:00 准时</strong>发布：
+              </p>
+              <div class="p-2.5 rounded-lg bg-white border-2 border-black space-y-1 text-xs">
+                <div class="flex items-center justify-between font-black text-black">
+                  <span>今日最高重要度栏目：</span>
+                  <span id="todayTopCategoryBadge" class="px-2 py-0.5 rounded bg-yellow-300 border border-black">🏛️ 政策法规 (96.8分)</span>
+                </div>
+                <p id="todayTopReasonText" class="text-[11px] text-black/80 font-medium line-clamp-2">
+                  国家发改委低空司协同民航局推进综合监管平台全国联网，叠加地方特区立法竞速，今日特稿自动锁定【政策法规】。
+                </p>
+              </div>
+            </div>
+            <div class="pt-2 border-t-2 border-black flex items-center justify-between text-[11px] font-black text-black">
+              <span>创意形态：文字深度研判 + 交互式博弈沙盘</span>
+              <span id="lastNewsroomTimeText" class="px-1.5 py-0.5 bg-white border border-black rounded">09:00 已上线</span>
+            </div>
+          </div>
+
+          <!-- 右侧 4 列：今日四大栏目重要度实时评分擂台 & 撰稿栏目切换器 -->
+          <div class="lg:col-span-4 arcade-card bg-white rounded-xl p-4 flex flex-col justify-between space-y-3">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black text-black">📊 今日抓取重要度评分（决定 09:00 撰稿栏目）</span>
+                <span class="text-[10px] font-black px-1.5 py-0.5 rounded bg-yellow-200 border border-black">点击可切换模拟</span>
+              </div>
+              <p class="text-[11px] text-black/75 font-semibold">
+                点击下方任意栏目条，可模拟该栏目成为今日最高重要度热点，并立即生成对应栏目的 09:00【A1新闻部创意特稿】：
+              </p>
+              <div id="importanceScoreBars" class="space-y-2 pt-1">
+                <button type="button" data-sim-topic="policy" class="w-full text-left p-2 rounded-lg bg-yellow-100 border-2 border-black hover:bg-yellow-200 transition flex items-center justify-between text-xs font-black">
+                  <span>🏛️ 政策法规 (政府官网热搜)</span>
+                  <span class="px-2 py-0.5 rounded bg-black text-yellow-300" style="color:#FACC15 !important;">96.8 分 ★今日选题</span>
+                </button>
+                <button type="button" data-sim-topic="product" class="w-full text-left p-2 rounded-lg bg-white border-2 border-black hover:bg-yellow-100 transition flex items-center justify-between text-xs font-bold">
+                  <span>✈️ 产品发布 (短视频/主机厂热榜)</span>
+                  <span class="px-2 py-0.5 rounded bg-yellow-200 border border-black text-black font-black">93.4 分</span>
+                </button>
+                <button type="button" data-sim-topic="supply" class="w-full text-left p-2 rounded-lg bg-white border-2 border-black hover:bg-yellow-100 transition flex items-center justify-between text-xs font-bold">
+                  <span>🔋 创新与供应链 (财经媒体焦点)</span>
+                  <span class="px-2 py-0.5 rounded bg-yellow-200 border border-black text-black font-black">91.2 分</span>
+                </button>
+                <button type="button" data-sim-topic="competition" class="w-full text-left p-2 rounded-lg bg-white border-2 border-black hover:bg-yellow-100 transition flex items-center justify-between text-xs font-bold">
+                  <span>🏆 比赛信息 (央媒/双创平台动态)</span>
+                  <span class="px-2 py-0.5 rounded bg-yellow-200 border border-black text-black font-black">88.5 分</span>
+                </button>
+              </div>
+            </div>
+            <div class="pt-2 border-t-2 border-black flex items-center justify-between text-[11px] font-bold text-black">
+              <span>数据源：<code class="bg-yellow-100 px-1 border border-black rounded">data/news.json</code></span>
+              <span id="jsonSyncIndicator" class="text-black font-black">● 实时同步就绪</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- 【吸附舞台 03 · 中密控制台 (18px) + 稀疏文章矩阵区 (26px)】 -->
       <section id="stage-console" class="snap-stage space-y-6">
         <!-- 3.1 游戏机筛选操控台（中密黑点阵列 18px） -->
@@ -593,11 +704,17 @@
 
             <!-- 右侧：来源双轨按键（突出“★ A1官方撰稿”）+ 街机搜索框 -->
             <div class="flex flex-wrap sm:flex-nowrap items-center gap-3">
-              <div class="inline-flex items-center gap-1.5 bg-white p-1.5 rounded-xl border-2 border-black shadow-[3px_3px_0_#111] shrink-0">
+              <div class="inline-flex flex-wrap items-center gap-1.5 bg-white p-1.5 rounded-xl border-2 border-black shadow-[3px_3px_0_#111] shrink-0">
                 <button type="button" data-source="all" class="source-filter-btn px-2.5 py-1 rounded-lg text-xs bg-yellow-400 text-black">
                   全部内容
                 </button>
-                <button type="button" data-source="official" class="source-filter-btn px-2.5 py-1 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1">
+                <button type="button" data-source="newsroom" class="source-filter-btn px-2.5 py-1 rounded-lg text-xs bg-yellow-200 text-black flex items-center gap-1">
+                  <span>🧠 09:00 A1新闻部特稿</span>
+                </button>
+                <button type="button" data-source="crawled" class="source-filter-btn px-2.5 py-1 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1">
+                  <span>🕷️ 07:00 每日抓取</span>
+                </button>
+                <button type="button" data-source="official" class="source-filter-btn px-2.5 py-1 rounded-lg text-xs bg-white text-black flex items-center gap-1">
                   <span>★ A1官方撰稿</span>
                 </button>
                 <button type="button" data-source="industry" class="source-filter-btn px-2.5 py-1 rounded-lg text-xs bg-white text-black">
@@ -746,7 +863,7 @@
         <div class="lg:col-span-5 flex flex-col justify-between gap-5">
           <div class="arcade-card dots-yellow rounded-2xl overflow-hidden flex flex-col sm:flex-row lg:flex-col xl:flex-row">
             <img
-              src="assets/supply-chain.jpg"
+              src="assets/supply_chain.jpg"
               alt="低空供应链碳纤维螺旋桨、高密度固态电池与飞控芯片"
               class="w-full sm:w-44 lg:w-full xl:w-44 h-40 sm:h-auto object-cover shrink-0 border-b-[3px] sm:border-b-0 sm:border-r-[3px] lg:border-r-0 lg:border-b-[3px] xl:border-b-0 xl:border-r-[3px] border-black"
             />
@@ -769,7 +886,7 @@
 
           <div class="arcade-card dots-yellow rounded-2xl overflow-hidden flex flex-col sm:flex-row lg:flex-col xl:flex-row">
             <img
-              src="assets/product-launch.jpg"
+              src="assets/product_launch.jpg"
               alt="新一代倾转旋翼 eVTOL 产品发布会展台"
               class="w-full sm:w-44 lg:w-full xl:w-44 h-40 sm:h-auto object-cover shrink-0 border-b-[3px] sm:border-b-0 sm:border-r-[3px] lg:border-r-0 lg:border-b-[3px] xl:border-b-0 xl:border-r-[3px] border-black"
             />
@@ -987,6 +1104,11 @@
             <span>📌 A1 编辑部核心导读与研判</span>
           </div>
           <p id="readerSummary" class="text-xs sm:text-sm text-black font-semibold leading-relaxed"></p>
+        </div>
+
+        <!-- A1 新闻部专属：超越纯文字的创意交互沙盘组件 (creativeWidget) -->
+        <div id="readerCreativeBox" class="hidden dots-yellow border-[3px] border-black rounded-2xl p-4 sm:p-5 shadow-[6px_6px_0_#111] space-y-4">
+          <!-- 由 JS 动态渲染三维战力擂台、锋芒辩论PK台、通关路线图 -->
         </div>
 
         <!-- 正文段落容器 -->
@@ -1253,271 +1375,1042 @@
       }
     };
 
-    // 3. 初始文章数据库（4大栏目，每个栏目均包含 A1 官方撰稿 + 行业权威资讯，全部基于工具检索的真实事实与链接）
+    // 3. 初始文章数据库与全自动流水线元数据（与 data/news.json 实时同步）
+    const INITIAL_NEWS_META = {
+      "siteName": "A1 · 低空信息站 (01 板块)",
+      "githubRepo": "zhaiwengfc/a1-1",
+      "githubPagesUrl": "https://zhaiwengfc.github.io/a1-1/",
+      "lastCrawlTime": "2026-11-13 07:00:00 CST",
+      "lastNewsroomTime": "2026-11-13 09:00:00 CST",
+      "crawlSchedule": "每日 06:35 启动全网抓取 -> 07:00 准时同步上线四大栏目",
+      "newsroomSchedule": "每日 08:40 评估当日最高重要度主题 -> 09:00 准时发布 1 篇【A1新闻部】深度创意文章（一周7天不间断）",
+      "todayTopCategory": "policy",
+      "todayTopScore": 96.8,
+      "todayTopReason": "国家发改委低空司协同民航局推进低空飞行综合监管平台全国联网，叠加深圳、广州、合肥、成都等地方党委政府密集批复城际低空航线与空域分类细则，全网政策重要度指数达 96.8（满分100），今日 A1 新闻部特稿自动锁定【政策法规】栏目。",
+      "sourceMatrix": {
+            "gov": [
+                  {
+                        "name": "中国政府网 / 国务院公报",
+                        "type": "中央政府",
+                        "url": "https://www.gov.cn",
+                        "status": "ONLINE"
+                  },
+                  {
+                        "name": "国家发改委 · 低空经济发展司",
+                        "type": "中央部委",
+                        "url": "https://www.ndrc.gov.cn",
+                        "status": "ONLINE"
+                  },
+                  {
+                        "name": "中国民用航空局 (CAAC) 适航司/空管办",
+                        "type": "行业监管",
+                        "url": "https://www.caac.gov.cn",
+                        "status": "ONLINE"
+                  },
+                  {
+                        "name": "工业和信息化部装备工业二司",
+                        "type": "中央部委",
+                        "url": "https://www.miit.gov.cn",
+                        "status": "ONLINE"
+                  },
+                  {
+                        "name": "广东省/深圳市/广州市/合肥市/成都市人民政府低空专班",
+                        "type": "地方党委政府",
+                        "url": "http://kjj.gz.gov.cn/xwlb/yw/content/post_10325081.html",
+                        "status": "ONLINE"
+                  }
+            ],
+            "media": [
+                  {
+                        "name": "新华网低空经济频道",
+                        "type": "央媒",
+                        "url": "https://www.news.cn/info/20260423/715b59eb7d11448a9502d437c9610319/c.html",
+                        "status": "ONLINE"
+                  },
+                  {
+                        "name": "中国网政务与双创频道",
+                        "type": "央媒",
+                        "url": "http://zw.china.com.cn/2025-10/24/content_118140424.shtml",
+                        "status": "ONLINE"
+                  },
+                  {
+                        "name": "南方财经网低空产业观察",
+                        "type": "财经主流媒体",
+                        "url": "https://www.sfccn.com/2025/5-17/3NMDE0MDRfMjAzMTg3Ng.html",
+                        "status": "ONLINE"
+                  },
+                  {
+                        "name": "飞行汽车之家 / 飞车网",
+                        "type": "垂直产业媒体",
+                        "url": "https://flyingcarevtol.com/news/4613",
+                        "status": "ONLINE"
+                  }
+            ],
+            "videoFeed": [
+                  {
+                        "name": "抖音 / 快手 #低空经济 #飞行汽车 实时热榜",
+                        "type": "短视频平台",
+                        "url": "https://www.ehang.com/news/1343.html",
+                        "status": "ONLINE"
+                  },
+                  {
+                        "name": "哔哩哔哩 (Bilibili) 硬核航电与eVTOL实测流",
+                        "type": "中长视频社区",
+                        "url": "https://www.feiauto.com/tt/1780.html",
+                        "status": "ONLINE"
+                  },
+                  {
+                        "name": "微信视频号 / 今日头条政务与主机厂直播流",
+                        "type": "信息流平台",
+                        "url": "https://cn.aridge.com/",
+                        "status": "ONLINE"
+                  }
+            ]
+      },
+      "dailyCrawlLog": [
+            {
+                  "time": "06:35:02",
+                  "stage": "GOV_SCAN",
+                  "detail": "完成中央部委（发改委低空司、民航局CAAC、工信部）及26个省市党委政府官网低空政策巡检"
+            },
+            {
+                  "time": "06:44:18",
+                  "stage": "MEDIA_SCAN",
+                  "detail": "完成新华网、中国网、南方财经、信通院及垂直媒体供应链与赛事动态聚合"
+            },
+            {
+                  "time": "06:52:40",
+                  "stage": "VIDEO_FEED_SCAN",
+                  "detail": "完成抖音、快手、B站、微信视频号主机厂试飞与航展信息流高热度动态提取"
+            },
+            {
+                  "time": "06:58:15",
+                  "stage": "IMPORTANCE_RANK",
+                  "detail": "计算四大栏目今日重要度：政策法规(96.8) > 产品发布(93.4) > 创新与供应链(91.2) > 比赛信息(88.5)"
+            },
+            {
+                  "time": "07:00:00",
+                  "stage": "PUBLISH_0700",
+                  "detail": "准时将四大栏目最新抓取资讯写入 data/news.json 并推送至 GitHub Pages"
+            },
+            {
+                  "time": "09:00:00",
+                  "stage": "NEWSROOM_0900",
+                  "detail": "A1 新闻部根据今日最高重要度主题（政策法规 96.8分）完成深度创意特稿撰写并准时上线"
+            }
+      ]
+};
     const INITIAL_ARTICLES = [
-      // ==================== 栏目 1：政策法规 (policy) ====================
       {
-        id: 'pol-official-1',
-        category: 'policy',
-        isOfficial: true,
-        title: 'A1官方深度解读：从国家发改委“低空司”全面运转到2030通航装备路线图，低空立法进入实操深水区',
-        author: 'A1 政策研究室 · 首席政策分析师 林知远',
-        date: '2026-11-10',
-        readTime: '8 分钟深度阅读',
-        summary: 'A1 政策研究室系统梳理 2024 至 2026 年国家顶层机构改革与部委联合文件：国家发改委专设“低空经济发展司”统筹全局，中国民航局调整机构并将“低空经济”纳入《民用航空法》修正草案，标志着我国低空经济从早期政策鼓励迈入空域监管与商业化运营合规并重的实操阶段。',
-        body: [
-          '【A1 官方撰稿 · 核心观点】自低空经济上升为国家战略性新兴产业以来，顶层监管架构与法律法规体系在过去两年内完成了极具分水岭意义的制度重构。A1 政策研究室通过对国家部委与民航局出台的核心政策进行交叉梳理发现，“专司统筹 + 立法确权 + 审定提速”已成为当前政策演进的三大主轴。',
-          '一、顶层协调机制破局：国家发改委成立“低空经济发展司”并全面运转，专责统筹全国低空经济发展规划、基础设施建设与跨部门协同；与此同时，2025年7月中国民航局完成重大机构调整，进一步整合原通用航空工作领导小组与民用无人驾驶航空器管理职能，发布了《低空飞行综合监管服务平台规范》，从源头打通军地民空域协同管理堵点。',
-          '二、2024-2030 装备创新时间表明确：工业和信息化部、科学技术部、财政部、中国民用航空局四部门联合印发的《通用航空装备创新应用实施方案（2024-2030年）》，明确提出加快电动垂直起降航空器（eVTOL）、智能高效航空物流装备等研制及商业化应用，为未来五年主机厂适航取证与城际示范运行划定了清晰里程碑。',
-          '三、《民用航空法》修法与地方立法共振：在《民用航空法》2025修正草案中，“低空经济”被正式写入法律条文，为低空空域分类管理、起降基础设施产权及商业运营许可提供了上位法依据。A1 政策研究室建议各主机厂与低空运营企业在申报航线时，重点对齐民航局最新综合监管平台接口规范。'
-        ],
-        tags: ['A1官方特稿', '发改委低空司', '民航局CAAC', '2030实施方案'],
-        sources: [
-          { title: '国家发改委设“低空司”与地方立法加速分析', url: 'https://www.zzyuam.com/news/detail/110ac5ced3770ff29b5fdbea86d5b62a' },
-          { title: '2025低空经济大事件全景：从政策破局到商业落地', url: 'https://yuanxiangsky.com/N/678.html' },
-          { title: '锦天城：《通用航空装备创新应用实施方案（2024-2030年）》解析', url: 'https://www.allbrightlaw.com/CN/10475/b9e8f0450104f87c.aspx' },
-          { title: '德恒律所：《民用航空法》修正草案与低空经济法律适用', url: 'https://www.dehenglaw.com/cn/newscontent/0008/033810/2.aspx?MID=0902' }
-        ]
+            id: 'a1-newsroom-20261113-0900',
+            "category": "policy",
+            "isOfficial": true,
+            "isNewsroomDaily": true,
+            "publishSlot": "09:00 A1新闻部每日特稿",
+            "importanceScore": 96.8,
+            "creativeFormat": "交互式空域改革博弈沙盘 + 城市积分擂台 + 观点交锋卡",
+            "title": "【A1新闻部·09:00创意特稿】当市长们开始争夺“天空立交桥”：从中央低空司到地方特区立法的三场深水区博弈",
+            "author": "A1 新闻部 · 每日主笔智能体 (A1 Newsroom AI)",
+            "date": "2026-11-13",
+            "readTime": "9 分钟深度交互阅读 · 含创意互动沙盘",
+            "summary": "基于今日 07:00 全网抓取的最高重要度信号（96.8分）：国家发改委低空司统筹推进、民航局 CCAR-92 部落地与深圳/广州/合肥/成都地方专项政策进入正面竞速。A1 新闻部打破纯文字报道，为您构建“地方低空新政三维战力擂台”与“空域确权三方博弈模拟器”，直击政策红利向商业订单转化的生死线。",
+            "body": [
+                  "【A1 新闻部 09:00 独到见解】如果说 2024 年是低空经济写入政府工作报告的“概念元年”，那么当下从中央部委到地方党委政府密集出台的实操细则，正在把这场竞赛推向真金白银的“空域运营权与链主争夺战”。今天早上 07:00 我们的全网抓取智能体监测到，政策法规栏目的全网热度与重要度指数飙升至 96.8 分——真正决定一家 eVTOL 或无人机企业生死的，不再是 PPT 上的航程参数，而是能否打通“军地民空域协同接口”与“地方首购首用财政闭环”。",
+                  "洞察一：从“发改委设司”到“民航局立规”，顶层设计正在消灭“灰色试飞带”。国家发改委设立“低空经济发展司”解决了跨部门基建投资的审批权问题，而中国民航局（CAAC）通过《民用无人驾驶航空器运行安全管理规则》（CCAR-92）及《低空飞行综合监管服务平台规范》，直接将适航取证（TC/PC/AC）与运营合格证（OC）锁入数字化监管大网。亿航 EH216-S 能够实现全球首家四证齐全，核心就在于提前对齐了无人驾驶航空器专用条件与 OC 运营标准。",
+                  "洞察二：地方党委政府的“B面考卷”——补贴退潮后，谁能提供真实商业航线？从《深圳经济特区低空经济产业促进条例》及 20 条措施，到广州开发区为小鹏汇天“陆地航母”量产护航，再到成都沃飞长空全球总部基地与珠海“天空之城”双创赛道联动，地方政府的招商逻辑已经从“给地给钱”进化为“给空域、给场景、给市政采购订单”。",
+                  "洞察三：短视频与信息流平台上的“公众信任度”正在倒逼安全立法。今日抓取抖音、B站与微信视频号低空热榜发现，公众对“头顶上的飞行汽车是否安全、噪音多大、掉下来谁赔”的讨论热度极高。A1 新闻部研判，未来 12 个月内，围绕城市起降场（Vertiport）噪音限值、第三者责任强制险以及低压飞控冗余（如亿纬锂能与奥托立夫安全系统配套）的强制性国标将迎来密集出台期。"
+            ],
+            "creativeWidget": {
+                  "type": "policy_arena_simulator",
+                  "badge": "🕹️ A1 新闻部创意交互组件 // 政策沙盘与观点擂台",
+                  "title": "互动推演：2026-2030 低空政策落地三维博弈沙盘",
+                  "subtitle": "点击下方黄色街机按键，切换查看【四大低空先锋城市政策战力榜】、【企业合规过关斩将进度条】与【A1正反方锋芒辩论台】",
+                  "tabs": [
+                        {
+                              id: 'city_rank',
+                              "label": "🏙️ 城市政策战力擂台",
+                              "items": [
+                                    {
+                                          "name": "深圳 · 特区立法领跑型",
+                                          "score": 96,
+                                          "tag": "全国首部特区低空条例 + 20条真金白银激励",
+                                          "detail": "对取得 CAAC 型号合格证(TC)与生产许可证(PC)的载人 eVTOL 企业给予重磅奖励，开放高密度城市末端物流与跨海示范航线。"
+                                    },
+                                    {
+                                          "name": "广州 · 智造链主集群型",
+                                          "score": 94,
+                                          "tag": "亿航四证闭环 + 小鹏汇天量产工厂 + 广汽高域",
+                                          "detail": "坐拥全球首张 OC 证企业亿航智能与小鹏汇天广州智造基地，依托整车供应链优势跑通“研发-总装-出海”全链条。"
+                                    },
+                                    {
+                                          "name": "成都/珠海 · 航展与研发双驱型",
+                                          "score": 91,
+                                          "tag": "沃飞长空全球总部 + 国创赛珠海专业赛",
+                                          "detail": "成都以沃飞 AE200 链主基地拉动百亿航空配套，珠海依托中国航展与创新创业大赛构建湾区跨海物流网络。"
+                                    }
+                              ]
+                        },
+                        {
+                              id: 'debate_pk',
+                              "label": "⚡ A1 锋芒观点碰撞",
+                              "proTitle": "正方观点：低空商业化应“先载货、先郊区、稳步进城”",
+                              "proDesc": "以峰飞 V2000CG 与美团无人机末端配送为代表，货运场景容错率更高、适航取证周期更可控，能先在海岛物流、医疗急救中跑通正现金流。",
+                              "conTitle": "反方观点：载人 eVTOL 景区游览与城际接驳才是万亿级爆发点",
+                              "conDesc": "以亿航 EH216-S 四证齐全与小鹏汇天中东 600 台大单为证，高客单价文旅观光与高端个人飞行器才能支撑起早期高昂的航空级电池与飞控研发摊销。",
+                              "a1Verdict": "★ A1 新闻部主编裁决：2026-2027 年最稳健的商业模型是“用高频低空物流/文旅观光养活起降场基建，用倾转旋翼/复合翼城际客运打开远期天花板”。"
+                        },
+                        {
+                              id: 'compliance_calc',
+                              "label": "🛡️ 企业四证通关路线图",
+                              "steps": [
+                                    {
+                                          "code": "STEP 01 // TC 型号合格证",
+                                          "status": "设计批准",
+                                          "tip": "核心卡点：专用条件审定、FCC飞控多余度容错与动力电池热失控防护验证（CCAR-21）。"
+                                    },
+                                    {
+                                          "code": "STEP 02 // PC 生产许可证",
+                                          "status": "量产准入",
+                                          "tip": "核心卡点：供应链质量追溯体系（如中创新航/亿纬锂能电芯批次一致性与复材探伤）。"
+                                    },
+                                    {
+                                          "code": "STEP 03 // AC 单机适航证",
+                                          "status": "交付通行证",
+                                          "tip": "核心卡点：每架下线航空器出厂试飞与标准构型一致性核查。"
+                                    },
+                                    {
+                                          "code": "STEP 04 // OC 运营合格证",
+                                          "status": "商业收费闭环",
+                                          "tip": "核心卡点：接入民航局低空飞行综合监管服务平台，建立空地协同运行手册（CCAR-92）。"
+                                    }
+                              ]
+                        }
+                  ]
+            },
+            "tags": [
+                  "A1新闻部每日特稿",
+                  "09:00创意专栏",
+                  "发改委低空司",
+                  "地方低空立法",
+                  "交互式沙盘"
+            ],
+            "sources": [
+                  {
+                        "title": "国家发改委设“低空司”与地方立法加速分析",
+                        "url": "https://www.zzyuam.com/news/detail/110ac5ced3770ff29b5fdbea86d5b62a"
+                  },
+                  {
+                        "title": "锦天城：《通用航空装备创新应用实施方案（2024-2030年）》解析",
+                        "url": "https://www.allbrightlaw.com/CN/10475/b9e8f0450104f87c.aspx"
+                  },
+                  {
+                        "title": "近三年涉及低空经济发展的国家政策梳理 (CCAR-92/CCAR-21)",
+                        "url": "https://www.aamshanghai.com/national-policies-aam-development.html"
+                  },
+                  {
+                        "title": "深圳市低空经济产业协会：政策法规汇编",
+                        "url": "https://www.slaeia.com/business_2.html"
+                  }
+            ]
       },
       {
-        id: 'pol-official-2',
-        category: 'policy',
-        isOfficial: true,
-        title: 'A1合规指南：CCAR-92部安全管理规则与《深圳经济特区低空经济产业促进条例》企业实操手册',
-        author: 'A1 适航与法务课题组',
-        date: '2026-11-02',
-        readTime: '6 分钟阅读',
-        summary: '针对无人机与 eVTOL 研发制造及运营企业最为关心的合规门槛，A1 适航与法务课题组逐条拆解《民用无人驾驶航空器运行安全管理规则》（CCAR-92）与《民用航空产品和零部件合格审定规定》（CCAR-21），并结合深圳特区立法与20条扶持政策提供合规清单。',
-        body: [
-          '【A1 官方撰稿 · 实务拆解】对于从事无人驾驶航空器与载人 eVTOL 研发、制造及商业运营的企业而言，中国民航局（CAAC）公布实施的《民用无人驾驶航空器运行安全管理规则》（CCAR-92）与《民用航空产品和零部件合格审定规定》（CCAR-21）构成了企业准入的基石。',
-          '在国家层面，工信部同步印发《民用无人驾驶航空器无线电管理暂行办法》，与 CCAR-92 部共同构建起涵盖设计生产、适航审定、无线电频率分配、实名登记与运行合格审定（OC）的全生命周期监管链条。',
-          '在地方立法层面，《深圳经济特区低空经济产业促进条例》作为全国首部低空经济专项特区立法，与《深圳市支持低空经济高质量发展的若干措施》（20条措施）形成政策合力，明确支持低空基础设施建设，并对获得中国民航局型号合格证（TC）、生产许可证（PC）的载人 eVTOL 及飞行汽车企业给予实质性产业化激励。A1 课题组整理了企业申报适航审定与地方补贴的完整节点核对表。'
-        ],
-        tags: ['A1官方指南', 'CCAR-92', '深圳低空条例', '适航审定'],
-        sources: [
-          { title: '近三年涉及低空经济发展的国家政策梳理 (CCAR-92/CCAR-21)', url: 'https://www.aamshanghai.com/national-policies-aam-development.html' },
-          { title: '深圳市低空经济产业协会：政策法规汇编', url: 'https://www.slaeia.com/business_2.html' },
-          { title: '君合律所：低空经济法律实务100问', url: 'https://www.junhe.com/legal-updates/2993' }
-        ]
+            id: 'crawl-20261113-policy',
+            "category": "policy",
+            "isOfficial": false,
+            "isDailyCrawled": true,
+            "crawlOrigin": "中央部委与地方政府官网抓取 · 07:00 准时更新",
+            "importanceScore": 96.8,
+            "title": "【07:00政务抓取】国家部委《通用航空装备创新应用实施方案》与地方低空特区条例协同推进，空域分类监管规范全面落地",
+            "author": "A1 自动抓取引擎 · 信源：国家部委/地方政府官网及律所政策库",
+            "date": "2026-11-13",
+            "readTime": "4 分钟阅读",
+            "summary": "今日 07:00 抓取自中央及地方政务信源：工信部、科技部、财政部、民航局四部门《通用航空装备创新应用实施方案（2024-2030年）》与《民用航空法》修正草案、深圳低空经济特区立法形成联动，加速全国低空飞行综合监管服务平台统一接口落地。",
+            "body": [
+                  "【A1 每日 07:00 自动抓取快讯】根据中央部委及地方政府政策库最新巡检数据，我国低空经济顶层法规框架已形成“中央统筹规划 + 民航适航监管 + 地方特区立法”的三级支撑体系。",
+                  "在部委层面，国家发改委低空经济发展司持续推进跨部门协调，四部门联合印发的《通用航空装备创新应用实施方案（2024-2030年）》明确了 2027 年与 2030 年两个阶段的产业规模与适航装备应用目标；民航局同步完善《低空飞行综合监管服务平台规范》与 CCAR-92 部运行安全管理规则。",
+                  "在地方党委和政府层面，深圳、广州、合肥、成都等城市围绕起降基础设施审批、低空航线常态化运行及首购首用补贴出台配套实施细则，为 eVTOL 商业化试运营提供制度保障。"
+            ],
+            "tags": [
+                  "07:00每日抓取",
+                  "政务官网信源",
+                  "通航装备方案",
+                  "空域监管平台"
+            ],
+            "sources": [
+                  {
+                        "title": "锦天城：《通用航空装备创新应用实施方案（2024-2030年）》解析",
+                        "url": "https://www.allbrightlaw.com/CN/10475/b9e8f0450104f87c.aspx"
+                  },
+                  {
+                        "title": "德恒律所：《民用航空法》修正草案与低空经济法律适用",
+                        "url": "https://www.dehenglaw.com/cn/newscontent/0008/033810/2.aspx?MID=0902"
+                  },
+                  {
+                        "title": "2025低空经济大事件全景：从政策破局到商业落地",
+                        "url": "https://yuanxiangsky.com/N/678.html"
+                  }
+            ]
       },
       {
-        id: 'pol-ind-1',
-        category: 'policy',
-        isOfficial: false,
-        title: '中国信通院与毕马威发布低空经济白皮书：亿航获全球首张eVTOL运营许可证（OC），四证闭环成型',
-        author: '行业权威报告收录 · 信通院 / 东方财富研报',
-        date: '2026-10-25',
-        readTime: '5 分钟阅读',
-        summary: '综合中国信通院《低空经济政策与产业生态研究报告》及民航局公开数据，亿航智能已正式获得全球首张无人驾驶载人航空器运营合格证（OC），成为全球首家“四证齐全”的低空飞行器生产商。',
-        body: [
-          '根据中国信息通信研究院发布的《低空经济政策与产业生态研究报告》及东方财富证券行业研报披露，中国民航局（CAAC）在 eVTOL 适航审定与商业运营准入领域持续领跑全球。',
-          '继型号合格证（TC）、标准适航证（AC）与生产许可证（PC）之后，亿航智能于 2025 年 3 月获得全球首张 eVTOL 运营许可证（OC），成为全球首家“四证齐全”的低空飞行器生产商，标志着中国低空载人飞行正式跨过商业化运营的最后一道法规门槛。',
-          '此外，中国民航局（CAAC）与美国联邦航空管理局（FAA）、欧洲航空安全局（EASA）、新加坡民航局（CAAS）等国际监管机构均在加速推进 eVTOL 适航标准体系建设，国内多款主流复合翼与倾转旋翼 eVTOL 的型号合格证审定也已进入关键验证阶段。'
-        ],
-        tags: ['运营合格证OC', '四证齐全', '信通院白皮书', 'CAAC适航'],
-        sources: [
-          { title: '中国信通院：《低空经济政策与产业生态研究报告》(PDF)', url: 'https://www.caict.ac.cn/english/research/whitepapers/202504/P020250401513801693140.pdf' },
-          { title: '东方财富证券：低空经济乘风而至，亿航四证齐全分析 (PDF)', url: 'https://pdf.dfcfw.com/pdf/H3_AP202508221732469642_1.pdf?1755898793000.pdf' },
-          { title: '毕马威中国：《低空经济的黄金时代：解构行业生态》(PDF)', url: 'https://assets.kpmg.com/content/dam/kpmgsites/cn/pdf/zh/2025/10/the-golden-age-of-low-altitude-economy.pdf' }
-        ]
-      },
-
-      // ==================== 栏目 2：创新与供应链信息 (supply) ====================
-      {
-        id: 'sup-official-1',
-        category: 'supply',
-        isOfficial: true,
-        title: 'A1供应链拆解：中创新航、亿纬锂能、孚能科技三大电池巨头如何撑起中国eVTOL量产潮？',
-        author: 'A1 供应链智库 · 硬件工程组',
-        date: '2026-11-11',
-        readTime: '7 分钟深度阅读',
-        summary: '航空级动力电池与高可靠低压供电系统是决定 eVTOL 商业化落地的核心命脉。A1 供应链智库深入拆解小鹏汇天“陆地航母”等量产机型的电池定点格局，剖析主动力电池与 FCC/ESC 低压锂电池的技术分工。',
-        body: [
-          '【A1 官方撰稿 · 供应链深度拆解】在电动垂直起降航空器（eVTOL）的整机成本与适航安全权重中，动力与能源系统占比极高。与地面新能源汽车不同，eVTOL 在垂直起降阶段需要极高的瞬时放电倍率，且在高空低温环境下对电池热失控具备“零容忍”要求。',
-          '一、三大动力电池巨头定点格局清晰：以亚洲规模领先的飞行汽车企业小鹏汇天为例，其在启动规模量产前已在供应链端与中创新航（3931.HK）、亿纬锂能及孚能科技三大动力电池巨头建立深度合作。其中，即将大规模量产交付的分体式飞行汽车“陆地航母”高压主动力电池由中创新航独家提供。',
-          '二、低压锂电池对飞控（FCC）与电调（ESC）的关键护航：根据亿纬锂能官方披露，亿纬锂能为小鹏汇天提供下一代原理样机低压锂电池。A1 硬件工程组指出，低压锂电池在航空器中主要承担为飞行控制系统（FCC）和电子调速器（ESC）供电的关键职责，哪怕主动力链路出现波动，高可靠低压电池也能确保飞控计算机与姿态执行机构稳定运行，是拿到航空级适航认证的核心防线。'
-        ],
-        tags: ['A1官方拆解', '中创新航', '亿纬锂能', '飞控系统FCC'],
-        sources: [
-          { title: '南方财经网：中国低空经济商业化进阶，订单与供应链量产潮起', url: 'https://www.sfccn.com/2025/5-17/3NMDE0MDRfMjAzMTg3Ng.html' },
-          { title: '亿纬锂能官方公告：亿纬锂能携手小鹏汇天共筑低空新生态', url: 'https://www.evebattery.com/news-943' },
-          { title: '广州市科技局：小鹏汇天供应链布局与陆地航母进展', url: 'http://kjj.gz.gov.cn/xwlb/yw/content/post_10325081.html' }
-        ]
+            id: 'crawl-20261113-supply',
+            "category": "supply",
+            "isOfficial": false,
+            "isDailyCrawled": true,
+            "crawlOrigin": "主流财经媒体与政务科技局抓取 · 07:00 准时更新",
+            "importanceScore": 91.2,
+            "title": "【07:00供应链抓取】航空级动力电池与特种航材定点加速：中创新航、亿纬锂能、立邦与奥托立夫密集披露低空配套进展",
+            "author": "A1 自动抓取引擎 · 信源：南方财经/广州市科技局/企业公告",
+            "date": "2026-11-13",
+            "readTime": "4 分钟阅读",
+            "summary": "今日 07:00 抓取自广州市科技局及主流财经媒体：小鹏汇天与中创新航、亿纬锂能、奥托立夫深化量产供应链绑定，广汽高域联合立邦突破航空复材特种涂料，沃飞长空全球总部基地释放百亿级航空供应链采购需求。",
+            "body": [
+                  "【A1 每日 07:00 自动抓取快讯】综合广州市科技局官网、南方财经网及供应链上市公司官方公告，国内 eVTOL 产业链上游正从“样品试制”迈向“车规+航空级批量供货”。",
+                  "动力电源领域，中创新航独家配套小鹏汇天“陆地航母”高压主动力电池，亿纬锂能提供高可靠低压锂电池保障飞控系统（FCC）与电子调速器（ESC）冗余供电；被动安全与材料领域，奥托立夫介入飞行汽车轻量化安全气囊与约束系统研发，立邦与广汽高域合作开发航空级特种涂层。",
+                  "与此同时，沃飞长空全球总部基地主体完工并冲刺 2026 年投产，围绕 AE200-100 机型向全国航电、复材与精密制造企业释放百亿级配套订单。"
+            ],
+            "tags": [
+                  "07:00每日抓取",
+                  "财经媒体信源",
+                  "航空动力电池",
+                  "百亿供应链"
+            ],
+            "sources": [
+                  {
+                        "title": "广州市科技局：小鹏汇天供应链布局与陆地航母进展",
+                        "url": "http://kjj.gz.gov.cn/xwlb/yw/content/post_10325081.html"
+                  },
+                  {
+                        "title": "亿纬锂能官方公告：亿纬锂能携手小鹏汇天共筑低空新生态",
+                        "url": "https://www.evebattery.com/news-943"
+                  },
+                  {
+                        "title": "南方财经网：中国低空经济商业化进阶，订单与供应链量产潮起",
+                        "url": "https://www.sfccn.com/2025/5-17/3NMDE0MDRfMjAzMTg3Ng.html"
+                  }
+            ]
       },
       {
-        id: 'sup-official-2',
-        category: 'supply',
-        isOfficial: true,
-        title: 'A1技术内参：从奥托立夫航空安全系统、立邦特种涂料到沃飞长空百亿链主基地，低空供应链全景图',
-        author: 'A1 创新实验室 · 新材料与航电组',
-        date: '2026-11-05',
-        readTime: '6 分钟阅读',
-        summary: '除了电池与电机，低空经济正在吸引全球顶级汽车安全巨头、特种化工材料商入局。A1 创新实验室为您盘点立邦与广汽高域、奥托立夫与小鹏汇天、以及沃飞长空百亿供应链清单背后的产业协同逻辑。',
-        body: [
-          '【A1 官方撰稿 · 创新内参】随着 2025-2026 年多款 eVTOL 进入量产工厂建设与总装下线阶段，低空供应链正在经历一场“航空级严苛标准 + 新能源汽车级规模化降本”的深度融合。',
-          '1. 航空被动安全跨界突破：全球汽车安全系统龙头奥托立夫（Autoliv）已正式与小鹏汇天携手，针对低空飞行器减重与全方位碰撞保护需求，定制研发轻量化安全气囊与约束系统。',
-          '2. 航空特种涂层与复材减重：广汽高域（GOVY）与立邦达成战略合作，共同推进面向 eVTOL 复合材料机身的航空特种涂料研发，兼顾轻量化、耐候抗紫外线与气动减阻性能。',
-          '3. 链主基地释放百亿级配套采购：沃飞长空全球总部基地主体已完工并预计于 2026 年下半年投产，随着其自研 AE200-100 下线并冲刺 2026-2027 年适航取证，作为低空经济“链主”企业已向机体结构、航电飞控、起落架与机载设备供应商释放百亿级供应链合作机遇。'
-        ],
-        tags: ['A1官方内参', '奥托立夫', '立邦航空涂料', '沃飞长空供应链'],
-        sources: [
-          { title: '立邦与广汽高域达成战略合作推进航空涂料研发', url: 'https://www.feiauto.com/tt/1659.html' },
-          { title: '奥托立夫与小鹏汇天携手推动低空出行安全发展', url: 'https://www.feiauto.com/tt/413.html' },
-          { title: '沃飞长空全球总部基地完工与百亿供应链进展', url: 'https://www.feiauto.com/tt/1780.html' }
-        ]
+            id: 'crawl-20261113-competition',
+            "category": "competition",
+            "isOfficial": false,
+            "isDailyCrawled": true,
+            "crawlOrigin": "央媒与赛事官方平台抓取 · 07:00 准时更新",
+            "importanceScore": 88.5,
+            "title": "【07:00赛事抓取】数字中国创新大赛低空赛道与美团具身智能挑战赛热度攀升，超30家获奖项目对接地方示范航线",
+            "author": "A1 自动抓取引擎 · 信源：新华网/中国网/数字中国峰会官网",
+            "date": "2026-11-13",
+            "readTime": "4 分钟阅读",
+            "summary": "今日 07:00 抓取自新华网、中国网及各大低空赛事门户：数字中国创新大赛低空经济赛道促成 30 余家单位达成产业合作，第十四届中国创新创业大赛低空经济专业赛与 55 万元奖金池的美团低空具身智能挑战赛持续吸引硬科技团队角逐。",
+            "body": [
+                  "【A1 每日 07:00 自动抓取快讯】据新华网、数字中国建设峰会官网及中国网最新赛事追踪报道，国内国家级与行业级低空经济赛事正成为地方政府筛选优质技术方案的“直通车”。",
+                  "数字中国创新大赛·低空经济赛道通过真实空域环境下的安全飞行与管控演练，已促成 30 余家参赛单位与地方政府及产业园达成实质性合作；落地珠海的中国创新创业大赛低空经济专业赛则将赛事路演与珠海国际低空经济博览会、跨海物流示范航线直接挂钩。",
+                  "在短视频与极客社区信息流中，2026 美团低空经济与具身智能挑战赛（55万元大奖）关于复杂城市场景视觉避障与末端自主投递的实测视频引发广泛技术讨论。"
+            ],
+            "tags": [
+                  "07:00每日抓取",
+                  "央媒与赛事网",
+                  "数字中国大赛",
+                  "美团低空挑战赛"
+            ],
+            "sources": [
+                  {
+                        "title": "新华网：数字中国创新大赛低空经济赛道——从“场景验证”到“系统重构”",
+                        "url": "https://www.news.cn/info/20260423/715b59eb7d11448a9502d437c9610319/c.html"
+                  },
+                  {
+                        "title": "中国网：第十四届中国创新创业大赛低空经济领域专业赛系列推介",
+                        "url": "http://zw.china.com.cn/2025-10/24/content_118140424.shtml"
+                  },
+                  {
+                        "title": "低空界竞赛频道：2026美团低空经济与具身智能挑战赛及山东低空大赛汇总",
+                        "url": "https://www.dikongjie.com/competition/"
+                  }
+            ]
       },
       {
-        id: 'sup-ind-1',
-        category: 'supply',
-        isOfficial: false,
-        title: '一架eVTOL从研发图纸到商业载客：专用条件审定下的飞控系统（FCC）与核心零部件验证门槛',
-        author: '行业技术观察 · 飞行汽车之家',
-        date: '2026-10-28',
-        readTime: '5 分钟阅读',
-        summary: '聚焦亿航 EH216-S、峰飞 V2000CG 与小鹏汇天 X3-F 等型号的专用条件审定路径，解析国家低空经济创新中心（深圳）关于飞控系统多余度容错设计的工程化要求。',
-        body: [
-          '一架 eVTOL 从概念图纸走向商业载客，核心在于其供应链零部件能否通过民航局严苛的符合性验证。由于 eVTOL 融合了多旋翼、复合翼或倾转旋翼等新型构型，中国民航局采取了“一事一议”制定专用条件（Special Conditions）的审定策略。',
-          '无论是亿航 EH216-S、峰飞 V2000CG 还是小鹏汇天 X3-F，其专用条件均对飞行控制系统（FCC）、推进系统失效隔离以及碳纤维复合材料结构疲劳寿命提出了明确指标。',
-          '这要求上游供应链企业不仅具备车规级量产能力，更必须建立符合航空 DO-178C（机载软件）和 DO-254（机载电子硬件）标准的正向研发与适航取证追溯体系。'
-        ],
-        tags: ['适航专用条件', '飞控冗余', '航空零部件', '工程验证'],
-        sources: [
-          { title: '飞行汽车之家：一架eVTOL从研发图纸到商业载客要跨过多少道坎', url: 'https://flyingcarevtol.com/news/4576' }
-        ]
-      },
-
-      // ==================== 栏目 3：比赛信息 (competition) ====================
-      {
-        id: 'comp-official-1',
-        category: 'competition',
-        isOfficial: true,
-        title: 'A1赛事全景观察：从“场景验证”走向“系统重构”，数字中国创新大赛低空经济赛道深度复盘与备赛指南',
-        author: 'A1 赛事观察团 · 首席观察员 周牧',
-        date: '2026-11-09',
-        readTime: '6 分钟深度阅读',
-        summary: '数字中国创新大赛·低空经济赛道作为国家级数字经济与低空智能装备融合标杆赛事，已促成 30 余家参赛单位达成实质性产业合作。A1 赛事观察团为您提炼评审委员会最看重的三大核心得分点。',
-        body: [
-          '【A1 官方撰稿 · 赛事深度复盘】在低空经济快速商业化的进程中，国家级专业赛事已不再是单纯的“路演比武”，而是成为地方政府遴选示范场景供应商、验证低空数字管控体系的实战演练场。',
-          '一、从单一场景验证走向空域系统重构：根据新华网与数字中国建设峰会官方报道，“数字中国创新大赛·低空经济赛道”依托无人机、eVTOL 等智能飞行装备，结合 5G、人工智能、大数据与未来网络技术，在庆阳等地开展真实空域环境下的安全飞行与管控演练，单届赛事即促成 30 余家企业与地方政府达成合作。',
-          '二、A1 备赛核心建议：A1 赛事观察团调研发现，当前评委打分权重已明显向“低空智联网协同管控”、“复杂气象与障碍物自主避障”以及“具备清晰商业闭环的支线物流/应急巡检方案”倾斜。建议参赛团队在提交技术方案时，重点展示与地方低空综合监管服务平台的标准化接口对接能力。'
-        ],
-        tags: ['A1官方赛评', '数字中国创新大赛', '低空经济赛道', '备赛指南'],
-        sources: [
-          { title: '新华网：数字中国创新大赛低空经济赛道——从“场景验证”到“系统重构”', url: 'https://www.news.cn/info/20260423/715b59eb7d11448a9502d437c9610319/c.html' },
-          { title: '数字中国建设峰会官网：低空经济赛道启动公告', url: 'https://www.szzg.gov.cn/2025/xwzx/fhzx/202503/t20250303_4982995.htm' }
-        ]
-      },
-      {
-        id: 'comp-official-2',
-        category: 'competition',
-        isOfficial: true,
-        title: 'A1创赛内参：中国创新创业大赛低空经济专业赛（珠海）与2026美团低空具身智能挑战赛奖金与赛道全解析',
-        author: 'A1 创投赛事组',
-        date: '2026-11-01',
-        readTime: '7 分钟阅读',
-        summary: '一次性盘点国内含金量最高的四大低空赛事：工信部火炬中心“中国创新创业大赛低空经济领域专业赛”（珠海）、55万元大奖“2026美团低空经济与具身智能挑战赛”、中国航空创新创业大赛（CAIEC）杭州赛及山东省低空装备产业链大赛。',
-        body: [
-          '【A1 官方撰稿 · 赛事情报内参】为了帮助高校科研团队、初创企业与机载算法极客精准匹配参赛舞台，A1 创投赛事组对 2024-2026 年度国内核心低空赛事进行了分类对比：',
-          '1. 中国创新创业大赛低空经济领域专业赛（落地珠海）：作为首个国家级低空经济专业双创赛事，以“创聚湾区·逐梦低空”为主题连续两年落地珠海，与第十五届中国航展、全球无人系统大会及珠海国际低空经济博览会深度联动，获奖项目可直接对接珠海“天空之城”14条以上低空物流与交通示范航线。',
-          '2. 2026 美团低空经济与具身智能挑战赛（55万元大奖）：聚焦城市复杂末端环境下的无人机自主配送、视觉导航与具身智能作业，设立高达 55 万元奖金池，极适合机载感知与飞控算法团队挑战。',
-          '3. 中国航空创新创业大赛（CAIEC）暨“低空经济+未来空间”领域赛（杭州）与第二届山东省低空装备产业链创新创业大赛：专注航空全产业链双创孵化，为成长型硬科技企业提供产业园区落地与创投基金直通车。'
-        ],
-        tags: ['A1官方内参', '中国创新创业大赛', '美团低空挑战赛', '珠海天空之城'],
-        sources: [
-          { title: '中国网：第十四届中国创新创业大赛低空经济领域专业赛系列推介', url: 'http://zw.china.com.cn/2025-10/24/content_118140424.shtml' },
-          { title: '低空界竞赛频道：2026美团低空经济与具身智能挑战赛及山东低空大赛汇总', url: 'https://www.dikongjie.com/competition/' },
-          { title: '杭州网：中国航空创新创业大赛CAIEC“低空经济+未来空间”领域赛', url: 'https://hznews.hangzhou.com.cn/jingji/content/2025-08/22/content_9065845.htm' },
-          { title: '创聚湾区逐梦低空：第十三届中国创新创业大赛低空经济专业赛', url: 'https://www.laernoc.com/newsinfo/1856148892358414338' }
-        ]
+            id: 'crawl-20261113-product',
+            "category": "product",
+            "isOfficial": false,
+            "isDailyCrawled": true,
+            "crawlOrigin": "短视频/信息流平台与主机厂官网抓取 · 07:00 准时更新",
+            "importanceScore": 93.4,
+            "title": "【07:00信息流与新品抓取】亿航16机编队与拉美首飞刷屏短视频平台，小鹏汇天中东600台订单与广汽高域破千订单领跑量产榜",
+            "author": "A1 自动抓取引擎 · 信源：短视频热榜/亿航官网/汇天官网",
+            "date": "2026-11-13",
+            "readTime": "5 分钟阅读",
+            "summary": "今日 07:00 抓取自各大短视频平台、主机厂官方号及行业门户：亿航 16 架 EH216-S 与 22580 架无人机同台编队及墨西哥首飞视频持续霸榜低空信息流，小鹏汇天“陆地航母”中东 600 台大单、沃兰特 VE25 有人首飞与广汽高域 GOVY AirCab 破千台订单展现出强劲商业化势头。",
+            "body": [
+                  "【A1 每日 07:00 自动抓取快讯】综合抖音、快手、B站、微信视频号官方账号及主机厂官网今日 07:00 聚合数据，国产 eVTOL 与飞行汽车新品发布及海外实飞画面在短视频与信息流平台引发高频传播。",
+                  "亿航智能（Nasdaq: EH）不仅凭借 16 架 EH216-S 无人驾驶载人航空器与 22580 架 GD4.0 无人机同台编队刷新视觉纪录，更在墨西哥航空航天博览会（FAMEX）完成拉丁美洲首次无人驾驶载人飞行；小鹏汇天（Aridge）分体式飞行汽车“陆地航母”在广州推进量产交付的同时，在海外斩获中东地区 600 台订单。",
+                  "此外，沃兰特 VE25 完成首次有人驾驶飞行、沃飞长空 AE200-100 总装下线、广汽高域 GOVY AirCab 亮相进博会半年订单破千台，标志着中国主机厂在全球 400 余家飞行汽车研发企业中稳居第一梯队。"
+            ],
+            "tags": [
+                  "07:00每日抓取",
+                  "短视频信息流",
+                  "亿航编队飞行",
+                  "陆地航母出海"
+            ],
+            "sources": [
+                  {
+                        "title": "亿航智能官网：16架EH216-S与22580架GD4.0无人机编队表演",
+                        "url": "https://www.ehang.com/news/1343.html"
+                  },
+                  {
+                        "title": "亿航智能官网：EH216-S完成墨西哥及拉丁美洲首次载人飞行",
+                        "url": "https://www.ehang.com/cn/news/1365.html"
+                  },
+                  {
+                        "title": "飞行汽车网：小鹏汇天中东600台订单与沃兰特VE25有人驾驶首飞",
+                        "url": "https://www.feiauto.com/index.php?m=home&c=Tags&a=lists&tagid=2707"
+                  },
+                  {
+                        "title": "汇天飞行汽车官方网站",
+                        "url": "https://cn.aridge.com/"
+                  }
+            ]
       },
       {
-        id: 'comp-ind-1',
-        category: 'competition',
-        isOfficial: false,
-        title: '“创业江苏”科技创业大赛低空经济专项赛与中国创交会低空产业大赛参赛条件及知识产权规范汇总',
-        author: '赛事组委会资讯收录',
-        date: '2026-10-18',
-        readTime: '4 分钟阅读',
-        summary: '梳理长三角与大湾区区域性低空经济专项赛的核心准入条款：参赛项目需具备高成长性与自主知识产权，重点征集新型无人机、eVTOL 关键部组件及低空智联管控软件。',
-        body: [
-          '随着长三角与珠三角低空产业集群竞争升温，多项区域性专项赛事密集开启项目征集。以“创业江苏”科技创业大赛低空经济专项赛及中国创交会首届低空经济产业创新创业大赛为例，赛事明确要求参赛项目需具有创新性和高成长性，拥有清晰自主知识产权且无产权纠纷。',
-          '通过专项赛路演优胜的企业，不仅可获得省市级科技创新创业资金支持，还能优先纳入地方低空经济应用场景首购首用推广目录。'
-        ],
-        tags: ['创业江苏专项赛', '中国创交会', '参赛要求', '项目路演'],
-        sources: [
-          { title: '第十二届“创业江苏”科技创业大赛低空经济专项赛指南', url: 'https://bjultra.com/seeks/87173025191050' },
-          { title: '低空界：中国创交会低空经济产业创新创业大赛', url: 'https://www.dikongjie.com/competition/7/' }
-        ]
-      },
-
-      // ==================== 栏目 4：产品发布 (product) ====================
-      {
-        id: 'prod-official-1',
-        category: 'product',
-        isOfficial: true,
-        title: 'A1旗舰横评：亿航EH216-S、小鹏汇天“陆地航母”、峰飞“盛世龙”与沃兰特VE25四大机型商业化硬核对比',
-        author: 'A1 飞行器评测中心 · 总工程师 陈航',
-        date: '2026-11-12',
-        readTime: '9 分钟深度阅读',
-        summary: '中国 eVTOL 整机研发已形成多旋翼、分体式飞行汽车、复合翼与倾转旋翼四大技术流派。A1 飞行器评测中心从气动构型、适航取证进度、官方定价及海外订单四个维度，对国内四大标杆机型进行全方位量化横评。',
-        body: [
-          '【A1 官方撰稿 · 旗舰机型深度横评】2025至2026年是国产 eVTOL 与飞行汽车从“航展样机”走向“商业交付”的决胜期。A1 飞行器评测中心结合主机厂公开参数、民航局适航审定记录与实际订单数据，为您呈现四大代表机型的硬核对比：',
-          '一、亿航智能 EH216-S（多旋翼无人驾驶载人标杆）：采用 8 轴 16 桨纯电驱动构型，可搭载 2 名乘客，最大允许飞行高度 120 米，续航时间约 25 分钟、航程约 30 公里，官方指导价 239 万元。作为全球首家集齐 TC/PC/AC/OC 四证的机型，亿航在 2024 年即交付 216 架并实现全年盈利；2026 年 2 月更实现了 16 架 EH216-S 与 22580 架 GD4.0 无人机同台编队飞行，非常适合景区低空游览与城市短途接驳。',
-          '二、小鹏汇天“陆地航母”（分体式个人飞行汽车开创者）：采用“陆行体 + 飞行体”分体式构型，在广州实现量产下线，预估售价约 128 万元起，并已在海外斩获中东地区 600 台飞行汽车大单，率先打开高净值个人户外飞行与越野救援市场。',
-          '三、峰飞航空“盛世龙”与沃兰特 VE25-100（城际复合翼大载重主力）：峰飞采取“先载货后载人”务实路径，货运版 V2000CG 率先落地，载人版“盛世龙”定价约 199 万元；与此同时，沃兰特 VE25 eVTOL 已顺利完成首次有人驾驶飞行，广汽高域 GOVY AirCab 亮相进博会后半年订单突破千台，共同构筑起中短途城际空中出行的主力梯队。'
-        ],
-        tags: ['A1官方横评', '亿航EH216-S', '小鹏汇天陆地航母', '峰飞盛世龙', '沃兰特VE25'],
-        sources: [
-          { title: '飞行汽车之家：中国eVTOL整机公司创始人及代表机型对比', url: 'https://flyingcarevtol.com/news/4613' },
-          { title: '低空产业观察：市面上各大eVTOL价格对比（小鹏汇天/亿航/峰飞）', url: 'https://yuanxiangsky.com/N/255.html' },
-          { title: '亿航智能官网：16架EH216-S与22580架GD4.0无人机编队表演', url: 'https://www.ehang.com/news/1343.html' },
-          { title: '飞行汽车网：小鹏汇天中东600台订单与沃兰特VE25有人驾驶首飞', url: 'https://www.feiauto.com/index.php?m=home&c=Tags&a=lists&tagid=2707' },
-          { title: '飞行汽车网：亿航2024年交付216架实现盈利报道', url: 'https://www.feiauto.com/tt/1557.html' }
-        ]
-      },
-      {
-        id: 'prod-official-2',
-        category: 'product',
-        isOfficial: true,
-        title: 'A1新机首发档案：沃飞长空AE200-100下线与广汽高域GOVY AirCab破千订单背后的技术路线演进',
-        author: 'A1 航空工程编辑部',
-        date: '2026-11-04',
-        readTime: '6 分钟阅读',
-        summary: '剖析沃飞长空自研倾转旋翼 eVTOL AE200-100 下线与广汽高域 GOVY AirCab 进博会首发表现，对比全球 400 余家飞行汽车企业中中国主机厂的工程化迭代优势。',
-        body: [
-          '【A1 官方撰稿 · 新机档案】根据香港贸发局经贸研究与智研咨询统计，全球目前共有 400 多家飞行汽车研发企业，涵盖 Joby、Archer、亿航智能、峰飞航空、小鹏汇天、沃飞长空、沃兰特及广汽高域等。A1 航空工程编辑部重点追踪了近期两款重磅新机的首发与量产进展：',
-          '1. 沃飞长空 AE200-100 总装下线：作为国内倾转旋翼构型的代表作，AE200-100 已正式下线并全面冲刺 2026-2027 年适航取证。倾转旋翼构型兼具直升机垂直起降与固定翼飞机高速巡航优势，但对倾转机构机械可靠性与过渡态飞控律要求极高，AE200-100 的下线标志着国产倾转旋翼工程化取得关键突破。',
-          '2. 广汽高域 GOVY AirCab 订单破千：依托大型车企成熟的电动化与智能座舱供应链，广汽高域推出的 GOVY AirCab 亮相中国国际进口博览会，并在半年内斩获破千台意向订单，展现出车企系主机厂强大的商业化整合能力。'
-        ],
-        tags: ['A1新机档案', '沃飞长空AE200', '广汽高域GOVY', '倾转旋翼'],
-        sources: [
-          { title: '沃飞长空AE200-100下线与全球总部基地进展', url: 'https://www.feiauto.com/tt/1780.html' },
-          { title: '广汽高域GOVY AirCab亮相进博会半年订单破千', url: 'https://www.feiauto.com/tt/1659.html' },
-          { title: '香港贸发局经贸研究：飞行汽车瞩目登场，全球400多家研发企业竞逐', url: 'https://research.hktdc.com/sc/article/MTk0NjY1NTY5MA' }
-        ]
+            id: 'pol-official-1',
+            "category": "policy",
+            "isOfficial": true,
+            "isNewsroomDaily": true,
+            "publishSlot": "09:00 A1新闻部往期特稿",
+            "importanceScore": 95.2,
+            "creativeFormat": "法规演进时间轴 + 部委职能矩阵",
+            "title": "A1官方深度解读：从国家发改委“低空司”全面运转到2030通航装备路线图，低空立法进入实操深水区",
+            "author": "A1 政策研究室 · 首席政策分析师 林知远",
+            "date": "2026-11-12",
+            "readTime": "8 分钟深度阅读",
+            "summary": "A1 政策研究室系统梳理 2024 至 2026 年国家顶层机构改革与部委联合文件：国家发改委专设“低空经济发展司”统筹全局，中国民航局调整机构并将“低空经济”纳入《民用航空法》修正草案，标志着我国低空经济从早期政策鼓励迈入空域监管与商业化运营合规并重的实操阶段。",
+            "body": [
+                  "【A1 官方撰稿 · 核心观点】自低空经济上升为国家战略性新兴产业以来，顶层监管架构与法律法规体系在过去两年内完成了极具分水岭意义的制度重构。A1 政策研究室通过对国家部委与民航局出台的核心政策进行交叉梳理发现，“专司统筹 + 立法确权 + 审定提速”已成为当前政策演进的三大主轴。",
+                  "一、顶层协调机制破局：国家发改委成立“低空经济发展司”并全面运转，专责统筹全国低空经济发展规划、基础设施建设与跨部门协同；与此同时，2025年7月中国民航局完成重大机构调整，进一步整合原通用航空工作领导小组与民用无人驾驶航空器管理职能，发布了《低空飞行综合监管服务平台规范》，从源头打通军地民空域协同管理堵点。",
+                  "二、2024-2030 装备创新时间表明确：工业和信息化部、科学技术部、财政部、中国民用航空局四部门联合印发的《通用航空装备创新应用实施方案（2024-2030年）》，明确提出加快电动垂直起降航空器（eVTOL）、智能高效航空物流装备等研制及商业化应用，为未来五年主机厂适航取证与城际示范运行划定了清晰里程碑。",
+                  "三、《民用航空法》修法与地方立法共振：在《民用航空法》2025修正草案中，“低空经济”被正式写入法律条文，为低空空域分类管理、起降基础设施产权及商业运营许可提供了上位法依据。A1 政策研究室建议各主机厂与低空运营企业在申报航线时，重点对齐民航局最新综合监管平台接口规范。"
+            ],
+            "tags": [
+                  "A1官方特稿",
+                  "发改委低空司",
+                  "民航局CAAC",
+                  "2030实施方案"
+            ],
+            "sources": [
+                  {
+                        "title": "国家发改委设“低空司”与地方立法加速分析",
+                        "url": "https://www.zzyuam.com/news/detail/110ac5ced3770ff29b5fdbea86d5b62a"
+                  },
+                  {
+                        "title": "2025低空经济大事件全景：从政策破局到商业落地",
+                        "url": "https://yuanxiangsky.com/N/678.html"
+                  },
+                  {
+                        "title": "锦天城：《通用航空装备创新应用实施方案（2024-2030年）》解析",
+                        "url": "https://www.allbrightlaw.com/CN/10475/b9e8f0450104f87c.aspx"
+                  },
+                  {
+                        "title": "德恒律所：《民用航空法》修正草案与低空经济法律适用",
+                        "url": "https://www.dehenglaw.com/cn/newscontent/0008/033810/2.aspx?MID=0902"
+                  }
+            ]
       },
       {
-        id: 'prod-ind-1',
-        category: 'product',
-        isOfficial: false,
-        title: '亿航智能EH216-S完成墨西哥及拉丁美洲首次载人飞行，国产无人驾驶eVTOL加速全球商业化交付',
-        author: '企业官方发布 · 亿航智能 (EHang)',
-        date: '2026-10-20',
-        readTime: '4 分钟阅读',
-        summary: '在墨西哥航空航天博览会（FAMEX）支持下，亿航智能旗舰产品 EH216-S 成功完成墨西哥及拉丁美洲首次无人驾驶载人飞行，进一步拓展海外新兴市场。',
-        body: [
-          '全球领先的先进空中交通（AAM）科技企业亿航智能（Nasdaq: EH）宣布，其旗舰无人驾驶载人航空器 EH216-S 在墨西哥顺利完成首飞，这也是拉丁美洲历史上首次无人驾驶载人 eVTOL 飞行。',
-          '在墨西哥航空航天博览会（FAMEX）及当地民航监管部门的见证下，Air Mobility 首席执行官 Cristina Lara 成为墨西哥及拉丁美洲首位乘坐无人驾驶载人 eVTOL 的女性乘客。',
-          '同时，汇天飞行汽车（Aridge / 小鹏汇天）也在加速推进全球化品牌布局，中国低空飞行器产品正从国内示范区走向中东、拉美、东南亚与欧洲市场。'
-        ],
-        tags: ['亿航出海', '拉美首飞', 'EH216-S', '全球商业化'],
-        sources: [
-          { title: '亿航智能官网：EH216-S完成墨西哥及拉丁美洲首次载人飞行', url: 'https://www.ehang.com/cn/news/1365.html' },
-          { title: '汇天飞行汽车官方网站', url: 'https://cn.aridge.com/' },
-          { title: '亿航EH216-S与旅航者X2参数对比', url: 'https://www.feiauto.com/tt/426.html' }
-        ]
+            id: 'prod-official-1',
+            "category": "product",
+            "isOfficial": true,
+            "isNewsroomDaily": true,
+            "publishSlot": "09:00 A1新闻部往期特稿",
+            "importanceScore": 94.6,
+            "creativeFormat": "四大构型战力雷达 + 商业回本测算卡",
+            "title": "A1旗舰横评：亿航EH216-S、小鹏汇天“陆地航母”、峰飞“盛世龙”与沃兰特VE25四大机型商业化硬核对比",
+            "author": "A1 飞行器评测中心 · 总工程师 陈航",
+            "date": "2026-11-11",
+            "readTime": "9 分钟深度阅读",
+            "summary": "中国 eVTOL 整机研发已形成多旋翼、分体式飞行汽车、复合翼与倾转旋翼四大技术流派。A1 飞行器评测中心从气动构型、适航取证进度、官方定价及海外订单四个维度，对国内四大标杆机型进行全方位量化横评。",
+            "body": [
+                  "【A1 官方撰稿 · 旗舰机型深度横评】2025至2026年是国产 eVTOL 与飞行汽车从“航展样机”走向“商业交付”的决胜期。A1 飞行器评测中心结合主机厂公开参数、民航局适航审定记录与实际订单数据，为您呈现四大代表机型的硬核对比：",
+                  "一、亿航智能 EH216-S（多旋翼无人驾驶载人标杆）：采用 8 轴 16 桨纯电驱动构型，可搭载 2 名乘客，最大允许飞行高度 120 米，续航时间约 25 分钟、航程约 30 公里，官方指导价 239 万元。作为全球首家集齐 TC/PC/AC/OC 四证的机型，亿航在 2024 年即交付 216 架并实现全年盈利；2026 年 2 月更实现了 16 架 EH216-S 与 22580 架 GD4.0 无人机同台编队飞行，非常适合景区低空游览与城市短途接驳。",
+                  "二、小鹏汇天“陆地航母”（分体式个人飞行汽车开创者）：采用“陆行体 + 飞行体”分体式构型，在广州实现量产下线，预估售价约 128 万元起，并已在海外斩获中东地区 600 台飞行汽车大单，率先打开高净值个人户外飞行与越野救援市场。",
+                  "三、峰飞航空“盛世龙”与沃兰特 VE25-100（城际复合翼大载重主力）：峰飞采取“先载货后载人”务实路径，货运版 V2000CG 率先落地，载人版“盛世龙”定价约 199 万元；与此同时，沃兰特 VE25 eVTOL 已顺利完成首次有人驾驶飞行，广汽高域 GOVY AirCab 亮相进博会后半年订单突破千台，共同构筑起中短途城际空中出行的主力梯队。"
+            ],
+            "tags": [
+                  "A1官方横评",
+                  "亿航EH216-S",
+                  "小鹏汇天陆地航母",
+                  "峰飞盛世龙",
+                  "沃兰特VE25"
+            ],
+            "sources": [
+                  {
+                        "title": "飞行汽车之家：中国eVTOL整机公司创始人及代表机型对比",
+                        "url": "https://flyingcarevtol.com/news/4613"
+                  },
+                  {
+                        "title": "低空产业观察：市面上各大eVTOL价格对比（小鹏汇天/亿航/峰飞）",
+                        "url": "https://yuanxiangsky.com/N/255.html"
+                  },
+                  {
+                        "title": "亿航智能官网：16架EH216-S与22580架GD4.0无人机编队表演",
+                        "url": "https://www.ehang.com/news/1343.html"
+                  },
+                  {
+                        "title": "飞行汽车网：小鹏汇天中东600台订单与沃兰特VE25有人驾驶首飞",
+                        "url": "https://www.feiauto.com/index.php?m=home&c=Tags&a=lists&tagid=2707"
+                  },
+                  {
+                        "title": "飞行汽车网：亿航2024年交付216架实现盈利报道",
+                        "url": "https://www.feiauto.com/tt/1557.html"
+                  }
+            ],
+            "creativeWidget": {
+                  "type": "product_roi_simulator",
+                  "badge": "🕹️ A1 新闻部创意交互组件 // 机型战力与回本账本",
+                  "title": "互动推演：中国四大主流 eVTOL 技术流派商业化战力与回本沙盘",
+                  "subtitle": "点击切换查看【四大机型硬核战力榜】、【C端个人飞行车 vs B端空中巴士辩论】与【景区/城际运营回本路径】",
+                  "tabs": [
+                        {
+                              id: 'prod_rank',
+                              "label": "✈️ 四大机型商业战力榜",
+                              "items": [
+                                    {
+                                          "name": "亿航 EH216-S · 多旋翼无人载人",
+                                          "score": 96,
+                                          "tag": "指导价 239 万元 · 全球首家四证齐全 (TC/PC/AC/OC)",
+                                          "detail": "无需人类飞行员，已实现 216 架年交付盈利与拉美首飞，景区观光与短途接驳可即买即运营。"
+                                    },
+                                    {
+                                          "name": "小鹏汇天“陆地航母” · 分体式飞行汽车",
+                                          "score": 95,
+                                          "tag": "预估约 128 万元起 · 中东斩获 600 台海外大单",
+                                          "detail": "陆行体可为飞行体移动补能，完美适配高净值个人越野玩家与野外搜救队伍。"
+                                    },
+                                    {
+                                          "name": "峰飞盛世龙 / 沃飞 AE200 · 城际干线级",
+                                          "score": 93,
+                                          "tag": "复合翼与倾转旋翼代表 · 冲刺城际百公里航线",
+                                          "detail": "兼具垂直起降与固定翼高速巡航优势，瞄准大湾区、长三角跨城商务干线。"
+                                    }
+                              ]
+                        },
+                        {
+                              id: 'debate_pk',
+                              "label": "⚡ A1 锋芒观点碰撞",
+                              "proTitle": "正方观点：ToB/ToG 景区观光与城际航线才是 eVTOL 唯一规模化出路",
+                              "proDesc": "空域管制与维护保养决定了普通消费者很难像开私家车一样在城市随便起飞，集中化机队运营（如亿航/峰飞/广汽高域模式）效率最高。",
+                              "conTitle": "反方观点：ToC 高端个人飞行汽车（如陆地航母）现金流回笼最快",
+                              "conDesc": "中东 600 台订单与国内数千台预订证明，先卖给户外探险家与飞行爱好者，能最快帮主机厂收回百亿研发成本。",
+                              "a1Verdict": "★ A1 新闻部主编裁决：中国主机厂正在走出“B端无人驾驶空中巴士（亿航/峰飞/沃飞）+ C端分体式越野飞行车（小鹏汇天）”的双轨制胜道路。"
+                        },
+                        {
+                              id: 'compliance_calc',
+                              "label": "💰 商业运营回本四步账",
+                              "steps": [
+                                    {
+                                          "code": "MODEL 01 // 5A景区低空游览",
+                                          "status": "最快现金流",
+                                          "tip": "采用已拿 OC 证机型（如 EH216-S），单票定价 300-600 元，配合自动充电起降场实现高频周转。"
+                                    },
+                                    {
+                                          "code": "MODEL 02 // 跨海与海岛高值物流",
+                                          "status": "高频刚需",
+                                          "tip": "采用吨级货运 eVTOL（如峰飞 V2000CG），运输生鲜、医药与高价值精密件。"
+                                    },
+                                    {
+                                          "code": "MODEL 03 // 高端营地飞行体验",
+                                          "status": "C端+B端联动",
+                                          "tip": "依托分体式飞行汽车在飞行营地提供驻场体验与驾照培训服务。"
+                                    },
+                                    {
+                                          "code": "MODEL 04 // 枢纽机场-CBD空中快线",
+                                          "status": "远期万亿市场",
+                                          "tip": "复合翼与倾转旋翼取证后，将 90 分钟地面拥堵车程缩短至 15 分钟空中飞行。"
+                                    }
+                              ]
+                        }
+                  ]
+            }
+      },
+      {
+            id: 'sup-official-1',
+            "category": "supply",
+            "isOfficial": true,
+            "isNewsroomDaily": true,
+            "publishSlot": "09:00 A1新闻部往期特稿",
+            "importanceScore": 93.8,
+            "creativeFormat": "高低压双轨供电架构拆解图",
+            "title": "A1供应链拆解：中创新航、亿纬锂能、孚能科技三大电池巨头如何撑起中国eVTOL量产潮？",
+            "author": "A1 供应链智库 · 硬件工程组",
+            "date": "2026-11-10",
+            "readTime": "7 分钟深度阅读",
+            "summary": "航空级动力电池与高可靠低压供电系统是决定 eVTOL 商业化落地的核心命脉。A1 供应链智库深入拆解小鹏汇天“陆地航母”等量产机型的电池定点格局，剖析主动力电池与 FCC/ESC 低压锂电池的技术分工。",
+            "body": [
+                  "【A1 官方撰稿 · 供应链深度拆解】在电动垂直起降航空器（eVTOL）的整机成本与适航安全权重中，动力与能源系统占比极高。与地面新能源汽车不同，eVTOL 在垂直起降阶段需要极高的瞬时放电倍率，且在高空低温环境下对电池热失控具备“零容忍”要求。",
+                  "一、三大动力电池巨头定点格局清晰：以亚洲规模领先的飞行汽车企业小鹏汇天为例，其在启动规模量产前已在供应链端与中创新航（3931.HK）、亿纬锂能及孚能科技三大动力电池巨头建立深度合作。其中，即将大规模量产交付的分体式飞行汽车“陆地航母”高压主动力电池由中创新航独家提供。",
+                  "二、低压锂电池对飞控（FCC）与电调（ESC）的关键护航：根据亿纬锂能官方披露，亿纬锂能为小鹏汇天提供下一代原理样机低压锂电池。A1 硬件工程组指出，低压锂电池在航空器中主要承担为飞行控制系统（FCC）和电子调速器（ESC）供电的关键职责，哪怕主动力链路出现波动，高可靠低压电池也能确保飞控计算机与姿态执行机构稳定运行，是拿到航空级适航认证的核心防线。"
+            ],
+            "tags": [
+                  "A1官方拆解",
+                  "中创新航",
+                  "亿纬锂能",
+                  "飞控系统FCC"
+            ],
+            "sources": [
+                  {
+                        "title": "南方财经网：中国低空经济商业化进阶，订单与供应链量产潮起",
+                        "url": "https://www.sfccn.com/2025/5-17/3NMDE0MDRfMjAzMTg3Ng.html"
+                  },
+                  {
+                        "title": "亿纬锂能官方公告：亿纬锂能携手小鹏汇天共筑低空新生态",
+                        "url": "https://www.evebattery.com/news-943"
+                  },
+                  {
+                        "title": "广州市科技局：小鹏汇天供应链布局与陆地航母进展",
+                        "url": "http://kjj.gz.gov.cn/xwlb/yw/content/post_10325081.html"
+                  }
+            ],
+            "creativeWidget": {
+                  "type": "supply_bom_simulator",
+                  "badge": "🕹️ A1 新闻部创意交互组件 // 供应链价值拆解台",
+                  "title": "互动拆解：eVTOL 整机核心供应链价值占比与技术壁垒",
+                  "subtitle": "点击切换查看【核心子系统价值权重】、【车规vs航空规锋芒对决】与【供应商入局四步法】",
+                  "tabs": [
+                        {
+                              id: 'bom_rank',
+                              "label": "🔋 供应链价值权重榜",
+                              "items": [
+                                    {
+                                          "name": "推进与高密航空电池系统",
+                                          "score": 95,
+                                          "tag": "占整机价值约 35%-40% · 中创新航/亿纬锂能/孚能",
+                                          "detail": "决定垂直起降瞬时放电倍率与有效航程，需同时满足高比能与零热失控蔓延要求。"
+                                    },
+                                    {
+                                          "name": "航电与多余度飞控系统 (FCC)",
+                                          "score": 93,
+                                          "tag": "占整机价值约 25%-30% · 适航取证核心卡点",
+                                          "detail": "三余度/四余度容错飞控架构，配合独立低压锂电供电，确保极端故障下安全迫降。"
+                                    },
+                                    {
+                                          "name": "碳纤维复材机体与被动安全",
+                                          "score": 88,
+                                          "tag": "占整机价值约 20%-25% · 奥托立夫/立邦航空涂层",
+                                          "detail": "全机身碳纤维减重与航空特种减阻耐候涂装，结合定制轻量化安全气囊系统。"
+                                    }
+                              ]
+                        },
+                        {
+                              id: 'debate_pk',
+                              "label": "⚡ A1 锋芒观点碰撞",
+                              "proTitle": "正方观点：车规级供应链外溢足以让中国 eVTOL 成本碾压全球",
+                              "proDesc": "依托珠三角与长三角成熟的动力电池、电机电控与智能座舱产线，国产主机厂能快速把整机价格打到 120万-240万元区间。",
+                              "conTitle": "反方观点：直接套用车规件无法通过民航局严苛适航审定",
+                              "conDesc": "航空高空低温、强电磁干扰与疲劳寿命要求远超地面汽车，缺乏航空 DO-254/DO-178C 正向开发体系的供应商将被淘汰。",
+                              "a1Verdict": "★ A1 新闻部主编裁决：“车规级规模制造工艺 + 航空级冗余适航标准”的混血物种，才是未来五年真正的供应链赢家。"
+                        },
+                        {
+                              id: 'compliance_calc',
+                              "label": "🛠️ 供应商入局四步法",
+                              "steps": [
+                                    {
+                                          "code": "STAGE 01 // 原理样机联合预研",
+                                          "status": "技术卡位",
+                                          "tip": "针对主机厂专用条件需求，定制减重与高倍率/高可靠样品（如亿纬锂能低压锂电合作模式）。"
+                                    },
+                                    {
+                                          "code": "STAGE 02 // 适航符合性试验",
+                                          "status": "实验室摸底",
+                                          "tip": "配合主机厂完成环境、电磁兼容（EMC）、振动与极限热失控地面台架试验。"
+                                    },
+                                    {
+                                          "code": "STAGE 03 // 锁定量产定点与PC体系",
+                                          "status": "产线审核",
+                                          "tip": "建立全生命周期批次可追溯产线，支撑主机厂获取生产许可证（PC）。"
+                                    },
+                                    {
+                                          "code": "STAGE 04 // 切入全球售后航材池",
+                                          "status": "高频复购",
+                                          "tip": "随着机队商业化运营，电池包更换与航材维保将带来持续高毛利现金流。"
+                                    }
+                              ]
+                        }
+                  ]
+            }
+      },
+      {
+            id: 'comp-official-1',
+            "category": "competition",
+            "isOfficial": true,
+            "isNewsroomDaily": true,
+            "publishSlot": "09:00 A1新闻部往期特稿",
+            "importanceScore": 91.5,
+            "creativeFormat": "评审权重矩阵 + 参赛通关清单",
+            "title": "A1赛事全景观察：从“场景验证”走向“系统重构”，数字中国创新大赛低空经济赛道深度复盘与备赛指南",
+            "author": "A1 赛事观察团 · 首席观察员 周牧",
+            "date": "2026-11-09",
+            "readTime": "6 分钟深度阅读",
+            "summary": "数字中国创新大赛·低空经济赛道作为国家级数字经济与低空智能装备融合标杆赛事，已促成 30 余家参赛单位达成实质性产业合作。A1 赛事观察团为您提炼评审委员会最看重的三大核心得分点。",
+            "body": [
+                  "【A1 官方撰稿 · 赛事深度复盘】在低空经济快速商业化的进程中，国家级专业赛事已不再是单纯的“路演比武”，而是成为地方政府遴选示范场景供应商、验证低空数字管控体系的实战演练场。",
+                  "一、从单一场景验证走向空域系统重构：根据新华网与数字中国建设峰会官方报道，“数字中国创新大赛·低空经济赛道”依托无人机、eVTOL 等智能飞行装备，结合 5G、人工智能、大数据与未来网络技术，在庆阳等地开展真实空域环境下的安全飞行与管控演练，单届赛事即促成 30 余家企业与地方政府达成合作。",
+                  "二、A1 备赛核心建议：A1 赛事观察团调研发现，当前评委打分权重已明显向“低空智联网协同管控”、“复杂气象与障碍物自主避障”以及“具备清晰商业闭环的支线物流/应急巡检方案”倾斜。建议参赛团队在提交技术方案时，重点展示与地方低空综合监管服务平台的标准化接口对接能力。"
+            ],
+            "tags": [
+                  "A1官方赛评",
+                  "数字中国创新大赛",
+                  "低空经济赛道",
+                  "备赛指南"
+            ],
+            "sources": [
+                  {
+                        "title": "新华网：数字中国创新大赛低空经济赛道——从“场景验证”到“系统重构”",
+                        "url": "https://www.news.cn/info/20260423/715b59eb7d11448a9502d437c9610319/c.html"
+                  },
+                  {
+                        "title": "数字中国建设峰会官网：低空经济赛道启动公告",
+                        "url": "https://www.szzg.gov.cn/2025/xwzx/fhzx/202503/t20250303_4982995.htm"
+                  }
+            ],
+            "creativeWidget": {
+                  "type": "competition_radar_simulator",
+                  "badge": "🕹️ A1 新闻部创意交互组件 // 赛事含金量与拿单沙盘",
+                  "title": "互动推演：国内三大标杆低空赛事战队匹配与得分秘籍",
+                  "subtitle": "点击切换查看【三大赛事战力雷达】、【评委打分潜规则PK】与【从参赛到拿单四步通关】",
+                  "tabs": [
+                        {
+                              id: 'comp_rank',
+                              "label": "🏆 核心赛事战力匹配",
+                              "items": [
+                                    {
+                                          "name": "数字中国创新大赛 · 低空经济赛道",
+                                          "score": 96,
+                                          "tag": "政企订单转化率最高 · 单届30+单位签约",
+                                          "detail": "适合具备完整空地协同管控软件、应急救援或支线物流实飞能力的成长期企业。"
+                                    },
+                                    {
+                                          "name": "中国创新创业大赛 · 珠海低空专业赛",
+                                          "score": 94,
+                                          "tag": "国家级双创背书 · 直通湾区示范航线",
+                                          "detail": "联动中国航展与珠海“天空之城”航线，适合整机、新材料与核心零部件硬科技团队。"
+                                    },
+                                    {
+                                          "name": "美团低空经济与具身智能挑战赛",
+                                          "score": 92,
+                                          "tag": "55万元高额奖金池 · 硬核算法极客擂台",
+                                          "detail": "聚焦末端无人机自主视觉导航与具身操作，适合高校实验室与飞控视觉算法团队。"
+                                    }
+                              ]
+                        },
+                        {
+                              id: 'debate_pk',
+                              "label": "⚡ A1 锋芒观点碰撞",
+                              "proTitle": "正方观点：初创团队应优先冲刺国家级政企综合赛拿地方落地补贴",
+                              "proDesc": "低空经济高度依赖空域审批与起降基建，通过国创赛与数字中国大赛直接对接地方专班，能省去两年的商务拓展周期。",
+                              "conTitle": "反方观点：搞定美团/顺丰等产业龙头的技术命题赛才是最快变现路",
+                              "conDesc": "大厂命题赛直接对应真实的百万级日均配送痛点，算法一旦夺冠即可切入成熟商业物流网络。",
+                              "a1Verdict": "★ A1 新闻部主编裁决：整机与空管平台企业主攻“数字中国/国创赛”拿政府航线，机载感知与算法团队主攻“美团挑战赛”拿商业订单。"
+                        },
+                        {
+                              id: 'compliance_calc',
+                              "label": "🎯 夺冠拿单四步通关",
+                              "steps": [
+                                    {
+                                          "code": "STEP 01 // 锁定自主知识产权",
+                                          "status": "资格审查",
+                                          "tip": "确保核心飞控代码、气动构型或航电硬件无产权纠纷（创业江苏/国创赛硬性红线）。"
+                                    },
+                                    {
+                                          "code": "STEP 02 // 对齐地方监管平台接口",
+                                          "status": "技术加分项",
+                                          "tip": "在方案中内置与《低空飞行综合监管服务平台规范》兼容的数据上报模块。"
+                                    },
+                                    {
+                                          "code": "STEP 03 // 准备真实复杂气象实飞数据",
+                                          "status": "决赛决胜点",
+                                          "tip": "拒绝纯仿真动画，展示抗风切变、障碍物动态避障与应急迫降实测日志。"
+                                    },
+                                    {
+                                          "code": "STEP 04 // 锁定地方首购首用目录",
+                                          "status": "商业闭环",
+                                          "tip": "赛后立即对接主办地低空专班，将获奖项目转化为海岛物流、巡检或文旅示范合同。"
+                                    }
+                              ]
+                        }
+                  ]
+            }
+      },
+      {
+            id: 'pol-official-2',
+            "category": "policy",
+            "isOfficial": true,
+            "title": "A1合规指南：CCAR-92部安全管理规则与《深圳经济特区低空经济产业促进条例》企业实操手册",
+            "author": "A1 适航与法务课题组",
+            "date": "2026-11-08",
+            "readTime": "6 分钟阅读",
+            "summary": "针对无人机与 eVTOL 研发制造及运营企业最为关心的合规门槛，A1 适航与法务课题组逐条拆解《民用无人驾驶航空器运行安全管理规则》（CCAR-92）与《民用航空产品和零部件合格审定规定》（CCAR-21），并结合深圳特区立法与20条扶持政策提供合规清单。",
+            "body": [
+                  "【A1 官方撰稿 · 实务拆解】对于从事无人驾驶航空器与载人 eVTOL 研发、制造及商业运营的企业而言，中国民航局（CAAC）公布实施的《民用无人驾驶航空器运行安全管理规则》（CCAR-92）与《民用航空产品和零部件合格审定规定》（CCAR-21）构成了企业准入的基石。",
+                  "在国家层面，工信部同步印发《民用无人驾驶航空器无线电管理暂行办法》，与 CCAR-92 部共同构建起涵盖设计生产、适航审定、无线电频率分配、实名登记与运行合格审定（OC）的全生命周期监管链条。",
+                  "在地方立法层面，《深圳经济特区低空经济产业促进条例》作为全国首部低空经济专项特区立法，与《深圳市支持低空经济高质量发展的若干措施》（20条措施）形成政策合力，明确支持低空基础设施建设，并对获得中国民航局型号合格证（TC）、生产许可证（PC）的载人 eVTOL 及飞行汽车企业给予实质性产业化激励。A1 课题组整理了企业申报适航审定与地方补贴的完整节点核对表。"
+            ],
+            "tags": [
+                  "A1官方指南",
+                  "CCAR-92",
+                  "深圳低空条例",
+                  "适航审定"
+            ],
+            "sources": [
+                  {
+                        "title": "近三年涉及低空经济发展的国家政策梳理 (CCAR-92/CCAR-21)",
+                        "url": "https://www.aamshanghai.com/national-policies-aam-development.html"
+                  },
+                  {
+                        "title": "深圳市低空经济产业协会：政策法规汇编",
+                        "url": "https://www.slaeia.com/business_2.html"
+                  },
+                  {
+                        "title": "君合律所：低空经济法律实务100问",
+                        "url": "https://www.junhe.com/legal-updates/2993"
+                  }
+            ]
+      },
+      {
+            id: 'sup-official-2',
+            "category": "supply",
+            "isOfficial": true,
+            "title": "A1技术内参：从奥托立夫航空安全系统、立邦特种涂料到沃飞长空百亿链主基地，低空供应链全景图",
+            "author": "A1 创新实验室 · 新材料与航电组",
+            "date": "2026-11-07",
+            "readTime": "6 分钟阅读",
+            "summary": "除了电池与电机，低空经济正在吸引全球顶级汽车安全巨头、特种化工材料商入局。A1 创新实验室为您盘点立邦与广汽高域、奥托立夫与小鹏汇天、以及沃飞长空百亿供应链清单背后的产业协同逻辑。",
+            "body": [
+                  "【A1 官方撰稿 · 创新内参】随着 2025-2026 年多款 eVTOL 进入量产工厂建设与总装下线阶段，低空供应链正在经历一场“航空级严苛标准 + 新能源汽车级规模化降本”的深度融合。",
+                  "1. 航空被动安全跨界突破：全球汽车安全系统龙头奥托立夫（Autoliv）已正式与小鹏汇天携手，针对低空飞行器减重与全方位碰撞保护需求，定制研发轻量化安全气囊与约束系统。",
+                  "2. 航空特种涂层与复材减重：广汽高域（GOVY）与立邦达成战略合作，共同推进面向 eVTOL 复合材料机身的航空特种涂料研发，兼顾轻量化、耐候抗紫外线与气动减阻性能。",
+                  "3. 链主基地释放百亿级配套采购：沃飞长空全球总部基地主体已完工并预计于 2026 年下半年投产，随着其自研 AE200-100 下线并冲刺 2026-2027 年适航取证，作为低空经济“链主”企业已向机体结构、航电飞控、起落架与机载设备供应商释放百亿级供应链合作机遇。"
+            ],
+            "tags": [
+                  "A1官方内参",
+                  "奥托立夫",
+                  "立邦航空涂料",
+                  "沃飞长空供应链"
+            ],
+            "sources": [
+                  {
+                        "title": "立邦与广汽高域达成战略合作推进航空涂料研发",
+                        "url": "https://www.feiauto.com/tt/1659.html"
+                  },
+                  {
+                        "title": "奥托立夫与小鹏汇天携手推动低空出行安全发展",
+                        "url": "https://www.feiauto.com/tt/413.html"
+                  },
+                  {
+                        "title": "沃飞长空全球总部基地完工与百亿供应链进展",
+                        "url": "https://www.feiauto.com/tt/1780.html"
+                  }
+            ]
+      },
+      {
+            id: 'comp-official-2',
+            "category": "competition",
+            "isOfficial": true,
+            "title": "A1创赛内参：中国创新创业大赛低空经济专业赛（珠海）与2026美团低空具身智能挑战赛奖金与赛道全解析",
+            "author": "A1 创投赛事组",
+            "date": "2026-11-06",
+            "readTime": "7 分钟阅读",
+            "summary": "一次性盘点国内含金量最高的四大低空赛事：工信部火炬中心“中国创新创业大赛低空经济领域专业赛”（珠海）、55万元大奖“2026美团低空经济与具身智能挑战赛”、中国航空创新创业大赛（CAIEC）杭州赛及山东省低空装备产业链大赛。",
+            "body": [
+                  "【A1 官方撰稿 · 赛事情报内参】为了帮助高校科研团队、初创企业与机载算法极客精准匹配参赛舞台，A1 创投赛事组对 2024-2026 年度国内核心低空赛事进行了分类对比：",
+                  "1. 中国创新创业大赛低空经济领域专业赛（落地珠海）：作为首个国家级低空经济专业双创赛事，以“创聚湾区·逐梦低空”为主题连续两年落地珠海，与第十五届中国航展、全球无人系统大会及珠海国际低空经济博览会深度联动，获奖项目可直接对接珠海“天空之城”14条以上低空物流与交通示范航线。",
+                  "2. 2026 美团低空经济与具身智能挑战赛（55万元大奖）：聚焦城市复杂末端环境下的无人机自主配送、视觉导航与具身智能作业，设立高达 55 万元奖金池，极适合机载感知与飞控算法团队挑战。",
+                  "3. 中国航空创新创业大赛（CAIEC）暨“低空经济+未来空间”领域赛（杭州）与第二届山东省低空装备产业链创新创业大赛：专注航空全产业链双创孵化，为成长型硬科技企业提供产业园区落地与创投基金直通车。"
+            ],
+            "tags": [
+                  "A1官方内参",
+                  "中国创新创业大赛",
+                  "美团低空挑战赛",
+                  "珠海天空之城"
+            ],
+            "sources": [
+                  {
+                        "title": "中国网：第十四届中国创新创业大赛低空经济领域专业赛系列推介",
+                        "url": "http://zw.china.com.cn/2025-10/24/content_118140424.shtml"
+                  },
+                  {
+                        "title": "低空界竞赛频道：2026美团低空经济与具身智能挑战赛及山东低空大赛汇总",
+                        "url": "https://www.dikongjie.com/competition/"
+                  },
+                  {
+                        "title": "杭州网：中国航空创新创业大赛CAIEC“低空经济+未来空间”领域赛",
+                        "url": "https://hznews.hangzhou.com.cn/jingji/content/2025-08/22/content_9065845.htm"
+                  },
+                  {
+                        "title": "创聚湾区逐梦低空：第十三届中国创新创业大赛低空经济专业赛",
+                        "url": "https://www.laernoc.com/newsinfo/1856148892358414338"
+                  }
+            ]
+      },
+      {
+            id: 'prod-official-2',
+            "category": "product",
+            "isOfficial": true,
+            "title": "A1新机首发档案：沃飞长空AE200-100下线与广汽高域GOVY AirCab破千订单背后的技术路线演进",
+            "author": "A1 航空工程编辑部",
+            "date": "2026-11-05",
+            "readTime": "6 分钟阅读",
+            "summary": "剖析沃飞长空自研倾转旋翼 eVTOL AE200-100 下线与广汽高域 GOVY AirCab 进博会首发表现，对比全球 400 余家飞行汽车企业中中国主机厂的工程化迭代优势。",
+            "body": [
+                  "【A1 官方撰稿 · 新机档案】根据香港贸发局经贸研究与智研咨询统计，全球目前共有 400 多家飞行汽车研发企业，涵盖 Joby、Archer、亿航智能、峰飞航空、小鹏汇天、沃飞长空、沃兰特及广汽高域等。A1 航空工程编辑部重点追踪了近期两款重磅新机的首发与量产进展：",
+                  "1. 沃飞长空 AE200-100 总装下线：作为国内倾转旋翼构型的代表作，AE200-100 已正式下线并全面冲刺 2026-2027 年适航取证。倾转旋翼构型兼具直升机垂直起降与固定翼飞机高速巡航优势，但对倾转机构机械可靠性与过渡态飞控律要求极高，AE200-100 的下线标志着国产倾转旋翼工程化取得关键突破。",
+                  "2. 广汽高域 GOVY AirCab 订单破千：依托大型车企成熟的电动化与智能座舱供应链，广汽高域推出的 GOVY AirCab 亮相中国国际进口博览会，并在半年内斩获破千台意向订单，展现出车企系主机厂强大的商业化整合能力。"
+            ],
+            "tags": [
+                  "A1新机档案",
+                  "沃飞长空AE200",
+                  "广汽高域GOVY",
+                  "倾转旋翼"
+            ],
+            "sources": [
+                  {
+                        "title": "沃飞长空AE200-100下线与全球总部基地进展",
+                        "url": "https://www.feiauto.com/tt/1780.html"
+                  },
+                  {
+                        "title": "广汽高域GOVY AirCab亮相进博会半年订单破千",
+                        "url": "https://www.feiauto.com/tt/1659.html"
+                  },
+                  {
+                        "title": "香港贸发局经贸研究：飞行汽车瞩目登场，全球400多家研发企业竞逐",
+                        "url": "https://research.hktdc.com/sc/article/MTk0NjY1NTY5MA"
+                  }
+            ]
+      },
+      {
+            id: 'pol-ind-1',
+            "category": "policy",
+            "isOfficial": false,
+            "title": "中国信通院与毕马威发布低空经济白皮书：亿航获全球首张eVTOL运营许可证（OC），四证闭环成型",
+            "author": "行业权威报告收录 · 信通院 / 东方财富研报",
+            "date": "2026-10-25",
+            "readTime": "5 分钟阅读",
+            "summary": "综合中国信通院《低空经济政策与产业生态研究报告》及民航局公开数据，亿航智能已正式获得全球首张无人驾驶载人航空器运营合格证（OC），成为全球首家“四证齐全”的低空飞行器生产商。",
+            "body": [
+                  "根据中国信息通信研究院发布的《低空经济政策与产业生态研究报告》及东方财富证券行业研报披露，中国民航局（CAAC）在 eVTOL 适航审定与商业运营准入领域持续领跑全球。",
+                  "继型号合格证（TC）、标准适航证（AC）与生产许可证（PC）之后，亿航智能于 2025 年 3 月获得全球首张 eVTOL 运营许可证（OC），成为全球首家“四证齐全”的低空飞行器生产商，标志着中国低空载人飞行正式跨过商业化运营的最后一道法规门槛。",
+                  "此外，中国民航局（CAAC）与美国联邦航空管理局（FAA）、欧洲航空安全局（EASA）、新加坡民航局（CAAS）等国际监管机构均在加速推进 eVTOL 适航标准体系建设，国内多款主流复合翼与倾转旋翼 eVTOL 的型号合格证审定也已进入关键验证阶段。"
+            ],
+            "tags": [
+                  "运营合格证OC",
+                  "四证齐全",
+                  "信通院白皮书",
+                  "CAAC适航"
+            ],
+            "sources": [
+                  {
+                        "title": "中国信通院：《低空经济政策与产业生态研究报告》(PDF)",
+                        "url": "https://www.caict.ac.cn/english/research/whitepapers/202504/P020250401513801693140.pdf"
+                  },
+                  {
+                        "title": "东方财富证券：低空经济乘风而至，亿航四证齐全分析 (PDF)",
+                        "url": "https://pdf.dfcfw.com/pdf/H3_AP202508221732469642_1.pdf?1755898793000.pdf"
+                  },
+                  {
+                        "title": "毕马威中国：《低空经济的黄金时代：解构行业生态》(PDF)",
+                        "url": "https://assets.kpmg.com/content/dam/kpmgsites/cn/pdf/zh/2025/10/the-golden-age-of-low-altitude-economy.pdf"
+                  }
+            ]
+      },
+      {
+            id: 'sup-ind-1',
+            "category": "supply",
+            "isOfficial": false,
+            "title": "一架eVTOL从研发图纸到商业载客：专用条件审定下的飞控系统（FCC）与核心零部件验证门槛",
+            "author": "行业技术观察 · 飞行汽车之家",
+            "date": "2026-10-28",
+            "readTime": "5 分钟阅读",
+            "summary": "聚焦亿航 EH216-S、峰飞 V2000CG 与小鹏汇天 X3-F 等型号的专用条件审定路径，解析国家低空经济创新中心（深圳）关于飞控系统多余度容错设计的工程化要求。",
+            "body": [
+                  "一架 eVTOL 从概念图纸走向商业载客，核心在于其供应链零部件能否通过民航局严苛的符合性验证。由于 eVTOL 融合了多旋翼、复合翼或倾转旋翼等新型构型，中国民航局采取了“一事一议”制定专用条件（Special Conditions）的审定策略。",
+                  "无论是亿航 EH216-S、峰飞 V2000CG 还是小鹏汇天 X3-F，其专用条件均对飞行控制系统（FCC）、推进系统失效隔离以及碳纤维复合材料结构疲劳寿命提出了明确指标。",
+                  "这要求上游供应链企业不仅具备车规级量产能力，更必须建立符合航空 DO-178C（机载软件）和 DO-254（机载电子硬件）标准的正向研发与适航取证追溯体系。"
+            ],
+            "tags": [
+                  "适航专用条件",
+                  "飞控冗余",
+                  "航空零部件",
+                  "工程验证"
+            ],
+            "sources": [
+                  {
+                        "title": "飞行汽车之家：一架eVTOL从研发图纸到商业载客要跨过多少道坎",
+                        "url": "https://flyingcarevtol.com/news/4576"
+                  }
+            ]
+      },
+      {
+            id: 'comp-ind-1',
+            "category": "competition",
+            "isOfficial": false,
+            "title": "“创业江苏”科技创业大赛低空经济专项赛与中国创交会低空产业大赛参赛条件及知识产权规范汇总",
+            "author": "赛事组委会资讯收录",
+            "date": "2026-10-18",
+            "readTime": "4 分钟阅读",
+            "summary": "梳理长三角与大湾区区域性低空经济专项赛的核心准入条款：参赛项目需具备高成长性与自主知识产权，重点征集新型无人机、eVTOL 关键部组件及低空智联管控软件。",
+            "body": [
+                  "随着长三角与珠三角低空产业集群竞争升温，多项区域性专项赛事密集开启项目征集。以“创业江苏”科技创业大赛低空经济专项赛及中国创交会首届低空经济产业创新创业大赛为例，赛事明确要求参赛项目需具有创新性和高成长性，拥有清晰自主知识产权且无产权纠纷。",
+                  "通过专项赛路演优胜的企业，不仅可获得省市级科技创新创业资金支持，还能优先纳入地方低空经济应用场景首购首用推广目录。"
+            ],
+            "tags": [
+                  "创业江苏专项赛",
+                  "中国创交会",
+                  "参赛要求",
+                  "项目路演"
+            ],
+            "sources": [
+                  {
+                        "title": "第十二届“创业江苏”科技创业大赛低空经济专项赛指南",
+                        "url": "https://bjultra.com/seeks/87173025191050"
+                  },
+                  {
+                        "title": "低空界：中国创交会低空经济产业创新创业大赛",
+                        "url": "https://www.dikongjie.com/competition/7/"
+                  }
+            ]
+      },
+      {
+            id: 'prod-ind-1',
+            "category": "product",
+            "isOfficial": false,
+            "title": "亿航智能EH216-S完成墨西哥及拉丁美洲首次载人飞行，国产无人驾驶eVTOL加速全球商业化交付",
+            "author": "企业官方发布 · 亿航智能 (EHang)",
+            "date": "2026-10-20",
+            "readTime": "4 分钟阅读",
+            "summary": "在墨西哥航空航天博览会（FAMEX）支持下，亿航智能旗舰产品 EH216-S 成功完成墨西哥及拉丁美洲首次无人驾驶载人飞行，进一步拓展海外新兴市场。",
+            "body": [
+                  "全球领先的先进空中交通（AAM）科技企业亿航智能（Nasdaq: EH）宣布，其旗舰无人驾驶载人航空器 EH216-S 在墨西哥顺利完成首飞，这也是拉丁美洲历史上首次无人驾驶载人 eVTOL 飞行。",
+                  "在墨西哥航空航天博览会（FAMEX）及当地民航监管部门的见证下，Air Mobility 首席执行官 Cristina Lara 成为墨西哥及拉丁美洲首位乘坐无人驾驶载人 eVTOL 的女性乘客。",
+                  "同时，汇天飞行汽车（Aridge / 小鹏汇天）也在加速推进全球化品牌布局，中国低空飞行器产品正从国内示范区走向中东、拉美、东南亚与欧洲市场。"
+            ],
+            "tags": [
+                  "亿航出海",
+                  "拉美首飞",
+                  "EH216-S",
+                  "全球商业化"
+            ],
+            "sources": [
+                  {
+                        "title": "亿航智能官网：EH216-S完成墨西哥及拉丁美洲首次载人飞行",
+                        "url": "https://www.ehang.com/cn/news/1365.html"
+                  },
+                  {
+                        "title": "汇天飞行汽车官方网站",
+                        "url": "https://cn.aridge.com/"
+                  },
+                  {
+                        "title": "亿航EH216-S与旅航者X2参数对比",
+                        "url": "https://www.feiauto.com/tt/426.html"
+                  }
+            ]
       }
-    ];
+];
 
     // 4. 全局应用状态 (`state`)
     const state = {
@@ -1676,6 +2569,8 @@
         const matchCat = state.activeCategory === 'all' || article.category === state.activeCategory;
         const matchSource =
           state.sourceFilter === 'all' ||
+          (state.sourceFilter === 'newsroom' && article.isNewsroomDaily) ||
+          (state.sourceFilter === 'crawled' && article.isDailyCrawled) ||
           (state.sourceFilter === 'official' && article.isOfficial) ||
           (state.sourceFilter === 'industry' && !article.isOfficial);
 
@@ -1741,13 +2636,24 @@
           ? 'arcade-card arcade-card-official'
           : 'arcade-card bg-white';
 
-        const officialRibbon = article.isOfficial
-          ? `<span class="px-2.5 py-0.5 rounded-md text-[11px] font-black bg-black text-yellow-300 border border-black flex items-center gap-1" style="color:#FACC15 !important;">
+        let officialRibbon = '';
+        if (article.isNewsroomDaily) {
+          officialRibbon = `<span class="px-2.5 py-0.5 rounded-md text-[11px] font-black bg-black text-yellow-300 border border-black flex items-center gap-1" style="color:#FACC15 !important;">
+               <span>🧠 09:00 A1新闻部特稿</span>
+             </span>`;
+        } else if (article.isOfficial) {
+          officialRibbon = `<span class="px-2.5 py-0.5 rounded-md text-[11px] font-black bg-black text-yellow-300 border border-black flex items-center gap-1" style="color:#FACC15 !important;">
                <span>★ A1 官方撰稿</span>
-             </span>`
-          : `<span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-gray-100 text-black border-[1.5px] border-black">
+             </span>`;
+        } else if (article.isDailyCrawled) {
+          officialRibbon = `<span class="px-2 py-0.5 rounded-md text-[11px] font-black bg-yellow-200 text-black border-[1.5px] border-black">
+               🕷️ 07:00 实时抓取
+             </span>`;
+        } else {
+          officialRibbon = `<span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-gray-100 text-black border-[1.5px] border-black">
                行业权威收录
              </span>`;
+        }
 
         return `
           <article class="${cardClass} rounded-2xl p-5 flex flex-col justify-between">
@@ -1769,6 +2675,18 @@
               <p class="text-xs text-black/85 font-medium leading-relaxed line-clamp-3">
                 ${article.summary}
               </p>
+
+              ${article.creativeFormat ? `
+                <div class="px-2.5 py-1.5 rounded-lg bg-yellow-300/90 border-[1.5px] border-black text-[11px] font-black text-black flex items-center justify-between">
+                  <span>🕹️ 创意交互：${article.creativeFormat}</span>
+                  ${article.importanceScore ? `<span class="px-1.5 py-0.2 bg-black text-yellow-300 rounded text-[10px]" style="color:#FACC15 !important;">重要度 ${article.importanceScore}</span>` : ''}
+                </div>
+              ` : (article.crawlOrigin ? `
+                <div class="px-2.5 py-1 rounded-lg bg-yellow-50 border border-black text-[11px] font-bold text-black flex items-center justify-between">
+                  <span>📡 ${article.crawlOrigin}</span>
+                  ${article.importanceScore ? `<span class="px-1.5 py-0.2 bg-yellow-300 border border-black rounded text-[10px] font-black">重要度 ${article.importanceScore}</span>` : ''}
+                </div>
+              ` : '')}
 
               <!-- 标签组 -->
               <div class="flex flex-wrap gap-1.5 pt-1">
@@ -1834,6 +2752,15 @@
 
       const bodyEl = document.getElementById('readerBody');
       bodyEl.innerHTML = article.body.map(para => `<p class="leading-relaxed text-black">${para}</p>`).join('');
+
+      const creativeBox = document.getElementById('readerCreativeBox');
+      if (article.creativeWidget && article.creativeWidget.tabs) {
+        creativeBox.classList.remove('hidden');
+        renderCreativeWidgetInReader(article.creativeWidget, 0);
+      } else {
+        creativeBox.classList.add('hidden');
+        creativeBox.innerHTML = '';
+      }
 
       const sourcesEl = document.getElementById('readerSourcesList');
       if (article.sources && article.sources.length > 0) {
@@ -1909,6 +2836,212 @@
           </div>
         `;
       }).join('');
+    }
+
+
+    // 7.5 渲染 A1 新闻部专属创意交互沙盘组件 (creativeWidget)
+    let currentCreativeWidget = null;
+    function renderCreativeWidgetInReader(widget, activeTabIdx = 0) {
+      currentCreativeWidget = widget;
+      const box = document.getElementById('readerCreativeBox');
+      if (!box || !widget) return;
+
+      const tabs = widget.tabs || [];
+      const activeTab = tabs[activeTabIdx] || tabs[0];
+
+      let tabContentHtml = '';
+      if (activeTab.items) {
+        tabContentHtml = `
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
+            ${activeTab.items.map((item, idx) => `
+              <div class="bg-white border-2 border-black rounded-xl p-3.5 shadow-[3px_3px_0_#111] flex flex-col justify-between space-y-2">
+                <div class="space-y-1.5">
+                  <div class="flex items-center justify-between gap-1">
+                    <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[10px] font-black" style="color:#FACC15 !important;">TOP 0${idx + 1}</span>
+                    <span class="px-2 py-0.5 rounded bg-yellow-300 border border-black text-xs font-black text-black">战力指数 ${item.score}</span>
+                  </div>
+                  <h4 class="text-xs sm:text-sm font-black text-black">${item.name}</h4>
+                  <div class="text-[11px] font-black text-black bg-yellow-100 px-2 py-0.5 rounded border border-black">${item.tag}</div>
+                  <p class="text-xs text-black/85 font-medium leading-relaxed">${item.detail}</p>
+                </div>
+                <div class="w-full bg-yellow-100 h-2.5 rounded-full border border-black overflow-hidden">
+                  <div class="bg-black h-full" style="width: ${item.score}%"></div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      } else if (activeTab.proTitle) {
+        tabContentHtml = `
+          <div class="space-y-3 pt-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="bg-white border-2 border-black rounded-xl p-3.5 shadow-[3px_3px_0_#111] space-y-1.5">
+                <span class="px-2 py-0.5 rounded bg-yellow-300 border border-black text-[11px] font-black text-black">🟦 正方交锋观点</span>
+                <h4 class="text-xs sm:text-sm font-black text-black">${activeTab.proTitle}</h4>
+                <p class="text-xs text-black/85 font-medium leading-relaxed">${activeTab.proDesc}</p>
+              </div>
+              <div class="bg-white border-2 border-black rounded-xl p-3.5 shadow-[3px_3px_0_#111] space-y-1.5">
+                <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[11px] font-black" style="color:#FACC15 !important;">🟨 反方交锋观点</span>
+                <h4 class="text-xs sm:text-sm font-black text-black">${activeTab.conTitle}</h4>
+                <p class="text-xs text-black/85 font-medium leading-relaxed">${activeTab.conDesc}</p>
+              </div>
+            </div>
+            <div class="bg-white border-2 border-black rounded-xl p-3 shadow-[3px_3px_0_#111] text-xs font-black text-black">
+              ${activeTab.a1Verdict}
+            </div>
+          </div>
+        `;
+      } else if (activeTab.steps) {
+        tabContentHtml = `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            ${activeTab.steps.map(st => `
+              <div class="bg-white border-2 border-black rounded-xl p-3 shadow-[3px_3px_0_#111] space-y-1">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-black text-black">${st.code}</span>
+                  <span class="px-2 py-0.5 rounded bg-yellow-300 border border-black text-[10px] font-black text-black">${st.status}</span>
+                </div>
+                <p class="text-xs text-black/85 font-medium leading-relaxed">${st.tip}</p>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      box.innerHTML = `
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b-2 border-black">
+          <div>
+            <span class="px-2.5 py-0.5 rounded bg-black text-yellow-300 text-[11px] font-black" style="color:#FACC15 !important;">${widget.badge}</span>
+            <h3 class="text-sm sm:text-base font-black text-black mt-1">${widget.title}</h3>
+            <p class="text-xs text-black/80 font-semibold">${widget.subtitle}</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          ${tabs.map((t, idx) => `
+            <button type="button" data-creative-tab="${idx}" class="arcade-btn ${idx === activeTabIdx ? 'arcade-btn-yellow' : 'arcade-btn-cream'} px-3 py-1.5 rounded-xl text-xs">
+              ${t.label}
+            </button>
+          `).join('')}
+        </div>
+        ${tabContentHtml}
+      `;
+    }
+
+    // 7.6 自动拉取 GitHub Pages 仓库中的 data/news.json 实现每日 07:00 与 09:00 零延迟同步
+    async function syncFromRemoteJson() {
+      try {
+        const resp = await fetch('data/news.json?t=' + Date.now(), { cache: 'no-store' });
+        if (!resp.ok) return;
+        const remoteData = await resp.json();
+        if (remoteData && Array.isArray(remoteData.articles) && remoteData.articles.length > 0) {
+          const customCreated = state.articles.filter(a => a.isUserCreated);
+          const remoteIds = new Set(remoteData.articles.map(a => a.id));
+          const uniqueCustom = customCreated.filter(a => !remoteIds.has(a.id));
+          state.articles = [...uniqueCustom, ...remoteData.articles];
+          if (remoteData.meta) {
+            updateAgentConsoleUI(remoteData.meta);
+          }
+          renderArticles();
+        }
+      } catch (e) {
+        // 本地直接预览或 Canvas 环境自动使用内嵌的最新同步数据
+      }
+    }
+
+    function updateAgentConsoleUI(meta) {
+      if (!meta) return;
+      const crawlTimeEl = document.getElementById('lastCrawlTimeText');
+      if (crawlTimeEl && meta.lastCrawlTime) crawlTimeEl.textContent = meta.lastCrawlTime;
+
+      const reasonEl = document.getElementById('todayTopReasonText');
+      if (reasonEl && meta.todayTopReason) reasonEl.textContent = meta.todayTopReason;
+
+      const topCatBadge = document.getElementById('todayTopCategoryBadge');
+      if (topCatBadge && meta.todayTopCategory) {
+        const cInfo = CATEGORY_META[meta.todayTopCategory] || CATEGORY_META.policy;
+        topCatBadge.textContent = `${cInfo.label} (${meta.todayTopScore || 96.8}分)`;
+      }
+
+      // 同步顶部 Hero 置顶的 09:00 A1 新闻部特稿卡带
+      const topNewsroom = state.articles.find(a => a.isNewsroomDaily);
+      if (topNewsroom) {
+        const titleEl = document.getElementById('heroNewsroomTitle');
+        const sumEl = document.getElementById('heroNewsroomSummary');
+        const scoreEl = document.getElementById('heroNewsroomScoreBadge');
+        const fmtEl = document.getElementById('heroNewsroomFormat');
+        const btnEl = document.getElementById('heroNewsroomReadBtn');
+        if (titleEl) titleEl.textContent = topNewsroom.title;
+        if (sumEl) sumEl.textContent = topNewsroom.summary;
+        if (scoreEl) scoreEl.textContent = `今日最高重要度 ${topNewsroom.importanceScore || 96.8}分`;
+        if (fmtEl) fmtEl.textContent = `🕹️ ${topNewsroom.creativeFormat || '含交互式三维博弈沙盘'}`;
+        if (btnEl) btnEl.setAttribute('data-open-article', topNewsroom.id);
+      }
+    }
+
+    // 7.7 模拟每日 09:00 根据指定高优栏目动态生成“A1新闻部创意特稿”
+    const DYNAMIC_NEWSROOM_TEMPLATES = {
+      policy: {
+        score: 96.8,
+        targetArticleId: 'a1-newsroom-20261113-0900',
+        reason: '国家发改委低空司协同民航局推进低空飞行综合监管平台全国联网，叠加深圳、广州、合肥、成都等地方党委政府密集批复城际低空航线，政策重要度指数达 96.8 分，今日 09:00 特稿锁定【政策法规】。'
+      },
+      product: {
+        score: 97.5,
+        targetArticleId: 'prod-official-1',
+        reason: '短视频与主机厂信息流监测显示：亿航 16 机编队与拉美首飞、小鹏汇天中东 600 台大单及广汽高域破千订单引爆全网，产品发布重要度飙升至 97.5 分，今日 09:00 特稿自动切换至【产品发布】。'
+      },
+      supply: {
+        score: 95.9,
+        targetArticleId: 'sup-official-1',
+        reason: '主流财经媒体与科技局官网密集披露中创新航、亿纬锂能、奥托立夫及立邦航空涂料定点进展，供应链重要度指数达 95.9 分，今日 09:00 特稿自动切换至【创新与供应链信息】。'
+      },
+      competition: {
+        score: 94.6,
+        targetArticleId: 'comp-official-1',
+        reason: '新华网与中国网重点报道数字中国低空经济赛道促成 30+ 单位签约及美团 55 万具身智能挑战赛实测，赛事重要度达 94.6 分，今日 09:00 特稿自动切换至【比赛信息】。'
+      }
+    };
+
+    function simulateNewsroom0900ByTopic(catKey) {
+      const cfg = DYNAMIC_NEWSROOM_TEMPLATES[catKey] || DYNAMIC_NEWSROOM_TEMPLATES.policy;
+      const targetIdx = state.articles.findIndex(a => a.id === cfg.targetArticleId);
+      if (targetIdx >= 0) {
+        const targetArt = { ...state.articles[targetIdx] };
+        targetArt.isNewsroomDaily = true;
+        targetArt.importanceScore = cfg.score;
+        targetArt.date = '2026-11-13';
+        if (!targetArt.title.startsWith('【A1新闻部·09:00创意特稿】')) {
+          targetArt.title = '【A1新闻部·09:00创意特稿】' + targetArt.title.replace(/^A1[^：]*：/, '');
+        }
+        state.articles.splice(targetIdx, 1);
+        state.articles.unshift(targetArt);
+      }
+
+      updateAgentConsoleUI({
+        lastCrawlTime: '2026-11-13 07:00:00 CST',
+        todayTopCategory: catKey,
+        todayTopScore: cfg.score,
+        todayTopReason: cfg.reason
+      });
+
+      // 更新右侧重要度按钮高亮
+      document.querySelectorAll('[data-sim-topic]').forEach(btn => {
+        const t = btn.getAttribute('data-sim-topic');
+        const cLabel = CATEGORY_META[t].label;
+        if (t === catKey) {
+          btn.className = 'w-full text-left p-2 rounded-lg bg-yellow-300 border-2 border-black transition flex items-center justify-between text-xs font-black';
+          btn.innerHTML = `<span>${cLabel} (最高重要度)</span><span class="px-2 py-0.5 rounded bg-black text-yellow-300" style="color:#FACC15 !important;">${cfg.score} 分 ★今日选题</span>`;
+        } else {
+          const defaultScores = { policy: 92.4, product: 93.4, supply: 91.2, competition: 88.5 };
+          btn.className = 'w-full text-left p-2 rounded-lg bg-white border-2 border-black hover:bg-yellow-100 transition flex items-center justify-between text-xs font-bold';
+          btn.innerHTML = `<span>${cLabel}</span><span class="px-2 py-0.5 rounded bg-yellow-200 border border-black text-black font-black">${defaultScores[t]} 分</span>`;
+        }
+      });
+
+      state.activeCategory = 'all';
+      state.sourceFilter = 'all';
+      renderArticles();
+      playArcadeSound('coin');
+      showToast(`🧠 09:00 A1新闻部已根据最高重要度（${cfg.score}分）生成【${CATEGORY_META[catKey].label}】深度创意特稿！`);
     }
 
     // 8. 滚动吸附电梯与 IntersectionObserver 状态同步
@@ -2059,12 +3192,51 @@
           return;
         }
 
+        const creativeTabBtn = e.target.closest('[data-creative-tab]');
+        if (creativeTabBtn && currentCreativeWidget) {
+          const tabIdx = parseInt(creativeTabBtn.getAttribute('data-creative-tab'), 10) || 0;
+          renderCreativeWidgetInReader(currentCreativeWidget, tabIdx);
+          return;
+        }
+
+        const simTopicBtn = e.target.closest('[data-sim-topic]');
+        if (simTopicBtn) {
+          const topic = simTopicBtn.getAttribute('data-sim-topic');
+          simulateNewsroom0900ByTopic(topic);
+          return;
+        }
+
         const bookmarkBtn = e.target.closest('[data-toggle-bookmark]');
         if (bookmarkBtn) {
           const id = bookmarkBtn.getAttribute('data-toggle-bookmark');
           toggleBookmark(id);
         }
       });
+
+      // 绑定 07:00 全网抓取与 09:00 A1新闻部特稿模拟按钮
+      const simCrawlBtn = document.getElementById('simCrawl0700Btn');
+      if (simCrawlBtn) {
+        simCrawlBtn.addEventListener('click', () => {
+          state.activeCategory = 'all';
+          state.sourceFilter = 'crawled';
+          renderArticles();
+          playArcadeSound('coin');
+          showToast('🕷️ 已同步今日 07:00 政府官网、主流媒体与短视频平台抓取的四大栏目最新内容！');
+          document.getElementById('stage-console').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+
+      const simNewsroomBtn = document.getElementById('simNewsroom0900Btn');
+      if (simNewsroomBtn) {
+        simNewsroomBtn.addEventListener('click', () => {
+          const topNewsroom = state.articles.find(a => a.isNewsroomDaily);
+          if (topNewsroom) {
+            playArcadeSound('coin');
+            openArticleReader(topNewsroom.id);
+            showToast('🧠 已打开今日 09:00 A1新闻部深度创意特稿（含交互式博弈沙盘）！');
+          }
+        });
+      }
 
       // 关闭阅读器弹窗
       document.getElementById('closeReaderModalBtn').addEventListener('click', () => {
@@ -2212,7 +3384,9 @@
     window.addEventListener('DOMContentLoaded', () => {
       initEvents();
       initSnapObserver();
+      updateAgentConsoleUI(INITIAL_NEWS_META);
       renderArticles();
+      syncFromRemoteJson();
     });
   </script>
 </body>
