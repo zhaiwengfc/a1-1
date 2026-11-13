@@ -1,0 +1,54 @@
+name: A1 Low-Altitude Hub Auto Pipeline (07:00 Crawl & 09:00 Newsroom)
+
+on:
+  schedule:
+    # 每日北京时间 06:35 (UTC 22:35) 启动全网抓取，并于 07:00 准时同步至 GitHub Pages
+    - cron: '35 22 * * *'
+    # 每日北京时间 08:40 (UTC 00:40) 根据当日最高重要度信息撰写“A1新闻部文章”，并于 09:00 准时同步至 GitHub Pages
+    - cron: '40 0 * * *'
+  workflow_dispatch:
+    inputs:
+      task_mode:
+        description: '选择要立即执行的智能体任务 (crawl_0700 / newsroom_0900 / both)'
+        required: true
+        default: 'both'
+        type: choice
+        options:
+          - both
+          - crawl_0700
+          - newsroom_0900
+
+permissions:
+  contents: write
+
+jobs:
+  a1-daily-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout zhaiwengfc/a1-1 repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run 07:00 Daily Multi-Source Crawler (Gov + Media + Short-Video Feeds)
+        if: github.event.schedule == '35 22 * * *' || github.event.inputs.task_mode == 'crawl_0700' || github.event.inputs.task_mode == 'both' || github.event_name == 'workflow_dispatch'
+        run: |
+          python3 scripts/daily_crawler.py
+
+      - name: Run 09:00 Daily A1 Newsroom Creative Article Writer
+        if: github.event.schedule == '40 0 * * *' || github.event.inputs.task_mode == 'newsroom_0900' || github.event.inputs.task_mode == 'both'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python3 scripts/daily_newsroom_writer.py
+
+      - name: Commit and Push Real-Time Updates to GitHub Pages (zhaiwengfc/a1-1)
+        run: |
+          git config user.name "A1-Newsroom-Agent"
+          git config user.email "agent@a1-portal.local"
+          git add data/news.json
+          git diff --staged --quiet || (git commit -m "chore(a1-agent): auto-update 07:00 crawl & 09:00 A1 newsroom article [skip ci]" && git push)
