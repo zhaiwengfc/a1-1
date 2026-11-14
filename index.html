@@ -44,43 +44,35 @@
       background-color: #FFFFFF;
       color: #111111;
       font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+      font-size: 17px;
+      line-height: 1.65;
       overflow-x: hidden;
-      background-image: radial-gradient(#111111 1.35px, transparent 1.35px);
-      background-size: 32px 32px;
-      background-position: 0 0;
+      background-image: none;
     }
 
     .dots-dense {
-      background-color: #FFFFFF;
-      background-image: radial-gradient(#111111 1.55px, transparent 1.55px);
-      background-size: 12px 12px;
+      background-color: #FFFDF7;
+      background-image: none;
     }
 
     .dots-medium {
-      background-color: #FFFDF5;
-      background-image: radial-gradient(rgba(17, 17, 17, 0.85) 1.35px, transparent 1.35px);
-      background-size: 18px 18px;
+      background-color: #FFFBEB;
+      background-image: none;
     }
 
     .dots-sparse {
       background-color: #FFFFFF;
-      background-image: radial-gradient(rgba(17, 17, 17, 0.7) 1.25px, transparent 1.25px);
-      background-size: 26px 26px;
+      background-image: none;
     }
 
     .dots-yellow {
       background-color: #FEF08A;
-      background-image: radial-gradient(rgba(17, 17, 17, 0.28) 1.5px, transparent 1.5px);
-      background-size: 14px 14px;
+      background-image: none;
     }
 
     .dots-matrix {
       background-color: #FFFFFF;
-      background-image:
-        radial-gradient(#111111 1.6px, transparent 1.6px),
-        radial-gradient(rgba(17, 17, 17, 0.35) 1.2px, transparent 1.2px);
-      background-size: 28px 28px;
-      background-position: 0 0, 14px 14px;
+      background-image: none;
     }
 
     .snap-stage {
@@ -166,9 +158,8 @@
     }
 
     .glass-nav {
-      background-color: rgba(255, 255, 255, 0.96);
-      background-image: radial-gradient(#111111 1.25px, transparent 1.25px);
-      background-size: 16px 16px;
+      background-color: rgba(255, 255, 255, 0.98);
+      background-image: none;
       border-bottom: 3px solid #111111 !important;
       box-shadow: 0 4px 0 #111111;
     }
@@ -241,54 +232,54 @@
 
   <!-- 顶部 A1 全站板块总导航（纯净顶栏，不含收藏夹与发布按钮） -->
   <header class="sticky top-0 z-40 glass-nav">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16 gap-3">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-3">
         <!-- 左侧品牌 Logo -->
         <div class="flex items-center gap-3 shrink-0">
-          <button id="brandHomeBtn" type="button" class="arcade-btn arcade-btn-yellow px-3 py-1.5 rounded-xl flex items-center gap-2.5 text-left focus:outline-none">
-            <div class="w-8 h-8 rounded-lg bg-black flex items-center justify-center border-2 border-black">
-              <span class="font-black text-base tracking-tighter text-yellow-300" style="color:#FACC15 !important;">A1</span>
+          <button id="brandHomeBtn" type="button" class="arcade-btn arcade-btn-yellow px-3.5 py-2 rounded-xl flex items-center gap-3 text-left focus:outline-none">
+            <div class="w-10 h-10 rounded-lg bg-black flex items-center justify-center border-2 border-black shrink-0">
+              <span class="font-black text-lg tracking-tighter text-yellow-300" style="color:#FACC15 !important;">A1</span>
             </div>
             <div>
               <div class="flex items-center gap-1.5">
-                <span class="font-black text-sm sm:text-base tracking-tight text-black">A1 产业门户</span>
-                <span class="text-[10px] font-black px-1.5 py-0.5 rounded bg-white text-black border-[1.5px] border-black">PORTAL</span>
+                <span class="font-black text-base sm:text-lg tracking-tight text-black whitespace-nowrap">A1 产业门户</span>
+                <span class="text-xs font-black px-1.5 py-0.5 rounded bg-white text-black border-[1.5px] border-black">PORTAL</span>
               </div>
-              <p class="text-[11px] font-bold text-black/80 hidden sm:block">前沿产业智库 · 01【低空信息站】</p>
+              <p class="text-xs font-bold text-black/85 hidden sm:block whitespace-nowrap">前沿产业智库 · 01【低空信息站】</p>
             </div>
           </button>
         </div>
 
         <!-- 中部：A1 顶层板块切换导航 -->
         <nav aria-label="A1 全站板块导航" class="hidden xl:flex items-center gap-2 bg-white p-1.5 rounded-xl border-2 border-black shadow-[3px_3px_0_#111]">
-          <button type="button" data-module="low-altitude" class="module-tab-btn px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 bg-yellow-400 text-black">
-            <span class="w-2 h-2 rounded-full bg-black animate-glow"></span>
+          <button type="button" data-module="low-altitude" class="module-tab-btn px-3.5 py-2 rounded-lg text-sm flex items-center gap-1.5 bg-yellow-400 text-black whitespace-nowrap">
+            <span class="w-2.5 h-2.5 rounded-full bg-black animate-glow shrink-0"></span>
             <span>01 低空信息站</span>
           </button>
-          <button type="button" data-module="module-airspace" class="module-tab-btn px-2.5 py-1.5 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1">
-            <span>02 空域智算网</span>
-            <span class="text-[10px] px-1 rounded bg-white border border-black font-bold">筹备中</span>
+          <button type="button" data-module="sky-mall" class="module-tab-btn px-3.5 py-2 rounded-lg text-sm bg-yellow-200 text-black flex items-center gap-1.5 whitespace-nowrap">
+            <span>🛸 02 空中商城</span>
+            <span class="text-xs px-1.5 py-0.5 rounded bg-black text-yellow-300 font-black" style="color:#FACC15 !important;">NEW</span>
           </button>
-          <button type="button" data-module="module-capital" class="module-tab-btn px-2.5 py-1.5 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1">
+          <button type="button" data-module="module-capital" class="module-tab-btn px-3 py-2 rounded-lg text-sm bg-yellow-100 text-black flex items-center gap-1.5 whitespace-nowrap">
             <span>03 产业投融资库</span>
-            <span class="text-[10px] px-1 rounded bg-white border border-black font-bold">筹备中</span>
+            <span class="text-xs px-1.5 py-0.5 rounded bg-white border border-black font-bold">筹备中</span>
           </button>
-          <button type="button" data-module="module-academy" class="module-tab-btn px-2.5 py-1.5 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1">
+          <button type="button" data-module="module-academy" class="module-tab-btn px-3 py-2 rounded-lg text-sm bg-yellow-100 text-black flex items-center gap-1.5 whitespace-nowrap">
             <span>04 适航与人才院</span>
-            <span class="text-[10px] px-1 rounded bg-white border border-black font-bold">筹备中</span>
+            <span class="text-xs px-1.5 py-0.5 rounded bg-white border border-black font-bold">筹备中</span>
           </button>
-          <button type="button" data-module="module-summit" class="module-tab-btn px-2.5 py-1.5 rounded-lg text-xs bg-yellow-100 text-black flex items-center gap-1">
+          <button type="button" data-module="module-summit" class="module-tab-btn px-3 py-2 rounded-lg text-sm bg-yellow-100 text-black flex items-center gap-1.5 whitespace-nowrap">
             <span>05 全球低空峰会</span>
-            <span class="text-[10px] px-1 rounded bg-white border border-black font-bold">筹备中</span>
+            <span class="text-xs px-1.5 py-0.5 rounded bg-white border border-black font-bold">筹备中</span>
           </button>
-          <button type="button" data-module="module-custom" class="module-tab-btn px-2.5 py-1.5 rounded-lg text-xs bg-yellow-300 text-black flex items-center gap-1">
+          <button type="button" data-module="module-custom" class="module-tab-btn px-3 py-2 rounded-lg text-sm bg-yellow-300 text-black flex items-center gap-1.5 whitespace-nowrap">
             <span>更多板块规划</span>
           </button>
         </nav>
 
         <!-- 右侧：音效开关 -->
-        <div class="flex items-center gap-2">
-          <button id="toggleSoundBtn" type="button" class="arcade-btn arcade-btn-cream px-2.5 py-1.5 rounded-lg text-xs flex items-center gap-1" title="切换交互音效">
+        <div class="flex items-center gap-2 shrink-0">
+          <button id="toggleSoundBtn" type="button" class="arcade-btn arcade-btn-cream px-3.5 py-2 rounded-xl text-sm flex items-center gap-1.5" title="切换交互音效">
             <span id="soundIconSpan">🔊</span>
             <span class="hidden sm:inline">音效</span>
           </button>
@@ -297,11 +288,11 @@
 
       <!-- 移动端/平板端横向板块切换条 -->
       <div id="mobileModuleBar" class="xl:hidden flex items-center gap-2 overflow-x-auto py-2.5 border-t-2 border-black custom-scrollbar">
-        <button type="button" data-module="low-altitude" class="module-tab-btn shrink-0 px-3 py-1 rounded-lg text-xs bg-yellow-400 text-black flex items-center gap-1">
+        <button type="button" data-module="low-altitude" class="module-tab-btn shrink-0 px-3.5 py-1.5 rounded-lg text-sm bg-yellow-400 text-black flex items-center gap-1 whitespace-nowrap">
           <span>01 低空信息站</span>
         </button>
-        <button type="button" data-module="module-airspace" class="module-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs bg-yellow-100 text-black">
-          02 空域智算网
+        <button type="button" data-module="sky-mall" class="module-tab-btn shrink-0 px-3.5 py-1.5 rounded-lg text-sm bg-yellow-200 text-black flex items-center gap-1 whitespace-nowrap">
+          <span>🛸 02 空中商城</span>
         </button>
         <button type="button" data-module="module-capital" class="module-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs bg-yellow-100 text-black">
           03 产业投融资库
@@ -320,29 +311,22 @@
   </header>
 
   <!-- 主体内容容器 -->
-  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-10">
+  <main class="flex-1 max-w-[1400px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-10">
 
     <!-- ==================== 视图 A：01 低空信息站 ==================== -->
     <div id="viewLowAltitude" class="space-y-10">
 
       <!-- 【焦点主视觉区】 -->
       <section id="stage-hero" class="snap-stage arcade-window dots-dense rounded-2xl overflow-hidden p-5 sm:p-8 lg:p-10">
-        <!-- 顶部板块状态栏（内嵌本板块专属收藏夹入口） -->
-        <div class="flex flex-wrap items-center justify-between gap-2 pb-4 mb-6 border-b-[3px] border-black bg-yellow-300 -mx-5 -mt-5 sm:-mx-8 sm:-mt-8 lg:-mx-10 lg:-mt-10 px-5 sm:px-8 lg:px-10 py-3">
-          <div class="flex items-center gap-2">
-            <span class="w-3.5 h-3.5 rounded-full bg-black inline-block"></span>
-            <span class="w-3.5 h-3.5 rounded-full bg-white border-2 border-black inline-block"></span>
-            <span class="font-black text-xs sm:text-sm tracking-wide text-black">
-              A1 · 01 低空信息站 · 全产业链权威资讯与深度专栏
-            </span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span id="lastUpdatedBannerText" class="px-2.5 py-0.5 rounded bg-white border-[1.5px] border-black text-black text-[11px] font-black hidden sm:inline-block">
+        <!-- 顶部板块状态栏（已移除左侧标题与圆点，仅保留右侧更新时间与收藏夹入口） -->
+        <div class="flex flex-wrap items-center justify-end gap-3 mb-6 border-b-[3px] border-black bg-yellow-300 -mx-5 -mt-5 sm:-mx-8 sm:-mt-8 lg:-mx-10 lg:-mt-10 px-5 sm:px-8 lg:px-10 py-3.5">
+          <div class="flex items-center gap-3">
+            <span id="lastUpdatedBannerText" class="px-3 py-1 rounded-lg bg-white border-2 border-black text-black text-sm font-black hidden sm:inline-block">
               最新更新：2026-11-14
             </span>
-            <button type="button" data-open-bookmarks="true" class="arcade-btn arcade-btn-cream px-3 py-1 rounded-lg text-xs flex items-center gap-1.5">
+            <button type="button" data-open-bookmarks="true" class="arcade-btn arcade-btn-cream px-3.5 py-1.5 rounded-xl text-sm flex items-center gap-1.5">
               <span>⭐ 我的收藏夹</span>
-              <span class="bookmark-count-badge px-1.5 py-0.2 rounded bg-yellow-400 border border-black text-[11px] font-black text-black">0</span>
+              <span class="bookmark-count-badge px-2 py-0.5 rounded bg-yellow-400 border border-black text-xs font-black text-black">0</span>
             </button>
           </div>
         </div>
@@ -351,97 +335,90 @@
           <!-- 左侧 7 列：主介绍与四大栏目快速导航 -->
           <div class="lg:col-span-7 bg-white/95 border-[3px] border-black rounded-2xl p-5 sm:p-6 shadow-[6px_6px_0_#111] flex flex-col justify-between space-y-5">
             <div class="space-y-3.5">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="px-3 py-1 rounded-lg text-xs font-black bg-yellow-400 text-black border-2 border-black shadow-[2px_2px_0_#111]">
-                  01 核心板块
-                </span>
-                <span class="px-3 py-1 rounded-lg text-xs font-black bg-yellow-100 text-black border-2 border-black flex items-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-black animate-glow"></span>
-                  四大垂直栏目 · A1 新闻部深度专栏
-                </span>
-              </div>
-
-              <h1 class="text-2xl sm:text-4xl font-black tracking-tight text-black leading-tight">
+              <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-black leading-tight">
                 A1 低空信息站
-                <span class="inline-block mt-1 px-2.5 py-0.5 bg-yellow-300 border-[2.5px] border-black rounded-xl text-black shadow-[3px_3px_0_#111] text-xl sm:text-3xl">
+                <span class="inline-block mt-1.5 px-3 py-1 bg-yellow-300 border-[2.5px] border-black rounded-xl text-black shadow-[3px_3px_0_#111] text-2xl sm:text-4xl">
                   LOW-ALTITUDE HUB
                 </span>
               </h1>
 
-              <p class="text-sm sm:text-base text-black font-medium leading-relaxed">
-                聚焦中国与全球低空经济全产业链，全面覆盖<strong class="bg-yellow-200 px-1 border border-black rounded font-extrabold">政策法规</strong>、<strong class="bg-yellow-200 px-1 border border-black rounded font-extrabold">创新与供应链信息</strong>、<strong class="bg-yellow-200 px-1 border border-black rounded font-extrabold">比赛信息</strong>与<strong class="bg-yellow-200 px-1 border border-black rounded font-extrabold">产品发布</strong>四大垂直栏目，持续推出 <strong class="underline decoration-2 font-black">A1 新闻部</strong>原创深度研判与权威信源核验。
+              <p class="text-base sm:text-lg text-black font-medium leading-relaxed">
+                聚焦中国与全球低空经济全产业链，全面覆盖<strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">政策法规</strong>、<strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">创新与供应链信息</strong>、<strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">比赛信息</strong>与<strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">产品发布</strong>四大垂直栏目，持续推出 <strong class="underline decoration-2 font-black">A1新闻部</strong>原创深度文章与权威信源核验。
               </p>
             </div>
 
-            <!-- 栏目快速切换与板块内收藏夹 -->
-            <div class="pt-2 space-y-2.5">
-              <div class="text-xs font-black text-black tracking-wider">▼ 快速浏览核心栏目：</div>
-              <div class="flex flex-wrap items-center gap-2.5">
-                <button type="button" data-quick-cat="policy" class="quick-cat-btn arcade-btn-yellow px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5">
+            <!-- 栏目快速切换 -->
+            <div class="pt-3 space-y-3">
+              <div class="text-sm font-black text-black tracking-wider">▼ 快速浏览核心栏目：</div>
+              <div class="flex flex-wrap items-center gap-3">
+                <button type="button" data-quick-cat="policy" class="quick-cat-btn arcade-btn-yellow px-4 py-2.5 rounded-xl text-sm flex items-center gap-2">
                   <span>🏛️ 政策法规</span>
-                  <span class="px-1.5 py-0.2 rounded bg-white border border-black text-[11px] font-black" data-cat-count="policy">4篇</span>
+                  <span class="px-2 py-0.5 rounded bg-white border border-black text-xs font-black" data-cat-count="policy">5篇</span>
                 </button>
-                <button type="button" data-quick-cat="supply" class="quick-cat-btn arcade-btn-yellow px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5">
+                <button type="button" data-quick-cat="supply" class="quick-cat-btn arcade-btn-yellow px-4 py-2.5 rounded-xl text-sm flex items-center gap-2">
                   <span>🔋 创新与供应链</span>
-                  <span class="px-1.5 py-0.2 rounded bg-white border border-black text-[11px] font-black" data-cat-count="supply">4篇</span>
+                  <span class="px-2 py-0.5 rounded bg-white border border-black text-xs font-black" data-cat-count="supply">4篇</span>
                 </button>
-                <button type="button" data-quick-cat="competition" class="quick-cat-btn arcade-btn-yellow px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5">
+                <button type="button" data-quick-cat="competition" class="quick-cat-btn arcade-btn-yellow px-4 py-2.5 rounded-xl text-sm flex items-center gap-2">
                   <span>🏆 比赛信息</span>
-                  <span class="px-1.5 py-0.2 rounded bg-white border border-black text-[11px] font-black" data-cat-count="competition">4篇</span>
+                  <span class="px-2 py-0.5 rounded bg-white border border-black text-xs font-black" data-cat-count="competition">4篇</span>
                 </button>
-                <button type="button" data-quick-cat="product" class="quick-cat-btn arcade-btn-yellow px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5">
+                <button type="button" data-quick-cat="product" class="quick-cat-btn arcade-btn-yellow px-4 py-2.5 rounded-xl text-sm flex items-center gap-2">
                   <span>✈️ 产品发布</span>
-                  <span class="px-1.5 py-0.2 rounded bg-white border border-black text-[11px] font-black" data-cat-count="product">4篇</span>
+                  <span class="px-2 py-0.5 rounded bg-white border border-black text-xs font-black" data-cat-count="product">5篇</span>
+                </button>
+                <button type="button" data-module="sky-mall" class="module-tab-btn arcade-btn-cream px-4 py-2.5 rounded-xl text-sm flex items-center gap-2">
+                  <span>🛸 进入【02 空中商城】选型库 →</span>
                 </button>
               </div>
             </div>
           </div>
 
           <!-- 右侧 5 列：双篇 A1新闻部 重点文章卡片 -->
-          <div class="lg:col-span-5 flex flex-col justify-between gap-4">
+          <div class="lg:col-span-5 flex flex-col justify-between gap-5">
             <!-- A1新闻部 卡片 1 -->
-            <div class="dots-yellow border-[3px] border-black rounded-2xl p-4 shadow-[6px_6px_0_#111] flex-1 flex flex-col justify-between space-y-2.5">
-              <div class="space-y-2">
-                <div class="flex items-center justify-between gap-1">
-                  <span class="px-2.5 py-0.5 rounded-md text-[11px] font-black bg-black text-yellow-300" style="color:#FACC15 !important;">
+            <div class="dots-yellow border-[3px] border-black rounded-2xl p-5 shadow-[6px_6px_0_#111] flex-1 flex flex-col justify-between space-y-3">
+              <div class="space-y-2.5">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="px-3 py-1 rounded-md text-xs font-black bg-black text-yellow-300" style="color:#FACC15 !important;">
                     ★ A1新闻部
                   </span>
-                  <span id="heroNewsroomCatBadge" class="text-[11px] font-black text-black bg-white px-2 py-0.5 rounded border border-black">🏛️ 政策法规</span>
+                  <span id="heroNewsroomCatBadge" class="text-xs font-black text-black bg-white px-2.5 py-1 rounded-md border-[1.5px] border-black">✈️ 产品发布</span>
                 </div>
-                <h2 id="heroNewsroomTitle" data-open-article="a1-newsroom-20261113-0900" class="cursor-pointer text-sm sm:text-base font-black text-black hover:underline leading-snug">
-                  当城市开始竞逐“天空立交桥”：从中央低空司到地方特区立法的三场深水区博弈
+                <h2 id="heroNewsroomTitle" data-open-article="a1-newsroom-20261114-0900" class="cursor-pointer text-base sm:text-lg font-black text-black hover:underline leading-snug">
+                  65亿融资与10%订单转化率的“冰火对决”：中国eVTOL商业化进入“三把尺子”大考期
                 </h2>
-                <p id="heroNewsroomSummary" class="text-xs text-black/90 font-medium line-clamp-2">
-                  随着国家发改委低空经济发展司统筹推进、中国民航局 CCAR-92 部落地以及深圳、广州、合肥、成都等地方专项政策进入全面实施期，低空经济正加速迈向空域协同管理与商业订单转化的关键阶段。
+                <p id="heroNewsroomSummary" class="text-sm text-black/90 font-medium leading-relaxed line-clamp-2">
+                  2026年前10个月国内eVTOL赛道吸金88亿元，小鹏汇天、沃兰特、峰飞、沃飞长空四大独角兽领跑融资榜；但行业整体意向订单转化率仍不足10%，适航四证、真实航线架次与可确认收入正成为决定主机厂生死的“三把尺子”。
                 </p>
               </div>
-              <div class="pt-2 flex items-center justify-between border-t-2 border-black">
-                <span id="heroNewsroomFormat" class="text-[11px] text-black font-extrabold">📊 空域改革三维对比 + 适航路线图</span>
-                <button id="heroNewsroomReadBtn" type="button" data-open-article="a1-newsroom-20261113-0900" class="arcade-btn arcade-btn-yellow px-3 py-1 rounded-lg text-xs">
+              <div class="pt-3 flex items-center justify-between gap-2 border-t-2 border-black">
+                <span id="heroNewsroomFormat" class="text-xs sm:text-sm text-black font-extrabold truncate">📊 三维战力积分擂台 + 正反方锋芒辩论台</span>
+                <button id="heroNewsroomReadBtn" type="button" data-open-article="a1-newsroom-20261114-0900" class="arcade-btn arcade-btn-yellow px-3.5 py-1.5 rounded-lg text-sm shrink-0">
                   <span>阅读全文 →</span>
                 </button>
               </div>
             </div>
 
             <!-- A1新闻部 卡片 2 -->
-            <div class="bg-white/95 border-[3px] border-black rounded-2xl p-4 shadow-[6px_6px_0_#111] flex-1 flex flex-col justify-between space-y-2.5">
-              <div class="space-y-2">
-                <div class="flex items-center justify-between gap-1">
-                  <span class="px-2.5 py-0.5 rounded-md text-[11px] font-black bg-black text-yellow-300" style="color:#FACC15 !important;">
+            <div class="bg-white border-[3px] border-black rounded-2xl p-5 shadow-[6px_6px_0_#111] flex-1 flex flex-col justify-between space-y-3">
+              <div class="space-y-2.5">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="px-3 py-1 rounded-md text-xs font-black bg-black text-yellow-300" style="color:#FACC15 !important;">
                     ★ A1新闻部
                   </span>
-                  <span id="heroNewsroomCatBadge2" class="text-[11px] font-black text-black bg-yellow-200 px-2 py-0.5 rounded border border-black">✈️ 产品发布</span>
+                  <span id="heroNewsroomCatBadge2" class="text-xs font-black text-black bg-yellow-200 px-2.5 py-1 rounded-md border-[1.5px] border-black">🏛️ 政策法规</span>
                 </div>
-                <h2 id="heroNewsroomTitle2" data-open-article="prod-official-1" class="cursor-pointer text-sm sm:text-base font-black text-black hover:underline leading-snug">
-                  旗舰机型横评：亿航EH216-S、小鹏汇天“陆地航母”、峰飞“盛世龙”与沃兰特VE25商业化竞速
+                <h2 id="heroNewsroomTitle2" data-open-article="a1-newsroom-20261113-0900" class="cursor-pointer text-base sm:text-lg font-black text-black hover:underline leading-snug">
+                  当城市开始竞逐“天空立交桥”：从中央低空司到地方特区立法的三场深水区博弈
                 </h2>
-                <p id="heroNewsroomSummary2" class="text-xs text-black/90 font-medium line-clamp-2">
-                  中国 eVTOL 产业已形成多旋翼、复合翼、倾转旋翼与分体式飞行汽车四大技术流派。深度拆解各主机厂适航取证进度、单机定价及中东与拉美出海订单。
+                <p id="heroNewsroomSummary2" class="text-sm text-black/90 font-medium leading-relaxed line-clamp-2">
+                  随着国家发改委低空经济发展司统筹推进、中国民航局 CCAR-92 部落地以及深圳、广州、合肥、成都等地方专项政策进入全面实施期，低空经济正从顶层规划加速迈向空域协同管理与商业订单转化的关键阶段。
                 </p>
               </div>
-              <div class="pt-2 flex items-center justify-between border-t-2 border-black">
-                <span id="heroNewsroomFormat2" class="text-[11px] text-black font-extrabold">📊 四大构型战力榜 + 运营回本测算</span>
-                <button id="heroNewsroomReadBtn2" type="button" data-open-article="prod-official-1" class="arcade-btn arcade-btn-yellow px-3 py-1 rounded-lg text-xs">
+              <div class="pt-3 flex items-center justify-between gap-2 border-t-2 border-black">
+                <span id="heroNewsroomFormat2" class="text-xs sm:text-sm text-black font-extrabold truncate">📊 空域改革三维对比 + 观点交锋 + 适航路线图</span>
+                <button id="heroNewsroomReadBtn2" type="button" data-open-article="a1-newsroom-20261113-0900" class="arcade-btn arcade-btn-yellow px-3.5 py-1.5 rounded-lg text-sm shrink-0">
                   <span>阅读全文 →</span>
                 </button>
               </div>
@@ -450,73 +427,73 @@
         </div>
       </section>
 
-      <!-- 【四大核心栏目概览】 -->
-      <section id="stage-kpi" aria-label="四大栏目概览指标" class="snap-stage space-y-3">
-        <div class="flex items-center justify-between px-1">
-          <div class="flex items-center gap-2">
-            <span class="px-2.5 py-0.5 rounded-md bg-yellow-300 border-2 border-black text-xs font-black text-black shadow-[2px_2px_0_#111]">栏目导览</span>
-            <h2 class="text-sm sm:text-base font-black text-black">四大垂直栏目概览（点击卡片筛选对应栏目内容）</h2>
-          </div>
-          <span class="text-xs font-bold text-black/75 hidden sm:inline">权威政务 · 产业供应链 · 专业赛事 · 主机厂首发</span>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- 【四大核心栏目概览（已移除上方导览标题横条，字号放大并防止徽章折行）】 -->
+      <section id="stage-kpi" aria-label="四大栏目概览指标" class="snap-stage">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <!-- 栏目 1：政策法规 -->
-          <div data-card-cat="policy" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-4">
-            <div class="flex items-center justify-between mb-2">
-              <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[10px] font-black uppercase tracking-wider" style="color:#FACC15 !important;">01 · POLICY</span>
-              <span class="px-2 py-0.5 rounded text-[11px] bg-white text-black border-[1.5px] border-black font-black" data-official-count="policy">A1新闻部 3 篇</span>
+          <div data-card-cat="policy" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-black text-yellow-300 text-xs font-black uppercase tracking-wider shrink-0 whitespace-nowrap" style="color:#FACC15 !important;">01 · POLICY</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-white text-black border-2 border-black font-black shrink-0 whitespace-nowrap" data-official-count="policy">A1新闻部 3 篇</span>
+              </div>
+              <div class="flex items-center justify-between gap-2 my-2">
+                <h3 class="text-xl font-black text-black">🏛️ 政策法规</h3>
+                <span class="text-2xl sm:text-3xl font-black text-black bg-white px-3 py-0.5 rounded-xl border-2 border-black shadow-[2px_2px_0_#111] shrink-0" data-total-count="policy">5</span>
+              </div>
             </div>
-            <div class="flex items-baseline justify-between my-1">
-              <h3 class="text-base font-black text-black">🏛️ 政策法规</h3>
-              <span class="text-2xl font-black text-black bg-white px-2.5 py-0.5 rounded-lg border-2 border-black shadow-[2px_2px_0_#111]" data-total-count="policy">5</span>
-            </div>
-            <p class="mt-2 text-xs text-black font-medium line-clamp-2">
-              涵盖国家发改委低空司、民航局 CCAR-92 部、2024-2030 实施方案及深圳特区立法解读。
+            <p class="mt-2 text-sm sm:text-base text-black/90 font-medium leading-relaxed line-clamp-2">
+              涵盖国家发改委低空司、民航局 CCAR-92 部、新《民航法》及深圳特区立法解读。
             </p>
           </div>
 
           <!-- 栏目 2：创新与供应链信息 -->
-          <div data-card-cat="supply" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-4">
-            <div class="flex items-center justify-between mb-2">
-              <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[10px] font-black uppercase tracking-wider" style="color:#FACC15 !important;">02 · SUPPLY CHAIN</span>
-              <span class="px-2 py-0.5 rounded text-[11px] bg-white text-black border-[1.5px] border-black font-black" data-official-count="supply">A1新闻部 2 篇</span>
+          <div data-card-cat="supply" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-black text-yellow-300 text-xs font-black uppercase tracking-wider shrink-0 whitespace-nowrap" style="color:#FACC15 !important;">02 · SUPPLY</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-white text-black border-2 border-black font-black shrink-0 whitespace-nowrap" data-official-count="supply">A1新闻部 2 篇</span>
+              </div>
+              <div class="flex items-center justify-between gap-2 my-2">
+                <h3 class="text-xl font-black text-black">🔋 创新与供应链信息</h3>
+                <span class="text-2xl sm:text-3xl font-black text-black bg-white px-3 py-0.5 rounded-xl border-2 border-black shadow-[2px_2px_0_#111] shrink-0" data-total-count="supply">4</span>
+              </div>
             </div>
-            <div class="flex items-baseline justify-between my-1">
-              <h3 class="text-base font-black text-black">🔋 创新与供应链信息</h3>
-              <span class="text-2xl font-black text-black bg-white px-2.5 py-0.5 rounded-lg border-2 border-black shadow-[2px_2px_0_#111]" data-total-count="supply">4</span>
-            </div>
-            <p class="mt-2 text-xs text-black font-medium line-clamp-2">
-              追踪中创新航、亿纬锂能航空电池、FCC 飞控系统、奥托立夫安全系统与立邦航空涂料。
+            <p class="mt-2 text-sm sm:text-base text-black/90 font-medium leading-relaxed line-clamp-2">
+              追踪中创新航、宁德时代、亿纬锂能航空电池、FCC 飞控系统与航空电机。
             </p>
           </div>
 
           <!-- 栏目 3：比赛信息 -->
-          <div data-card-cat="competition" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-4">
-            <div class="flex items-center justify-between mb-2">
-              <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[10px] font-black uppercase tracking-wider" style="color:#FACC15 !important;">03 · COMPETITIONS</span>
-              <span class="px-2 py-0.5 rounded text-[11px] bg-white text-black border-[1.5px] border-black font-black" data-official-count="competition">A1新闻部 2 篇</span>
+          <div data-card-cat="competition" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-black text-yellow-300 text-xs font-black uppercase tracking-wider shrink-0 whitespace-nowrap" style="color:#FACC15 !important;">03 · EVENTS</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-white text-black border-2 border-black font-black shrink-0 whitespace-nowrap" data-official-count="competition">A1新闻部 2 篇</span>
+              </div>
+              <div class="flex items-center justify-between gap-2 my-2">
+                <h3 class="text-xl font-black text-black">🏆 比赛信息</h3>
+                <span class="text-2xl sm:text-3xl font-black text-black bg-white px-3 py-0.5 rounded-xl border-2 border-black shadow-[2px_2px_0_#111] shrink-0" data-total-count="competition">4</span>
+              </div>
             </div>
-            <div class="flex items-baseline justify-between my-1">
-              <h3 class="text-base font-black text-black">🏆 比赛信息</h3>
-              <span class="text-2xl font-black text-black bg-white px-2.5 py-0.5 rounded-lg border-2 border-black shadow-[2px_2px_0_#111]" data-total-count="competition">4</span>
-            </div>
-            <p class="mt-2 text-xs text-black font-medium line-clamp-2">
-              聚合中国创新创业大赛珠海低空专业赛、数字中国低空经济赛道及美团具身智能挑战赛。
+            <p class="mt-2 text-sm sm:text-base text-black/90 font-medium leading-relaxed line-clamp-2">
+              聚合中国航空创新创业大赛、数字中国低空经济赛道及美团具身智能挑战赛。
             </p>
           </div>
 
           <!-- 栏目 4：产品发布 -->
-          <div data-card-cat="product" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-4">
-            <div class="flex items-center justify-between mb-2">
-              <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[10px] font-black uppercase tracking-wider" style="color:#FACC15 !important;">04 · LAUNCHES</span>
-              <span class="px-2 py-0.5 rounded text-[11px] bg-white text-black border-[1.5px] border-black font-black" data-official-count="product">A1新闻部 2 篇</span>
+          <div data-card-cat="product" class="cat-overview-card arcade-card dots-yellow cursor-pointer rounded-2xl p-5 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-2.5 py-1 rounded-md bg-black text-yellow-300 text-xs font-black uppercase tracking-wider shrink-0 whitespace-nowrap" style="color:#FACC15 !important;">04 · LAUNCHES</span>
+                <span class="px-2.5 py-1 rounded-md text-xs bg-white text-black border-2 border-black font-black shrink-0 whitespace-nowrap" data-official-count="product">A1新闻部 3 篇</span>
+              </div>
+              <div class="flex items-center justify-between gap-2 my-2">
+                <h3 class="text-xl font-black text-black">✈️ 产品发布</h3>
+                <span class="text-2xl sm:text-3xl font-black text-black bg-white px-3 py-0.5 rounded-xl border-2 border-black shadow-[2px_2px_0_#111] shrink-0" data-total-count="product">5</span>
+              </div>
             </div>
-            <div class="flex items-baseline justify-between my-1">
-              <h3 class="text-base font-black text-black">✈️ 产品发布</h3>
-              <span class="text-2xl font-black text-black bg-white px-2.5 py-0.5 rounded-lg border-2 border-black shadow-[2px_2px_0_#111]" data-total-count="product">4</span>
-            </div>
-            <p class="mt-2 text-xs text-black font-medium line-clamp-2">
+            <p class="mt-2 text-sm sm:text-base text-black/90 font-medium leading-relaxed line-clamp-2">
               直击亿航 EH216-S、小鹏汇天陆地航母、峰飞盛世龙、沃兰特 VE25 与沃飞 AE200 首发。
             </p>
           </div>
@@ -526,64 +503,64 @@
       <!-- 【栏目筛选与文章文库区】 -->
       <section id="stage-console" class="snap-stage space-y-6">
         <!-- 简洁单层整合栏目导航栏 + 当前浏览状态栏 -->
-        <div id="stationToolbar" class="arcade-window dots-medium rounded-2xl p-4 sm:p-5 space-y-3.5">
-          <div class="flex flex-wrap xl:flex-nowrap items-center justify-between gap-2.5">
+        <div id="stationToolbar" class="arcade-window dots-medium rounded-2xl p-5 sm:p-6 space-y-4">
+          <div class="flex flex-wrap xl:flex-nowrap items-center justify-between gap-3">
             <!-- 统一导航项：全部、政策法规、创新与供应链信息、比赛信息、产品发布、A1新闻部、收藏夹 -->
-            <div class="flex flex-wrap items-center gap-2" role="tablist" aria-label="低空信息站栏目导航">
-              <button type="button" data-cat="all" class="cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-yellow-400 text-black">
-                全部 (<span id="countAllBadge">17</span>)
+            <div class="flex flex-wrap items-center gap-2.5" role="tablist" aria-label="低空信息站栏目导航">
+              <button type="button" data-cat="all" class="cat-tab-btn px-4 py-2.5 rounded-xl text-sm bg-yellow-400 text-black whitespace-nowrap">
+                全部 (<span id="countAllBadge">18</span>)
               </button>
-              <button type="button" data-cat="policy" class="cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-white text-black">
+              <button type="button" data-cat="policy" class="cat-tab-btn px-4 py-2.5 rounded-xl text-sm bg-white text-black whitespace-nowrap">
                 🏛️ 政策法规
               </button>
-              <button type="button" data-cat="supply" class="cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-white text-black">
+              <button type="button" data-cat="supply" class="cat-tab-btn px-4 py-2.5 rounded-xl text-sm bg-white text-black whitespace-nowrap">
                 🔋 创新与供应链信息
               </button>
-              <button type="button" data-cat="competition" class="cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-white text-black">
+              <button type="button" data-cat="competition" class="cat-tab-btn px-4 py-2.5 rounded-xl text-sm bg-white text-black whitespace-nowrap">
                 🏆 比赛信息
               </button>
-              <button type="button" data-cat="product" class="cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-white text-black">
+              <button type="button" data-cat="product" class="cat-tab-btn px-4 py-2.5 rounded-xl text-sm bg-white text-black whitespace-nowrap">
                 ✈️ 产品发布
               </button>
-              <button type="button" data-cat="newsroom" class="cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-white text-black flex items-center gap-1">
+              <button type="button" data-cat="newsroom" class="cat-tab-btn px-4 py-2.5 rounded-xl text-sm bg-white text-black flex items-center gap-1 whitespace-nowrap">
                 <span>★ A1新闻部</span>
               </button>
-              <button type="button" data-open-bookmarks="true" class="arcade-btn arcade-btn-cream px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5">
+              <button type="button" data-open-bookmarks="true" class="arcade-btn arcade-btn-cream px-4 py-2.5 rounded-xl text-sm flex items-center gap-1.5 whitespace-nowrap">
                 <span>⭐ 收藏夹</span>
-                <span class="bookmark-count-badge px-1.5 py-0.2 rounded bg-yellow-400 border border-black text-[11px] font-black text-black">0</span>
+                <span class="bookmark-count-badge px-2 py-0.5 rounded bg-yellow-400 border border-black text-xs font-black text-black">0</span>
               </button>
             </div>
 
             <!-- 右侧：搜索框 -->
-            <div class="relative w-full sm:w-64 xl:w-60 shrink-0">
+            <div class="relative w-full sm:w-72 xl:w-64 shrink-0">
               <input
                 id="articleSearchInput"
                 type="text"
                 placeholder="搜索eVTOL、政策、电池、赛事..."
-                class="arcade-input w-full text-xs rounded-xl pl-9 pr-8 py-2"
+                class="arcade-input w-full text-sm rounded-xl pl-10 pr-8 py-2.5"
               />
-              <svg class="w-4 h-4 text-black absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-              <button id="clearSearchBtn" type="button" class="hidden absolute right-2.5 top-2 text-black font-black text-xs">✕</button>
+              <svg class="w-4 h-4 text-black absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <button id="clearSearchBtn" type="button" class="hidden absolute right-3 top-2.5 text-black font-black text-sm">✕</button>
             </div>
           </div>
 
           <!-- 下方：当前浏览状态栏 -->
-          <div id="activeCatBanner" class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-yellow-100/95 px-3.5 py-2.5 rounded-xl border-2 border-black shadow-[3px_3px_0_#111]">
-            <div class="flex flex-wrap items-center gap-2 text-xs">
-              <span id="activeCatTitle" class="font-black text-black bg-yellow-300 px-2.5 py-0.5 rounded border border-black">当前浏览：全部</span>
+          <div id="activeCatBanner" class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-yellow-100 px-4 py-3 rounded-xl border-2 border-black shadow-[3px_3px_0_#111]">
+            <div class="flex flex-wrap items-center gap-2.5 text-sm sm:text-base">
+              <span id="activeCatTitle" class="font-black text-black bg-yellow-300 px-3 py-1 rounded-md border border-black">当前浏览：全部</span>
               <span id="activeCatDesc" class="text-black font-medium">涵盖政策法规、创新与供应链信息、比赛信息、产品发布及 A1新闻部 全部内容。</span>
             </div>
-            <div class="text-xs text-black font-bold shrink-0 bg-white px-2.5 py-1 rounded-lg border-2 border-black shadow-[2px_2px_0_#111]">
-              共 <strong id="filteredCountText" class="font-black">17</strong> 篇（A1新闻部 <strong id="filteredOfficialCountText" class="px-1 bg-yellow-300 border border-black rounded font-black">9</strong> 篇）
+            <div class="text-sm text-black font-bold shrink-0 bg-white px-3.5 py-1.5 rounded-lg border-2 border-black shadow-[2px_2px_0_#111]">
+              共 <strong id="filteredCountText" class="font-black">18</strong> 篇（A1新闻部 <strong id="filteredOfficialCountText" class="px-1.5 bg-yellow-300 border border-black rounded font-black">10</strong> 篇）
             </div>
           </div>
         </div>
 
         <!-- 文章列表容器 -->
-        <div class="dots-sparse border-[3px] border-black rounded-2xl p-4 sm:p-6 shadow-[8px_8px_0_#111]">
-          <div class="flex items-center justify-between mb-4 pb-2 border-b-2 border-black">
-            <span class="text-xs font-black text-black uppercase tracking-wider">📚 低空信息站 · 专栏与行业资讯文库</span>
-            <span class="text-xs font-bold text-black">点击任意文章卡片即可展开全文与参考信源</span>
+        <div class="dots-sparse border-[3px] border-black rounded-2xl p-5 sm:p-7 shadow-[8px_8px_0_#111]">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-5 pb-3 border-b-2 border-black">
+            <span class="text-sm sm:text-base font-black text-black uppercase tracking-wider">📚 低空信息站 · A1新闻部与行业资讯文库</span>
+            <span class="text-sm font-bold text-black/80">点击任意文章卡片即可展开全文与参考信源</span>
           </div>
 
           <div id="articlesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -591,11 +568,11 @@
           </div>
 
           <!-- 空状态提示 -->
-          <div id="emptyStateBox" class="hidden arcade-card dots-yellow rounded-2xl p-10 text-center space-y-3 my-4">
-            <div class="text-3xl">🔍</div>
-            <h3 class="text-base font-black text-black">未找到匹配的文章内容</h3>
-            <p class="text-xs text-black font-medium max-w-md mx-auto">请尝试清空搜索关键词或切换至“全部栏目”查看完整内容库。</p>
-            <button id="resetFiltersBtn" type="button" class="arcade-btn arcade-btn-yellow px-4 py-2 rounded-xl text-xs">
+          <div id="emptyStateBox" class="hidden arcade-card dots-yellow rounded-2xl p-10 text-center space-y-3.5 my-4">
+            <div class="text-4xl">🔍</div>
+            <h3 class="text-lg font-black text-black">未找到匹配的文章内容</h3>
+            <p class="text-sm text-black font-medium max-w-md mx-auto">请尝试清空搜索关键词或切换至“全部”查看完整内容库。</p>
+            <button id="resetFiltersBtn" type="button" class="arcade-btn arcade-btn-yellow px-5 py-2.5 rounded-xl text-sm">
               重置筛选条件
             </button>
           </div>
@@ -603,7 +580,142 @@
       </section>
     </div>
 
-    <!-- ==================== 视图 B：后续筹备板块介绍视图 ==================== -->
+    <!-- ==================== 视图 B：02 空中商城 (SKY MALL) ==================== -->
+    <div id="viewSkyMall" class="hidden space-y-8">
+      <!-- 空中商城首屏与四行分类筛选器 -->
+      <section class="arcade-window bg-white rounded-2xl p-6 sm:p-8 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-5 border-b-[3px] border-black">
+          <div class="space-y-2.5">
+            <h1 class="text-3xl sm:text-4xl font-black text-black tracking-tight">
+              A1 空中商城
+              <span class="inline-block ml-1 px-3 py-0.5 bg-yellow-300 border-2 border-black rounded-xl text-2xl sm:text-3xl shadow-[3px_3px_0_#111]">
+                SKY MALL
+              </span>
+            </h1>
+            <p class="text-base sm:text-lg text-black/90 font-medium leading-relaxed">
+              汇聚 <strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">DJI 大疆</strong>、<strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">道通智能</strong>、<strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">极飞科技</strong>、<strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">纵横股份</strong>及<strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">亿航智能</strong>、<strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">小鹏汇天</strong>、<strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">峰飞航空</strong>、<strong class="bg-yellow-200 px-1.5 py-0.5 border border-black rounded font-extrabold">沃飞长空</strong>等头部无人机与 eVTOL 合作主机厂，完整收录并实时整理自各品牌官网的产品实拍图、套装报价、功能亮点与核心技术参数，为您提供一站式比选与官网直达通道。
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <button type="button" data-module="low-altitude" class="module-tab-btn arcade-btn-cream px-4 py-2.5 rounded-xl text-sm flex items-center gap-1.5">
+              <span>← 返回 01 低空信息站</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 四行多维分类筛选器 -->
+        <div class="bg-[#FFFBEB] border-[2.5px] border-black rounded-2xl p-5 sm:p-6 shadow-[4px_4px_0_#111] space-y-4">
+          <!-- 第一行：行业用途 -->
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2.5 pb-3.5 border-b border-black/20">
+            <span class="text-sm font-black text-black bg-yellow-300 px-3 py-1.5 rounded-lg border-2 border-black shrink-0 w-fit shadow-[2px_2px_0_#111]">
+              01 行业用途
+            </span>
+            <div class="flex flex-wrap items-center gap-2" id="mallFilterUsage">
+              <button type="button" data-mall-usage="all" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-yellow-400 text-black">全部用途</button>
+              <button type="button" data-mall-usage="航拍影像" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">📸 航拍影像</button>
+              <button type="button" data-mall-usage="第一视角FPV" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">🥽 第一视角FPV</button>
+              <button type="button" data-mall-usage="巡检安防" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">🛡️ 巡检安防</button>
+              <button type="button" data-mall-usage="测绘勘探" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">🗺️ 测绘勘探</button>
+              <button type="button" data-mall-usage="农林植保" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">🌾 农林植保</button>
+              <button type="button" data-mall-usage="城际/文旅载人" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">🏙️ 城际/文旅载人</button>
+              <button type="button" data-mall-usage="个人飞行/探索" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">🚙 个人飞行/探索</button>
+            </div>
+          </div>
+
+          <!-- 第二行：价格区间 -->
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2.5 pb-3.5 border-b border-black/20">
+            <span class="text-sm font-black text-black bg-yellow-300 px-3 py-1.5 rounded-lg border-2 border-black shrink-0 w-fit shadow-[2px_2px_0_#111]">
+              02 价格区间
+            </span>
+            <div class="flex flex-wrap items-center gap-2" id="mallFilterPrice">
+              <button type="button" data-mall-price="all" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-yellow-400 text-black">全部价格</button>
+              <button type="button" data-mall-price="under-1w" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">1 万元以内</button>
+              <button type="button" data-mall-price="1w-5w" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">1 万 — 5 万元</button>
+              <button type="button" data-mall-price="5w-50w" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">5 万 — 50 万元</button>
+              <button type="button" data-mall-price="over-50w" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">50 万元以上 (eVTOL级)</button>
+            </div>
+          </div>
+
+          <!-- 第三行：机型分类（消费级、工业级、eVTOL、微型、轻型、中型、大型） -->
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2.5 pb-3.5 border-b border-black/20">
+            <span class="text-sm font-black text-black bg-yellow-300 px-3 py-1.5 rounded-lg border-2 border-black shrink-0 w-fit shadow-[2px_2px_0_#111]">
+              03 机型分类
+            </span>
+            <div class="flex flex-wrap items-center gap-2" id="mallFilterType">
+              <button type="button" data-mall-type="all" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-yellow-400 text-black">全部机型</button>
+              <button type="button" data-mall-type="消费级" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">消费级无人机</button>
+              <button type="button" data-mall-type="工业级" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">工业级无人机</button>
+              <button type="button" data-mall-type="eVTOL/飞行汽车" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">eVTOL / 飞行汽车</button>
+              <button type="button" data-mall-type="微型" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">微型 (&lt;250g)</button>
+              <button type="button" data-mall-type="轻型" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">轻型 (&lt;7kg)</button>
+              <button type="button" data-mall-type="中型" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">中型 (7-150kg)</button>
+              <button type="button" data-mall-type="大型" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">大型载人/货运 (&gt;150kg)</button>
+            </div>
+          </div>
+
+          <!-- 第四行：品牌筛选 -->
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2.5">
+            <span class="text-sm font-black text-black bg-yellow-300 px-3 py-1.5 rounded-lg border-2 border-black shrink-0 w-fit shadow-[2px_2px_0_#111]">
+              04 品牌筛选
+            </span>
+            <div class="flex flex-wrap items-center gap-2" id="mallFilterBrand">
+              <button type="button" data-mall-brand="all" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-yellow-400 text-black">全部品牌</button>
+              <button type="button" data-mall-brand="DJI 大疆" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">DJI 大疆</button>
+              <button type="button" data-mall-brand="道通智能 Autel" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">道通智能 Autel</button>
+              <button type="button" data-mall-brand="极飞科技 XAG" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">极飞科技 XAG</button>
+              <button type="button" data-mall-brand="纵横股份 JOUAV" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">纵横股份 JOUAV</button>
+              <button type="button" data-mall-brand="亿航智能 EHang" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">亿航智能 EHang</button>
+              <button type="button" data-mall-brand="小鹏汇天 AeroHT" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">小鹏汇天 AeroHT</button>
+              <button type="button" data-mall-brand="峰飞航空 AutoFlight" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">峰飞航空 AutoFlight</button>
+              <button type="button" data-mall-brand="沃飞长空 Aerofugia" class="mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black">沃飞长空 Aerofugia</button>
+            </div>
+          </div>
+
+          <!-- 当前筛选状态与关键词搜索栏 -->
+          <div class="pt-3 border-t-2 border-black flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-2 text-sm">
+              <span class="font-black text-black bg-yellow-300 px-3 py-1 rounded-md border border-black" id="mallActiveSummaryText">
+                当前筛选：全部用途 · 全部价格 · 全部机型 · 全部品牌
+              </span>
+              <span class="font-bold text-black bg-white px-3 py-1 rounded-md border border-black">
+                共匹配 <strong id="mallMatchedCount" class="font-black">10</strong> 款机型
+              </span>
+              <button id="mallResetBtn" type="button" class="arcade-btn arcade-btn-cream px-3 py-1 rounded-lg text-xs">
+                重置筛选
+              </button>
+            </div>
+
+            <div class="relative w-full sm:w-80 shrink-0">
+              <input
+                id="mallSearchInput"
+                type="text"
+                placeholder="搜索型号、品牌、载荷或参数..."
+                class="arcade-input w-full text-sm rounded-xl pl-10 pr-8 py-2"
+              />
+              <svg class="w-4 h-4 text-black absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- 产品小窗口网格（每个产品小窗口含行业用途标签、机型标签、品牌标签） -->
+        <div id="mallProductsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+          <!-- 由 JS 动态渲染 -->
+        </div>
+
+        <!-- 空状态提示 -->
+        <div id="mallEmptyBox" class="hidden arcade-card bg-yellow-50 rounded-2xl p-10 text-center space-y-3.5">
+          <div class="text-4xl">🛸</div>
+          <h3 class="text-lg font-black text-black">未找到符合当前四维筛选条件的机型</h3>
+          <p class="text-sm text-black/80 font-medium">您可以点击下方按钮重置筛选器，查看全部消费级无人机、工业级无人机与 eVTOL 产品库。</p>
+          <button id="mallEmptyResetBtn" type="button" class="arcade-btn arcade-btn-yellow px-5 py-2.5 rounded-xl text-sm">
+            重置全部筛选条件
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==================== 视图 C：后续筹备板块介绍视图 ==================== -->
     <div id="viewReservedModule" class="hidden space-y-6">
       <div class="arcade-window dots-medium rounded-2xl p-6 sm:p-8 space-y-6">
         <div class="flex flex-wrap items-center justify-between gap-4 border-b-[3px] border-black pb-5 bg-yellow-200 p-4 rounded-xl border-2">
@@ -643,68 +755,68 @@
   <div id="articleReaderModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-xs p-3 sm:p-6">
     <div class="arcade-window dots-sparse bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden">
       <!-- 顶部固定栏 -->
-      <div class="flex items-center justify-between px-5 py-3.5 border-b-[3px] border-black bg-yellow-300">
-        <div class="flex items-center gap-2">
-          <span id="readerCatBadge" class="px-2.5 py-0.5 rounded-md text-xs font-black bg-white text-black border-2 border-black shadow-[2px_2px_0_#111]">政策法规</span>
-          <span id="readerOfficialBadge" class="px-2.5 py-0.5 rounded-md text-xs font-black bg-black text-yellow-300" style="color:#FACC15 !important;">★ A1新闻部</span>
+      <div class="flex items-center justify-between px-6 py-4 border-b-[3px] border-black bg-yellow-300">
+        <div class="flex items-center gap-2.5">
+          <span id="readerCatBadge" class="px-3 py-1 rounded-md text-sm font-black bg-white text-black border-2 border-black shadow-[2px_2px_0_#111]">政策法规</span>
+          <span id="readerOfficialBadge" class="px-3 py-1 rounded-md text-sm font-black bg-black text-yellow-300" style="color:#FACC15 !important;">★ A1新闻部</span>
         </div>
-        <div class="flex items-center gap-2">
-          <button id="readerBookmarkBtn" type="button" class="arcade-btn arcade-btn-cream px-3 py-1 rounded-lg text-xs flex items-center gap-1">
+        <div class="flex items-center gap-2.5">
+          <button id="readerBookmarkBtn" type="button" class="arcade-btn arcade-btn-cream px-3.5 py-1.5 rounded-lg text-sm flex items-center gap-1">
             <span>☆ 收藏文章</span>
           </button>
-          <button id="readerShareBtn" type="button" class="arcade-btn arcade-btn-cream px-3 py-1 rounded-lg text-xs">
+          <button id="readerShareBtn" type="button" class="arcade-btn arcade-btn-cream px-3.5 py-1.5 rounded-lg text-sm">
             复制摘要
           </button>
-          <button id="closeReaderModalBtn" type="button" class="arcade-btn arcade-btn-yellow w-8 h-8 rounded-lg flex items-center justify-center font-black">
+          <button id="closeReaderModalBtn" type="button" class="arcade-btn arcade-btn-yellow w-9 h-9 rounded-lg flex items-center justify-center font-black text-base">
             ✕
           </button>
         </div>
       </div>
 
       <!-- 文章正文滚动区 -->
-      <div class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-6 bg-white/95">
+      <div class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-6 bg-white">
         <div class="space-y-3">
-          <h2 id="readerTitle" class="text-xl sm:text-2xl font-black text-black leading-snug"></h2>
-          <div class="flex flex-wrap items-center gap-3 text-xs font-bold text-black pt-1">
-            <span id="readerAuthor" class="px-2.5 py-0.5 rounded bg-yellow-200 border-[1.5px] border-black font-black"></span>
-            <span id="readerDate" class="px-2 py-0.5 rounded bg-white border border-black"></span>
-            <span id="readerReadTime" class="px-2 py-0.5 rounded bg-white border border-black"></span>
+          <h2 id="readerTitle" class="text-2xl sm:text-3xl font-black text-black leading-snug"></h2>
+          <div class="flex flex-wrap items-center gap-3 text-sm font-bold text-black pt-1">
+            <span id="readerAuthor" class="px-3 py-1 rounded bg-yellow-200 border-[1.5px] border-black font-black"></span>
+            <span id="readerDate" class="px-2.5 py-1 rounded bg-white border border-black"></span>
+            <span id="readerReadTime" class="px-2.5 py-1 rounded bg-white border border-black"></span>
           </div>
         </div>
 
         <!-- 核心导读提要框 -->
-        <div id="readerTakeawayBox" class="dots-yellow border-[2.5px] border-black rounded-xl p-4 shadow-[4px_4px_0_#111] space-y-1.5">
-          <div class="text-xs font-black text-black flex items-center gap-1.5">
+        <div id="readerTakeawayBox" class="dots-yellow border-[2.5px] border-black rounded-xl p-5 shadow-[4px_4px_0_#111] space-y-2">
+          <div class="text-sm font-black text-black flex items-center gap-1.5">
             <span>📌 核心导读与提要</span>
           </div>
-          <p id="readerSummary" class="text-xs sm:text-sm text-black font-semibold leading-relaxed"></p>
+          <p id="readerSummary" class="text-sm sm:text-base text-black font-semibold leading-relaxed"></p>
         </div>
 
         <!-- A1 深度专题互动看板组件 (creativeWidget) -->
-        <div id="readerCreativeBox" class="hidden dots-yellow border-[3px] border-black rounded-2xl p-4 sm:p-5 shadow-[6px_6px_0_#111] space-y-4">
+        <div id="readerCreativeBox" class="hidden dots-yellow border-[3px] border-black rounded-2xl p-5 sm:p-6 shadow-[6px_6px_0_#111] space-y-4">
           <!-- 动态渲染 -->
         </div>
 
         <!-- 正文段落容器 -->
-        <div id="readerBody" class="space-y-4 text-sm sm:text-base text-black font-medium leading-relaxed bg-white p-4 sm:p-5 rounded-xl border-2 border-black"></div>
+        <div id="readerBody" class="space-y-4 text-base sm:text-lg text-black font-medium leading-relaxed bg-white p-5 sm:p-6 rounded-xl border-2 border-black"></div>
 
         <!-- 权威信源与外部核验链接 -->
-        <div class="dots-medium border-[2.5px] border-black rounded-xl p-4 space-y-2.5 shadow-[4px_4px_0_#111]">
-          <div class="text-xs font-black text-black flex items-center justify-between">
+        <div class="dots-medium border-[2.5px] border-black rounded-xl p-5 space-y-3 shadow-[4px_4px_0_#111]">
+          <div class="text-sm font-black text-black flex items-center justify-between">
             <span>🔗 权威参考信源与原文链接</span>
-            <span class="text-[11px] bg-yellow-300 px-2 py-0.5 rounded border border-black font-black">信源核验</span>
+            <span class="text-xs bg-yellow-300 px-2.5 py-0.5 rounded border border-black font-black">信源核验</span>
           </div>
-          <div id="readerSourcesList" class="flex flex-wrap gap-2.5 pt-1"></div>
+          <div id="readerSourcesList" class="flex flex-wrap gap-3 pt-1"></div>
         </div>
       </div>
 
       <!-- 底部上下篇切换栏 -->
-      <div class="px-6 py-3 border-t-[3px] border-black bg-yellow-100 flex items-center justify-between text-xs">
-        <button id="prevArticleBtn" type="button" class="arcade-btn arcade-btn-yellow px-3 py-1.5 rounded-lg flex items-center gap-1">
+      <div class="px-6 py-3.5 border-t-[3px] border-black bg-yellow-100 flex items-center justify-between text-sm">
+        <button id="prevArticleBtn" type="button" class="arcade-btn arcade-btn-yellow px-4 py-2 rounded-lg flex items-center gap-1.5">
           <span>← 上一篇</span>
         </button>
         <span class="text-black font-black hidden sm:inline">A1 低空信息站</span>
-        <button id="nextArticleBtn" type="button" class="arcade-btn arcade-btn-yellow px-3 py-1.5 rounded-lg flex items-center gap-1">
+        <button id="nextArticleBtn" type="button" class="arcade-btn arcade-btn-yellow px-4 py-2 rounded-lg flex items-center gap-1.5">
           <span>下一篇 →</span>
         </button>
       </div>
@@ -714,26 +826,62 @@
   <!-- ==================== 弹窗 2：我的收藏夹（归属于 01 低空信息站板块内） ==================== -->
   <div id="bookmarksModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-xs p-4">
     <div class="arcade-window dots-medium bg-white rounded-2xl max-w-xl w-full max-h-[80vh] flex flex-col overflow-hidden">
-      <div class="flex items-center justify-between px-5 py-4 border-b-[3px] border-black bg-yellow-300">
-        <h2 class="text-base font-black text-black flex items-center gap-2">
+      <div class="flex items-center justify-between px-6 py-4 border-b-[3px] border-black bg-yellow-300">
+        <h2 class="text-lg font-black text-black flex items-center gap-2">
           <span>⭐ 低空信息站 · 我的文章收藏夹</span>
         </h2>
-        <button id="closeBookmarksModalBtn" type="button" class="arcade-btn arcade-btn-cream w-8 h-8 rounded-lg flex items-center justify-center font-black">✕</button>
+        <button id="closeBookmarksModalBtn" type="button" class="arcade-btn arcade-btn-cream w-9 h-9 rounded-lg flex items-center justify-center font-black text-base">✕</button>
       </div>
-      <div id="bookmarksListContainer" class="p-5 overflow-y-auto custom-scrollbar space-y-3 flex-1 bg-white/90">
+      <div id="bookmarksListContainer" class="p-5 overflow-y-auto custom-scrollbar space-y-3.5 flex-1 bg-white">
         <!-- JS 动态渲染 -->
       </div>
     </div>
   </div>
 
+  <!-- ==================== 弹窗 3：空中商城 · 品牌专属明亮浅色风产品详情大窗口 ==================== -->
+  <div id="mallProductModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-xs p-3 sm:p-6">
+    <div id="mallModalContainer" class="arcade-window rounded-3xl max-w-5xl w-full max-h-[92vh] flex flex-col overflow-hidden transition-colors duration-200">
+      <!-- 顶部品牌栏（已移除主题说明标签与顶部重复购买按钮） -->
+      <div id="mallModalHeader" class="flex items-center justify-between gap-3 px-6 py-4">
+        <div class="flex items-center gap-2.5">
+          <span id="mallModalBrandBadge" class="px-3.5 py-1 rounded-lg text-sm font-black">DJI 大疆</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <button id="closeMallModalBtn" type="button" class="arcade-btn arcade-btn-cream w-9 h-9 rounded-xl flex items-center justify-center font-black text-base">
+            ✕
+          </button>
+        </div>
+      </div>
+
+      <!-- 详情页主体：四大卡片式分类展示区 -->
+      <div id="mallModalBody" class="p-6 sm:p-8 overflow-y-auto custom-scrollbar space-y-6 flex-1">
+        <!-- 由 JS 按品牌专属浅色风格动态渲染 -->
+      </div>
+
+      <!-- 底部固定游戏机式购买行动栏 -->
+      <div id="mallModalFooter" class="px-6 py-4 border-t-[3px] border-black bg-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="flex flex-wrap items-center gap-2.5">
+          <span class="text-sm font-black text-black">已选配置：</span>
+          <span id="mallFooterPkgName" class="px-3 py-1 rounded-lg bg-yellow-200 border-2 border-black text-sm font-black text-black">标准套装</span>
+          <span id="mallFooterPkgPrice" class="text-xl font-black text-black">¥13,888</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <a id="mallFooterBuyBtn" href="#" target="_blank" rel="noopener noreferrer" class="arcade-btn arcade-btn-yellow px-6 py-2.5 rounded-xl text-base flex items-center gap-2">
+            <span>🛒 前往品牌官网购买该套装 ↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 轻提示 Toast -->
-  <div id="toastNotice" class="fixed bottom-5 right-5 z-50 hidden px-4 py-2.5 rounded-xl bg-yellow-300 text-black border-[2.5px] border-black shadow-[4px_4px_0_#111] text-xs font-black">
+  <div id="toastNotice" class="fixed bottom-5 right-5 z-50 hidden px-4 py-2.5 rounded-xl bg-yellow-300 text-black border-[2.5px] border-black shadow-[4px_4px_0_#111] text-sm font-black">
     操作成功
   </div>
 
   <!-- 页脚 -->
   <footer class="border-t-[3px] border-black dots-medium mt-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-black font-bold">
+    <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-black font-bold">
       <div class="flex items-center gap-2">
         <span class="px-2.5 py-1 rounded-lg bg-yellow-300 border-2 border-black text-black font-black shadow-[2px_2px_0_#111]">A1</span>
         <span>A1 综合门户网站 · 01【低空信息站】（政策法规 / 创新与供应链 / 比赛信息 / 产品发布）</span>
@@ -925,10 +1073,1842 @@
       }, 2600);
     }
 
+
+    // ==================== 10. 02【空中商城】数据库与品牌专属主题引擎 ====================
+    let MALL_PRODUCTS = [
+  {
+    "id": "dji-mavic-4-pro",
+    "name": "DJI Mavic 4 Pro",
+    "subtitle": "一亿像素哈苏主摄 · 三摄全焦段旗舰航拍机",
+    "brand": "DJI 大疆",
+    "brandKey": "dji",
+    "usage": "航拍影像",
+    "tier": "消费级",
+    "weightClass": "轻型",
+    "price": 13888,
+    "priceDisplay": "¥13,888 起",
+    "priceBucket": "1w-5w",
+    "image": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/be56c49e74ff1f62dd403ee3a4986586@ultra.png",
+    "fallbackImage": "https://www-cdn.djiits.com/cms/uploads/ba73d9e94832e99483b81d8a873180ae@640*640.png",
+    "officialUrl": "https://store.dji.com/cn/product/dji-mavic-4-pro-512gb-creator-combo-dji-rc-pro-2-enhanced-transmission",
+    "intro": "搭载一亿像素 4/3 CMOS 哈苏广角主摄、1/1.3 英寸中长焦与 1/1.5 英寸长焦三摄系统，支持 6K/60fps HDR 视频与 360° 旋转万象云台，代表消费级航拍影像巅峰。",
+    "packages": [
+      {
+        "name": "标准套装 (DJI RC 2)",
+        "price": "¥13,888",
+        "desc": "含主机、DJI RC 2 带屏遥控器、1块智能飞行电池、备用桨叶及便携收纳包。"
+      },
+      {
+        "name": "畅飞套装 (DJI RC 2)",
+        "price": "¥17,888",
+        "desc": "含主机、DJI RC 2、3块智能飞行电池、100W 充电管家、ND 镜套装及单肩包。"
+      },
+      {
+        "name": "512GB 创作者套装 (DJI RC Pro 2)",
+        "price": "¥22,888",
+        "desc": "含内置 512GB 高速 SSD 主机、高刷高亮 RC Pro 2 专业遥控器、3块电池及增强图传模块。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "一亿像素 4/3 CMOS 哈苏主摄",
+        "desc": "支持 HNCS 哈苏自然色彩解决方案与 f/2.0-f/11 可变光圈，呈现电影级宽容度与细腻画质。"
+      },
+      {
+        "title": "三摄全焦段光学接力",
+        "desc": "28mm 广角、70mm 中长焦与 168mm 长焦无缝切换，满足风光、建筑与远摄压缩感创作。"
+      },
+      {
+        "title": "360° 万象旋转云台",
+        "desc": "突破传统云台限位，支持无损竖拍与多角度环绕运镜，解锁全新视觉语言。"
+      },
+      {
+        "title": "全向主动避障与超长续航",
+        "desc": "融合全向双目视觉与前向激光雷达，单电最长续航达 46 分钟，O4+ 图传远达 20 公里。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "起飞重量",
+        "value": "约 958 g（轻型无人机）"
+      },
+      {
+        "label": "最长飞行时间",
+        "value": "46 分钟"
+      },
+      {
+        "label": "主相机传感器",
+        "value": "4/3 CMOS，有效像素 1 亿"
+      },
+      {
+        "label": "视频最高规格",
+        "value": "6K/60fps HDR / 4K/120fps"
+      },
+      {
+        "label": "最大图传距离",
+        "value": "20 公里 (DJI O4+)"
+      },
+      {
+        "label": "避障感知系统",
+        "value": "全向双目视觉 + 前视激光雷达"
+      },
+      {
+        "label": "最大抗风等级",
+        "value": "12 米/秒 (6级风)"
+      },
+      {
+        "label": "机载存储",
+        "value": "标准版 64GB / 创作者版 512GB"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/be56c49e74ff1f62dd403ee3a4986586@ultra.png",
+        "caption": "旗舰创作者套装全景"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/dps/e536a543e1ae498a2ba2cd5def951781.jpg",
+        "caption": "哈苏三摄空中悬停实拍"
+      },
+      {
+        "url": "https://prcdn.freetls.fastly.net/release_image/15765/262/15765-262-76edac8d5141b0c4956ca9862bf6542d-1600x900.jpg",
+        "caption": "三摄光学云台近景"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/ba73d9e94832e99483b81d8a873180ae@640*640.png",
+        "caption": "标准展开机身构型"
+      }
+    ]
+  },
+  {
+    "id": "dji-air-3s",
+    "name": "DJI Air 3S",
+    "subtitle": "一英寸主摄双摄旗舰旅拍无人机 · 前向激光雷达夜景避障",
+    "brand": "DJI 大疆",
+    "brandKey": "dji",
+    "usage": "航拍影像",
+    "tier": "消费级",
+    "weightClass": "轻型",
+    "price": 6988,
+    "priceDisplay": "¥6,988 起",
+    "priceBucket": "under-1w",
+    "image": "https://www.drone-station.net/HobbyStationControl/products/description_images/3s.jpg",
+    "fallbackImage": "https://www-cdn.djiits.com/cms/uploads/2f90a570c70a1998f4c9a70a85b4f360@640*640.png",
+    "officialUrl": "https://www.dji.com/cn/air-3s",
+    "intro": "集 1 英寸 CMOS 广角主摄与 70mm 中长焦相机于一身，双摄均支持最高 14 挡动态范围与自由全景照片；新增前向激光雷达，实现全向夜景级避障与新一代智能返航。",
+    "packages": [
+      {
+        "name": "标准单机版 (DJI RC-N3)",
+        "price": "¥6,988",
+        "desc": "含 DJI Air 3S 主机、RC-N3 遥控器、1块智能飞行电池及基础线材。"
+      },
+      {
+        "name": "畅飞套装 (DJI RC-N3)",
+        "price": "¥8,788",
+        "desc": "含主机、RC-N3 遥控器、3块智能飞行电池、集电充电管家、ND 镜套装及单肩包。"
+      },
+      {
+        "name": "畅飞套装 (DJI RC 2 带屏遥控器)",
+        "price": "¥9,988",
+        "desc": "升级 5.5 英寸全高清高亮屏遥控器 DJI RC 2，含 3 块电池、充电管家与全套配件。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "1 英寸主摄 + 70mm 中长焦双摄",
+        "desc": "5000 万像素 1 英寸广角主摄配合 4800 万像素 3 倍光学中长焦，风光与人像旅拍游刃有余。"
+      },
+      {
+        "title": "夜景级全向主动避障",
+        "desc": "首搭前向激光雷达与下视红外 TOF 传感器，夜间暗光环境下依然能精准识别障碍物并安全绕行。"
+      },
+      {
+        "title": "45 分钟长续航与集电管家",
+        "desc": "单块电池续航长达 45 分钟，充电管家支持将多块电池余电转移至最高电量电池。"
+      },
+      {
+        "title": "10-bit D-Log M 与 4K/120fps",
+        "desc": "双相机色彩高度一致，均支持 4K/60fps HDR 与 4K/120fps 慢动作视频录制。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "起飞重量",
+        "value": "724 g（轻型无人机）"
+      },
+      {
+        "label": "最长飞行时间",
+        "value": "45 分钟"
+      },
+      {
+        "label": "广角主相机",
+        "value": "1 英寸 CMOS，5000 万像素，24mm"
+      },
+      {
+        "label": "中长焦相机",
+        "value": "1/1.3 英寸 CMOS，4800 万像素，70mm"
+      },
+      {
+        "label": "图传系统",
+        "value": "DJI O4 十公里级 10-bit 图传"
+      },
+      {
+        "label": "避障传感器",
+        "value": "前向激光雷达 + 全向双目视觉"
+      },
+      {
+        "label": "内置存储",
+        "value": "42 GB 机身自带存储"
+      },
+      {
+        "label": "最大抗风速度",
+        "value": "12 米/秒"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://www.drone-station.net/HobbyStationControl/products/description_images/3s.jpg",
+        "caption": "Air 3S 晨曦航拍实景"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/2f90a570c70a1998f4c9a70a85b4f360@640*640.png",
+        "caption": "一英寸主摄与中长焦双摄云台"
+      },
+      {
+        "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/4ea419b081f38056785ae8665d473190@medium.png",
+        "caption": "畅飞套装与带屏遥控器"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/dps/e536a543e1ae498a2ba2cd5def951781.jpg",
+        "caption": "全向避障外业飞行姿态"
+      }
+    ]
+  },
+  {
+    "id": "dji-mini-4-pro",
+    "name": "DJI Mini 4 Pro",
+    "subtitle": "249g 超轻免审定全能迷你航拍机 · 全向主动避障",
+    "brand": "DJI 大疆",
+    "brandKey": "dji",
+    "usage": "航拍影像",
+    "tier": "消费级",
+    "weightClass": "微型",
+    "price": 4788,
+    "priceDisplay": "¥4,788 起",
+    "priceBucket": "under-1w",
+    "image": "https://www.cfd.co.jp/webpim/product/image/d/dji-mini-4-pro-series/dji-mini-4-pro-fly-more-combo-plus--dji-rc-2---gl-/dji-mini-4-pro-fly-more-combo-plus--dji-rc-2---gl-__0102.jpg",
+    "fallbackImage": "https://www-cdn.djiits.com/cms/uploads/ba73d9e94832e99483b81d8a873180ae@640*640.png",
+    "officialUrl": "https://www.dji.com/cn/mini-4-pro",
+    "intro": "机身重量低于 249 克，在多数国家与地区无需额外培训即可合规起飞；配备 1/1.3 英寸 CMOS 传感器、无损竖拍、全向双目视觉避障及最高 45 分钟长续航电池选配。",
+    "packages": [
+      {
+        "name": "标准版 (DJI RC-N2)",
+        "price": "¥4,788",
+        "desc": "含 Mini 4 Pro 主机、RC-N2 遥控器及 1 块标准智能飞行电池（34分钟续航）。"
+      },
+      {
+        "name": "带屏遥控器版 (DJI RC 2)",
+        "price": "¥5,988",
+        "desc": "含主机、DJI RC 2 高亮带屏遥控器及 1 块标准智能飞行电池。"
+      },
+      {
+        "name": "长续航畅飞套装 (DJI RC 2)",
+        "price": "¥6,988",
+        "desc": "含主机、DJI RC 2、3块长续航智能飞行电池（单电 45 分钟）、双向充电管家与单肩包。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "< 249g 超轻便携折叠机身",
+        "desc": "符合微型无人驾驶航空器重量标准，随手装入口袋即可开启旅行航拍。"
+      },
+      {
+        "title": "Mini 系列全向主动避障",
+        "desc": "配备四个广角视觉传感器与下视双目视觉，支持 APAS 高级辅助飞行自动刹停与绕行。"
+      },
+      {
+        "title": "4K/60fps HDR 真竖拍",
+        "desc": "云台支持 90° 旋转无损真竖拍，无需后期裁切即可直出社交媒体高清竖屏大片。"
+      },
+      {
+        "title": "全向智能跟随 360°",
+        "desc": "创新的触摸罗盘跟拍交互，轻松完成环绕、渐远、螺旋等复杂运镜。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "标准起飞重量",
+        "value": "< 249 g（微型无人机）"
+      },
+      {
+        "label": "最长飞行时间",
+        "value": "34 分钟 (标配电) / 45 分钟 (长续航电)"
+      },
+      {
+        "label": "影像传感器",
+        "value": "1/1.3 英寸 CMOS，4800 万有效像素"
+      },
+      {
+        "label": "镜头参数",
+        "value": "等效 24mm，f/1.7 大光圈"
+      },
+      {
+        "label": "视频规格",
+        "value": "4K/60fps HDR / 4K/100fps 慢动作"
+      },
+      {
+        "label": "图传系统",
+        "value": "DJI O4 全高清 20 公里级图传"
+      },
+      {
+        "label": "最大抗风速度",
+        "value": "10.7 米/秒 (5级风)"
+      },
+      {
+        "label": "云台特殊能力",
+        "value": "支持无损竖拍与 60° 大仰角拍摄"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://www.cfd.co.jp/webpim/product/image/d/dji-mini-4-pro-series/dji-mini-4-pro-fly-more-combo-plus--dji-rc-2---gl-/dji-mini-4-pro-fly-more-combo-plus--dji-rc-2---gl-__0102.jpg",
+        "caption": "Mini 4 Pro 仰视气动构型"
+      },
+      {
+        "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/4ea419b081f38056785ae8665d473190@medium.png",
+        "caption": "249g 超轻机身与套装"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/ba73d9e94832e99483b81d8a873180ae@640*640.png",
+        "caption": "全向双目鱼眼避障镜头"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/2f90a570c70a1998f4c9a70a85b4f360@640*640.png",
+        "caption": "无损竖拍云台结构"
+      }
+    ]
+  },
+  {
+    "id": "dji-avata-2",
+    "name": "DJI Avata 2",
+    "subtitle": "第一视角沉浸式体感飞行无人机 · 一键花飞与桨保一体机身",
+    "brand": "DJI 大疆",
+    "brandKey": "dji",
+    "usage": "第一视角FPV",
+    "tier": "消费级",
+    "weightClass": "轻型",
+    "price": 5988,
+    "priceDisplay": "¥5,988 起",
+    "priceBucket": "under-1w",
+    "image": "https://se-cdn.djiits.com/stormsend/uploads/07e1baa55b940b9a780264f0cf1dde27.png",
+    "fallbackImage": "https://www-cdn.djiits.com/cms/uploads/ba73d9e94832e99483b81d8a873180ae@640*640.png",
+    "officialUrl": "https://www.dji.com/cn/avata-2",
+    "intro": "搭配 DJI 飞行眼镜 3 与穿越摇杆 3，带来身临其境的第一视角（FPV）穿梭体验；升级 1/1.3 英寸影像传感器、155° 超广角视野与一键空翻/横滚/180°漂移花飞功能。",
+    "packages": [
+      {
+        "name": "畅飞套装 (单电池版)",
+        "price": "¥5,988",
+        "desc": "含 Avata 2 主机、DJI 飞行眼镜 3、穿越摇杆 3 及 1 块智能飞行电池。"
+      },
+      {
+        "name": "畅飞套装 (三电池版)",
+        "price": "¥6,988",
+        "desc": "含主机、DJI 飞行眼镜 3、穿越摇杆 3、3块智能飞行电池、充电管家及专用背包。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "第一视角体感操控 + 一键花飞",
+        "desc": "手腕微动即可控制飞行方向，新手也能一键完成 360° 前后空翻、左右横滚与 180° 漂移。"
+      },
+      {
+        "title": "1/1.3 英寸大底 155° 超广角",
+        "desc": "支持 4K/60fps HDR 视频与 10-bit D-Log M，配合超强增稳与地平线增稳算法。"
+      },
+      {
+        "title": "一体化涵道桨叶保护罩",
+        "desc": "轻量化一体式防撞桨保设计，支持反乌龟模式，室内狭小空间与丛林穿行更安心。"
+      },
+      {
+        "title": "飞行眼镜 3 实景透视",
+        "desc": "Micro-OLED 双目高清屏，支持双击切换外部实景画面，无需摘下眼镜即可观察周围环境。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "起飞重量",
+        "value": "约 377 g（轻型无人机）"
+      },
+      {
+        "label": "最长飞行时间",
+        "value": "约 23 分钟"
+      },
+      {
+        "label": "影像传感器",
+        "value": "1/1.3 英寸 CMOS，1200 万像素"
+      },
+      {
+        "label": "视场角 (FOV)",
+        "value": "155° 超广角 / 广角 / 标准"
+      },
+      {
+        "label": "视频规格",
+        "value": "4K/60fps HDR / 2.7K/120fps"
+      },
+      {
+        "label": "增稳模式",
+        "value": "RockSteady 3.0+ 与 HorizonSteady"
+      },
+      {
+        "label": "内置存储",
+        "value": "46 GB 机身高速存储"
+      },
+      {
+        "label": "定位与安全",
+        "value": "下视与后视双目鱼眼视觉定位"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://www-cdn.djiits.com/dps/0cda312205f4faa84bd32f3e09f27847.jpg",
+        "caption": "Avata 2 峡谷第一视角高速穿行"
+      },
+      {
+        "url": "https://se-cdn.djiits.com/stormsend/uploads/07e1baa55b940b9a780264f0cf1dde27.png",
+        "caption": "一体化涵道桨保机身与飞行眼镜 3"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/dps/e536a543e1ae498a2ba2cd5def951781.jpg",
+        "caption": "超广角 155° 沉浸式飞行姿态"
+      }
+    ]
+  },
+  {
+    "id": "dji-matrice-350-rtk",
+    "name": "DJI Matrice 350 RTK",
+    "subtitle": "旗舰级行业应用飞行平台 · IP55 防护与 55 分钟超长续航",
+    "brand": "DJI 大疆",
+    "brandKey": "dji",
+    "usage": "巡检安防",
+    "tier": "工业级",
+    "weightClass": "中型",
+    "price": 56500,
+    "priceDisplay": "¥56,500 起",
+    "priceBucket": "5w-50w",
+    "image": "https://www-cdn.djiits.com/cms/uploads/62acad1f3c66ee6b79dd4b1f37d1ab08.png",
+    "fallbackImage": "https://www-cdn.djiits.com/cms/uploads/e2f81a8788ed614eed5f77cd06fec299@374*374.png",
+    "officialUrl": "https://enterprise.dji.com/cn/matrice-350-rtk",
+    "intro": "大疆行业应用标杆级旗舰平台，具备 55 分钟超长续航、IP55 防护等级、O3 图传行业版、六向双目视觉与毫米波雷达避障，支持同时挂载最多三个云台负载（禅思 H30T / L2 激光雷达 / P1 全画幅航测相机）。",
+    "packages": [
+      {
+        "name": "M350 RTK 旗舰主机标准包",
+        "price": "¥56,500",
+        "desc": "含 M350 RTK 飞行平台、DJI RC Plus 行业三防高亮遥控器、WB37 电池及安全箱（不含TB65电池与云台负载）。"
+      },
+      {
+        "name": "M350 RTK + 电力能源巡检套装 (含 H30T)",
+        "price": "¥138,000",
+        "desc": "含 M350 RTK 主机、禅思 H30T 全天候多光旗舰负载（变焦+热成像+激光测距+夜视）、BS65 电池箱及 4 块 TB65 电池。"
+      },
+      {
+        "name": "M350 RTK + 实景三维激光雷达套装 (含 L2)",
+        "price": "¥149,800",
+        "desc": "含 M350 RTK 主机、禅思 L2 机载激光雷达、D-RTK 2 高精度移动站及全套外业电池组。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "55 分钟超长续航与热插拔电池",
+        "desc": "采用全新 TB65 双电池系统，支持高达 400 次循环充放与不关机热插拔换电，大幅缩短外业间歇。"
+      },
+      {
+        "title": "IP55 工业级防护与夜视 FPV",
+        "desc": "折叠机臂具备到位锁止检测，全机 IP55 防尘防水，可在 -20°C 至 50°C 严苛环境下全天候出勤。"
+      },
+      {
+        "title": "最多三负载同时挂载",
+        "desc": "支持下置单云台、下置双云台及上置单云台，最大有效载重达 2.7 公斤，完美适配禅思全系行业负载。"
+      },
+      {
+        "title": "六向避障 + CSM 毫米波雷达",
+        "desc": "六向双目视觉配合红外感知，可选配顶部 CSM 雷达，精准探测细小电线与树枝。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "空机重量 (含双电)",
+        "value": "6.47 kg / 最大起飞重量 9.2 kg（中型）"
+      },
+      {
+        "label": "最大有效载重",
+        "value": "2.7 kg"
+      },
+      {
+        "label": "最长飞行时间",
+        "value": "55 分钟"
+      },
+      {
+        "label": "防护等级",
+        "value": "IP55 工业级防尘防水"
+      },
+      {
+        "label": "RTK 定位精度",
+        "value": "水平 1 cm + 1 ppm；垂直 1.5 cm + 1 ppm"
+      },
+      {
+        "label": "图传系统",
+        "value": "O3 图传行业版 (20公里四天线双发四收)"
+      },
+      {
+        "label": "抗风能力",
+        "value": "12 米/秒"
+      },
+      {
+        "label": "工作环境温度",
+        "value": "-20°C 至 50°C"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/62acad1f3c66ee6b79dd4b1f37d1ab08.png",
+        "caption": "Matrice 350 RTK 旗舰飞行平台"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/dps/a7ee80fb7e79b3d5db911d15f5602e00.jpg",
+        "caption": "全天候红外热成像与夜视作业"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/e2f81a8788ed614eed5f77cd06fec299@374*374.png",
+        "caption": "高精度 RTK 与多云台挂载构型"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/bb05e28681013e38a74f48164ac52652@374*374.png",
+        "caption": "行业级激光雷达与巡检套件"
+      }
+    ]
+  },
+  {
+    "id": "dji-mavic-3-enterprise",
+    "name": "DJI Mavic 3 行业系列 (3E / 3T)",
+    "subtitle": "便携式高精度测绘与热成像巡检工业无人机",
+    "brand": "DJI 大疆",
+    "brandKey": "dji",
+    "usage": "测绘勘探",
+    "tier": "工业级",
+    "weightClass": "轻型",
+    "price": 19999,
+    "priceDisplay": "¥19,999 起",
+    "priceBucket": "1w-5w",
+    "image": "https://www-cdn.djiits.com/cms/uploads/e2f81a8788ed614eed5f77cd06fec299@374*374.png",
+    "fallbackImage": "https://www-cdn.djiits.com/cms/uploads/bb05e28681013e38a74f48164ac52652@374*374.png",
+    "officialUrl": "https://enterprise.dji.com/cn/mavic-3-enterprise",
+    "intro": "重新定义小型行业无人机：Mavic 3E 配备 4/3 CMOS 2000万像素机械快门广角相机与 RTK 模块，免像控高精度测绘；Mavic 3T 集成 640×512 高清热成像与 56 倍混合变焦，专攻消防搜救与夜间巡检。",
+    "packages": [
+      {
+        "name": "Mavic 3E 测绘畅飞套装",
+        "price": "¥19,999",
+        "desc": "含 Mavic 3E 主机（4/3机械快门）、DJI RC Pro 行业版遥控器、RTK 模块及 3 块行业电池。"
+      },
+      {
+        "name": "Mavic 3T 热成像安防套装",
+        "price": "¥27,999",
+        "desc": "含 Mavic 3T 主机（640×512热成像 + 56倍变焦）、DJI RC Pro 行业版、高音喊话器与 RTK 模块。"
+      },
+      {
+        "name": "Mavic 3M 智慧农业多光谱版",
+        "price": "¥23,999",
+        "desc": "融合 2000万像素可见光与 4 镜头多光谱相机，精准监测作物长势与农林测绘。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "0.7 秒间隔高速机械快门 (3E)",
+        "desc": "有效防止高速航测运动果冻效应，配合微秒级时间同步与厘米级 RTK，单架次可完成 2 平方公里正射测绘。"
+      },
+      {
+        "title": "640×512 高清红外热成像 (3T)",
+        "desc": "支持点测温、区域测温、高温警报与双光联动对比缩放，夜间山林搜救与电网热故障定位一目了然。"
+      },
+      {
+        "title": "56 倍混合变焦洞察细节",
+        "desc": "1200 万像素长焦相机支持最高 56 倍混合变焦，远距离清晰识别绝缘子销钉与设备铭牌。"
+      },
+      {
+        "title": "单手可携 45 分钟高效作业",
+        "desc": "折叠机身仅重 915g，可轻松放入巡检背包，配合 100W 桌面快充实现全天高频轮转。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "起飞重量 (含桨)",
+        "value": "915 g (3E) / 920 g (3T)（轻型工业机）"
+      },
+      {
+        "label": "最长飞行时间",
+        "value": "45 分钟"
+      },
+      {
+        "label": "广角主摄 (3E)",
+        "value": "4/3 CMOS，2000 万像素，机械快门 1/2000s"
+      },
+      {
+        "label": "热成像分辨率 (3T)",
+        "value": "640 × 512 @ 30Hz"
+      },
+      {
+        "label": "变焦能力",
+        "value": "等效 162mm，56 倍混合变焦"
+      },
+      {
+        "label": "扩展配件接口",
+        "value": "支持 RTK 模块、高音喇叭 (110dB)"
+      },
+      {
+        "label": "图传距离",
+        "value": "15 公里 (DJI O3 行业版)"
+      },
+      {
+        "label": "最大水平飞行速度",
+        "value": "21 米/秒"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://www-cdn.djiits.com/dps/a7ee80fb7e79b3d5db911d15f5602e00.jpg",
+        "caption": "Mavic 3E / 3T 双机暗光实拍"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/e2f81a8788ed614eed5f77cd06fec299@374*374.png",
+        "caption": "Mavic 3E 机械快门 + RTK 模块"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/bb05e28681013e38a74f48164ac52652@374*374.png",
+        "caption": "Mavic 3M 多光谱智慧农业版"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/a8ac3a4be15d022927f53ce8816bd678.png",
+        "caption": "精准农林航测与巡检作业"
+      }
+    ]
+  },
+  {
+    "id": "dji-agras-t60",
+    "name": "DJI Agras T60 农业无人飞机",
+    "subtitle": "50 公斤喷洒 / 60 公斤播撒重载全能农林植保旗舰",
+    "brand": "DJI 大疆",
+    "brandKey": "dji",
+    "usage": "农林植保",
+    "tier": "工业级",
+    "weightClass": "中型",
+    "price": 54999,
+    "priceDisplay": "¥54,999 起",
+    "priceBucket": "5w-50w",
+    "image": "https://www-cdn.djiits.com/cms/uploads/a8ac3a4be15d022927f53ce8816bd678.png",
+    "fallbackImage": "https://www-cdn.djiits.com/cms/uploads/62acad1f3c66ee6b79dd4b1f37d1ab08.png",
+    "officialUrl": "https://ag.dji.com/cn/t60",
+    "intro": "面向大田喷洒、果树飞防与水产/肥料播撒的重载旗舰农业无人飞机，具备 50 公斤喷洒载重与 60 公斤播撒载重，搭载前后有源相控阵雷达与三目鱼眼视觉系统，无需航测即可实现大坡度果园仿地飞行。",
+    "packages": [
+      {
+        "name": "T60 旗舰单机标准版",
+        "price": "¥39,999",
+        "desc": "含 T60 农业无人飞机主机、7 英寸高亮屏遥控器及喷洒系统（不含电池与充电机）。"
+      },
+      {
+        "name": "T60 全能飞防作业套装",
+        "price": "¥54,999",
+        "desc": "含 T60 主机、遥控器、60公斤播撒系统、2块 DB1560 智能飞行电池及 D12000iE 全能变频充电站。"
+      },
+      {
+        "name": "T60 果树飞防四电高配包",
+        "price": "¥62,999",
+        "desc": "增配弥雾喷头套装、4块智能飞行电池、D12000iE 充电站及 RTK 高精度模块。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "50kg 喷洒 / 60kg 播撒超大载重",
+        "desc": "80 升超大播撒箱配合高扭矩螺旋送料器，每小时实测播撒高达 1.9 吨化肥，大田与水产投喂效率倍增。"
+      },
+      {
+        "title": "双重相控阵雷达 + 三目视觉安全系统",
+        "desc": "配备前后有源相控阵数字雷达与三目鱼眼视觉，支持 50 米全方位障碍物感知与自动绕行。"
+      },
+      {
+        "title": "免航测大坡度果树仿地",
+        "desc": "在 50° 以内山地果园无需事先航测建模，即可依靠机载雷达与视觉实时贴合树冠仿地喷洒。"
+      },
+      {
+        "title": "9 分钟极速燃油/市电混充",
+        "desc": "搭配 D12000iE 全能变频充电站与风冷散热器，双电交替作业即可实现全天候不间断飞防。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "空机重量 / 最大起飞重量",
+        "value": "52 kg (含电) / 播撒最大起飞 112 kg（中型）"
+      },
+      {
+        "label": "额定喷洒箱容积",
+        "value": "50 L (50 kg 载重)"
+      },
+      {
+        "label": "额定播撒箱容积",
+        "value": "80 L (60 kg 载重)"
+      },
+      {
+        "label": "最大喷洒流量",
+        "value": "16 升/分钟 (双喷头) / 28 升/分钟 (四喷头)"
+      },
+      {
+        "label": "避障雷达",
+        "value": "前向 RD241608RF + 后向相控阵雷达 + 三目视觉"
+      },
+      {
+        "label": "动力架构",
+        "value": "同轴双桨八旋翼，56 英寸高强碳纤维桨叶"
+      },
+      {
+        "label": "工作速度",
+        "value": "最高 13.8 米/秒"
+      },
+      {
+        "label": "智能电池容量",
+        "value": "41 Ah (DB1560)，1500次保内循环"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/a8ac3a4be15d022927f53ce8816bd678.png",
+        "caption": "大疆农业无人飞机田间精准作业"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/bb05e28681013e38a74f48164ac52652@374*374.png",
+        "caption": "机载多光谱与相控阵雷达系统"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/62acad1f3c66ee6b79dd4b1f37d1ab08.png",
+        "caption": "重载动力与工业三防结构"
+      }
+    ]
+  },
+  {
+    "id": "autel-evo-max-4t",
+    "name": "道通智能 EVO Max 4T V2",
+    "subtitle": "A-Mesh 组网抗干扰自主飞行行业无人机 · 720° 无盲区避障",
+    "brand": "道通智能 Autel",
+    "brandKey": "autel",
+    "usage": "巡检安防",
+    "tier": "工业级",
+    "weightClass": "轻型",
+    "price": 38800,
+    "priceDisplay": "¥38,800 起",
+    "priceBucket": "1w-5w",
+    "image": "https://www.autelrobotics.cn/wp-content/uploads/2024/08/EVO-banner-neiye-maxPH0902.webp",
+    "fallbackImage": "https://shop.autelrobotics.com/cdn/shop/files/08_35ab8cfd-a9ab-479f-9066-7baf57387c50_1100x.png",
+    "officialUrl": "https://www.autelrobotics.cn/productdetail/evo-max-4t/",
+    "intro": "荣获德国红点设计奖的行业智能无人机旗舰，业界首创多机 A-Mesh 自组网与空地协同中继控制；具备超强抗电磁/抗 GPS 诱骗能力，融合双目鱼眼视觉与 60GHz/24GHz 毫米波雷达实现 720° 全天候无盲区避障。",
+    "packages": [
+      {
+        "name": "EVO Max 4T 标准行业套装",
+        "price": "¥38,800",
+        "desc": "含 EVO Max 4T 主机（四光云台）、Autel Smart Controller V3 高亮遥控器、2块电池与三防安全箱。"
+      },
+      {
+        "name": "EVO Max 4T 双控组网增强包",
+        "price": "¥49,800",
+        "desc": "含主机、2台 Smart Controller V3（支持 A-Mesh 双控接力与中继）、4块电池及 RTK 模块。"
+      },
+      {
+        "name": "EVO Max 4N 超感光夜视特种版",
+        "price": "¥56,800",
+        "desc": "升级超星光级夜视相机（ISO 高达 450000）+ 热成像 + 激光测距，专为夜间安防与反走私设计。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "A-Mesh 自组网与中继跨障作业",
+        "desc": "支持一控多机、双控接力与空中无人机自动充当信号中继，在山区、隧道与复杂城区彻底摆脱遮挡断联。"
+      },
+      {
+        "title": "抗电磁干扰与无 GPS 视觉导航",
+        "desc": "内置独立飞控识别单元，可有效抵御射频干扰与 GPS 诱骗，在地下管网、桥底及变电站内实现自主巡航。"
+      },
+      {
+        "title": "双目鱼眼 + 毫米波雷达 720° 避障",
+        "desc": "全球首创传统双目视觉融合毫米波雷达技术，最小可识别 1.2 厘米电线，支持雨雾及纯黑夜晚避障。"
+      },
+      {
+        "title": "四光融光云台 (广角/变焦/热成像/测距)",
+        "desc": "支持 8K 10倍光学/160倍混合变焦、640×512 高清热成像与 1.2 公里高精度激光测距同步打点。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "起飞重量",
+        "value": "1600 g（轻型工业无人机）"
+      },
+      {
+        "label": "最长飞行时间",
+        "value": "42 分钟"
+      },
+      {
+        "label": "图传与组网",
+        "value": "Autel SkyLink 3.0 (20公里) + A-Mesh 自组网"
+      },
+      {
+        "label": "变焦相机",
+        "value": "4800 万像素，10x 光学变焦，160x 混合变焦"
+      },
+      {
+        "label": "热成像传感器",
+        "value": "640 × 512 @ 30fps，16x 数字变焦"
+      },
+      {
+        "label": "激光测距仪",
+        "value": "测量范围 5 – 1200 米，精度 ±1 米"
+      },
+      {
+        "label": "防护等级",
+        "value": "IP43 防护，支持可热插拔电池"
+      },
+      {
+        "label": "最大抗风能力",
+        "value": "12 米/秒"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://www.autelrobotics.cn/wp-content/uploads/2024/08/EVO-banner-neiye-maxPH0902.webp",
+        "caption": "EVO Max 4T V2 行业巡检实拍"
+      },
+      {
+        "url": "https://shop.autelrobotics.com/cdn/shop/files/08_35ab8cfd-a9ab-479f-9066-7baf57387c50_1100x.png",
+        "caption": "融光四光云台（广角/变焦/热成像/测距）"
+      },
+      {
+        "url": "https://www.autelrobotics.cn/wp-content/themes/autel/userfiles/images/2023/05/08/2023050809155032.jpg",
+        "caption": "A-Mesh 自组网抗干扰飞行平台"
+      },
+      {
+        "url": "https://www.autelrobotics.cn/wp-content/themes/autel/userfiles/images/2023/02/23/2023022316222541.png",
+        "caption": "折叠便携机身与毫米波雷达"
+      }
+    ]
+  },
+  {
+    "id": "xag-p150-pro",
+    "name": "极飞科技 P150 Pro 农业无人飞机",
+    "subtitle": "70 公斤超大载重四旋翼智慧农业旗舰 · 4D 成像雷达",
+    "brand": "极飞科技 XAG",
+    "brandKey": "xag",
+    "usage": "农林植保",
+    "tier": "工业级",
+    "weightClass": "中型",
+    "price": 48800,
+    "priceDisplay": "¥48,800 起",
+    "priceBucket": "1w-5w",
+    "image": "https://static.xag.cn/img/products2024/p150/phone/p150-header.png?imageMogr2/format/webp",
+    "fallbackImage": "https://www-cdn.djiits.com/cms/uploads/a8ac3a4be15d022927f53ce8816bd678.png",
+    "officialUrl": "https://www.xa.com/p150pro-2025",
+    "intro": "极飞科技新一代重载智慧农业无人飞机，集喷洒、播撒、运输、航测四大功能于一体；最大载重突破 70 公斤，最大喷洒流量达 30 升/分钟，搭载全新 SuperX 5 Pro 智能控制系统与 4D 成像雷达。",
+    "packages": [
+      {
+        "name": "P150 Pro 标准飞防套装",
+        "price": "¥48,800",
+        "desc": "含 P150 Pro 主机、睿喷系统、ARC3 Pro 单手遥控器、2块 B13970S 超充电池与水冷充电箱。"
+      },
+      {
+        "name": "P150 Pro 喷播一体全能套装",
+        "price": "¥55,800",
+        "desc": "增配 115 升睿播系统、4块超充电池、GC4000+ 移动超充站及移动 RTK 基站。"
+      },
+      {
+        "name": "P150 Pro 果林吊运高配版",
+        "price": "¥61,800",
+        "desc": "包含喷洒、播撒、睿运智能吊运挂钩及机载睿图快速航测相机模块。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "70 公斤载重 + 30 升/分钟超大流量",
+        "desc": "全新设计的大直径折叠螺旋桨与高功率电驱，实现 30L/min 行业领先离心雾化喷洒流量。"
+      },
+      {
+        "title": "115 升超大料箱极速播撒",
+        "desc": "垂直绞龙高速推料，每分钟最大推料速度达 280 公斤，不伤谷芽、不卡大颗粒肥料。"
+      },
+      {
+        "title": "4D 成像雷达 + AI 农田障碍识别",
+        "desc": "每秒百万级点云扫描，精准识别田间拉线、电杆与树木，最高支持 13.8m/s 高速全自主绕障。"
+      },
+      {
+        "title": "机载睿图 10 分钟百亩成图",
+        "desc": "无需额外购买航测小飞机，起飞即可完成农田高清正射拼图与边界智能提取。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "空机重量 / 额定载重",
+        "value": "50 kg / 最大额定载重 70 kg（中型）"
+      },
+      {
+        "label": "智能药箱容积",
+        "value": "60 L (可选配 70 L 扩展药箱)"
+      },
+      {
+        "label": "智能播撒箱容积",
+        "value": "115 L"
+      },
+      {
+        "label": "雾化粒径调节范围",
+        "value": "60 – 400 微米无级可调"
+      },
+      {
+        "label": "最大飞行速度",
+        "value": "13.8 米/秒"
+      },
+      {
+        "label": "感知避障系统",
+        "value": "前向 4D 成像雷达 + 上视/下视仿地雷达 + 双目视觉"
+      },
+      {
+        "label": "飞控系统",
+        "value": "极飞 SuperX 5 Pro 冗余智能飞控"
+      },
+      {
+        "label": "极速超充时间",
+        "value": "8 分钟水冷极速充满"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://static.xag.cn/img/products2024/p150/phone/p150-header.png?imageMogr2/format/webp",
+        "caption": "极飞 P150 Pro 果园仿地飞防实拍"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/a8ac3a4be15d022927f53ce8816bd678.png",
+        "caption": "大流量离心雾化与智慧播撒"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/bb05e28681013e38a74f48164ac52652@374*374.png",
+        "caption": "4D 成像雷达与农田航测"
+      }
+    ]
+  },
+  {
+    "id": "jouav-cw-15",
+    "name": "纵横股份 CW-15 大鹏垂直起降固定翼",
+    "subtitle": "180 分钟超长航时工业级复合翼无人机 · 大面积航测与智慧巡检主力",
+    "brand": "纵横股份 JOUAV",
+    "brandKey": "jouav",
+    "usage": "测绘勘探",
+    "tier": "工业级",
+    "weightClass": "中型",
+    "price": 168000,
+    "priceDisplay": "¥168,000 起",
+    "priceBucket": "5w-50w",
+    "image": "https://www.autelrobotics.cn/wp-content/uploads/2024/10/%E7%A7%BB%E5%8A%A8.webp",
+    "fallbackImage": "https://www-cdn.djiits.com/cms/uploads/62acad1f3c66ee6b79dd4b1f37d1ab08.png",
+    "officialUrl": "https://www.jouav.com/cn/products/cw-15.html",
+    "intro": "科创板无人机第一股“纵横股份”明星级电动垂直起降固定翼（VTOL）工业无人机，兼具多旋翼免跑道垂直起降与固定翼 180 分钟超长航时优势，模块化快拆任务舱支持正射相机、五拼倾斜摄影、激光雷达与光电吊舱秒级切换。",
+    "packages": [
+      {
+        "name": "CW-15 二代平台 + 全画幅正射测绘包",
+        "price": "¥168,000",
+        "desc": "含 CW-15 二代主机、6100万像素全画幅正射航测载荷、地面站软件及便携运输箱。"
+      },
+      {
+        "name": "CW-15 + 五镜头倾斜摄影三维建模包",
+        "price": "¥238,000",
+        "desc": "含 CW-15 主机与总像素超 3 亿的五镜头倾斜摄影相机，专为城市实景三维建模打造。"
+      },
+      {
+        "name": "CW-15 + JOS-C2000 无人值守机巢系统",
+        "price": "¥460,000",
+        "desc": "含 CW-15 自动充电机型、恒温防雨固定翼自动机巢及纵横云远程指控平台，实现全自动巡检。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "180 分钟超长航时 · 单架次测绘 20km²",
+        "desc": "优化的气动布局与高能量密度电池，单架次续航长达 3 小时，巡航时速 65km/h，作业效率是常规多旋翼的 4-6 倍。"
+      },
+      {
+        "title": "模块化快拆任务舱一机多用",
+        "desc": "标配傻瓜式抽屉快拆接口，支持正射、倾斜、激光雷达、高光谱、双光吊舱等 8 种专业载荷互换。"
+      },
+      {
+        "title": "主动避障与厘米级精准起降",
+        "desc": "二代升级机载毫米波雷达与视觉定位，支持复杂地形精准垂直起降与全自主返航。"
+      },
+      {
+        "title": "支持固定翼无人值守机巢",
+        "desc": "完美适配纵横大鹏无人值守机巢，广泛应用在河湖林草巡护、石油管道巡线与智慧城市巡查。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "翼展 / 机身长度",
+        "value": "3.54 米 / 1.8 米"
+      },
+      {
+        "label": "最大起飞重量",
+        "value": "15 kg / 最大任务载重 3 kg（中型）"
+      },
+      {
+        "label": "最长续航时间",
+        "value": "180 分钟 (3小时)"
+      },
+      {
+        "label": "经济巡航速度",
+        "value": "61 – 68 公里/小时"
+      },
+      {
+        "label": "实用升限",
+        "value": "4500 米 (支持高海拔高原起降)"
+      },
+      {
+        "label": "抗风等级",
+        "value": "7 级大风 (13.9 – 17.1 米/秒)"
+      },
+      {
+        "label": "组装时间",
+        "value": "免工具卡扣快拆，< 3 分钟展开起飞"
+      },
+      {
+        "label": "RTK/PPK 精度",
+        "value": "1 cm + 1 ppm"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://www.jouav.com/wp-content/uploads/2022/07/CW-15-5.jpg",
+        "caption": "纵横大鹏 CW-15 挂载光电吊舱实飞"
+      },
+      {
+        "url": "https://www.autelrobotics.cn/wp-content/uploads/2024/10/%E7%A7%BB%E5%8A%A8.webp",
+        "caption": "垂直起降固定翼复合翼气动布局"
+      },
+      {
+        "url": "https://www-cdn.djiits.com/cms/uploads/62acad1f3c66ee6b79dd4b1f37d1ab08.png",
+        "caption": "模块化快拆航测与巡检任务舱"
+      }
+    ]
+  },
+  {
+    "id": "ehang-eh216-s",
+    "name": "亿航智能 EH216-S",
+    "subtitle": "全球首款“四证齐全”无人驾驶载人 eVTOL · 空中出租车标杆",
+    "brand": "亿航智能 EHang",
+    "brandKey": "ehang",
+    "usage": "城际/文旅载人",
+    "tier": "eVTOL/飞行汽车",
+    "weightClass": "大型",
+    "price": 2390000,
+    "priceDisplay": "¥239.00 万",
+    "priceBucket": "over-50w",
+    "image": "https://evtol.news/__media/Aircraft%20Directory%20Images%20Wingless%20(Multicopter)/EHang%20216/EHang-26-fron-view-doors-open.jpg",
+    "fallbackImage": "https://www.ehang.com/images/ehang216s/index/1.jpg",
+    "officialUrl": "https://www.ehang.com/cn/ehang216s/",
+    "intro": "全球首款且唯一集齐中国民航局（CAAC）型号合格证（TC）、生产许可证（PC）、标准适航证（AC）及运营合格证（OC）四证的无人驾驶载人垂直起降航空器，采用 8 轴 16 桨全冗余纯电多旋翼构型，已在国内景区与全球 23 国累计完成超 3000 架次安全飞行。",
+    "packages": [
+      {
+        "name": "EH216-S 标准适航单机版",
+        "price": "¥239.00 万元",
+        "desc": "含 EH216-S 双座无人驾驶载人航空器整机（附带 CAAC 单机标准适航证 AC）与基础地面充电终端。"
+      },
+      {
+        "name": "5A 景区低空文旅示范运营包 (3机编队)",
+        "price": "¥760.00 万元",
+        "desc": "含 3 架 EH216-S、亿航智能集群指挥调度系统、标准化起降坪（Vertiport）导引套件及 OC 运营合规辅导。"
+      },
+      {
+        "name": "EH216-F 高层建筑消防特种版",
+        "price": "¥268.00 万元",
+        "desc": "配备高层破窗器、灭火弹发射管与 150 升阻燃灭火剂箱，专攻 600 米以内超高层建筑应急消防。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "全球首张四证齐全 (TC/PC/AC/OC)",
+        "desc": "唯一跨过商业载客全部适航与运营准入红线的载人 eVTOL，买回即可在合规空域启动商业化试运营。"
+      },
+      {
+        "title": "8 轴 16 桨全备份多余度安全设计",
+        "desc": "飞控、动力、电池、通信全面采用多冗余备份架构，即便单桨或部分电机失效仍能平稳安全降落。"
+      },
+      {
+        "title": "全无人自动驾驶 + 集群指挥系统",
+        "desc": "座舱内无需飞行员，乘客通过平板一键确认航线，地面指挥中心可同时调度数十架航空器厘米级编队飞行。"
+      },
+      {
+        "title": "鸥翼门全碳纤维流线座舱",
+        "desc": "双人全景视野座舱，配备后备行李舱，支持 120 分钟快充补能，噪音与运营成本远低于传统直升机。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "机身尺寸 (长×宽×高)",
+        "value": "6.05 m × 5.73 m × 1.93 m"
+      },
+      {
+        "label": "最大起飞重量 / 有效载荷",
+        "value": "620 kg / 最大载重 220 kg (2名乘客)（大型）"
+      },
+      {
+        "label": "动力构型",
+        "value": "8 轴 16 桨共轴多旋翼纯电推进"
+      },
+      {
+        "label": "最大设计航速度",
+        "value": "130 公里/小时 (经济巡航 100 km/h)"
+      },
+      {
+        "label": "设计航程 / 续航",
+        "value": "约 30 公里 / 25 分钟"
+      },
+      {
+        "label": "适航认证状态",
+        "value": "CAAC TC / PC / AC / OC 四证齐全"
+      },
+      {
+        "label": "驾驶方式",
+        "value": "全自主无人驾驶 + 4G/5G 地面集群指控"
+      },
+      {
+        "label": "最快充电时间",
+        "value": "约 120 分钟"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://evtol.news/__media/Aircraft%20Directory%20Images%20Wingless%20(Multicopter)/EHang%20216/EHang-26-fron-view-doors-open.jpg",
+        "caption": "亿航 EH216-S 鸥翼门展开全景"
+      },
+      {
+        "url": "https://www.ehang.com/images/ehang216s/index/1.jpg",
+        "caption": "EH216-S 城市低空游览商业运行"
+      },
+      {
+        "url": "https://www.feiauto.com/uploads/allimg/20240731/1-240I1202S1A2.jpg",
+        "caption": "8轴16桨全备份纯电推进架构"
+      },
+      {
+        "url": "https://toutiao.mc-cdn.cn/toutiao-image/2024/08/02/12/c4e7a71984b248ffb22a53f7e5aaabba.jpg",
+        "caption": "双座全无人自动驾驶全景座舱"
+      }
+    ]
+  },
+  {
+    "id": "xpeng-land-aircraft-carrier",
+    "name": "小鹏汇天“陆地航母”",
+    "subtitle": "全球首款量产分体式飞行汽车 · 6×6 增程陆行体 + 纯电六旋翼飞行体",
+    "brand": "小鹏汇天 AeroHT",
+    "brandKey": "xpeng",
+    "usage": "个人飞行/探索",
+    "tier": "eVTOL/飞行汽车",
+    "weightClass": "大型",
+    "price": 1280000,
+    "priceDisplay": "约 ¥128.00 万起",
+    "priceBucket": "over-50w",
+    "image": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/xpeng-aeroht-land-aircraft-carrier-wide-front.jpg",
+    "fallbackImage": "https://ic-cdn-oss-ht-www-prod.aeroht.com/ht-official/ht-official-site/8d7e/2025-09-26/1758855464165-5914.jpg",
+    "officialUrl": "https://cn.aridge.com/",
+    "intro": "由小鹏汇天（Aridge）研发的全球首款分体式飞行汽车，创新采用“陆行母舰 + 电动六旋翼飞行器”二合一架构：陆行体持 C 照即可合法上路并可停入标准车位，后备舱既是飞行器的收纳舱也是移动超充站，全球累计预订已超 7000 台（含中东 600 台大单）。",
+    "packages": [
+      {
+        "name": "陆地航母 创始预订版 (陆行体+飞行体)",
+        "price": "约 ¥128.00 万元",
+        "desc": "含 6×6 全轮驱动增程陆行母舰、双座折叠式纯电飞行体、5分钟全自动分合机构及私享飞行家培训权益。"
+      },
+      {
+        "name": "陆地航母 荒野探险定制版",
+        "price": "约 ¥158.00 万元",
+        "desc": "升级越野全地形氮气减震、卫星通信终端、飞行营地 VIP 航线托管及专属机甲涂装。"
+      },
+      {
+        "name": "航空营地 / 应急救援双车编队包",
+        "price": "约 ¥248.00 万元",
+        "desc": "含 2 套陆地航母整车与飞行器、应急医疗/搜救挂载接口及营地地面保障套件。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "5 分钟全自动机电分合收纳",
+        "desc": "只需在手机或车机上一键操作，陆行体尾舱自动打开，飞行器 6 根机臂自动折叠/展开并完成精准锁止。"
+      },
+      {
+        "title": "全域 800V 碳化硅增程移动超充母舰",
+        "desc": "陆行体综合续航超 1000 公里，满油满电可为飞行体循环补能 6 次，电量 30% 充至 80% 仅需 18 分钟。"
+      },
+      {
+        "title": "单杆操纵 5 分钟上手 + 手自动双模",
+        "desc": "飞行体摒弃传统复杂双杆脚舵，首创单杆智驾操纵系统，支持一键起降、自动航线规划与智能返航。"
+      },
+      {
+        "title": "3轴6桨涵道与中创新航高密电池",
+        "desc": "飞行体采用碳纤维轻量化机身与 270° 全景座舱，配备奥托立夫定制航空安全气囊与三余度飞控。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "陆行体尺寸 (长×宽×高)",
+        "value": "约 5.5 m × 2.0 m × 2.0 m (C照蓝牌/绿牌标准)"
+      },
+      {
+        "label": "陆行体驱动与续航",
+        "value": "三轴六轮 6×6 全轮驱动 + 后轮转向，CLTC 续航 > 1000 km"
+      },
+      {
+        "label": "飞行体构型",
+        "value": "六旋翼双涵道分布式电推进，可折叠碳纤维机臂（大型）"
+      },
+      {
+        "label": "飞行体乘员数",
+        "value": "2 人 (270° 全景双人座舱)"
+      },
+      {
+        "label": "移动补能能力",
+        "value": "800V 高压快充，满油满电可为飞行器补能 6 次"
+      },
+      {
+        "label": "量产制造基地",
+        "value": "广州黄埔 12 万㎡智造工厂 (规划年产能 10,000 台)"
+      },
+      {
+        "label": "适航进展",
+        "value": "飞行体 X3-F 型号合格证 (TC) 审定推进中"
+      },
+      {
+        "label": "全球预订规模",
+        "value": "累计预订超 7000 台 (含中东 600 台订单)"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://images.cdn.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/xpeng-aeroht-land-aircraft-carrier-wide-front.jpg",
+        "caption": "小鹏汇天“陆地航母”陆行体与飞行体协同首飞"
+      },
+      {
+        "url": "https://ic-cdn-oss-ht-www-prod.aeroht.com/ht-official/ht-official-site/8d7e/2025-09-26/1758855464165-5914.jpg",
+        "caption": "6×6 全轮驱动增程母舰与六旋翼飞行器"
+      },
+      {
+        "url": "https://www.feiauto.com/uploads/allimg/20250613/1-250613212023427.jpg",
+        "caption": "270° 全景双人座舱与折叠机臂"
+      }
+    ]
+  },
+  {
+    "id": "autoflight-prosperity",
+    "name": "峰飞航空“盛世龙” (V2000EM / V2000CG)",
+    "subtitle": "2 吨级复合翼城际 eVTOL · 跨海跨城 250 公里级干线出行与货运双雄",
+    "brand": "峰飞航空 AutoFlight",
+    "brandKey": "autoflight",
+    "usage": "城际/文旅载人",
+    "tier": "eVTOL/飞行汽车",
+    "weightClass": "大型",
+    "price": 1990000,
+    "priceDisplay": "约 ¥199.00 万起",
+    "priceBucket": "over-50w",
+    "image": "https://evtol.news/__media/Aircraft%20Directory%20Images%20Lift%20plus%20Cruise/Autoflight%20V1500M/Autoflight-V1500M-flying.jpg",
+    "fallbackImage": "https://www.feiauto.com/uploads/allimg/20250613/1-250613212023427.jpg",
+    "officialUrl": "https://www.autoflight.com/cn/",
+    "intro": "采用极具工程鲁棒性的“升力+巡航”复合翼构型，搭载宁德时代 350Wh/kg 高安全航空电池；其同平台 2 吨级货运机型 V2000CG“凯瑞鸥”是国内唯一三证齐全（TC/PC/AC）并获印尼适航互认的吨级航空器，5 座载人版“盛世龙”曾成功完成深圳—珠海 20 分钟跨海首飞。",
+    "packages": [
+      {
+        "name": "V2000CG“凯瑞鸥”2吨级三证货运机",
+        "price": "约 ¥168.00 万元",
+        "desc": "已获 CAAC 型号合格证/生产许可证/单机适航证及印尼型号认可，最大商载 400 公斤，可立即投入海岛与跨城物流。"
+      },
+      {
+        "name": "V2000EM“盛世龙”5座城际载人预订版",
+        "price": "约 ¥199.00 万元",
+        "desc": "5座商务客舱构型，最高巡航时速 200km/h、最大航程 250 公里，面向湾区与长三角空中快线。"
+      },
+      {
+        "name": "海上平台与医疗应急特种机队包 (2架)",
+        "price": "约 ¥360.00 万元",
+        "desc": "含 2 架 V2000CG 应急特种构型、恒温医疗器官/海鲜快运货舱及远海卫通链路。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "“升力+巡航”复合翼高安全构型",
+        "desc": "10 个独立升力桨负责垂直起降，3 个尾部推力桨负责固定翼高速巡航，无机械倾转机构，适航可靠性极高。"
+      },
+      {
+        "title": "250 公里级跨海/跨城长航程",
+        "desc": "曾经创造单次充电飞行 250.3 公里的 2 吨级 eVTOL 世界纪录，将深圳至珠海地面 2.5 小时车程缩短至 20 分钟。"
+      },
+      {
+        "title": "搭载宁德时代 350Wh/kg 航空电池",
+        "desc": "由宁德时代战略投资并联合研发，顺利通过两颗相邻电芯热失控不扩散极限适航验证。"
+      },
+      {
+        "title": "国内唯一吨级三证齐全 + 出海印尼互认",
+        "desc": "货运版 V2000CG 已实现商业交付并拿到印尼型号认可证书，载人版盛世龙已进入符合性验证冲刺阶段。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "最大起飞重量",
+        "value": "2000 kg (2 吨级大型 eVTOL)"
+      },
+      {
+        "label": "乘员 / 商载能力",
+        "value": "载人版 5 座 / 货运版最大商载 400 kg"
+      },
+      {
+        "label": "翼展",
+        "value": "15.0 米"
+      },
+      {
+        "label": "巡航速度",
+        "value": "200 公里/小时"
+      },
+      {
+        "label": "最大航程",
+        "value": "250 公里"
+      },
+      {
+        "label": "动力电池系统",
+        "value": "宁德时代 350Wh/kg 高比能航空动力电池"
+      },
+      {
+        "label": "适航取证状态",
+        "value": "货运版 V2000CG 三证齐全；载人版盛世龙第四阶段验证中"
+      },
+      {
+        "label": "海外认证突破",
+        "value": "获印度尼西亚民航局型号认可证书 + 哈萨克斯坦 50 架订单"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://evtol.news/__media/Aircraft%20Directory%20Images%20Lift%20plus%20Cruise/Autoflight%20V1500M/Autoflight-V1500M-flying.jpg",
+        "caption": "峰飞“盛世龙”跨江跨海高速巡航实拍"
+      },
+      {
+        "url": "https://www.feiauto.com/uploads/allimg/20250613/1-250613212023427.jpg",
+        "caption": "升力+巡航复合翼 5 座商务客舱"
+      },
+      {
+        "url": "https://www.feiauto.com/uploads/allimg/20240731/1-240I1202S1A2.jpg",
+        "caption": "2 吨级起降平台与宁德时代航空电池组"
+      }
+    ]
+  },
+  {
+    "id": "aerofugia-ae200",
+    "name": "沃飞长空 AE200-100",
+    "subtitle": "吉利旗下 6 座级纯电倾转旋翼商务干线 eVTOL · 最高时速 320km/h",
+    "brand": "沃飞长空 Aerofugia",
+    "brandKey": "aerofugia",
+    "usage": "城际/文旅载人",
+    "tier": "eVTOL/飞行汽车",
+    "weightClass": "大型",
+    "price": 2600000,
+    "priceDisplay": "约 ¥260.00 万起 (机构询价)",
+    "priceBucket": "over-50w",
+    "image": "https://www.feiauto.com/uploads/allimg/20240731/1-240I1202S1A2.jpg",
+    "fallbackImage": "https://evtol.news/__media/Aircraft%20Directory%20Images%20Lift%20plus%20Cruise/Autoflight%20V1500M/Autoflight-V1500M-flying.jpg",
+    "officialUrl": "https://www.aerofugia.com/",
+    "intro": "吉利科技集团旗下沃飞长空自研的 6 座级纯电动有人驾驶倾转旋翼 eVTOL，采用八轴内四倾转构型与自研“峨眉山”航空电动发动机；首架机 AE200-100 已正式下线并完成全倾转过渡飞行，获华龙航空 50 架确认订单及中航租赁/苏银金租 300 架采购协议。",
+    "packages": [
+      {
+        "name": "AE200-100 城际商务公务舱版 (6座)",
+        "price": "约 ¥260.00 万元",
+        "desc": "1名飞行员 + 5名乘客标准客运构型，配备航空级低噪增压座舱，适配机场至 CBD 干线接驳。"
+      },
+      {
+        "name": "AE200 5A景区高端低空观光定制版",
+        "price": "约 ¥280.00 万元",
+        "desc": "采用 4 座头等舱全景舷窗布局，针对川西、大湾区及长三角高海拔/跨景区高端文旅定向优化。"
+      },
+      {
+        "name": "航空医疗救援 (EMS) 特种构型",
+        "price": "约 ¥295.00 万元",
+        "desc": "内置航空重症担架、呼吸机与除颤仪供电接口，实现黄金 30 分钟跨区域空中急救转运。"
+      }
+    ],
+    "highlights": [
+      {
+        "title": "八轴内四倾转旋翼高效率构型",
+        "desc": "攻克全球难度最高的有人驾驶倾转过渡飞行科目，巡航速度高达 248–320 km/h，航程覆盖 200-300 公里。"
+      },
+      {
+        "title": "自研“峨眉山”航空电机 + 昂际航电基因",
+        "desc": "汇聚大飞机 C919 级适航研发团队与吉利汽车供应链，动力与飞控具备极高安全冗余。"
+      },
+      {
+        "title": "华龙航空与头部金租千架级订单背书",
+        "desc": "已签署华龙航空 50 架确认性订单、中航租赁与苏银金租 300 架采购订单，累计意向订单破千架。"
+      },
+      {
+        "title": "冲刺科创板“A股 eVTOL 第一股”",
+        "desc": "已完成 10 亿元 C+ 轮融资并启动科创板上市辅导，成都全球总部基地释放百亿级供应链配套需求。"
+      }
+    ],
+    "specs": [
+      {
+        "label": "座位数 / 乘员配置",
+        "value": "6 座 (1名驾驶员 + 5名乘客)（大型）"
+      },
+      {
+        "label": "气动与动力构型",
+        "value": "八轴内四倾转旋翼纯电推进"
+      },
+      {
+        "label": "翼展 / 机身尺寸",
+        "value": "14.5 m × 9.0 m × 3.2 m"
+      },
+      {
+        "label": "巡航速度",
+        "value": "248 公里/小时 (极速可达 320 km/h)"
+      },
+      {
+        "label": "设计航程",
+        "value": "200 – 300 公里"
+      },
+      {
+        "label": "核心电机系统",
+        "value": "沃飞自研“峨眉山”高功重比航空电动发动机"
+      },
+      {
+        "label": "适航取证节点",
+        "value": "AE200-100 已下线试飞，预计 2026年底–2027年完成 TC 取证"
+      },
+      {
+        "label": "确认与租赁订单",
+        "value": "华龙航空 50 架 + 金融租赁 300 架"
+      }
+    ],
+    "gallery": [
+      {
+        "url": "https://evtol.news/__media/Aircraft%20Directory%20Images/Aerofugia%20Technology%20AE200%20X01%20(technical%20demonstrator)/Aerofugia-AE200-technology-demonstrator.jpg",
+        "caption": "沃飞长空 AE200 倾转旋翼过渡飞行实拍"
+      },
+      {
+        "url": "https://www.feiauto.com/uploads/allimg/20240731/1-240I1202S1A2.jpg",
+        "caption": "八轴内四倾转旋翼 6 座商务干线构型"
+      },
+      {
+        "url": "https://evtol.news/__media/Aircraft%20Directory%20Images%20Lift%20plus%20Cruise/Autoflight%20V1500M/Autoflight-V1500M-flying.jpg",
+        "caption": "城际百公里空中快线运行场景"
+      }
+    ]
+  }
+];
+    const BRAND_THEMES = {
+  "dji": {
+    "brandTitle": "DJI 极简云母白与琥珀金光学浅色风",
+    "modalBg": "bg-[#FAF8F5] text-black border-black",
+    "headerBg": "bg-[#FDE68A] border-b-[3px] border-black text-black",
+    "cardBg": "bg-white border-[3px] border-black text-black shadow-[6px_6px_0_#111111]",
+    "subCardBg": "bg-[#FEFCE8] border-2 border-black text-black shadow-[3px_3px_0_#111111]",
+    "accentBadge": "bg-[#F59E0B] text-black border-2 border-black font-black shadow-[2px_2px_0_#111111]",
+    "priceText": "text-[#B45309]",
+    "mutedText": "text-neutral-700",
+    "buyBtnClass": "arcade-btn bg-[#FACC15] hover:bg-[#FDE047] text-black",
+    "pkgActive": "bg-[#FEF08A] border-[3px] border-black shadow-[5px_5px_0_#111111] -translate-y-0.5 text-black"
+  },
+  "autel": {
+    "brandTitle": "Autel 道通活力晴空橙与暖白浅色风",
+    "modalBg": "bg-[#FFF7ED] text-black border-black",
+    "headerBg": "bg-[#FDBA74] border-b-[3px] border-black text-black",
+    "cardBg": "bg-white border-[3px] border-black text-black shadow-[6px_6px_0_#111111]",
+    "subCardBg": "bg-[#FFEDD5] border-2 border-black text-black shadow-[3px_3px_0_#111111]",
+    "accentBadge": "bg-[#FB923C] text-black border-2 border-black font-black shadow-[2px_2px_0_#111111]",
+    "priceText": "text-[#C2410C]",
+    "mutedText": "text-stone-700",
+    "buyBtnClass": "arcade-btn bg-[#FB923C] hover:bg-[#FDBA74] text-black",
+    "pkgActive": "bg-[#FED7AA] border-[3px] border-black shadow-[5px_5px_0_#111111] -translate-y-0.5 text-black"
+  },
+  "xag": {
+    "brandTitle": "XAG 极飞珊瑚粉红与田园白明亮科技风",
+    "modalBg": "bg-[#FFF1F2] text-black border-black",
+    "headerBg": "bg-[#FECDD3] border-b-[3px] border-black text-black",
+    "cardBg": "bg-white border-[3px] border-black text-black shadow-[6px_6px_0_#111111]",
+    "subCardBg": "bg-[#FFE4E6] border-2 border-black text-black shadow-[3px_3px_0_#111111]",
+    "accentBadge": "bg-[#FB7185] text-black border-2 border-black font-black shadow-[2px_2px_0_#111111]",
+    "priceText": "text-[#BE123C]",
+    "mutedText": "text-slate-700",
+    "buyBtnClass": "arcade-btn bg-[#FB7185] hover:bg-[#FDA4AF] text-black",
+    "pkgActive": "bg-[#FECDD3] border-[3px] border-black shadow-[5px_5px_0_#111111] -translate-y-0.5 text-black"
+  },
+  "jouav": {
+    "brandTitle": "JOUAV 纵横晴空冰蓝与纯白航测浅色风",
+    "modalBg": "bg-[#F0F9FF] text-black border-black",
+    "headerBg": "bg-[#BAE6FD] border-b-[3px] border-black text-black",
+    "cardBg": "bg-white border-[3px] border-black text-black shadow-[6px_6px_0_#111111]",
+    "subCardBg": "bg-[#E0F2FE] border-2 border-black text-black shadow-[3px_3px_0_#111111]",
+    "accentBadge": "bg-[#38BDF8] text-black border-2 border-black font-black shadow-[2px_2px_0_#111111]",
+    "priceText": "text-[#0369A1]",
+    "mutedText": "text-slate-700",
+    "buyBtnClass": "arcade-btn bg-[#38BDF8] hover:bg-[#7DD3FC] text-black",
+    "pkgActive": "bg-[#BAE6FD] border-[3px] border-black shadow-[5px_5px_0_#111111] -translate-y-0.5 text-black"
+  },
+  "ehang": {
+    "brandTitle": "EHang 亿航未来天青色与云朵白明亮风",
+    "modalBg": "bg-[#ECFEFF] text-black border-black",
+    "headerBg": "bg-[#A5F3FC] border-b-[3px] border-black text-black",
+    "cardBg": "bg-white border-[3px] border-black text-black shadow-[6px_6px_0_#111111]",
+    "subCardBg": "bg-[#CFFAFE] border-2 border-black text-black shadow-[3px_3px_0_#111111]",
+    "accentBadge": "bg-[#22D3EE] text-black border-2 border-black font-black shadow-[2px_2px_0_#111111]",
+    "priceText": "text-[#0E7490]",
+    "mutedText": "text-slate-700",
+    "buyBtnClass": "arcade-btn bg-[#22D3EE] hover:bg-[#67E8F9] text-black",
+    "pkgActive": "bg-[#A5F3FC] border-[3px] border-black shadow-[5px_5px_0_#111111] -translate-y-0.5 text-black"
+  },
+  "xpeng": {
+    "brandTitle": "AeroHT 小鹏汇天薄荷青柠与星光银浅色风",
+    "modalBg": "bg-[#ECFDF5] text-black border-black",
+    "headerBg": "bg-[#A7F3D0] border-b-[3px] border-black text-black",
+    "cardBg": "bg-white border-[3px] border-black text-black shadow-[6px_6px_0_#111111]",
+    "subCardBg": "bg-[#D1FAE5] border-2 border-black text-black shadow-[3px_3px_0_#111111]",
+    "accentBadge": "bg-[#34D399] text-black border-2 border-black font-black shadow-[2px_2px_0_#111111]",
+    "priceText": "text-[#047857]",
+    "mutedText": "text-neutral-700",
+    "buyBtnClass": "arcade-btn bg-[#34D399] hover:bg-[#6EE7B7] text-black",
+    "pkgActive": "bg-[#A7F3D0] border-[3px] border-black shadow-[5px_5px_0_#111111] -translate-y-0.5 text-black"
+  },
+  "autoflight": {
+    "brandTitle": "AutoFlight 峰飞航空碧海松石绿与珍珠白浅色风",
+    "modalBg": "bg-[#F0FDFA] text-black border-black",
+    "headerBg": "bg-[#99F6E4] border-b-[3px] border-black text-black",
+    "cardBg": "bg-white border-[3px] border-black text-black shadow-[6px_6px_0_#111111]",
+    "subCardBg": "bg-[#CCFBF1] border-2 border-black text-black shadow-[3px_3px_0_#111111]",
+    "accentBadge": "bg-[#2DD4BF] text-black border-2 border-black font-black shadow-[2px_2px_0_#111111]",
+    "priceText": "text-[#0F766E]",
+    "mutedText": "text-slate-700",
+    "buyBtnClass": "arcade-btn bg-[#2DD4BF] hover:bg-[#5EEAD4] text-black",
+    "pkgActive": "bg-[#99F6E4] border-[3px] border-black shadow-[5px_5px_0_#111111] -translate-y-0.5 text-black"
+  },
+  "aerofugia": {
+    "brandTitle": "Aerofugia 沃飞长空薰衣草紫与香槟金明亮风",
+    "modalBg": "bg-[#FAF5FF] text-black border-black",
+    "headerBg": "bg-[#E9D5FF] border-b-[3px] border-black text-black",
+    "cardBg": "bg-white border-[3px] border-black text-black shadow-[6px_6px_0_#111111]",
+    "subCardBg": "bg-[#F3E8FF] border-2 border-black text-black shadow-[3px_3px_0_#111111]",
+    "accentBadge": "bg-[#C084FC] text-black border-2 border-black font-black shadow-[2px_2px_0_#111111]",
+    "priceText": "text-[#6B21A8]",
+    "mutedText": "text-slate-700",
+    "buyBtnClass": "arcade-btn bg-[#FACC15] hover:bg-[#FDE047] text-black",
+    "pkgActive": "bg-[#E9D5FF] border-[3px] border-black shadow-[5px_5px_0_#111111] -translate-y-0.5 text-black"
+  }
+};
+
+    const mallState = {
+      usage: 'all',
+      priceBucket: 'all',
+      typeFilter: 'all',
+      brand: 'all',
+      searchQuery: '',
+      activeProductId: null,
+      activePackageIdx: 0
+    };
+
+    function getFilteredMallProducts() {
+      return MALL_PRODUCTS.filter(item => {
+        const matchUsage = mallState.usage === 'all' || item.usage === mallState.usage;
+        const matchPrice = mallState.priceBucket === 'all' || item.priceBucket === mallState.priceBucket;
+        const matchType =
+          mallState.typeFilter === 'all' ||
+          item.tier === mallState.typeFilter ||
+          item.weightClass === mallState.typeFilter;
+        const matchBrand = mallState.brand === 'all' || item.brand === mallState.brand;
+
+        const q = mallState.searchQuery.trim().toLowerCase();
+        const matchQuery = !q ||
+          item.name.toLowerCase().includes(q) ||
+          item.subtitle.toLowerCase().includes(q) ||
+          item.brand.toLowerCase().includes(q) ||
+          item.usage.toLowerCase().includes(q) ||
+          item.tier.toLowerCase().includes(q) ||
+          item.weightClass.toLowerCase().includes(q) ||
+          item.intro.toLowerCase().includes(q) ||
+          item.specs.some(s => s.label.toLowerCase().includes(q) || s.value.toLowerCase().includes(q));
+
+        return matchUsage && matchPrice && matchType && matchBrand && matchQuery;
+      });
+    }
+
+    function updateMallFilterButtonsUI() {
+      const groups = [
+        { attr: 'data-mall-usage', val: mallState.usage },
+        { attr: 'data-mall-price', val: mallState.priceBucket },
+        { attr: 'data-mall-type', val: mallState.typeFilter },
+        { attr: 'data-mall-brand', val: mallState.brand }
+      ];
+      groups.forEach(g => {
+        document.querySelectorAll(`[${g.attr}]`).forEach(btn => {
+          const v = btn.getAttribute(g.attr);
+          if (v === g.val) {
+            btn.className = 'mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-yellow-400 text-black whitespace-nowrap';
+          } else {
+            btn.className = 'mall-filter-btn arcade-btn px-3.5 py-1.5 rounded-xl text-sm bg-white text-black whitespace-nowrap';
+          }
+        });
+      });
+
+      const priceLabels = {
+        'all': '全部价格',
+        'under-1w': '1万以内',
+        '1w-5w': '1万—5万',
+        '5w-50w': '5万—50万',
+        'over-50w': '50万以上'
+      };
+      const summaryEl = document.getElementById('mallActiveSummaryText');
+      if (summaryEl) {
+        const u = mallState.usage === 'all' ? '全部用途' : mallState.usage;
+        const p = priceLabels[mallState.priceBucket] || '全部价格';
+        const t = mallState.typeFilter === 'all' ? '全部机型' : mallState.typeFilter;
+        const b = mallState.brand === 'all' ? '全部品牌' : mallState.brand;
+        summaryEl.textContent = `当前筛选：${u} · ${p} · ${t} · ${b}`;
+      }
+    }
+
+    function renderMallProducts() {
+      updateMallFilterButtonsUI();
+      const filtered = getFilteredMallProducts();
+      const countEl = document.getElementById('mallMatchedCount');
+      if (countEl) countEl.textContent = filtered.length;
+
+      const grid = document.getElementById('mallProductsGrid');
+      const emptyBox = document.getElementById('mallEmptyBox');
+      if (!grid || !emptyBox) return;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyBox.classList.remove('hidden');
+        return;
+      }
+
+      emptyBox.classList.add('hidden');
+      grid.innerHTML = filtered.map(item => {
+        return `
+          <div data-open-mall-product="${item.id}" class="arcade-card bg-white rounded-2xl overflow-hidden flex flex-col justify-between cursor-pointer">
+            <div>
+              <!-- 产品高清图预览区 -->
+              <div class="relative h-52 bg-neutral-100 border-b-[3px] border-black flex items-center justify-center overflow-hidden p-3">
+                <img
+                  src="${item.image}"
+                  alt="${item.name}"
+                  onerror="this.onerror=null;this.src='${item.fallbackImage}';"
+                  class="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
+                />
+                <span class="absolute top-3 right-3 px-3 py-1 rounded-lg bg-yellow-300 border-2 border-black text-sm font-black text-black shadow-[2px_2px_0_#111]">
+                  ${item.priceDisplay}
+                </span>
+              </div>
+
+              <!-- 产品小窗口主体：分类标签 + 名称 + 简介 + 核心参数速览 -->
+              <div class="p-5 space-y-3.5">
+                <!-- 三类必备分类标签：行业用途标签、机型标签、品牌标签 -->
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span class="px-2.5 py-1 rounded-md text-xs font-black bg-black text-yellow-300 border border-black" style="color:#FACC15 !important;">
+                    🏷️ 品牌：${item.brand}
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-black bg-yellow-300 text-black border border-black">
+                    🎯 用途：${item.usage}
+                  </span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-black bg-yellow-100 text-black border border-black">
+                    ✈️ 机型：${item.tier} · ${item.weightClass}
+                  </span>
+                </div>
+
+                <div>
+                  <h3 class="text-xl font-black text-black leading-snug hover:underline">${item.name}</h3>
+                  <p class="text-sm font-bold text-black/75 mt-0.5">${item.subtitle}</p>
+                </div>
+
+                <p class="text-sm text-black/90 font-medium leading-relaxed line-clamp-2">
+                  ${item.intro}
+                </p>
+
+                <!-- 关键参数迷你速览 -->
+                <div class="grid grid-cols-2 gap-2 pt-1">
+                  <div class="bg-[#FFFBEB] border border-black rounded-lg px-2.5 py-1.5 text-xs">
+                    <span class="text-black/70 font-bold block">${item.specs[0].label}</span>
+                    <span class="text-black font-black truncate block">${item.specs[0].value}</span>
+                  </div>
+                  <div class="bg-[#FFFBEB] border border-black rounded-lg px-2.5 py-1.5 text-xs">
+                    <span class="text-black/70 font-bold block">${item.specs[1].label}</span>
+                    <span class="text-black font-black truncate block">${item.specs[1].value}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 底部操作栏 -->
+            <div class="px-5 py-3.5 bg-[#FFFBEB] border-t-2 border-black flex items-center justify-between gap-2">
+              <button type="button" data-open-mall-product="${item.id}" class="arcade-btn arcade-btn-yellow px-3.5 py-1.5 rounded-xl text-sm">
+                查看详情与套装 (${item.packages.length})
+              </button>
+              <a href="${item.officialUrl}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="arcade-btn arcade-btn-cream px-3.5 py-1.5 rounded-xl text-sm flex items-center gap-1">
+                <span>🛒 官网购买 ↗</span>
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openMallProductModal(productId, pkgIdx = 0) {
+      const item = MALL_PRODUCTS.find(p => p.id === productId);
+      if (!item) return;
+      mallState.activeProductId = productId;
+      mallState.activePackageIdx = pkgIdx;
+
+      const theme = BRAND_THEMES[item.brandKey] || BRAND_THEMES.dji;
+      const selectedPkg = item.packages[pkgIdx] || item.packages[0];
+
+      const modal = document.getElementById('mallProductModal');
+      const container = document.getElementById('mallModalContainer');
+      const header = document.getElementById('mallModalHeader');
+      const brandBadge = document.getElementById('mallModalBrandBadge');
+      const body = document.getElementById('mallModalBody');
+      const footerPkgName = document.getElementById('mallFooterPkgName');
+      const footerPkgPrice = document.getElementById('mallFooterPkgPrice');
+      const footerBuyBtn = document.getElementById('mallFooterBuyBtn');
+
+      container.className = `arcade-window rounded-3xl max-w-5xl w-full max-h-[92vh] flex flex-col overflow-hidden transition-colors duration-200 ${theme.modalBg}`;
+      header.className = `flex items-center justify-between gap-3 px-6 py-4 ${theme.headerBg}`;
+      brandBadge.className = `px-3.5 py-1 rounded-lg text-sm ${theme.accentBadge}`;
+      brandBadge.textContent = item.brand;
+
+      if (footerPkgName) footerPkgName.textContent = selectedPkg.name;
+      if (footerPkgPrice) {
+        footerPkgPrice.textContent = selectedPkg.price;
+        footerPkgPrice.className = `text-xl sm:text-2xl font-black ${theme.priceText}`;
+      }
+      if (footerBuyBtn) {
+        footerBuyBtn.href = item.officialUrl;
+        footerBuyBtn.className = `${theme.buyBtnClass} px-6 py-2.5 rounded-xl text-sm sm:text-base flex items-center gap-2`;
+        footerBuyBtn.innerHTML = `<span>🛒 前往 ${item.brand} 官网购买 ↗</span>`;
+      }
+
+      body.innerHTML = `
+        <!-- 卡片 1：仅保留产品名称、三类分类标签与多图横向滚动展示画廊 -->
+        <div class="rounded-2xl p-6 ${theme.cardBg} space-y-5">
+          <!-- 顶部：产品名称 + 分类标签 -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 pb-4 border-b-2 border-black">
+            <h2 class="text-2xl sm:text-3xl font-black text-black tracking-tight">${item.name}</h2>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-3 py-1 rounded-lg text-xs sm:text-sm ${theme.accentBadge}">🏷️ 品牌：${item.brand}</span>
+              <span class="px-3 py-1 rounded-lg text-xs sm:text-sm font-black ${theme.subCardBg}">🎯 行业用途：${item.usage}</span>
+              <span class="px-3 py-1 rounded-lg text-xs sm:text-sm font-black ${theme.subCardBg}">✈️ 机型分类：${item.tier} · ${item.weightClass}</span>
+            </div>
+          </div>
+
+          <!-- 下方：多张产品官方图片横向滚动观看区（支持鼠标/触控左右滑动 + 左右游戏机翻页键） -->
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs sm:text-sm font-black text-black">🖼️ 官方实拍图集（共 ${(item.gallery || []).length} 张，可左右滚动查看）</span>
+              <div class="flex items-center gap-2">
+                <button type="button" data-gallery-scroll="prev" class="arcade-btn arcade-btn-cream px-3 py-1 rounded-lg text-xs font-black">← 向左滚动</button>
+                <button type="button" data-gallery-scroll="next" class="arcade-btn arcade-btn-yellow px-3 py-1 rounded-lg text-xs font-black">向右滚动 →</button>
+              </div>
+            </div>
+
+            <div id="mallGalleryTrack" class="flex items-stretch gap-4 overflow-x-auto custom-scrollbar pb-2 snap-x snap-mandatory scroll-smooth">
+              ${(item.gallery || [{ url: item.image, caption: item.name }]).map((imgObj, gIdx) => `
+                <div class="snap-start shrink-0 w-72 sm:w-96 bg-white rounded-2xl border-[2.5px] border-black shadow-[4px_4px_0_#111] overflow-hidden flex flex-col justify-between">
+                  <div class="h-52 sm:h-60 w-full bg-neutral-50 flex items-center justify-center p-3 overflow-hidden">
+                    <img
+                      src="${imgObj.url}"
+                      alt="${item.name} - ${imgObj.caption}"
+                      onerror="this.onerror=null;this.src='${item.fallbackImage}';"
+                      class="w-full h-full object-contain hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <div class="px-3.5 py-2 border-t-2 border-black ${theme.subCardBg} flex items-center justify-between text-xs font-black text-black">
+                    <span class="truncate">${imgObj.caption}</span>
+                    <span class="px-2 py-0.5 rounded bg-white border border-black shrink-0">0${gIdx + 1} / 0${(item.gallery || []).length}</span>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片 2：不同套装的价格与配置选择卡片（游戏机按键式切换体验） -->
+        <div class="rounded-2xl p-6 ${theme.cardBg} space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-lg sm:text-xl font-black text-black flex items-center gap-2">
+              <span>📦 官方套装与价格配置（点击下方按键卡片切换套装）</span>
+            </h3>
+            <span class="text-xs font-black px-2.5 py-1 rounded bg-white border-2 border-black text-black">共 ${item.packages.length} 款官方配置方案</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            ${item.packages.map((pkg, idx) => `
+              <button
+                type="button"
+                data-select-mall-pkg="${idx}"
+                class="arcade-btn text-left rounded-2xl p-4 flex flex-col justify-between space-y-3 ${idx === pkgIdx ? theme.pkgActive : 'bg-white text-black'}"
+              >
+                <div class="space-y-1.5 w-full">
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="text-xs font-black px-2.5 py-0.5 rounded border border-black ${idx === pkgIdx ? theme.accentBadge : 'bg-neutral-100 text-black'}">
+                      套装 0${idx + 1}
+                    </span>
+                    ${idx === pkgIdx ? '<span class="text-xs font-black px-2 py-0.5 rounded bg-black text-yellow-300" style="color:#FACC15 !important;">✓ 已选中</span>' : '<span class="text-xs font-bold text-black/60">点击选择</span>'}
+                  </div>
+                  <h4 class="text-base font-black text-black pt-1">${pkg.name}</h4>
+                  <div class="text-xl font-black ${theme.priceText}">${pkg.price}</div>
+                </div>
+                <p class="text-sm text-black/85 font-medium leading-relaxed border-t-2 border-black/15 pt-2.5 w-full">
+                  ${pkg.desc}
+                </p>
+              </button>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- 卡片 3：产品核心亮点介绍卡片矩阵 -->
+        <div class="rounded-2xl p-6 ${theme.cardBg} space-y-4">
+          <h3 class="text-lg sm:text-xl font-black text-black">✨ 产品核心技术亮点</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${item.highlights.map((hl, idx) => `
+              <div class="rounded-xl p-4 ${theme.subCardBg} space-y-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded text-xs ${theme.accentBadge}">亮点 0${idx + 1}</span>
+                  <h4 class="text-base font-black text-black">${hl.title}</h4>
+                </div>
+                <p class="text-sm text-black/85 font-medium leading-relaxed pt-1">${hl.desc}</p>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+
+        <!-- 卡片 4：详细技术参数卡片矩阵 -->
+        <div class="rounded-2xl p-6 ${theme.cardBg} space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <h3 class="text-lg sm:text-xl font-black text-black">⚙️ 官方核心技术参数</h3>
+            <span class="text-xs font-bold ${theme.mutedText}">数据整理自 ${item.brand} 官方网站</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            ${item.specs.map(sp => `
+              <div class="rounded-xl p-3.5 ${theme.subCardBg} flex flex-col justify-between space-y-1">
+                <span class="text-xs font-bold ${theme.mutedText}">${sp.label}</span>
+                <span class="text-sm sm:text-base font-black text-black">${sp.value}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
     // 5. 顶层板块切换
     function switchModule(moduleId) {
       state.activeModule = moduleId;
       const viewLowAltitude = document.getElementById('viewLowAltitude');
+      const viewSkyMall = document.getElementById('viewSkyMall');
       const viewReserved = document.getElementById('viewReservedModule');
 
       document.querySelectorAll('header nav .module-tab-btn, #mobileModuleBar .module-tab-btn').forEach(btn => {
@@ -936,21 +2916,29 @@
         const isMobile = Boolean(btn.closest('#mobileModuleBar'));
         if (m === moduleId) {
           btn.className = isMobile
-            ? 'module-tab-btn shrink-0 px-3 py-1 rounded-lg text-xs bg-yellow-400 text-black flex items-center gap-1'
-            : 'module-tab-btn px-3 py-1.5 rounded-lg text-xs flex items-center gap-1.5 bg-yellow-400 text-black';
+            ? 'module-tab-btn shrink-0 px-3.5 py-1.5 rounded-lg text-sm bg-yellow-400 text-black flex items-center gap-1 whitespace-nowrap'
+            : 'module-tab-btn px-3.5 py-2 rounded-lg text-sm flex items-center gap-1.5 bg-yellow-400 text-black whitespace-nowrap';
         } else {
-          const bgClass = m === 'module-custom' ? 'bg-yellow-300' : 'bg-yellow-100';
+          const bgClass = (m === 'module-custom' || m === 'sky-mall') ? 'bg-yellow-200' : 'bg-yellow-100';
           btn.className = isMobile
-            ? `module-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs ${bgClass} text-black`
-            : `module-tab-btn px-2.5 py-1.5 rounded-lg text-xs ${bgClass} text-black flex items-center gap-1`;
+            ? `module-tab-btn shrink-0 px-3 py-1.5 rounded-lg text-sm ${bgClass} text-black flex items-center gap-1 whitespace-nowrap`
+            : `module-tab-btn px-3 py-2 rounded-lg text-sm ${bgClass} text-black flex items-center gap-1.5 whitespace-nowrap`;
         }
       });
 
       if (moduleId === 'low-altitude') {
         viewLowAltitude.classList.remove('hidden');
+        if (viewSkyMall) viewSkyMall.classList.add('hidden');
         viewReserved.classList.add('hidden');
+      } else if (moduleId === 'sky-mall') {
+        viewLowAltitude.classList.add('hidden');
+        if (viewSkyMall) viewSkyMall.classList.remove('hidden');
+        viewReserved.classList.add('hidden');
+        renderMallProducts();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
         viewLowAltitude.classList.add('hidden');
+        if (viewSkyMall) viewSkyMall.classList.add('hidden');
         viewReserved.classList.remove('hidden');
         renderReservedModuleView(moduleId);
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1034,9 +3022,9 @@
       document.querySelectorAll('.cat-tab-btn').forEach(btn => {
         const cat = btn.getAttribute('data-cat');
         if (cat === state.activeCategory) {
-          btn.className = 'cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-yellow-400 text-black flex items-center gap-1';
+          btn.className = 'cat-tab-btn px-4 py-2.5 rounded-xl text-sm bg-yellow-400 text-black flex items-center gap-1 whitespace-nowrap';
         } else {
-          btn.className = 'cat-tab-btn px-3.5 py-2 rounded-xl text-xs bg-white text-black flex items-center gap-1';
+          btn.className = 'cat-tab-btn px-4 py-2.5 rounded-xl text-sm bg-white text-black flex items-center gap-1 whitespace-nowrap';
         }
       });
 
@@ -1068,10 +3056,10 @@
           : 'arcade-card bg-white';
 
         const officialRibbon = isA1Newsroom
-          ? `<span class="px-2.5 py-0.5 rounded-md text-[11px] font-black bg-black text-yellow-300 border border-black flex items-center gap-1" style="color:#FACC15 !important;">
+          ? `<span class="px-3 py-1 rounded-md text-xs font-black bg-black text-yellow-300 border border-black flex items-center gap-1 shrink-0" style="color:#FACC15 !important;">
                <span>★ A1新闻部</span>
              </span>`
-          : `<span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-yellow-100 text-black border-[1.5px] border-black">
+          : `<span class="px-2.5 py-1 rounded-md text-xs font-bold bg-yellow-100 text-black border-[1.5px] border-black shrink-0">
                行业权威资讯
              </span>`;
 
@@ -1079,64 +3067,64 @@
         const displayTags = (article.tags || []).filter(t => !isA1Newsroom || (!t.includes('A1新闻部') && !t.includes('A1 新闻部')));
 
         return `
-          <article class="${cardClass} rounded-2xl p-5 flex flex-col justify-between">
-            <div class="space-y-3">
+          <article class="${cardClass} rounded-2xl p-6 flex flex-col justify-between">
+            <div class="space-y-3.5">
               <!-- 顶部徽章行 -->
-              <div class="flex items-center justify-between gap-2 pb-2 border-b-2 border-black">
-                <span class="px-2.5 py-0.5 rounded-md text-[11px] font-black border-[1.5px] ${catInfo.badgeClass}">
+              <div class="flex items-center justify-between gap-2 pb-2.5 border-b-2 border-black">
+                <span class="px-3 py-1 rounded-md text-xs font-black border-[1.5px] ${catInfo.badgeClass}">
                   ${catInfo.label}
                 </span>
                 ${officialRibbon}
               </div>
 
-              <!-- 标题 -->
-              <h3 data-open-article="${article.id}" class="cursor-pointer text-base font-black text-black hover:underline decoration-2 leading-snug">
+              <!-- 标题（字号放大至 text-lg sm:text-xl） -->
+              <h3 data-open-article="${article.id}" class="cursor-pointer text-lg sm:text-xl font-black text-black hover:underline decoration-2 leading-snug">
                 ${article.title}
               </h3>
 
-              <!-- 摘要 -->
-              <p class="text-xs text-black/85 font-medium leading-relaxed line-clamp-3">
+              <!-- 摘要（字号放大至 text-sm sm:text-base） -->
+              <p class="text-sm sm:text-base text-black/90 font-medium leading-relaxed line-clamp-3">
                 ${article.summary}
               </p>
 
               ${article.creativeFormat ? `
-                <div class="px-2.5 py-1.5 rounded-lg bg-yellow-300/90 border-[1.5px] border-black text-[11px] font-black text-black flex items-center justify-between">
+                <div class="px-3 py-2 rounded-lg bg-yellow-300 border-[1.5px] border-black text-xs sm:text-sm font-black text-black flex items-center justify-between">
                   <span>📊 专题看板：${article.creativeFormat}</span>
                 </div>
               ` : (article.crawlOrigin ? `
-                <div class="px-2.5 py-1 rounded-lg bg-yellow-50 border border-black text-[11px] font-bold text-black flex items-center justify-between">
+                <div class="px-3 py-1.5 rounded-lg bg-yellow-50 border border-black text-xs sm:text-sm font-bold text-black flex items-center justify-between">
                   <span>📡 ${article.crawlOrigin}</span>
                 </div>
               ` : '')}
 
               <!-- 标签组（不重复显示 A1新闻部） -->
-              <div class="flex flex-wrap gap-1.5 pt-1">
-                ${displayTags.map(t => `<span class="text-[11px] px-2 py-0.5 rounded bg-yellow-100 text-black border border-black font-bold">#${t}</span>`).join('')}
+              <div class="flex flex-wrap gap-2 pt-1">
+                ${displayTags.map(t => `<span class="text-xs px-2.5 py-1 rounded-md bg-yellow-100 text-black border border-black font-bold">#${t}</span>`).join('')}
               </div>
             </div>
 
             <!-- 底部作者、参考信源与操作栏 -->
-            <div class="mt-5 pt-3.5 border-t-2 border-black space-y-3">
-              <div class="flex items-center justify-between text-[11px]">
-                <span class="text-black font-extrabold truncate max-w-[70%]">
+            <div class="mt-6 pt-4 border-t-2 border-black space-y-3.5">
+              <div class="flex items-center justify-between text-xs sm:text-sm">
+                <span class="text-black font-extrabold truncate max-w-[68%]">
                   ✍️ ${article.author}
                 </span>
-                <span class="text-black font-bold bg-white px-1.5 py-0.5 rounded border border-black shrink-0">${article.date}</span>
+                <span class="text-black font-bold bg-white px-2 py-0.5 rounded border border-black shrink-0">${article.date}</span>
               </div>
 
               <div class="flex items-center justify-between gap-2">
                 <div class="flex items-center gap-2">
-                  <button type="button" data-open-article="${article.id}" class="arcade-btn arcade-btn-yellow px-3 py-1.5 rounded-lg text-xs">
+                  <button type="button" data-open-article="${article.id}" class="arcade-btn arcade-btn-yellow px-3.5 py-2 rounded-lg text-sm">
                     阅读全文
                   </button>
                   ${article.sources && article.sources[0] ? `
-                    <a href="${article.sources[0].url}" target="_blank" rel="noopener noreferrer" class="arcade-btn arcade-btn-cream px-2.5 py-1.5 rounded-lg text-[11px] truncate max-w-[115px]" title="${article.sources[0].title}">
+                    <a href="${article.sources[0].url}" target="_blank" rel="noopener noreferrer" class="arcade-btn arcade-btn-cream px-3 py-2 rounded-lg text-xs sm:text-sm truncate max-w-[130px]" title="${article.sources[0].title}">
                       参考信源 ↗
                     </a>
                   ` : ''}
                 </div>
 
-                <button type="button" data-toggle-bookmark="${article.id}" class="arcade-btn ${isBookmarked ? 'arcade-btn-yellow' : 'arcade-btn-cream'} px-2.5 py-1.5 rounded-lg text-xs" title="收藏/取消收藏">
+                <button type="button" data-toggle-bookmark="${article.id}" class="arcade-btn ${isBookmarked ? 'arcade-btn-yellow' : 'arcade-btn-cream'} px-3 py-2 rounded-lg text-sm" title="收藏/取消收藏">
                   ${isBookmarked ? '★ 已收藏' : '☆ 收藏'}
                 </button>
               </div>
@@ -1274,17 +3262,17 @@
       let tabContentHtml = '';
       if (activeTab.items) {
         tabContentHtml = `
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
             ${activeTab.items.map((item, idx) => `
-              <div class="bg-white border-2 border-black rounded-xl p-3.5 shadow-[3px_3px_0_#111] flex flex-col justify-between space-y-2">
-                <div class="space-y-1.5">
+              <div class="bg-white border-2 border-black rounded-xl p-4 shadow-[3px_3px_0_#111] flex flex-col justify-between space-y-2.5">
+                <div class="space-y-2">
                   <div class="flex items-center justify-between gap-1">
-                    <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[10px] font-black" style="color:#FACC15 !important;">0${idx + 1}</span>
-                    <span class="px-2 py-0.5 rounded bg-yellow-300 border border-black text-xs font-black text-black">综合评估 ${item.score}</span>
+                    <span class="px-2.5 py-0.5 rounded bg-black text-yellow-300 text-xs font-black" style="color:#FACC15 !important;">0${idx + 1}</span>
+                    <span class="px-2.5 py-0.5 rounded bg-yellow-300 border border-black text-xs sm:text-sm font-black text-black">综合评估 ${item.score}</span>
                   </div>
-                  <h4 class="text-xs sm:text-sm font-black text-black">${item.name}</h4>
-                  <div class="text-[11px] font-black text-black bg-yellow-100 px-2 py-0.5 rounded border border-black">${item.tag}</div>
-                  <p class="text-xs text-black/85 font-medium leading-relaxed">${item.detail}</p>
+                  <h4 class="text-sm sm:text-base font-black text-black">${item.name}</h4>
+                  <div class="text-xs font-black text-black bg-yellow-100 px-2.5 py-1 rounded border border-black">${item.tag}</div>
+                  <p class="text-sm text-black/90 font-medium leading-relaxed">${item.detail}</p>
                 </div>
                 <div class="w-full bg-yellow-100 h-2.5 rounded-full border border-black overflow-hidden">
                   <div class="bg-black h-full" style="width: ${item.score}%"></div>
@@ -1295,34 +3283,34 @@
         `;
       } else if (activeTab.proTitle) {
         tabContentHtml = `
-          <div class="space-y-3 pt-2">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-              <div class="bg-white border-2 border-black rounded-xl p-3.5 shadow-[3px_3px_0_#111] space-y-1.5">
-                <span class="px-2 py-0.5 rounded bg-yellow-300 border border-black text-[11px] font-black text-black">视角 A</span>
-                <h4 class="text-xs sm:text-sm font-black text-black">${activeTab.proTitle}</h4>
-                <p class="text-xs text-black/85 font-medium leading-relaxed">${activeTab.proDesc}</p>
+          <div class="space-y-3.5 pt-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="bg-white border-2 border-black rounded-xl p-4 shadow-[3px_3px_0_#111] space-y-2">
+                <span class="px-2.5 py-0.5 rounded bg-yellow-300 border border-black text-xs font-black text-black">视角 A</span>
+                <h4 class="text-sm sm:text-base font-black text-black">${activeTab.proTitle}</h4>
+                <p class="text-sm text-black/90 font-medium leading-relaxed">${activeTab.proDesc}</p>
               </div>
-              <div class="bg-white border-2 border-black rounded-xl p-3.5 shadow-[3px_3px_0_#111] space-y-1.5">
-                <span class="px-2 py-0.5 rounded bg-black text-yellow-300 text-[11px] font-black" style="color:#FACC15 !important;">视角 B</span>
-                <h4 class="text-xs sm:text-sm font-black text-black">${activeTab.conTitle}</h4>
-                <p class="text-xs text-black/85 font-medium leading-relaxed">${activeTab.conDesc}</p>
+              <div class="bg-white border-2 border-black rounded-xl p-4 shadow-[3px_3px_0_#111] space-y-2">
+                <span class="px-2.5 py-0.5 rounded bg-black text-yellow-300 text-xs font-black" style="color:#FACC15 !important;">视角 B</span>
+                <h4 class="text-sm sm:text-base font-black text-black">${activeTab.conTitle}</h4>
+                <p class="text-sm text-black/90 font-medium leading-relaxed">${activeTab.conDesc}</p>
               </div>
             </div>
-            <div class="bg-white border-2 border-black rounded-xl p-3 shadow-[3px_3px_0_#111] text-xs font-black text-black">
+            <div class="bg-white border-2 border-black rounded-xl p-4 shadow-[3px_3px_0_#111] text-sm sm:text-base font-black text-black">
               ${activeTab.a1Verdict}
             </div>
           </div>
         `;
       } else if (activeTab.steps) {
         tabContentHtml = `
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
             ${activeTab.steps.map(st => `
-              <div class="bg-white border-2 border-black rounded-xl p-3 shadow-[3px_3px_0_#111] space-y-1">
-                <div class="flex items-center justify-between">
-                  <span class="text-xs font-black text-black">${st.code}</span>
-                  <span class="px-2 py-0.5 rounded bg-yellow-300 border border-black text-[10px] font-black text-black">${st.status}</span>
+              <div class="bg-white border-2 border-black rounded-xl p-4 shadow-[3px_3px_0_#111] space-y-1.5">
+                <div class="flex flex-wrap items-center justify-between gap-1">
+                  <span class="text-sm font-black text-black">${st.code}</span>
+                  <span class="px-2.5 py-0.5 rounded bg-yellow-300 border border-black text-xs font-black text-black">${st.status}</span>
                 </div>
-                <p class="text-xs text-black/85 font-medium leading-relaxed">${st.tip}</p>
+                <p class="text-sm text-black/90 font-medium leading-relaxed">${st.tip}</p>
               </div>
             `).join('')}
           </div>
@@ -1330,16 +3318,16 @@
       }
 
       box.innerHTML = `
-        <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b-2 border-black">
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b-2 border-black">
           <div>
-            <span class="px-2.5 py-0.5 rounded bg-black text-yellow-300 text-[11px] font-black" style="color:#FACC15 !important;">${widget.badge}</span>
-            <h3 class="text-sm sm:text-base font-black text-black mt-1">${widget.title}</h3>
-            <p class="text-xs text-black/80 font-semibold">${widget.subtitle}</p>
+            <span class="px-3 py-1 rounded bg-black text-yellow-300 text-xs font-black" style="color:#FACC15 !important;">${widget.badge}</span>
+            <h3 class="text-base sm:text-lg font-black text-black mt-1.5">${widget.title}</h3>
+            <p class="text-sm text-black/85 font-semibold">${widget.subtitle}</p>
           </div>
         </div>
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-2.5">
           ${tabs.map((t, idx) => `
-            <button type="button" data-creative-tab="${idx}" class="arcade-btn ${idx === activeTabIdx ? 'arcade-btn-yellow' : 'arcade-btn-cream'} px-3 py-1.5 rounded-xl text-xs">
+            <button type="button" data-creative-tab="${idx}" class="arcade-btn ${idx === activeTabIdx ? 'arcade-btn-yellow' : 'arcade-btn-cream'} px-3.5 py-2 rounded-xl text-sm">
               ${t.label}
             </button>
           `).join('')}
@@ -1348,19 +3336,34 @@
       `;
     }
 
-    // 7.6 静默拉取最新数据实现每日内容更新
+    // 7.6 静默拉取最新资讯(data/news.json)与空中商城产品库(data/mall_products.json)实现每日实时更新
     async function syncFromRemoteJson() {
       try {
         if (!location.protocol.startsWith('http') || location.hostname.includes('usercontent')) return;
         const feedUrl = new URL('data/' + 'news.json', location.href);
         feedUrl.searchParams.set('t', String(Date.now()));
         const resp = await fetch(feedUrl.href, { cache: 'no-store' });
-        if (!resp.ok) return;
-        const remoteData = await resp.json();
-        if (remoteData && Array.isArray(remoteData.articles) && remoteData.articles.length > 0) {
-          state.articles = remoteData.articles;
-          updateHeroHeadline(remoteData.meta);
-          renderArticles();
+        if (resp.ok) {
+          const remoteData = await resp.json();
+          if (remoteData && Array.isArray(remoteData.articles) && remoteData.articles.length > 0) {
+            state.articles = remoteData.articles;
+            updateHeroHeadline(remoteData.meta);
+            renderArticles();
+          }
+        }
+      } catch (e) {}
+
+      try {
+        if (!location.protocol.startsWith('http') || location.hostname.includes('usercontent')) return;
+        const mallUrl = new URL('data/' + 'mall_products.json', location.href);
+        mallUrl.searchParams.set('t', String(Date.now()));
+        const mallResp = await fetch(mallUrl.href, { cache: 'no-store' });
+        if (mallResp.ok) {
+          const remoteMall = await mallResp.json();
+          if (remoteMall && Array.isArray(remoteMall.products) && remoteMall.products.length > 0) {
+            MALL_PRODUCTS = remoteMall.products;
+            renderMallProducts();
+          }
         }
       } catch (e) {}
     }
@@ -1620,12 +3623,104 @@
         }
       });
 
+      // 02 空中商城：四行分类筛选与产品详情大窗口事件绑定
+      const mallModal = document.getElementById('mallProductModal');
+      document.querySelectorAll('[data-mall-usage]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          mallState.usage = btn.getAttribute('data-mall-usage');
+          renderMallProducts();
+        });
+      });
+      document.querySelectorAll('[data-mall-price]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          mallState.priceBucket = btn.getAttribute('data-mall-price');
+          renderMallProducts();
+        });
+      });
+      document.querySelectorAll('[data-mall-type]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          mallState.typeFilter = btn.getAttribute('data-mall-type');
+          renderMallProducts();
+        });
+      });
+      document.querySelectorAll('[data-mall-brand]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          mallState.brand = btn.getAttribute('data-mall-brand');
+          renderMallProducts();
+        });
+      });
+
+      const mallSearch = document.getElementById('mallSearchInput');
+      if (mallSearch) {
+        mallSearch.addEventListener('input', (e) => {
+          mallState.searchQuery = e.target.value;
+          renderMallProducts();
+        });
+      }
+
+      const resetMall = () => {
+        mallState.usage = 'all';
+        mallState.priceBucket = 'all';
+        mallState.typeFilter = 'all';
+        mallState.brand = 'all';
+        mallState.searchQuery = '';
+        if (mallSearch) mallSearch.value = '';
+        renderMallProducts();
+      };
+      const mallResetBtn = document.getElementById('mallResetBtn');
+      const mallEmptyResetBtn = document.getElementById('mallEmptyResetBtn');
+      if (mallResetBtn) mallResetBtn.addEventListener('click', resetMall);
+      if (mallEmptyResetBtn) mallEmptyResetBtn.addEventListener('click', resetMall);
+
+      document.body.addEventListener('click', (e) => {
+        const mallCardTrigger = e.target.closest('[data-open-mall-product]');
+        if (mallCardTrigger) {
+          const prodId = mallCardTrigger.getAttribute('data-open-mall-product');
+          openMallProductModal(prodId, 0);
+          return;
+        }
+        const galleryScrollBtn = e.target.closest('[data-gallery-scroll]');
+        if (galleryScrollBtn) {
+          const dir = galleryScrollBtn.getAttribute('data-gallery-scroll');
+          const track = document.getElementById('mallGalleryTrack');
+          if (track) {
+            track.scrollBy({ left: dir === 'next' ? 380 : -380, behavior: 'smooth' });
+          }
+          return;
+        }
+        const pkgCardTrigger = e.target.closest('[data-select-mall-pkg]');
+        if (pkgCardTrigger && mallState.activeProductId) {
+          const idx = parseInt(pkgCardTrigger.getAttribute('data-select-mall-pkg'), 10) || 0;
+          openMallProductModal(mallState.activeProductId, idx);
+        }
+      });
+
+      const closeMallModalBtn = document.getElementById('closeMallModalBtn');
+      if (closeMallModalBtn) {
+        closeMallModalBtn.addEventListener('click', () => {
+          mallModal.classList.add('hidden');
+          mallModal.classList.remove('flex');
+        });
+      }
+      if (mallModal) {
+        mallModal.addEventListener('click', (e) => {
+          if (e.target === mallModal) {
+            mallModal.classList.add('hidden');
+            mallModal.classList.remove('flex');
+          }
+        });
+      }
+
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           readerModal.classList.add('hidden');
           readerModal.classList.remove('flex');
           bookmarksModal.classList.add('hidden');
           bookmarksModal.classList.remove('flex');
+          if (mallModal) {
+            mallModal.classList.add('hidden');
+            mallModal.classList.remove('flex');
+          }
         }
       });
     }
@@ -1635,6 +3730,7 @@
       initSnapObserver();
       updateHeroHeadline(INITIAL_NEWS_META);
       renderArticles();
+      renderMallProducts();
       syncFromRemoteJson();
     });
   </script>
