@@ -2,7 +2,7 @@
   "meta": {
     "siteName": "A1 · 低空信息站",
     "lastUpdatedDate": "2026-11-14",
-    "todayTopCategory": "product",
+    "todayTopCategory": "supply",
     "categoryScores": {
       "product": 96,
       "policy": 93,
@@ -118,32 +118,37 @@
       "id": "crawl-20261114-policy",
       "category": "policy",
       "isOfficial": false,
-      "importanceScore": 93,
-      "crawlOrigin": "中国人大网 · 中国民航局 · 上海市/十堰市低空招标公告",
-      "title": "新修订《民用航空法》“发展促进”专章全面落地，300米以下空域分类分级与UOM平台“一机一码”加速省市招标",
-      "author": "政务与法规汇编 · 综合中国人大网与民航局公报",
+      "isDailyCrawled": true,
+      "crawlOrigin": "信源：中央部委与地方政府公报",
+      "title": "徐真：低空經濟的泡沫被中共自己捅破；多地低空经济政策“换挡”",
+      "author": "政务与法规汇编",
       "date": "2026-11-14",
-      "readTime": "6 分钟阅读",
-      "summary": "新修订《中华人民共和国民用航空法》首次将“低空经济”写入国家法律文本并明确300米以下空域分类分级管理；配套强制性国标全面实行无人机“一机一码”，上海6632万元低空智能网联系统与多地安全平台密集开启招标。",
+      "readTime": "4 分钟阅读",
+      "summary": "近期行业重点动态汇总：涵盖 徐真：低空經濟的泡沫被中共自己捅破、多地低空经济政策“换挡”、国家先后设立两个“低空司”，低空经济前景如何？ 等最新进展。",
       "body": [
-        "据中国人大网与低空经济网权威解读，共 16 章 262 条的新修订《中华人民共和国民用航空法》正式施行，首次将“低空经济”写入国家法律并增设“发展促进”专章。新法第七十四条首次以法律形式将低空经济发展需要纳入空域划分的法定考量因素，明确 300 米以下低空空域实行分类分级管理，将过往“一事一批”的空域审批部分转为备案制。",
-        "在安全监管与数字化底座方面，依托国家低空综合管理平台（UOM）推进飞行报备、空域调度、安全监控与数据追溯“一网通办”，并与《民用无人驾驶航空器实名登记和激活要求》《民用无人驾驶航空器系统运行识别规范》两项强制性国家标准（“一机一码”）无缝衔接。目前全国实名登记无人机已超 380 万架、操控员超 43 万人，广东、江苏、浙江、山东、四川等 20 多个省份已公布新版适飞空域范围。",
-        "地方数字低空基建招标同步提速：上海市低空智能网联系统启动 6632.18 万元公开招标以构建超大城市低空治理中枢，十堰电信启动 550 万元低空安全保障平台招标，新疆则全面推广“一网统飞”集约模式并推进巴州、克拉玛依无人机综合实验试飞基地建设。"
+        "根据 2026-11-14 最新行业公开信息汇总，政策法规领域重点动态如下：",
+        "1. 【大紀元】徐真：低空經濟的泡沫被中共自己捅破 - 大紀元。",
+        "2. 【东方财富】多地低空经济政策“换挡” - 东方财富。",
+        "3. 【中国网】国家先后设立两个“低空司”，低空经济前景如何？ - 中国网。",
+        "4. 【观点网】民航局公示首批载人eVTOL适航审定合规企业名录 涉4家企业 - 观点网。"
       ],
       "tags": [
-        "新民用航空法",
-        "300米空域分级",
-        "UOM一机一码",
-        "低空网联招标"
+        "政策法规",
+        "行业资讯",
+        "权威信源"
       ],
       "sources": [
         {
-          "title": "中国人大网 / 低空经济网：低空经济首次入法，新《民用航空法》如何重构空域管理制度",
-          "url": "https://www.zzyuam.com/news/detail/71fc51abdd0ad3b6d3132e7789ef5a89"
+          "title": "大紀元：徐真：低空經濟的泡沫被中共自己捅破 - 大紀元...",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBQSlVhS3gweW1tS2licGZjemhLWHZfM041WnZja3RBQVM2OFpnM290Z3JSNTVmYU5rczdJcVZCbEYxbzF3NTlaYzhIc0RIbEdOQUsySm5zWk9qZEtyNl9udmVR0gFnQVVfeXFMTXdkM2djaFBXS2VFT0ZnRGVHR3VkbF9TUGJUc25ldTJyOHlKWEpubVFjUWg4SFBRUEdyTjJ0azJxZW1Mdm56Qk9GazhWMTlLaGFIWmMxMkRucS1LNS1GVWNrU3Fsa3RwTQ?oc=5"
         },
         {
-          "title": "中国民航局：从“一刀切”到“分类划设”，读懂我国低空空域管理新格局",
-          "url": "https://www.zzyuam.com/news/detail/37a4d656c886e6100163eccbd2fcfef8"
+          "title": "东方财富：多地低空经济政策“换挡” - 东方财富...",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE03S01sc3RRcDAySHV3TWpqTEJUVjlVQko0U1gyVlhtamQ0ZE44NHd3ek9PX0FadTdtbGVoRFlSZk1lOXhUZ2N5eHExaXpraWMwVkdOUjZQN3RZcFYyTzU2alRHaEdTQQ?oc=5"
+        },
+        {
+          "title": "中国网：国家先后设立两个“低空司”，低空经济前景如何？ - 中国...",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9yMm44ME83bjBMMzFWT2NhbTRsWThNcUxhNmhUS2kxSFdoVHlLQTR4THQ0b2RLc1J0SnZKZHpEalFvcXNFcmoza0xlU3I4S3RFRU1tZ1NXaXRJWEZocnJQRjJ1MTFvUGt4M1pyMk5MNk5MV0VQVERPTS1n?oc=5"
         }
       ]
     },
@@ -151,32 +156,37 @@
       "id": "crawl-20261114-supply",
       "category": "supply",
       "isOfficial": false,
-      "importanceScore": 91,
-      "crawlOrigin": "荣格工业资源网 · 新华网 · 财联社",
-      "title": "国产eVTOL核心三电与飞控加速成型：宁德时代350Wh/kg电池过热失控测试，中国航发AEE25电机与边界智控SOI1审查突破",
-      "author": "产业供应链快讯 · 综合荣格工业与新华网报道",
+      "isDailyCrawled": true,
+      "crawlOrigin": "信源：主流财经媒体与科技局公告",
+      "title": "低空经济并非将亡于2026：补贴调整与空域管制推动行业转向理性发展；链博会：智能出行与低空经济“共享供应链”，陆空出行崛起",
+      "author": "产业供应链快讯",
       "date": "2026-11-14",
-      "readTime": "6 分钟阅读",
-      "summary": "随着民航局发布《动力提升航空器适航标准》，国产供应链实现从电池、电机到飞控的系统突破：孚能科技340Wh/kg半固态电池交付并冲刺400Wh/kg，宁德时代350Wh/kg航空电池通过热失控不扩散测试，边界智控与昂际智航领跑适航级飞控。",
+      "readTime": "4 分钟阅读",
+      "summary": "近期行业重点动态汇总：涵盖 低空经济并非将亡于2026：补贴调整与空域管制推动行业转向理性发展、链博会：智能出行与低空经济“共享供应链”，陆空出行崛起、2026沃飞长空供应链大会在成都高新区举办 “低空经济”加速启航 等最新进展。",
       "body": [
-        "在航空动力电池领域，国产供应链正围绕 350Wh/kg 至 400Wh/kg 展开密集交付：孚能科技已向时的科技 E20 机型供应能量密度达 340Wh/kg 的第二代半固态电池，并推进 400Wh/kg 第三代产品量产，累计获美国头部客户、时的科技、小鹏汇天、沃飞长空、零重力等定点；宁德时代为载人 eVTOL 研发的 350Wh/kg 方壳电芯航空电池系统顺利通过“两颗相邻电芯热失控不扩散”验证并率先配套峰飞载人飞行器。",
-        "在航空电机领域，中国航发控制系统研究所自研的我国首款“六合一”全集成航空电动发动机 AEE25 在无锡完成首台下线交付（集成主电机、主电控、冷却电机及控制器、变距作动器及控制器），装配于时的科技 E20 五座倾转旋翼 eVTOL；沃飞长空发布自研“峨眉山”航空电动发动机，中车株洲电机“驭风”系列低空电驱系统亦取得航空通行证。",
-        "在适航级飞控与航电系统方面，边界智控完成超亿元 B 轮融资，其自研 REG300 适航级三余度双通道飞控计算机已通过软硬件 SOI1 阶段审查及制造符合性审查，并搭载于沃兰特 VE25 完成吨级载人试飞；C919 航电供应商昂际航电全资子公司昂际智航（成都）联合凯天电子、芯动联科、中航光电等 13 家伙伴组建低空航电飞控开放生态联盟，并与亿维特签署 ET9 载人版航电采购意向书。"
+        "根据 2026-11-14 最新行业公开信息汇总，创新与供应链信息领域重点动态如下：",
+        "1. 【虎嗅】低空经济并非将亡于2026：补贴调整与空域管制推动行业转向理性发展 - 虎嗅。",
+        "2. 【搜狐网】链博会：智能出行与低空经济“共享供应链”，陆空出行崛起 - 搜狐网。",
+        "3. 【parkworld.net】2026沃飞长空供应链大会在成都高新区举办 “低空经济”加速启航 - parkworld.net。",
+        "4. 【财新】宁德时代月内连签两家eVTOL 企业电池厂商加速布局低空领域 - 财新。"
       ],
       "tags": [
-        "半固态航空电池",
-        "六合一航空电机",
-        "适航级飞控SOI1",
-        "国产供应链"
+        "创新与供应链信息",
+        "行业资讯",
+        "权威信源"
       ],
       "sources": [
         {
-          "title": "荣格工业资源网：从电池、电机到飞控，eVTOL的国产供应链正加速成型",
-          "url": "https://www.industrysourcing.cn/article/479517"
+          "title": "虎嗅：低空经济并非将亡于2026：补贴调整与空域管制推动行业转...",
+          "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1xcFlPcmhuQURvUTJ0SnpxZzM5R1pGU2t3R2NDQmpkVFVNRjR5MFdEbmtGbzN5SlY0emlDSE1YX3Nhd1dOREg0UU9ab3Q5WGhnSXNpbw?oc=5"
         },
         {
-          "title": "新华网：提升我国低空经济产业链韧性和自主可控水平",
-          "url": "https://www.news.cn/tech/20260820/6c32732d19aa47f9a34ff587784d1acd/c.html"
+          "title": "搜狐网：链博会：智能出行与低空经济“共享供应链”，陆空出行崛起 ...",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBpbktMTVJVQVVmeXc0czZmVmtMbldPbDFlOVgxRnpfUjNzQ0lUUTlyN21DSF9hcHh5VUpZZTJTOU14dUFLRVoxdmkyRWVIdEhDNEE?oc=5"
+        },
+        {
+          "title": "parkworld.net：2026沃飞长空供应链大会在成都高新区举办 “低空经济”...",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE55OHhKWHdWbzBXXzlnU0hQZjRLNGVQQ0YxejZYNm9XSmEzX0lnVVZNbDI1OENvQl95cTZFeXhkU1JsN25XU3JNX1otaHBXS2lkSFhQaEpyM2dQZw?oc=5"
         }
       ]
     },
@@ -184,32 +194,37 @@
       "id": "crawl-20261114-competition",
       "category": "competition",
       "isOfficial": false,
-      "importanceScore": 86,
-      "crawlOrigin": "中国航空创新创业大赛官网 · 数字中国创新大赛 · 低空界",
-      "title": "第十一届中国航空创新创业大赛联动首届空天科博会：255个奖项与“千亿资本对接马拉松”助推低空项目落地与欧洲出海",
-      "author": "赛事资讯汇编 · 综合中国航空学会与大赛组委会公告",
+      "isDailyCrawled": true,
+      "crawlOrigin": "信源：新华网 / 中国网 / 赛事官网",
+      "title": "2026数字中国创新大赛·低空经济赛道三大场景类赛题发布；【图集】第十五届中国创新创业大赛低空经济领域专业赛新闻发布会",
+      "author": "赛事资讯汇编",
       "date": "2026-11-14",
-      "readTime": "5 分钟阅读",
-      "summary": "由中国航空学会与商务部投促局联合发起的第十一届中国航空创新创业大赛设立低空经济、新材智造等四大领域赛共255个奖项，同期举办首届空天科技博览会与“千亿资本对接马拉松”，并组织优胜企业赴沙特防务展及德国大众总部IZB供应链展。",
+      "readTime": "4 分钟阅读",
+      "summary": "近期行业重点动态汇总：涵盖 2026数字中国创新大赛·低空经济赛道三大场景类赛题发布、【图集】第十五届中国创新创业大赛低空经济领域专业赛新闻发布会、2026数字中国创新大赛·低空经济赛道赛事在庆阳举办 等最新进展。",
       "body": [
-        "据中国航空创新创业大赛（CAIEC）官网披露，第十一届大赛由中国航空工业集团、中国航发、中国商飞等央企集团联合支持，全面升级“赛会展”一体化生态。大赛重点设立【低空经济领域赛】、【新材智造领域赛】、【民机民航领域赛】与【未来空间领域赛】，总获奖名额扩增至 255 项（含四大领域赛全国 20 强共 160 项、全国总决赛一二三等奖 64 项及伯乐奖、优秀组织奖）。",
-        "在产融对接与园区扶持方面，大赛升级连续举办十年的公益投融资活动为“空天界千亿资本对接马拉松”，汇聚超 500 家硬科技与军工投资机构、央国企基金进行为期三天的深度对接；获奖项目免除举办城市（江苏南通）人才奖励技术评审，直接享受千万级银行授信、固投补贴、AI 算力支持及 3000 元政府补贴标准展位。",
-        "值得关注的是，大赛今年大力拓展国际出海通道：继组织未来空天科技团组赴沙特阿拉伯与沙特工业部、军事工业总局深度交流后，大赛联手商务部投资促进事务局组织中国代表团企业赴德国沃尔夫斯堡大众集团总部参加国际汽车供应链展（IZB），推动国内 eVTOL 核心部件企业切入全球汽车与飞行汽车交叉供应链。"
+        "根据 2026-11-14 最新行业公开信息汇总，比赛信息领域重点动态如下：",
+        "1. 【数字中国建设峰会】2026数字中国创新大赛·低空经济赛道三大场景类赛题发布 - 数字中国建设峰会。",
+        "2. 【珠海网】【图集】第十五届中国创新创业大赛低空经济领域专业赛新闻发布会 - 珠海网。",
+        "3. 【中国甘肃网】2026数字中国创新大赛·低空经济赛道赛事在庆阳举办 - 中国甘肃网。",
+        "4. 【中国科技网】2026年粤港澳大湾区无人机应用技术职业技能大赛落幕 - 中国科技网。"
       ],
       "tags": [
-        "中国航空双创大赛",
-        "空天科技博览会",
-        "千亿资本对接",
-        "供应链出海"
+        "比赛信息",
+        "行业资讯",
+        "权威信源"
       ],
       "sources": [
         {
-          "title": "中国航空创新创业大赛官网：第十一届大赛低空经济领域赛与空天科博会全解",
-          "url": "https://www.aeroinno.com/page/397294/"
+          "title": "数字中国建设峰会：2026数字中国创新大赛·低空经济赛道三大场景类赛题发布...",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1vTUI0RkV3VVRrMjJ4TTJzSUtuVE9ZT285WEpBRktRR2E0akgzaGF4V3ZGM3BvdFhNWVVmTDlZS002Y2dUVHJIOFIzQnY5TWY1M0FvU0NlMW9PcjVzQ1hHSjZzY3N2cUhsM3BmT1c5REdGSGpQZlE?oc=5"
         },
         {
-          "title": "数字中国建设峰会：2026数字中国创新大赛·低空经济赛道三大场景类赛题发布",
-          "url": "https://www.szzg.gov.cn/2025/xwzx/fhzx/202603/t20260312_5294543.htm"
+          "title": "珠海网：【图集】第十五届中国创新创业大赛低空经济领域专业赛新闻发...",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1OSGRDSHlXb0RaOV9DX0VPOUVyZXg1R0x1ZVdvT1l0UnY5SDQ2TTBZVXNVeVZaNnpMMks3dkNCLXlTa0k0bVF5eHRQWlhEMHMtckMxNXdkVXlBTTlqd1A1eGdwd3ZiaGhNZXNrVG1DY211M1NsM0U4?oc=5"
+        },
+        {
+          "title": "中国甘肃网：2026数字中国创新大赛·低空经济赛道赛事在庆阳举办 -...",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5LeDlKTTZyeF9JRDhjc3BmNVg5Q2ZBNUZsQjYtRGZQLUU3d1hXWVlKaEZDZUdITEVSd1JfQ3ZPMjA2X3VibTRXekhRQzY3QVA1T2tVRGFaQm0wbmJkS0VwZVdZd24wS0F2Ymw0?oc=5"
         }
       ]
     },
@@ -217,32 +232,37 @@
       "id": "crawl-20261114-product",
       "category": "product",
       "isOfficial": false,
-      "importanceScore": 96,
-      "crawlOrigin": "虎嗅网 · IT桔子 · 飞行汽车网 · 抖音/B站低空试飞热榜",
-      "title": "2026国内eVTOL融资达88亿元、头部主机厂订单与取证大盘点：峰飞获印尼适航互认，时的科技签阿联酋10亿美元大单",
-      "author": "产品与新机动态 · 综合IT桔子与主机厂披露数据",
+      "isDailyCrawled": true,
+      "crawlOrigin": "信源：主机厂官方发布与行业快讯",
+      "title": "亿航智能发布EH216-EK大载重消防eVTOL航空器；小鹏汇天首款飞行汽车今年量产，eVTOL A868面向多人出行",
+      "author": "产品与新机动态",
       "date": "2026-11-14",
-      "readTime": "6 分钟阅读",
-      "summary": "2026年前10个月国内78家eVTOL企业共发生45起融资、总额达88亿元；亿航EH216-S完成超3000架次安全飞行，峰飞V2000CG获印尼型号认可证书，时的科技E20签下阿联酋350架10亿美元创纪录订单，沃飞长空启动科创板上市辅导。",
+      "readTime": "4 分钟阅读",
+      "summary": "近期行业重点动态汇总：涵盖 亿航智能发布EH216-EK大载重消防eVTOL航空器、小鹏汇天首款飞行汽车今年量产，eVTOL A868面向多人出行、峰飞航空发布5吨级eVTOL“天际龙”并完成转换飞行 等最新进展。",
       "body": [
-        "据 IT 桔子与虎嗅网最新发布的 2026 中国飞行汽车商业化实战统计，今年 1-10 月国内 eVTOL 赛道已完成 45 起融资，总额达 88 亿元人民币。累计融资额排名前五的头部主机厂依次为：小鹏汇天（约 65.17 亿元，已完成 2 亿美元 C 轮）、沃兰特航空（约 48.60 亿元，今年连续完成 3 亿美元 C 轮与 10 亿元 C+ 轮）、峰飞航空（约 27.95 亿元）、沃飞长空（约 21.80 亿元，已完成 10 亿元 C+ 轮并办理科创板辅导备案）以及零重力飞机工业（约 17.60 亿元）。",
-        "在适航取证与真实交付方面，民航局已公示首批载人 eVTOL 适航审定合规企业名录（小鹏汇天、亿航智能、沃兰特、峰飞航空四家入围）。其中亿航智能 EH216-S 保持全球唯一“四证齐全”纪录，旗下两家 OC 持证主体累计完成超 3000 架次安全飞行（含 434 架次载人飞行）；小鹏汇天广州黄埔 12 万㎡工厂已实现 5 台飞行器同日生产下线并完成多机试飞。",
-        "在海外商业化拓展上，中国主机厂迎来密集突破：时的科技与阿联酋 Autocraft 签署 350 架 E20 倾转旋翼 eVTOL 采购协议（总金额约 10 亿美元，创中国最大单笔意向订单纪录）；峰飞航空 2 吨级 V2000CG“凯瑞鸥”拿下印度尼西亚型号认可证书并在哈萨克斯坦完成中亚首飞、签下 50 架备忘录；沃兰特航空则斩获泰国 Pan Pacific 500 架（约 17.5 亿美元）与印尼 Whitesky 60 架订单。"
+        "根据 2026-11-14 最新行业公开信息汇总，产品发布领域重点动态如下：",
+        "1. 【东方财富】亿航智能发布EH216-EK大载重消防eVTOL航空器 - 东方财富。",
+        "2. 【汽车之家】小鹏汇天首款飞行汽车今年量产，eVTOL A868面向多人出行 - 汽车之家。",
+        "3. 【中国民航网】峰飞航空发布5吨级eVTOL“天际龙”并完成转换飞行 - 中国民航网。",
+        "4. 【热点科技】Web Summit2026 小鹏汇天展示陆地航母 飞行汽车怎样用起来 - 热点科技。"
       ],
       "tags": [
-        "eVTOL融资榜",
-        "适航互认出海",
-        "时的科技E20",
-        "峰飞凯瑞鸥"
+        "产品发布",
+        "行业资讯",
+        "权威信源"
       ],
       "sources": [
         {
-          "title": "虎嗅网 / IT桔子：飞行汽车的商业化实战，中国头部公司已经到哪一步了？",
-          "url": "https://www.huxiu.com/article/4899251.html"
+          "title": "东方财富：亿航智能发布EH216-EK大载重消防eVTOL航空器 ...",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5TOUhLWG5fV3hWZ05FQW5qTjE5UThkY0NaT0ZfNnZMYWhFS1puU0FfRktIR1ZWeVJhWklmQTJrbFFJQzNZY0wxVlViQkVBei1lLVBGcm9lQ1Z2ejZibnFNcA?oc=5"
         },
         {
-          "title": "飞行汽车网：一架eVTOL从研发图纸到商业载客到底要跨过多少道坎",
-          "url": "https://flyingcarevtol.com/news/4576"
+          "title": "汽车之家：小鹏汇天首款飞行汽车今年量产，eVTOL A868面向多...",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFB3OGUyVkhrVVlBamJkV0NTVnBHYnBwX1VZUy1rRzc0dXhPTVloalN2ejhKSy1zeDRKNlNJak9KUG9RVGtZdlMxa25ZZzc2TURTQndwdEJ4WmpwU3c?oc=5"
+        },
+        {
+          "title": "中国民航网：峰飞航空发布5吨级eVTOL“天际龙”并完成转换飞行 -...",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE84YnpiRkVyUzM3V2dkVElSX3ZwNGZJZTYwdjBrWG1ERGNJb05FNURYeGJNUkZFbDdVQXdQTTNmcnFvSmwzYjF6aWxnVXAzdVMydlR1bW56VVp4T2hKZDRJdXR6bzN5UGJWcHRIeA?oc=5"
         }
       ]
     },
