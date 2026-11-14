@@ -1,54 +1,36 @@
-# A1 产业门户 · 01【低空信息站】全自动实时更新与 AI 新闻部工程 (`zhaiwengfc/a1-1`)
+# A1 产业门户 · 01【低空信息站】 (`zhaiwengfc/a1-1`)
 
-本项目为 **A1 网站 · 第一板块【01 低空信息站】** 的 **方案 A（GitHub Actions 全自动云端抓取 + A1 新闻部每日创意撰稿流水线）** 完整线上工程包，专为您的公开仓库 [`https://github.com/zhaiwengfc/a1-1`](https://github.com/zhaiwengfc/a1-1) 定制配置。
+本项目为 **A1 产业门户 · 01【低空信息站】** 生产环境前端与每日自动化内容更新工程，对应仓库 [`https://github.com/zhaiwengfc/a1-1`](https://github.com/zhaiwengfc/a1-1)。
 
----
+## 一、 核心架构与运行机制
 
-## 一、 双定时智能体运行机制（严格对齐您的时间与选题要求）
+1. **视觉与交互设计**：
+   - 全站采用白底、分区疏密黑点阵列、黄色黑框立体按键与滚动章节吸附（Scroll-Snap）设计。
+   - 顶栏仅保留跨板块总导航（01 低空信息站、02 空域智算网等），低空信息站专属**收藏夹**内嵌于板块内部，前后台严格分离。
+2. **每日 `07:00` 行业资讯自动同步 (`scripts/daily_crawler.py`)**：
+   - 每日北京时间 `06:35` 启动采集清洗，于 `07:00` 准时将【政策法规】、【创新与供应链信息】、【比赛信息】、【产品发布】四大栏目的最新政务、主流媒体与行业动态写入 `data/news.json` 并发布上线。
+3. **每日 `09:00` A1 新闻部深度特稿发布 (`scripts/daily_newsroom_writer.py`)**：
+   - 一周七天每日 `09:00` 准时发布 1 篇由“A1 新闻部”撰写的深度专栏文章。
+   - 自动根据当日行业焦点动态确定所属栏目，并配套生成多维度互动专题看板组件（`creativeWidget`）。
 
-### 1. 每日早上 `07:00` 准时更新：全网多源抓取智能体 (`scripts/daily_crawler.py`)
-- **启动与上线时间**：每日北京时间 `06:35` 自动唤醒采集，清洗去重并计算各栏目重要度指数后，于 **`07:00` 准时** 更新至 `data/news.json` 并推送到您的 GitHub Pages 网站。
-- **三大抓取信源矩阵**：
-  1. **中央到地方各级党委和政府、相关部门机构官网**：中国政府网、国家发改委（低空经济发展司）、中国民用航空局（CAAC 适航司/空管办）、工业和信息化部，以及深圳、广州、合肥、成都、苏州、珠海等地方党委政府及科技局官网。
-  2. **各大主流与垂直媒体**：新华网、人民网、中国网、南方财经网、财联社、飞行汽车之家、低空界等。
-  3. **短视频及信息流平台**：抖音、快手、哔哩哔哩（Bilibili）、微信视频号、今日头条低空经济实时热榜与主机厂官方实飞动态。
-- **四大栏目每日全覆盖**：自动分类并更新至【政策法规】、【创新与供应链信息】、【比赛信息】、【产品发布】四个栏目，同时为每个栏目打出当日重要度评分（0–100 分）。
-
-### 2. 每日早上 `09:00` 准时更新：A1 新闻部深度创意撰稿智能体 (`scripts/daily_newsroom_writer.py`)
-- **启动与发布时间**：一周七天不间断，每日北京时间 `08:40` 自动读取 `07:00` 抓取到的全网动态，于 **`09:00` 准时** 将撰写的“A1 新闻部文章”置顶发布至对应栏目。
-- **动态选题机制（不固定栏目）**：智能体自动对比当天 07:00 四个栏目的信息重要度得分，**当天哪个栏目的信息重要度最高，就围绕哪个栏目主题撰写当日特稿**。
-- **深度见解 + 超越纯文字的创意交互形式**：
-  - 每篇“A1 新闻部文章”不仅包含犀利的产业洞察与利益博弈拆解，还内置了专属的 **`creativeWidget` 街机风交互式创意沙盘组件**（包括：**三维战力积分擂台**、**A1 正反方锋芒辩论 PK 台**、**企业通关/商业回本交互式推演器**），读者可在网页端直接点击黄色街机按键互动体验。
-
----
-
-## 二、 仓库目录结构
+## 二、 目录结构（最精简生产态）
 
 ```text
 a1-1/
-├── index.html                           # A1 网站主页面（白底疏密黑点阵 + 黄色黑框游戏机按键 + 滚动吸附 + 实时同步 data/news.json）
+├── index.html                           # 门户主页面
 ├── data/
-│   └── news.json                        # 动态新闻与 A1 新闻部创意特稿数据库（由智能体每日 07:00 和 09:00 自动更新）
+│   └── news.json                        # 四大栏目资讯与 A1新闻部数据
 ├── scripts/
-│   ├── daily_crawler.py                 # 每日 07:00 全网政务/媒体/短视频流抓取与重要度评分脚本
-│   └── daily_newsroom_writer.py         # 每日 09:00 A1 新闻部深度创意特稿生成脚本
+│   ├── daily_crawler.py                 # 每日 07:00 四大栏目资讯同步脚本
+│   └── daily_newsroom_writer.py         # 每日 09:00 A1新闻部生成脚本
 ├── .github/
 │   └── workflows/
-│       └── a1_auto_pipeline.yml         # GitHub Actions 双定时自动化工作流配置
-├── assets/                              # 网站配套高清视觉图库
-└── .nojekyll                            # GitHub Pages 静态直通标识
+│       └── a1_auto_pipeline.yml         # GitHub Actions 双定时自动流水线
+└── .nojekyll                            # GitHub Pages 静态直通配置                            # GitHub Pages 静态直通配置
 ```
 
----
+## 三、 部署与启用步骤
 
-## 三、 1 分钟部署到 `zhaiwengfc/a1-1` 操作指南
-
-1. **上传文件**：将解压后的所有文件（`index.html`、`data/`、`scripts/`、`.github/`、`assets/`）上传并 Commit 到您的 [`https://github.com/zhaiwengfc/a1-1`](https://github.com/zhaiwengfc/a1-1) 仓库 `main` 分支。
-2. **开启 GitHub Actions 写入权限**：
-   - 进入仓库顶部的 **Settings** ➔ 左侧 **Actions** ➔ **General**。
-   - 向下滚动到 **Workflow permissions**，勾选 **Read and write permissions**，点击 **Save**。
-3. **（可选增强）配置大模型 API Key**：
-   - 脚本已内置高水准“A1 新闻部多模态深度合成引擎”，**即使不配置任何 API Key 也能 100% 正常生成每日深度特稿与交互式沙盘组件**。
-   - 若您希望接入云端大模型实时自由撰稿，可在仓库 **Settings** ➔ **Secrets and variables** ➔ **Actions** ➔ **New repository secret** 中添加 `GEMINI_API_KEY`（或 `OPENAI_API_KEY`）。
-4. **立即测试运行**：
-   - 点击仓库顶部的 **Actions** 标签页，选择左侧的 **A1 Low-Altitude Hub Auto Pipeline (07:00 Crawl & 09:00 Newsroom)**，点击右侧 **Run workflow** 即可随时手动触发测试！
+1. 将解压后的全部文件上传并提交至 `zhaiwengfc/a1-1` 仓库 `main` 分支。
+2. 进入仓库 **Settings** ➔ **Actions** ➔ **General** ➔ **Workflow permissions**，勾选 **Read and write permissions** 并保存。
+3. （可选）如需接入云端大模型生成每日特稿，可在 **Settings** ➔ **Secrets and variables** ➔ **Actions** 中添加 `GEMINI_API_KEY`；未配置时将自动使用内置专栏生成模块。
