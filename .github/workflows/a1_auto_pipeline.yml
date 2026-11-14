@@ -1,22 +1,21 @@
-name: A1 Low-Altitude Hub Auto Pipeline (07:00 Crawl & 09:00 Newsroom)
+name: A1 Low-Altitude Hub & Sky Mall Auto Pipeline (Daily 07:00 & 09:00)
 
 on:
   schedule:
-    # 每日北京时间 06:35 (UTC 22:35) 启动全网抓取，并于 07:00 准时同步至 GitHub Pages
     - cron: '35 22 * * *'
-    # 每日北京时间 08:40 (UTC 00:40) 根据当日最高重要度信息撰写“A1新闻部文章”，并于 09:00 准时同步至 GitHub Pages
     - cron: '40 0 * * *'
   workflow_dispatch:
     inputs:
       task_mode:
-        description: '选择要立即执行的智能体任务 (crawl_0700 / newsroom_0900 / both)'
+        description: '选择要立即执行的自动更新任务 (all / crawl_0700 / newsroom_0900 / mall_sync)'
         required: true
-        default: 'both'
+        default: 'all'
         type: choice
         options:
-          - both
+          - all
           - crawl_0700
           - newsroom_0900
+          - mall_sync
 
 permissions:
   contents: write
@@ -33,13 +32,18 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run 07:00 Daily Multi-Source Crawler (Gov + Media + Short-Video Feeds)
-        if: github.event.schedule == '35 22 * * *' || github.event.inputs.task_mode == 'crawl_0700' || github.event.inputs.task_mode == 'both' || github.event_name == 'workflow_dispatch'
+      - name: Run 07:00 Daily Multi-Source News Crawler
+        if: github.event.schedule == '35 22 * * *' || github.event.inputs.task_mode == 'crawl_0700' || github.event.inputs.task_mode == 'all' || github.event_name == 'workflow_dispatch'
         run: |
           python3 scripts/daily_crawler.py
 
-      - name: Run 09:00 Daily A1 Newsroom Creative Article Writer
-        if: github.event.schedule == '40 0 * * *' || github.event.inputs.task_mode == 'newsroom_0900' || github.event.inputs.task_mode == 'both'
+      - name: Run Daily Sky Mall Official Product & Price Sync
+        if: github.event.schedule == '35 22 * * *' || github.event.inputs.task_mode == 'mall_sync' || github.event.inputs.task_mode == 'all' || github.event_name == 'workflow_dispatch'
+        run: |
+          python3 scripts/daily_mall_updater.py
+
+      - name: Run 09:00 Daily A1 Newsroom Article Writer
+        if: github.event.schedule == '40 0 * * *' || github.event.inputs.task_mode == 'newsroom_0900' || github.event.inputs.task_mode == 'all'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -48,7 +52,7 @@ jobs:
 
       - name: Commit and Push Real-Time Updates to GitHub Pages (zhaiwengfc/a1-1)
         run: |
-          git config user.name "A1-Newsroom-Agent"
+          git config user.name "A1-Portal-Agent"
           git config user.email "agent@a1-portal.local"
-          git add data/news.json
-          git diff --staged --quiet || (git commit -m "chore(a1-agent): auto-update 07:00 crawl & 09:00 A1 newsroom article [skip ci]" && git push)
+          git add data/news.json data/mall_products.json
+          git diff --staged --quiet || (git commit -m "chore(a1-agent): auto-update daily news, A1 newsroom & Sky Mall products [skip ci]" && git push)
