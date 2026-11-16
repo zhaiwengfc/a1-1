@@ -12,6 +12,111 @@
   },
   "articles": [
     {
+      "id": "a1-newsroom-20261116-0900",
+      "category": "supply",
+      "isOfficial": true,
+      "isNewsroomDaily": true,
+      "publishSlot": "A1新闻部",
+      "creativeFormat": "核心子系统价值占比 + 适航供应链路径",
+      "title": "拆解一架百万级飞行汽车：为什么动力电池与飞控系统决定了商业化上限？",
+      "author": "A1 新闻部",
+      "date": "2026-11-16",
+      "readTime": "8 分钟深度阅读",
+      "summary": "随着中创新航、亿纬锂能、奥托立夫与立邦密集切入低空赛道，eVTOL 核心供应链正从样品试制走向规模化定点。本文为您解析车规级制造与航空级适航标准的融合路径。",
+      "body": [
+        "当市场目光聚焦于整机首飞时，低空经济真正的产业壁垒正在电芯实验室与多余度飞控代码里加速构建。",
+        "一、“高能量密度主电池 + 独立低压飞控电池”成为主流架构：小鹏汇天“陆地航母”选择中创新航提供高压主动力、亿纬锂能提供低压锂电池护航 FCC 飞控与 ESC 电调，通过双轨物理隔离有效防范单点供电失效风险。",
+        "二、汽车供应链龙头加速跨界赋能：奥托立夫的轻量化航空安全气囊与立邦的复合材料特种航空涂料入局，推动国产 eVTOL 充分吸收成熟新能源汽车产业链的精密制造优势。",
+        "三、随着沃飞长空等链主基地释放百亿级采购需求，具备 DO-178C/DO-254 航空软硬件适航认证能力的本土核心供应商将迎来广阔市场空间。"
+      ],
+      "creativeWidget": {
+        "type": "supply_bom_simulator",
+        "badge": "A1 深度专题互动看板",
+        "title": "eVTOL 整机核心供应链价值占比与技术壁垒解析",
+        "subtitle": "切换下方标签，查看核心子系统价值权重、车规与航空标准对比及供应商准入流程",
+        "tabs": [
+          {
+            "id": "bom_rank",
+            "label": "🔋 核心子系统价值权重",
+            "items": [
+              {
+                "name": "推进与高密航空电池系统",
+                "score": 95,
+                "tag": "占整机价值约 35%-40% · 中创新航/亿纬锂能/孚能",
+                "detail": "决定垂直起降瞬时放电倍率与有效航程，需同时满足高比能与零热失控蔓延要求。"
+              },
+              {
+                "name": "航电与多余度飞控系统 (FCC)",
+                "score": 93,
+                "tag": "占整机价值约 25%-30% · 适航取证关键系统",
+                "detail": "三余度/四余度容错飞控架构，配合独立低压锂电供电，确保极端故障下安全迫降。"
+              },
+              {
+                "name": "碳纤维复材机体与被动安全",
+                "score": 88,
+                "tag": "占整机价值约 20%-25% · 奥托立夫/立邦航空涂层",
+                "detail": "全机身碳纤维减重与航空特种减阻耐候涂装，结合定制轻量化安全气囊系统。"
+              }
+            ]
+          },
+          {
+            "id": "debate_pk",
+            "label": "⚡ 车规与航空规融合探讨",
+            "proTitle": "优势面：成熟新能源汽车供应链大幅降低 eVTOL 制造成本",
+            "proDesc": "依托珠三角与长三角成熟的动力电池、电机电控与智能座舱产线，国产主机厂能够有效控制整机 BOM 成本。",
+            "conTitle": "挑战面：航空级高可靠与适航追溯标准远高于地面车辆",
+            "conDesc": "高空低温、强电磁干扰与结构疲劳寿命要求严苛，上游供应商必须建立符合航空 DO-254/DO-178C 的正向开发体系。",
+            "a1Verdict": "★ A1 新闻部观察：“车规级规模制造工艺 + 航空级冗余适航标准”的融合型供应商，将成为未来五年低空供应链的核心赢家。"
+          },
+          {
+            "id": "compliance_calc",
+            "label": "🛠️ 供应商配套四步路径",
+            "steps": [
+              {
+                "code": "第一阶段 · 原理样机联合预研",
+                "status": "技术定点",
+                "tip": "针对主机厂专用条件需求，定制减重与高倍率样品（如亿纬锂能低压锂电合作模式）。"
+              },
+              {
+                "code": "第二阶段 · 适航符合性试验",
+                "status": "地面台架",
+                "tip": "配合主机厂完成环境、电磁兼容（EMC）、振动与极限热失控地面试验。"
+              },
+              {
+                "code": "第三阶段 · 批量定点与PC体系",
+                "status": "产线审核",
+                "tip": "建立全生命周期批次可追溯产线，支撑主机厂获取生产许可证（PC）。"
+              },
+              {
+                "code": "第四阶段 · 售后航材与维保池",
+                "status": "长期服务",
+                "tip": "随着机队投入商业运营，电池包更换与航材维保将形成持续服务市场。"
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "A1新闻部",
+        "创新与供应链信息",
+        "深度专栏"
+      ],
+      "sources": [
+        {
+          "title": "虎嗅：低空经济并非将亡于2026：补贴调整与空域管制推动行业转...",
+          "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1xcFlPcmhuQURvUTJ0SnpxZzM5R1pGU2t3R2NDQmpkVFVNRjR5MFdEbmtGbzN5SlY0emlDSE1YX3Nhd1dOREg0UU9ab3Q5WGhnSXNpbw?oc=5"
+        },
+        {
+          "title": "中国科技网：数智化与低空技术赋能 物流服务迎来“大变样” - 中国科...",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE91QjRwSXB1clYzZ1VZZERCYUdsaGVUX09tTjFVZ281WEVxY1FVczQ1VGVFdGJpX2x3OFJYTmFuYm1lUnEyTDBDMWhHcXdkb0RuaVd3Ml9NTGNzUWpYMG1obnJqLUd5M0RzcWJUbGcyUjU?oc=5"
+        },
+        {
+          "title": "观察者网：沃兰特以全链条布局引领中国低空经济高质量发展 - 观察者...",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9NZ3hhMi1QUHFnT0l4UlE2Zlp1TTJHRjdybV9zNndQR1pkbHJ0bzRndlFVUURKM2dlUnZOSkgydGNBV1A2NHpRdTV4eTlac291anp6bkF2dURCZWxELW54S2tBMA?oc=5"
+        }
+      ]
+    },
+    {
       "id": "crawl-20261116-policy",
       "category": "policy",
       "isOfficial": false,
