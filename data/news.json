@@ -12,6 +12,111 @@
   },
   "articles": [
     {
+      "id": "a1-newsroom-20261119-0900",
+      "category": "policy",
+      "isOfficial": true,
+      "isNewsroomDaily": true,
+      "publishSlot": "A1新闻部",
+      "creativeFormat": "空域改革三维对比 + 观点交锋 + 适航路线图",
+      "title": "当城市开始竞逐“天空立交桥”：从中央低空司到地方特区立法的三场深水区博弈",
+      "author": "A1 新闻部",
+      "date": "2026-11-19",
+      "readTime": "9 分钟深度阅读",
+      "summary": "随着国家发改委低空经济发展司统筹推进、中国民航局 CCAR-92 部落地以及深圳、广州、合肥、成都等地方专项政策进入全面实施期，低空经济正从顶层规划加速迈向空域协同管理与商业订单转化的关键阶段。",
+      "body": [
+        "如果说 2024 年是低空经济写入政府工作报告的“概念元年”，那么当下从中央部委到地方政府密集出台的实施细则，正在把这场产业竞赛推向真金白银的“空域运营权与链主生态建设”。当前决定一家 eVTOL 或工业无人机企业商业化成败的核心，已不仅是纸面航程参数，而是能否打通“军地民空域协同监管接口”与“地方示范航线商业闭环”。",
+        "一、从“发改委设司”到“民航局立规”，数字化监管底座加速成型：国家发改委设立“低空经济发展司”统筹跨部门基建投资与产业规划，而中国民航局（CAAC）通过《民用无人驾驶航空器运行安全管理规则》（CCAR-92）及《低空飞行综合监管服务平台规范》，将适航取证（TC/PC/AC）与运营合格证（OC）全面纳入数字化监管体系。",
+        "二、地方产业政策的进阶考卷——从“给补贴”走向“给空域、给场景”：从《深圳经济特区低空经济产业促进条例》及 20 条扶持措施，到广州开发区护航小鹏汇天“陆地航母”量产基地建设，再到成都沃飞长空全球总部基地与珠海“天空之城”示范航线联动，各大先锋城市的发力重心已转向开放跨区真实商业航线与起降基础设施配套。",
+        "三、公众安全信任度推动标准升级：围绕城市复杂空域下的飞行安全、起降场噪音控制、第三者责任保险以及高可靠低压飞控供电冗余，行业技术标准与城市低空管理规范正迎来快速完善期。"
+      ],
+      "creativeWidget": {
+        "type": "policy_arena_simulator",
+        "badge": "A1 深度专题互动看板",
+        "title": "2026-2030 低空经济政策落地与适航路径全景透视",
+        "subtitle": "切换下方标签，对比先锋城市政策布局、行业核心观点交锋与企业四证合规节点",
+        "tabs": [
+          {
+            "id": "city_rank",
+            "label": "🏙️ 先锋城市政策布局",
+            "items": [
+              {
+                "name": "深圳 · 特区立法领跑型",
+                "score": 96,
+                "tag": "全国首部特区低空条例 + 20条专项扶持措施",
+                "detail": "对取得 CAAC 型号合格证(TC)与生产许可证(PC)的载人 eVTOL 企业给予产业化激励，开放高密度城市末端物流与跨海示范航线。"
+              },
+              {
+                "name": "广州 · 智造链主集群型",
+                "score": 94,
+                "tag": "亿航四证闭环 + 小鹏汇天量产工厂 + 广汽高域",
+                "detail": "集聚全球首张 OC 证企业亿航智能与小鹏汇天广州智造基地，依托成熟汽车产业链打通“研发—总装—出海”全链条。"
+              },
+              {
+                "name": "成都/珠海 · 航展与研发双驱型",
+                "score": 91,
+                "tag": "沃飞长空全球总部 + 国创赛珠海专业赛",
+                "detail": "成都以沃飞 AE200 链主基地带动百亿航空配套，珠海依托中国航展与创新创业大赛构建湾区跨海物流网络。"
+              }
+            ]
+          },
+          {
+            "id": "debate_pk",
+            "label": "⚡ 商业化路径探讨",
+            "proTitle": "路径一：优先发力支线物流与郊区特定场景，稳步推进城市载人",
+            "proDesc": "以峰飞 V2000CG 与美团无人机末端配送为代表，货运场景容错率更高、适航取证周期更可控，能先在海岛物流、医疗急救中跑通正向现金流。",
+            "conTitle": "路径二：载人 eVTOL 景区游览与城际接驳具备更高单机产值",
+            "conDesc": "以亿航 EH216-S 四证齐全与小鹏汇天中东 600 台订单为代表，高附加值文旅观光与个人飞行器能够更快分摊早期航空级电池与飞控研发投入。",
+            "a1Verdict": "★ A1 新闻部观察：2026-2027 年最具可行性的商业模式是“以高频低空物流和5A景区观光提升起降场利用率，以倾转旋翼和复合翼机型打开远期城际客运空间”。"
+          },
+          {
+            "id": "compliance_calc",
+            "label": "🛡️ 企业适航四证指南",
+            "steps": [
+              {
+                "code": "第一阶段 · TC 型号合格证",
+                "status": "设计批准",
+                "tip": "核心重点：专用条件审定、FCC飞控多余度容错与动力电池热失控防护验证（CCAR-21）。"
+              },
+              {
+                "code": "第二阶段 · PC 生产许可证",
+                "status": "量产准入",
+                "tip": "核心重点：供应链质量追溯体系（如中创新航/亿纬锂能电芯批次一致性与复合材料无损检测）。"
+              },
+              {
+                "code": "第三阶段 · AC 单机适航证",
+                "status": "交付通行",
+                "tip": "核心重点：每架下线航空器出厂试飞与标准构型一致性核查。"
+              },
+              {
+                "code": "第四阶段 · OC 运营合格证",
+                "status": "商业运营",
+                "tip": "核心重点：接入民航局低空飞行综合监管服务平台，建立完善空地协同运行手册（CCAR-92）。"
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "A1新闻部",
+        "政策法规",
+        "深度专栏"
+      ],
+      "sources": [
+        {
+          "title": "中国网：国家先后设立两个“低空司”，低空经济前景如何？ - 中国...",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9yMm44ME83bjBMMzFWT2NhbTRsWThNcUxhNmhUS2kxSFdoVHlLQTR4THQ0b2RLc1J0SnZKZHpEalFvcXNFcmoza0xlU3I4S3RFRU1tZ1NXaXRJWEZocnJQRjJ1MTFvUGt4M1pyMk5MNk5MV0VQVERPTS1n?oc=5"
+        },
+        {
+          "title": "人民日报：低空经济加快“立规矩”（政策解读·问答） - 人民日报...",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0xTGdQM29WYzA4WjJVSkt2NzBWVk02RWdvczJOYUNHY1VuQW9CUnY0b2c2d0NZX0I1M2tjZEwybWljWXZEcTBleGhzMm1pZG5DRW9CZlQtR3lfRkJpQm93Wm9DRDVKNS1QYmpIV1FPWndUcHBKTWkwd0w4V25UNjQ?oc=5"
+        },
+        {
+          "title": "Lexology：从《民用航空法》修订看低空经济的现有监管体系梳理及监管前...",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOM3BpNzFFbjZta2p4cmdOdkgxd0F6UFJWenpWN2dJdWtRZXRUd1p4NVhueUJIZmJVQkw4TjZQejFxUldjbms2TEVwczRGZFVCbGdURUxPOWhwWVAweC1xUXhZblY4TzJSSUJmRmlCNkdZblRvOWpJak01OXRjelRxSVk4ZVFjUnJTUXBZ?oc=5"
+        }
+      ]
+    },
+    {
       "id": "crawl-20261119-policy",
       "category": "policy",
       "isOfficial": false,
