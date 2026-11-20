@@ -1,7 +1,7 @@
 {
   "meta": {
     "moduleName": "A1 · 02 空中商城",
-    "lastUpdatedDate": "2026-11-19",
+    "lastUpdatedDate": "2026-11-20",
     "totalProducts": 14,
     "partnerBrands": [
       "DJI 大疆",
@@ -13,7 +13,7 @@
       "峰飞航空 AutoFlight",
       "沃飞长空 Aerofugia"
     ],
-    "latestMarketSignal": "大疆发布两款大载重无人机：FC200与T200，低空运输加速“飞入寻常作业场” - 紫牛新闻"
+    "latestMarketSignal": "大疆发布Matrice 5T轻型旗舰无人机 套装57488元起 - 观点网"
   },
   "products": [
     {
@@ -119,7 +119,7 @@
           "caption": "标准展开机身构型"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "dji-air-3s",
@@ -224,7 +224,7 @@
           "caption": "全向避障外业飞行姿态"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "dji-mini-4-pro",
@@ -329,7 +329,7 @@
           "caption": "无损竖拍云台结构"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "dji-avata-2",
@@ -425,7 +425,7 @@
           "caption": "超广角 155° 沉浸式飞行姿态"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "dji-matrice-350-rtk",
@@ -530,7 +530,7 @@
           "caption": "行业级激光雷达与巡检套件"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "dji-mavic-3-enterprise",
@@ -635,7 +635,7 @@
           "caption": "精准农林航测与巡检作业"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "dji-agras-t60",
@@ -736,7 +736,7 @@
           "caption": "重载动力与工业三防结构"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "autel-evo-max-4t",
@@ -841,7 +841,7 @@
           "caption": "折叠便携机身与毫米波雷达"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "xag-p150-pro",
@@ -942,7 +942,7 @@
           "caption": "4D 成像雷达与农田航测"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "jouav-cw-15",
@@ -1043,7 +1043,7 @@
           "caption": "模块化快拆航测与巡检任务舱"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "ehang-eh216-s",
@@ -1148,7 +1148,7 @@
           "caption": "双座全无人自动驾驶全景座舱"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "xpeng-land-aircraft-carrier",
@@ -1249,7 +1249,7 @@
           "caption": "270° 全景双人座舱与折叠机臂"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "autoflight-prosperity",
@@ -1350,7 +1350,7 @@
           "caption": "2 吨级起降平台与宁德时代航空电池组"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     },
     {
       "id": "aerofugia-ae200",
@@ -1451,7 +1451,7 @@
           "caption": "城际百公里空中快线运行场景"
         }
       ],
-      "lastVerifiedDate": "2026-11-19"
+      "lastVerifiedDate": "2026-11-20"
     }
   ]
 }
