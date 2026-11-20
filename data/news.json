@@ -12,6 +12,111 @@
   },
   "articles": [
     {
+      "id": "a1-newsroom-20261120-0900",
+      "category": "product",
+      "isOfficial": true,
+      "isNewsroomDaily": true,
+      "publishSlot": "A1新闻部",
+      "creativeFormat": "四大构型对比看板 + 商业运营模式分析",
+      "title": "128万的“陆地航母”与239万的亿航EH216-S：四大技术构型如何算清商业化运营账？",
+      "author": "A1 新闻部",
+      "date": "2026-11-20",
+      "readTime": "9 分钟深度阅读",
+      "summary": "随着亿航 EH216-S 集齐四证、小鹏汇天“陆地航母”斩获中东 600 台大单、峰飞与沃飞加速适航取证，国产 eVTOL 的核心议题已从技术验证转向商业场景闭环。",
+      "body": [
+        "随着国产主流 eVTOL 机型相继迈入适航取证后期与批量交付阶段，不同气动构型在商业应用场景上的分工日益清晰。",
+        "一、多旋翼构型（如亿航 EH216-S、广汽高域 AirCab）凭结构简洁率先商业化卡位：在 5A 级景区低空游览与城市地标观光场景中，具备高频起降与标准化无人驾驶运营优势。",
+        "二、分体式飞行汽车（小鹏汇天“陆地航母”）拓展个人与特种应用：通过六轮陆行母舰实现移动补能与仓储运输，切入户外探索与应急救援市场。",
+        "三、复合翼（峰飞盛世龙/沃兰特 VE25）与倾转旋翼（沃飞 AE200-100）瞄准城际干线：兼具垂直起降与固定翼高速巡航能力，致力于重构都市圈城际空中出行网络。"
+      ],
+      "creativeWidget": {
+        "type": "product_roi_simulator",
+        "badge": "A1 深度专题互动看板",
+        "title": "中国四大主流 eVTOL 技术流派与商业化场景对比",
+        "subtitle": "切换下方标签，查看核心机型综合指标、B端与C端路线对比及典型运营场景",
+        "tabs": [
+          {
+            "id": "prod_rank",
+            "label": "✈️ 四大机型核心指标",
+            "items": [
+              {
+                "name": "亿航 EH216-S · 多旋翼无人载人",
+                "score": 96,
+                "tag": "指导价 239 万元 · 全球首家四证齐全 (TC/PC/AC/OC)",
+                "detail": "无需人类飞行员，已实现 216 架年交付盈利与拉美首飞，景区观光与短途接驳可快速投入运营。"
+              },
+              {
+                "name": "小鹏汇天“陆地航母” · 分体式飞行汽车",
+                "score": 95,
+                "tag": "预估约 128 万元起 · 中东斩获 600 台海外订单",
+                "detail": "陆行体可为飞行体移动补能，适配个人越野探索与野外应急搜救场景。"
+              },
+              {
+                "name": "峰飞盛世龙 / 沃飞 AE200 · 城际干线级",
+                "score": 93,
+                "tag": "复合翼与倾转旋翼代表 · 面向城际百公里航线",
+                "detail": "兼具垂直起降与固定翼高速巡航优势，瞄准大湾区、长三角跨城商务出行。"
+              }
+            ]
+          },
+          {
+            "id": "debate_pk",
+            "label": "⚡ B端与C端市场探讨",
+            "proTitle": "观点一：ToB/ToG 景区观光与城际航线是规模化运营主力",
+            "proDesc": "空域管理与维护保养要求较高，集中化机队运营（如亿航、峰飞、广汽高域模式）更容易建立标准化安全管理体系。",
+            "conTitle": "观点二：ToC 高端个人飞行汽车（如陆地航母）商业变现更快",
+            "conDesc": "中东 600 台订单与国内预订数据表明，面向飞行营地与户外玩家的个人飞行汽车能够快速形成销售规模。",
+            "a1Verdict": "★ A1 新闻部观察：中国主机厂正在形成“B端无人驾驶空中巴士（亿航/峰飞/沃飞）+ C端分体式越野飞行车（小鹏汇天）”的双轨并行格局。"
+          },
+          {
+            "id": "compliance_calc",
+            "label": "💰 四大商业应用场景",
+            "steps": [
+              {
+                "code": "场景 01 · 5A景区低空游览",
+                "status": "已商业化",
+                "tip": "采用已获 OC 证机型（如 EH216-S），配合标准化起降场实现高频观光飞行。"
+              },
+              {
+                "code": "场景 02 · 跨海与海岛高值物流",
+                "status": "高频刚需",
+                "tip": "采用吨级货运 eVTOL（如峰飞 V2000CG），运输生鲜、医疗物资与高价值精密件。"
+              },
+              {
+                "code": "场景 03 · 飞行营地驻场体验",
+                "status": "C端+B端联动",
+                "tip": "依托分体式飞行汽车在航空营地提供飞行体验与培训服务。"
+              },
+              {
+                "code": "场景 04 · 枢纽机场-CBD空中快线",
+                "status": "远期主力",
+                "tip": "复合翼与倾转旋翼取证后，将地面拥堵车程大幅缩短为跨城空中直达。"
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "A1新闻部",
+        "产品发布",
+        "深度专栏"
+      ],
+      "sources": [
+        {
+          "title": "观点网：华安鑫创：eVTOL业务尚未进入大规模量产交付阶段 - ...",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9GOFBCSHZnNC1BZkkyNEwtZVY1VmtWZnJJSXVidjRRbFBHajhncVJua0stZ1RqaUdOUUUySFNLV3ZaZE9yQXdiVmdoZUEyLVdfZjBncmhYQ2trRlktb2V1U2FR?oc=5"
+        },
+        {
+          "title": "东方财富：亿航智能发布EH216-EK大载重消防eVTOL航空器 ...",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5TOUhLWG5fV3hWZ05FQW5qTjE5UThkY0NaT0ZfNnZMYWhFS1puU0FfRktIR1ZWeVJhWklmQTJrbFFJQzNZY0wxVlViQkVBei1lLVBGcm9lQ1Z2ejZibnFNcA?oc=5"
+        },
+        {
+          "title": "中国金融信息网：中国大型eVTOL在中亚首飞共建“一带一路”低空交通网络...",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1XMzJMTzk4Yk03LTMyWGsydDhJTk5LX25QTlRDTDRUbC1GRl91dHA0WXZUem1qTGZXU1dYWEFCOXR5ejNNUm93TnFuNno0aEl5OGx4SzNBN0FZem85bkVyMmtfQ1FEcGtzdmc?oc=5"
+        }
+      ]
+    },
+    {
       "id": "crawl-20261120-policy",
       "category": "policy",
       "isOfficial": false,
