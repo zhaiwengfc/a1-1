@@ -1,7 +1,7 @@
 {
   "meta": {
     "siteName": "A1 · 低空信息站",
-    "lastUpdatedDate": "2026-11-21",
+    "lastUpdatedDate": "2026-11-22",
     "todayTopCategory": "product",
     "categoryScores": {
       "product": 96,
@@ -11,6 +11,158 @@
     }
   },
   "articles": [
+    {
+      "id": "crawl-20261122-policy",
+      "category": "policy",
+      "isOfficial": false,
+      "isDailyCrawled": true,
+      "crawlOrigin": "信源：中央部委与地方政府公报",
+      "title": "国家先后设立两个“低空司”，低空经济前景如何？；低空经济加快“立规矩”（政策解读·问答）",
+      "author": "政务与法规汇编",
+      "date": "2026-11-22",
+      "readTime": "4 分钟阅读",
+      "summary": "近期行业重点动态汇总：涵盖 国家先后设立两个“低空司”，低空经济前景如何？、低空经济加快“立规矩”（政策解读·问答）、从《民用航空法》修订看低空经济的现有监管体系梳理及监管前瞻 等最新进展。",
+      "body": [
+        "根据 2026-11-22 最新行业公开信息汇总，政策法规领域重点动态如下：",
+        "1. 【中国网】国家先后设立两个“低空司”，低空经济前景如何？ - 中国网。",
+        "2. 【人民日报】低空经济加快“立规矩”（政策解读·问答） - 人民日报。",
+        "3. 【Lexology】从《民用航空法》修订看低空经济的现有监管体系梳理及监管前瞻 - Lexology。",
+        "4. 【低空经济资源网】3月1日起，无人机与eVTOL的适航审定职责优化 - 低空经济资源网。"
+      ],
+      "tags": [
+        "政策法规",
+        "行业资讯",
+        "权威信源"
+      ],
+      "sources": [
+        {
+          "title": "中国网：国家先后设立两个“低空司”，低空经济前景如何？ - 中国...",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9yMm44ME83bjBMMzFWT2NhbTRsWThNcUxhNmhUS2kxSFdoVHlLQTR4THQ0b2RLc1J0SnZKZHpEalFvcXNFcmoza0xlU3I4S3RFRU1tZ1NXaXRJWEZocnJQRjJ1MTFvUGt4M1pyMk5MNk5MV0VQVERPTS1n?oc=5"
+        },
+        {
+          "title": "人民日报：低空经济加快“立规矩”（政策解读·问答） - 人民日报...",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE0xTGdQM29WYzA4WjJVSkt2NzBWVk02RWdvczJOYUNHY1VuQW9CUnY0b2c2d0NZX0I1M2tjZEwybWljWXZEcTBleGhzMm1pZG5DRW9CZlQtR3lfRkJpQm93Wm9DRDVKNS1QYmpIV1FPWndUcHBKTWkwd0w4V25UNjQ?oc=5"
+        },
+        {
+          "title": "Lexology：从《民用航空法》修订看低空经济的现有监管体系梳理及监管前...",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOM3BpNzFFbjZta2p4cmdOdkgxd0F6UFJWenpWN2dJdWtRZXRUd1p4NVhueUJIZmJVQkw4TjZQejFxUldjbms2TEVwczRGZFVCbGdURUxPOWhwWVAweC1xUXhZblY4TzJSSUJmRmlCNkdZblRvOWpJak01OXRjelRxSVk4ZVFjUnJTUXBZ?oc=5"
+        }
+      ]
+    },
+    {
+      "id": "crawl-20261122-supply",
+      "category": "supply",
+      "isOfficial": false,
+      "isDailyCrawled": true,
+      "crawlOrigin": "信源：主流财经媒体与科技局公告",
+      "title": "低空经济并非将亡于2026：补贴调整与空域管制推动行业转向理性发展；数智化与低空技术赋能 物流服务迎来“大变样”",
+      "author": "产业供应链快讯",
+      "date": "2026-11-22",
+      "readTime": "4 分钟阅读",
+      "summary": "近期行业重点动态汇总：涵盖 低空经济并非将亡于2026：补贴调整与空域管制推动行业转向理性发展、数智化与低空技术赋能 物流服务迎来“大变样”、沃兰特以全链条布局引领中国低空经济高质量发展 等最新进展。",
+      "body": [
+        "根据 2026-11-22 最新行业公开信息汇总，创新与供应链信息领域重点动态如下：",
+        "1. 【虎嗅】低空经济并非将亡于2026：补贴调整与空域管制推动行业转向理性发展 - 虎嗅。",
+        "2. 【中国科技网】数智化与低空技术赋能 物流服务迎来“大变样” - 中国科技网。",
+        "3. 【观察者网】沃兰特以全链条布局引领中国低空经济高质量发展 - 观察者网。",
+        "4. 【财新网】宁德时代月内连签两家eVTOL企业 电池厂商加速布局低空领域 - 财新网。"
+      ],
+      "tags": [
+        "创新与供应链信息",
+        "行业资讯",
+        "权威信源"
+      ],
+      "sources": [
+        {
+          "title": "虎嗅：低空经济并非将亡于2026：补贴调整与空域管制推动行业转...",
+          "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1xcFlPcmhuQURvUTJ0SnpxZzM5R1pGU2t3R2NDQmpkVFVNRjR5MFdEbmtGbzN5SlY0emlDSE1YX3Nhd1dOREg0UU9ab3Q5WGhnSXNpbw?oc=5"
+        },
+        {
+          "title": "中国科技网：数智化与低空技术赋能 物流服务迎来“大变样” - 中国科...",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE91QjRwSXB1clYzZ1VZZERCYUdsaGVUX09tTjFVZ281WEVxY1FVczQ1VGVFdGJpX2x3OFJYTmFuYm1lUnEyTDBDMWhHcXdkb0RuaVd3Ml9NTGNzUWpYMG1obnJqLUd5M0RzcWJUbGcyUjU?oc=5"
+        },
+        {
+          "title": "观察者网：沃兰特以全链条布局引领中国低空经济高质量发展 - 观察者...",
+          "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9NZ3hhMi1QUHFnT0l4UlE2Zlp1TTJHRjdybV9zNndQR1pkbHJ0bzRndlFVUURKM2dlUnZOSkgydGNBV1A2NHpRdTV4eTlac291anp6bkF2dURCZWxELW54S2tBMA?oc=5"
+        }
+      ]
+    },
+    {
+      "id": "crawl-20261122-competition",
+      "category": "competition",
+      "isOfficial": false,
+      "isDailyCrawled": true,
+      "crawlOrigin": "信源：新华网 / 中国网 / 赛事官网",
+      "title": "竞逐低空新赛道！2026年四川省大学生低空技术创新挑战赛在中飞院开赛；2026数字中国创新大赛·低空经济赛道赛事在庆阳举办",
+      "author": "赛事资讯汇编",
+      "date": "2026-11-22",
+      "readTime": "4 分钟阅读",
+      "summary": "近期行业重点动态汇总：涵盖 竞逐低空新赛道！2026年四川省大学生低空技术创新挑战赛在中飞院开赛、2026数字中国创新大赛·低空经济赛道赛事在庆阳举办、李鹏展：以数字技术筑牢低空安全赋能智慧海防新发展_数字青年说 等最新进展。",
+      "body": [
+        "根据 2026-11-22 最新行业公开信息汇总，比赛信息领域重点动态如下：",
+        "1. 【低空经济资源网】竞逐低空新赛道！2026年四川省大学生低空技术创新挑战赛在中飞院开赛 - 低空经济资源网。",
+        "2. 【中国甘肃网】2026数字中国创新大赛·低空经济赛道赛事在庆阳举办 - 中国甘肃网。",
+        "3. 【数字中国建设峰会】李鹏展：以数字技术筑牢低空安全赋能智慧海防新发展_数字青年说 - 数字中国建设峰会。",
+        "4. 【蓝山县人民政府】2026无人机创新技能大赛湖南选拔赛在张家界开赛 - 蓝山县人民政府。"
+      ],
+      "tags": [
+        "比赛信息",
+        "行业资讯",
+        "权威信源"
+      ],
+      "sources": [
+        {
+          "title": "低空经济资源网：竞逐低空新赛道！2026年四川省大学生低空技术创新挑战赛...",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFAwdy0zVGIwNC1rX01HTm9IeFUwdEVBMzlyTDN6em5pYzJEMk5jd1dhUGJQUm1aeUFpYXNiS1pncTBCb2w0b1lhbXVvYUZtbUtEUHcteHplMWkxRGc2ZGhVSmpR?oc=5"
+        },
+        {
+          "title": "中国甘肃网：2026数字中国创新大赛·低空经济赛道赛事在庆阳举办 -...",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5LeDlKTTZyeF9JRDhjc3BmNVg5Q2ZBNUZsQjYtRGZQLUU3d1hXWVlKaEZDZUdITEVSd1JfQ3ZPMjA2X3VibTRXekhRQzY3QVA1T2tVRGFaQm0wbmJkS0VwZVdZd24wS0F2Ymw0?oc=5"
+        },
+        {
+          "title": "数字中国建设峰会：李鹏展：以数字技术筑牢低空安全赋能智慧海防新发展_数字青...",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1zZ24wdHlXNXQ3Y0VlVEMwcGpCMjh0U01pdWRmVWtLVlpqNjNrQWYxVDEwZngxaGpJOVBaR0Q5dVRNYWt6MENhMXdIVV9WbF9qRGNYZ1hMY2gzZTNJSTBCekttM1J4NjhkaHdTSkJCU3pLUlF5cGZj?oc=5"
+        }
+      ]
+    },
+    {
+      "id": "crawl-20261122-product",
+      "category": "product",
+      "isOfficial": false,
+      "isDailyCrawled": true,
+      "crawlOrigin": "信源：主机厂官方发布与行业快讯",
+      "title": "亿航智能发布EH216-EK大载重消防eVTOL航空器；中国大型eVTOL在中亚首飞共建“一带一路”低空交通网络- 中国金融...",
+      "author": "产品与新机动态",
+      "date": "2026-11-22",
+      "readTime": "4 分钟阅读",
+      "summary": "近期行业重点动态汇总：涵盖 亿航智能发布EH216-EK大载重消防eVTOL航空器、中国大型eVTOL在中亚首飞共建“一带一路”低空交通网络- 中国金融信息网、蓝色向量发布倾转旋翼eVTOL SKYLA V30 等最新进展。",
+      "body": [
+        "根据 2026-11-22 最新行业公开信息汇总，产品发布领域重点动态如下：",
+        "1. 【东方财富网】亿航智能发布EH216-EK大载重消防eVTOL航空器 - 东方财富网。",
+        "2. 【中国金融信息网】中国大型eVTOL在中亚首飞共建“一带一路”低空交通网络- 中国金融信息网 - 中国金融信息网。",
+        "3. 【中国民航网】蓝色向量发布倾转旋翼eVTOL SKYLA V30 - 中国民航网。",
+        "4. 【热点科技】Web Summit2026 小鹏汇天展示陆地航母 飞行汽车怎样用起来 - 热点科技。"
+      ],
+      "tags": [
+        "产品发布",
+        "行业资讯",
+        "权威信源"
+      ],
+      "sources": [
+        {
+          "title": "东方财富网：亿航智能发布EH216-EK大载重消防eVTOL航空器 ...",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5TOUhLWG5fV3hWZ05FQW5qTjE5UThkY0NaT0ZfNnZMYWhFS1puU0FfRktIR1ZWeVJhWklmQTJrbFFJQzNZY0wxVlViQkVBei1lLVBGcm9lQ1Z2ejZibnFNcA?oc=5"
+        },
+        {
+          "title": "中国金融信息网：中国大型eVTOL在中亚首飞共建“一带一路”低空交通网络...",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1XMzJMTzk4Yk03LTMyWGsydDhJTk5LX25QTlRDTDRUbC1GRl91dHA0WXZUem1qTGZXU1dYWEFCOXR5ejNNUm93TnFuNno0aEl5OGx4SzNBN0FZem85bkVyMmtfQ1FEcGtzdmc?oc=5"
+        },
+        {
+          "title": "中国民航网：蓝色向量发布倾转旋翼eVTOL SKYLA V30 - ...",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1kYTBVZ3NWaVk0NGRoblJRdFZzMndOSWMyejMzaE1sakF0eVdfRnduZlhfd0RsdVRsaThKaGQzaVgxSTRhdTRfbGR1MHMzS2NiUXN0OG9mWnRlN2pvTFcycEdoZkZMb3J2akxIdw?oc=5"
+        }
+      ]
+    },
     {
       "id": "a1-newsroom-20261121-0900",
       "category": "product",
@@ -2040,480 +2192,6 @@
         {
           "title": "飞行汽车网：一架eVTOL从研发图纸到商业载客到底要跨过多少道坎",
           "url": "https://flyingcarevtol.com/news/4576"
-        }
-      ]
-    },
-    {
-      "id": "a1-newsroom-20261113-0900",
-      "category": "policy",
-      "isOfficial": true,
-      "isNewsroomDaily": true,
-      "publishSlot": "A1新闻部",
-      "creativeFormat": "空域改革三维对比 + 观点交锋 + 适航路线图",
-      "title": "当城市开始竞逐“天空立交桥”：从中央低空司到地方特区立法的三场深水区博弈",
-      "author": "A1 新闻部",
-      "date": "2026-11-13",
-      "readTime": "9 分钟深度阅读",
-      "summary": "随着国家发改委低空经济发展司统筹推进、中国民航局 CCAR-92 部落地以及深圳、广州、合肥、成都等地方专项政策进入全面实施期，低空经济正从顶层规划加速迈向空域协同管理与商业订单转化的关键阶段。",
-      "body": [
-        "如果说 2024 年是低空经济写入政府工作报告的“概念元年”，那么当下从中央部委到地方政府密集出台的实施细则，正在把这场产业竞赛推向真金白银的“空域运营权与链主生态建设”。当前决定一家 eVTOL 或工业无人机企业商业化成败的核心，已不仅是纸面航程参数，而是能否打通“军地民空域协同监管接口”与“地方示范航线商业闭环”。",
-        "一、从“发改委设司”到“民航局立规”，数字化监管底座加速成型：国家发改委设立“低空经济发展司”统筹跨部门基建投资与产业规划，而中国民航局（CAAC）通过《民用无人驾驶航空器运行安全管理规则》（CCAR-92）及《低空飞行综合监管服务平台规范》，将适航取证（TC/PC/AC）与运营合格证（OC）全面纳入数字化监管体系。亿航 EH216-S 能够实现全球首家四证齐全，核心就在于提前对齐了无人驾驶航空器专用条件与 OC 运营标准。",
-        "二、地方产业政策的进阶考卷——从“给补贴”走向“给空域、给场景”：从《深圳经济特区低空经济产业促进条例》及 20 条扶持措施，到广州开发区护航小鹏汇天“陆地航母”量产基地建设，再到成都沃飞长空全球总部基地与珠海“天空之城”示范航线联动，各大先锋城市的发力重心已转向开放跨区真实商业航线与起降基础设施配套。",
-        "三、公众安全信任度推动标准升级：围绕城市复杂空域下的飞行安全、起降场噪音控制、第三者责任保险以及高可靠低压飞控供电冗余（如亿纬锂能与奥托立夫安全系统配套），行业技术标准与城市低空管理规范正迎来快速完善期。"
-      ],
-      "creativeWidget": {
-        "type": "policy_arena_simulator",
-        "badge": "A1 深度专题互动看板",
-        "title": "2026-2030 低空经济政策落地与适航路径全景透视",
-        "subtitle": "切换下方标签，对比先锋城市政策布局、行业核心观点交锋与企业四证合规节点",
-        "tabs": [
-          {
-            "id": "city_rank",
-            "label": "🏙️ 先锋城市政策布局",
-            "items": [
-              {
-                "name": "深圳 · 特区立法领跑型",
-                "score": 96,
-                "tag": "全国首部特区低空条例 + 20条专项扶持措施",
-                "detail": "对取得 CAAC 型号合格证(TC)与生产许可证(PC)的载人 eVTOL 企业给予产业化激励，开放高密度城市末端物流与跨海示范航线。"
-              },
-              {
-                "name": "广州 · 智造链主集群型",
-                "score": 94,
-                "tag": "亿航四证闭环 + 小鹏汇天量产工厂 + 广汽高域",
-                "detail": "集聚全球首张 OC 证企业亿航智能与小鹏汇天广州智造基地，依托成熟汽车产业链打通“研发—总装—出海”全链条。"
-              },
-              {
-                "name": "成都/珠海 · 航展与研发双驱型",
-                "score": 91,
-                "tag": "沃飞长空全球总部 + 国创赛珠海专业赛",
-                "detail": "成都以沃飞 AE200 链主基地带动百亿航空配套，珠海依托中国航展与创新创业大赛构建湾区跨海物流网络。"
-              }
-            ]
-          },
-          {
-            "id": "debate_pk",
-            "label": "⚡ 商业化路径探讨",
-            "proTitle": "路径一：优先发力支线物流与郊区特定场景，稳步推进城市载人",
-            "proDesc": "以峰飞 V2000CG 与美团无人机末端配送为代表，货运场景容错率更高、适航取证周期更可控，能先在海岛物流、医疗急救中跑通正向现金流。",
-            "conTitle": "路径二：载人 eVTOL 景区游览与城际接驳具备更高单机产值",
-            "conDesc": "以亿航 EH216-S 四证齐全与小鹏汇天中东 600 台订单为代表，高附加值文旅观光与个人飞行器能够更快分摊早期航空级电池与飞控研发投入。",
-            "a1Verdict": "★ A1 新闻部观察：2026-2027 年最具可行性的商业模式是“以高频低空物流和5A景区观光提升起降场利用率，以倾转旋翼和复合翼机型打开远期城际客运空间”。"
-          },
-          {
-            "id": "compliance_calc",
-            "label": "🛡️ 企业适航四证指南",
-            "steps": [
-              {
-                "code": "第一阶段 · TC 型号合格证",
-                "status": "设计批准",
-                "tip": "核心重点：专用条件审定、FCC飞控多余度容错与动力电池热失控防护验证（CCAR-21）。"
-              },
-              {
-                "code": "第二阶段 · PC 生产许可证",
-                "status": "量产准入",
-                "tip": "核心重点：供应链质量追溯体系（如中创新航/亿纬锂能电芯批次一致性与复合材料无损检测）。"
-              },
-              {
-                "code": "第三阶段 · AC 单机适航证",
-                "status": "交付通行",
-                "tip": "核心重点：每架下线航空器出厂试飞与标准构型一致性核查。"
-              },
-              {
-                "code": "第四阶段 · OC 运营合格证",
-                "status": "商业运营",
-                "tip": "核心重点：接入民航局低空飞行综合监管服务平台，建立完善空地协同运行手册（CCAR-92）。"
-              }
-            ]
-          }
-        ]
-      },
-      "tags": [
-        "空域协同管理",
-        "发改委低空司",
-        "地方低空立法",
-        "适航审定"
-      ],
-      "sources": [
-        {
-          "title": "国家发改委设“低空司”与地方立法加速分析",
-          "url": "https://www.zzyuam.com/news/detail/110ac5ced3770ff29b5fdbea86d5b62a"
-        },
-        {
-          "title": "锦天城：《通用航空装备创新应用实施方案（2024-2030年）》解析",
-          "url": "https://www.allbrightlaw.com/CN/10475/b9e8f0450104f87c.aspx"
-        },
-        {
-          "title": "近三年涉及低空经济发展的国家政策梳理 (CCAR-92/CCAR-21)",
-          "url": "https://www.aamshanghai.com/national-policies-aam-development.html"
-        },
-        {
-          "title": "深圳市低空经济产业协会：政策法规汇编",
-          "url": "https://www.slaeia.com/business_2.html"
-        }
-      ]
-    },
-    {
-      "id": "pol-official-1",
-      "category": "policy",
-      "isOfficial": true,
-      "isNewsroomDaily": true,
-      "publishSlot": "A1新闻部",
-      "creativeFormat": "法规演进时间轴 + 部委职能矩阵",
-      "title": "从国家发改委“低空司”全面运转到2030通航装备路线图：低空立法进入实操深水区",
-      "author": "A1 新闻部 · 政策研究室 林知远",
-      "date": "2026-11-12",
-      "readTime": "8 分钟深度阅读",
-      "summary": "系统梳理 2024 至 2026 年国家顶层机构改革与部委联合文件：国家发改委专设“低空经济发展司”统筹全局，中国民航局调整机构并将“低空经济”纳入《民用航空法》修正草案，标志着我国低空经济迈入空域监管与商业化运营合规并重的实操阶段。",
-      "body": [
-        "自低空经济上升为国家战略性新兴产业以来，顶层监管架构与法律法规体系在过去两年内完成了极具分水岭意义的制度重构。通过对国家部委与民航局出台的核心政策进行交叉梳理可以发现，“专司统筹 + 立法确权 + 审定提速”已成为当前政策演进的三大主轴。",
-        "一、顶层协调机制破局：国家发改委成立“低空经济发展司”并全面运转，专责统筹全国低空经济发展规划、基础设施建设与跨部门协同；与此同时，2025年7月中国民航局完成重大机构调整，进一步整合原通用航空工作领导小组与民用无人驾驶航空器管理职能，发布了《低空飞行综合监管服务平台规范》，从源头打通军地民空域协同管理堵点。",
-        "二、2024-2030 装备创新时间表明确：工业和信息化部、科学技术部、财政部、中国民用航空局四部门联合印发的《通用航空装备创新应用实施方案（2024-2030年）》，明确提出加快电动垂直起降航空器（eVTOL）、智能高效航空物流装备等研制及商业化应用，为未来五年主机厂适航取证与城际示范运行划定了清晰里程碑。",
-        "三、《民用航空法》修法与地方立法共振：在《民用航空法》2025修正草案中，“低空经济”被正式写入法律条文，为低空空域分类管理、起降基础设施产权及商业运营许可提供了上位法依据。建议各主机厂与低空运营企业在申报航线时，重点对齐民航局最新综合监管平台接口规范。"
-      ],
-      "tags": [
-        "低空特区立法",
-        "发改委低空司",
-        "民航局CAAC",
-        "2030实施方案"
-      ],
-      "sources": [
-        {
-          "title": "国家发改委设“低空司”与地方立法加速分析",
-          "url": "https://www.zzyuam.com/news/detail/110ac5ced3770ff29b5fdbea86d5b62a"
-        },
-        {
-          "title": "2025低空经济大事件全景：从政策破局到商业落地",
-          "url": "https://yuanxiangsky.com/N/678.html"
-        },
-        {
-          "title": "锦天城：《通用航空装备创新应用实施方案（2024-2030年）》解析",
-          "url": "https://www.allbrightlaw.com/CN/10475/b9e8f0450104f87c.aspx"
-        },
-        {
-          "title": "德恒律所：《民用航空法》修正草案与低空经济法律适用",
-          "url": "https://www.dehenglaw.com/cn/newscontent/0008/033810/2.aspx?MID=0902"
-        }
-      ]
-    },
-    {
-      "id": "prod-official-1",
-      "category": "product",
-      "isOfficial": true,
-      "isNewsroomDaily": true,
-      "publishSlot": "A1新闻部",
-      "creativeFormat": "四大构型对比看板 + 商业运营模式分析",
-      "title": "旗舰机型横评：亿航EH216-S、小鹏汇天“陆地航母”、峰飞“盛世龙”与沃兰特VE25商业化对比",
-      "author": "A1 新闻部 · 飞行器评测中心 陈航",
-      "date": "2026-11-11",
-      "readTime": "9 分钟深度阅读",
-      "summary": "中国 eVTOL 整机研发已形成多旋翼、分体式飞行汽车、复合翼与倾转旋翼四大技术流派。本文从气动构型、适航取证进度、官方定价及海外订单四个维度，对国内四大标杆机型进行全方位量化横评。",
-      "body": [
-        "2025至2026年是国产 eVTOL 与飞行汽车从“航展样机”走向“商业交付”的关键阶段。结合主机厂公开参数、民航局适航审定记录与实际订单数据，四大代表机型展现出差异化的商业定位：",
-        "一、亿航智能 EH216-S（多旋翼无人驾驶载人标杆）：采用 8 轴 16 桨纯电驱动构型，可搭载 2 名乘客，最大允许飞行高度 120 米，续航时间约 25 分钟、航程约 30 公里，官方指导价 239 万元。作为全球首家集齐 TC/PC/AC/OC 四证的机型，亿航在 2024 年即交付 216 架并实现全年盈利；2026 年 2 月更实现了 16 架 EH216-S 与 22580 架 GD4.0 无人机同台编队飞行，适合景区低空游览与城市短途接驳。",
-        "二、小鹏汇天“陆地航母”（分体式个人飞行汽车代表）：采用“陆行体 + 飞行体”分体式构型，在广州推进量产下线，预估售价约 128 万元起，并已在海外斩获中东地区 600 台飞行汽车订单，率先打开个人户外飞行与越野救援市场。",
-        "三、峰飞航空“盛世龙”与沃兰特 VE25-100（城际复合翼大载重主力）：峰飞采取“先载货后载人”路径，货运版 V2000CG 率先落地，载人版“盛世龙”定价约 199 万元；与此同时，沃兰特 VE25 eVTOL 已顺利完成首次有人驾驶飞行，广汽高域 GOVY AirCab 亮相进博会后半年订单突破千台，共同构筑起中短途城际空中出行的主力梯队。"
-      ],
-      "creativeWidget": {
-        "type": "product_roi_simulator",
-        "badge": "A1 深度专题互动看板",
-        "title": "中国四大主流 eVTOL 技术流派与商业化场景对比",
-        "subtitle": "切换下方标签，查看核心机型综合指标、B端与C端路线对比及典型运营场景",
-        "tabs": [
-          {
-            "id": "prod_rank",
-            "label": "✈️ 四大机型核心指标",
-            "items": [
-              {
-                "name": "亿航 EH216-S · 多旋翼无人载人",
-                "score": 96,
-                "tag": "指导价 239 万元 · 全球首家四证齐全 (TC/PC/AC/OC)",
-                "detail": "无需人类飞行员，已实现 216 架年交付盈利与拉美首飞，景区观光与短途接驳可快速投入运营。"
-              },
-              {
-                "name": "小鹏汇天“陆地航母” · 分体式飞行汽车",
-                "score": 95,
-                "tag": "预估约 128 万元起 · 中东斩获 600 台海外订单",
-                "detail": "陆行体可为飞行体移动补能，适配个人越野探索与野外应急搜救场景。"
-              },
-              {
-                "name": "峰飞盛世龙 / 沃飞 AE200 · 城际干线级",
-                "score": 93,
-                "tag": "复合翼与倾转旋翼代表 · 面向城际百公里航线",
-                "detail": "兼具垂直起降与固定翼高速巡航优势，瞄准大湾区、长三角跨城商务出行。"
-              }
-            ]
-          },
-          {
-            "id": "debate_pk",
-            "label": "⚡ B端与C端市场探讨",
-            "proTitle": "观点一：ToB/ToG 景区观光与城际航线是规模化运营主力",
-            "proDesc": "空域管理与维护保养要求较高，集中化机队运营（如亿航、峰飞、广汽高域模式）更容易建立标准化安全管理体系。",
-            "conTitle": "观点二：ToC 高端个人飞行汽车（如陆地航母）商业变现更快",
-            "conDesc": "中东 600 台订单与国内预订数据表明，面向飞行营地与户外玩家的个人飞行汽车能够快速形成销售规模。",
-            "a1Verdict": "★ A1 新闻部观察：中国主机厂正在形成“B端无人驾驶空中巴士（亿航/峰飞/沃飞）+ C端分体式越野飞行车（小鹏汇天）”的双轨并行格局。"
-          },
-          {
-            "id": "compliance_calc",
-            "label": "💰 四大商业应用场景",
-            "steps": [
-              {
-                "code": "场景 01 · 5A景区低空游览",
-                "status": "已商业化",
-                "tip": "采用已获 OC 证机型（如 EH216-S），配合标准化起降场实现高频观光飞行。"
-              },
-              {
-                "code": "场景 02 · 跨海与海岛高值物流",
-                "status": "高频刚需",
-                "tip": "采用吨级货运 eVTOL（如峰飞 V2000CG），运输生鲜、医疗物资与高价值精密件。"
-              },
-              {
-                "code": "场景 03 · 飞行营地驻场体验",
-                "status": "C端+B端联动",
-                "tip": "依托分体式飞行汽车在航空营地提供飞行体验与培训服务。"
-              },
-              {
-                "code": "场景 04 · 枢纽机场-CBD空中快线",
-                "status": "远期主力",
-                "tip": "复合翼与倾转旋翼取证后，将地面拥堵车程大幅缩短为跨城空中直达。"
-              }
-            ]
-          }
-        ]
-      },
-      "tags": [
-        "适航取证对比",
-        "亿航EH216-S",
-        "小鹏汇天陆地航母",
-        "峰飞盛世龙",
-        "沃兰特VE25"
-      ],
-      "sources": [
-        {
-          "title": "飞行汽车之家：中国eVTOL整机公司创始人及代表机型对比",
-          "url": "https://flyingcarevtol.com/news/4613"
-        },
-        {
-          "title": "低空产业观察：市面上各大eVTOL价格对比（小鹏汇天/亿航/峰飞）",
-          "url": "https://yuanxiangsky.com/N/255.html"
-        },
-        {
-          "title": "亿航智能官网：16架EH216-S与22580架GD4.0无人机编队表演",
-          "url": "https://www.ehang.com/news/1343.html"
-        },
-        {
-          "title": "飞行汽车网：小鹏汇天中东600台订单与沃兰特VE25有人驾驶首飞",
-          "url": "https://www.feiauto.com/index.php?m=home&c=Tags&a=lists&tagid=2707"
-        },
-        {
-          "title": "飞行汽车网：亿航2024年交付216架实现盈利报道",
-          "url": "https://www.feiauto.com/tt/1557.html"
-        }
-      ]
-    },
-    {
-      "id": "sup-official-1",
-      "category": "supply",
-      "isOfficial": true,
-      "isNewsroomDaily": true,
-      "publishSlot": "A1新闻部",
-      "creativeFormat": "核心子系统价值占比 + 适航供应链路径",
-      "title": "供应链深度拆解：中创新航、亿纬锂能、孚能科技三大电池巨头如何支撑中国eVTOL量产？",
-      "author": "A1 新闻部 · 供应链智库 硬件工程组",
-      "date": "2026-11-10",
-      "readTime": "7 分钟深度阅读",
-      "summary": "航空级动力电池与高可靠低压供电系统是决定 eVTOL 商业化落地的核心命脉。本文深入拆解小鹏汇天“陆地航母”等量产机型的电池定点格局，剖析主动力电池与 FCC/ESC 低压锂电池的技术分工。",
-      "body": [
-        "在电动垂直起降航空器（eVTOL）的整机成本与适航安全权重中，动力与能源系统占比极高。与地面新能源汽车不同，eVTOL 在垂直起降阶段需要极高的瞬时放电倍率，且在高空低温环境下对电池热失控具备严苛的安全冗余要求。",
-        "一、三大动力电池巨头定点格局清晰：以小鹏汇天为例，其在启动规模量产前已在供应链端与中创新航（3931.HK）、亿纬锂能及孚能科技三大动力电池企业建立深度合作。其中，分体式飞行汽车“陆地航母”高压主动力电池由中创新航独家提供。",
-        "二、低压锂电池对飞控（FCC）与电调（ESC）的关键护航：根据亿纬锂能官方披露，亿纬锂能为小鹏汇天提供下一代原理样机低压锂电池。低压锂电池在航空器中主要承担为飞行控制系统（FCC）和电子调速器（ESC）供电的关键职责，即便主动力链路出现波动，高可靠低压电池也能确保飞控计算机与姿态执行机构稳定运行，是取得航空级适航认证的核心防线。"
-      ],
-      "creativeWidget": {
-        "type": "supply_bom_simulator",
-        "badge": "A1 深度专题互动看板",
-        "title": "eVTOL 整机核心供应链价值占比与技术壁垒解析",
-        "subtitle": "切换下方标签，查看核心子系统价值权重、车规与航空标准对比及供应商准入流程",
-        "tabs": [
-          {
-            "id": "bom_rank",
-            "label": "🔋 核心子系统价值权重",
-            "items": [
-              {
-                "name": "推进与高密航空电池系统",
-                "score": 95,
-                "tag": "占整机价值约 35%-40% · 中创新航/亿纬锂能/孚能",
-                "detail": "决定垂直起降瞬时放电倍率与有效航程，需同时满足高比能与零热失控蔓延要求。"
-              },
-              {
-                "name": "航电与多余度飞控系统 (FCC)",
-                "score": 93,
-                "tag": "占整机价值约 25%-30% · 适航取证关键系统",
-                "detail": "三余度/四余度容错飞控架构，配合独立低压锂电供电，确保极端故障下安全迫降。"
-              },
-              {
-                "name": "碳纤维复材机体与被动安全",
-                "score": 88,
-                "tag": "占整机价值约 20%-25% · 奥托立夫/立邦航空涂层",
-                "detail": "全机身碳纤维减重与航空特种减阻耐候涂装，结合定制轻量化安全气囊系统。"
-              }
-            ]
-          },
-          {
-            "id": "debate_pk",
-            "label": "⚡ 车规与航空规融合探讨",
-            "proTitle": "优势面：成熟新能源汽车供应链大幅降低 eVTOL 制造成本",
-            "proDesc": "依托珠三角与长三角成熟的动力电池、电机电控与智能座舱产线，国产主机厂能够有效控制整机 BOM 成本。",
-            "conTitle": "挑战面：航空级高可靠与适航追溯标准远高于地面车辆",
-            "conDesc": "高空低温、强电磁干扰与结构疲劳寿命要求严苛，上游供应商必须建立符合航空 DO-254/DO-178C 的正向开发体系。",
-            "a1Verdict": "★ A1 新闻部观察：“车规级规模制造工艺 + 航空级冗余适航标准”的融合型供应商，将成为未来五年低空供应链的核心赢家。"
-          },
-          {
-            "id": "compliance_calc",
-            "label": "🛠️ 供应商配套四步路径",
-            "steps": [
-              {
-                "code": "第一阶段 · 原理样机联合预研",
-                "status": "技术定点",
-                "tip": "针对主机厂专用条件需求，定制减重与高倍率样品（如亿纬锂能低压锂电合作模式）。"
-              },
-              {
-                "code": "第二阶段 · 适航符合性试验",
-                "status": "地面台架",
-                "tip": "配合主机厂完成环境、电磁兼容（EMC）、振动与极限热失控地面试验。"
-              },
-              {
-                "code": "第三阶段 · 批量定点与PC体系",
-                "status": "产线审核",
-                "tip": "建立全生命周期批次可追溯产线，支撑主机厂获取生产许可证（PC）。"
-              },
-              {
-                "code": "第四阶段 · 售后航材与维保池",
-                "status": "长期服务",
-                "tip": "随着机队投入商业运营，电池包更换与航材维保将形成持续服务市场。"
-              }
-            ]
-          }
-        ]
-      },
-      "tags": [
-        "航空级固态电池",
-        "中创新航",
-        "亿纬锂能",
-        "飞控系统FCC"
-      ],
-      "sources": [
-        {
-          "title": "南方财经网：中国低空经济商业化进阶，订单与供应链量产潮起",
-          "url": "https://www.sfccn.com/2025/5-17/3NMDE0MDRfMjAzMTg3Ng.html"
-        },
-        {
-          "title": "亿纬锂能官方公告：亿纬锂能携手小鹏汇天共筑低空新生态",
-          "url": "https://www.evebattery.com/news-943"
-        },
-        {
-          "title": "广州市科技局：小鹏汇天供应链布局与陆地航母进展",
-          "url": "http://kjj.gz.gov.cn/xwlb/yw/content/post_10325081.html"
-        }
-      ]
-    },
-    {
-      "id": "comp-official-1",
-      "category": "competition",
-      "isOfficial": true,
-      "isNewsroomDaily": true,
-      "publishSlot": "A1新闻部",
-      "creativeFormat": "赛事特色对比 + 参赛备赛要点",
-      "title": "赛事全景观察：从“场景验证”走向“系统重构”，数字中国创新大赛低空经济赛道深度复盘与备赛指南",
-      "author": "A1 新闻部 · 赛事观察团 周牧",
-      "date": "2026-11-09",
-      "readTime": "6 分钟深度阅读",
-      "summary": "数字中国创新大赛·低空经济赛道作为国家级数字经济与低空智能装备融合标杆赛事，已促成 30 余家参赛单位达成实质性产业合作。本文为您提炼评审委员会最看重的三大核心得分点。",
-      "body": [
-        "在低空经济快速商业化的进程中，国家级专业赛事已不仅是技术路演舞台，更是地方遴选示范场景供应商、验证低空数字管控体系的实战演练场。",
-        "一、从单一场景验证走向空域系统重构：根据新华网与数字中国建设峰会官方报道，“数字中国创新大赛·低空经济赛道”依托无人机、eVTOL 等智能飞行装备，结合 5G、人工智能、大数据与未来网络技术，在真实空域环境下开展安全飞行与管控演练，单届赛事即促成 30 余家企业与地方政府达成合作。",
-        "二、参赛备赛核心建议：调研发现，当前评委打分权重已明显向“低空智联网协同管控”、“复杂气象与障碍物自主避障”以及“具备清晰商业闭环的支线物流/应急巡检方案”倾斜。建议参赛团队在提交技术方案时，重点展示与地方低空综合监管服务平台的标准化接口对接能力。"
-      ],
-      "creativeWidget": {
-        "type": "competition_radar_simulator",
-        "badge": "A1 深度专题互动看板",
-        "title": "国内三大标杆低空赛事定位与备赛指南",
-        "subtitle": "切换下方标签，对比三大重点赛事特色、参赛方向选择与项目落地流程",
-        "tabs": [
-          {
-            "id": "comp_rank",
-            "label": "🏆 三大重点赛事对比",
-            "items": [
-              {
-                "name": "数字中国创新大赛 · 低空经济赛道",
-                "score": 96,
-                "tag": "政企合作转化率高 · 单届30+单位签约",
-                "detail": "适合具备完整空地协同管控软件、应急救援或支线物流实飞能力的成长期企业。"
-              },
-              {
-                "name": "中国创新创业大赛 · 珠海低空专业赛",
-                "score": 94,
-                "tag": "国家级双创平台 · 联动湾区示范航线",
-                "detail": "联动中国航展与珠海“天空之城”航线，适合整机、新材料与核心零部件硬科技团队。"
-              },
-              {
-                "name": "美团低空经济与具身智能挑战赛",
-                "score": 92,
-                "tag": "55万元奖金池 · 聚焦复杂城市视觉导航",
-                "detail": "聚焦末端无人机自主视觉导航与具身操作，适合高校实验室与飞控视觉算法团队。"
-              }
-            ]
-          },
-          {
-            "id": "debate_pk",
-            "label": "⚡ 参赛赛道选择建议",
-            "proTitle": "方向一：整机与空管平台团队优先参加政企综合赛事",
-            "proDesc": "低空经济高度依赖空域协同与起降基建，通过国创赛与数字中国大赛可直接对接地方专班与示范园区。",
-            "conTitle": "方向二：机载感知与算法团队优先角逐产业龙头命题赛",
-            "conDesc": "企业命题赛直接对应真实的末端配送与视觉避障工程痛点，优秀算法团队更容易获得商业技术合作机会。",
-            "a1Verdict": "★ A1 新闻部观察：整机与空管系统企业建议主攻“数字中国/国创赛”对接示范航线，机载视觉与飞控算法团队建议主攻“美团挑战赛”验证工程鲁棒性。"
-          },
-          {
-            "id": "compliance_calc",
-            "label": "🎯 备赛与转化四步法",
-            "steps": [
-              {
-                "code": "第一步 · 完善核心自主知识产权",
-                "status": "资格审查",
-                "tip": "确保核心飞控代码、气动构型或航电硬件具备清晰自主知识产权（各大国创赛硬性要求）。"
-              },
-              {
-                "code": "第二步 · 对齐地方监管平台接口",
-                "status": "技术加分",
-                "tip": "在方案中展示与《低空飞行综合监管服务平台规范》兼容的数据上报能力。"
-              },
-              {
-                "code": "第三步 · 准备真实环境实飞数据",
-                "status": "路演核心",
-                "tip": "提供抗风切变、动态障碍物避障与应急迫降的真实飞行测试记录。"
-              },
-              {
-                "code": "第四步 · 对接地方首购首用场景",
-                "status": "产业落地",
-                "tip": "赛后积极对接主办地低空产业专班，推动获奖方案纳入地方海岛物流、巡检或文旅示范项目。"
-              }
-            ]
-          }
-        ]
-      },
-      "tags": [
-        "赛事商业转化",
-        "数字中国创新大赛",
-        "低空经济赛道",
-        "备赛指南"
-      ],
-      "sources": [
-        {
-          "title": "新华网：数字中国创新大赛低空经济赛道——从“场景验证”到“系统重构”",
-          "url": "https://www.news.cn/info/20260423/715b59eb7d11448a9502d437c9610319/c.html"
-        },
-        {
-          "title": "数字中国建设峰会官网：低空经济赛道启动公告",
-          "url": "https://www.szzg.gov.cn/2025/xwzx/fhzx/202503/t20250303_4982995.htm"
         }
       ]
     }
